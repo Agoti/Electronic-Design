@@ -1,0 +1,377 @@
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccWP4zt4.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"Antman.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.antman_init,"ax",%progbits
+  16              		.align	1
+  17              		.global	antman_init
+  18              		.arch armv7-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu softvfp
+  24              	antman_init:
+  25              	.LFB65:
+  26              		.file 1 "Core/Src/Antman.c"
+   1:Core/Src/Antman.c **** /* ========================================
+   2:Core/Src/Antman.c ****  *
+   3:Core/Src/Antman.c ****  * Copyright YOUR COMPANY, THE YEAR
+   4:Core/Src/Antman.c ****  * All Rights Reserved
+   5:Core/Src/Antman.c ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:Core/Src/Antman.c ****  *
+   7:Core/Src/Antman.c ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:Core/Src/Antman.c ****  * WHICH IS THE PROPERTY OF your company.
+   9:Core/Src/Antman.c ****  *
+  10:Core/Src/Antman.c ****  * ========================================
+  11:Core/Src/Antman.c **** */
+  12:Core/Src/Antman.c **** 
+  13:Core/Src/Antman.c **** #include "defs.h"
+  14:Core/Src/Antman.c **** #include "param.h"
+  15:Core/Src/Antman.c **** 
+  16:Core/Src/Antman.c **** 
+  17:Core/Src/Antman.c **** int state = ANTMAN_STATUS_LOST;
+  18:Core/Src/Antman.c **** 
+  19:Core/Src/Antman.c **** void antman_init(){
+  27              		.loc 1 19 19 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  20:Core/Src/Antman.c ****     state = ANTMAN_STATUS_LOST;
+  32              		.loc 1 20 5 view .LVU1
+  33              		.loc 1 20 11 is_stmt 0 view .LVU2
+  34 0000 014B     		ldr	r3, .L2
+  35 0002 0022     		movs	r2, #0
+  36 0004 1A60     		str	r2, [r3]
+  21:Core/Src/Antman.c **** }
+  37              		.loc 1 21 1 view .LVU3
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccWP4zt4.s 			page 2
+
+
+  38 0006 7047     		bx	lr
+  39              	.L3:
+  40              		.align	2
+  41              	.L2:
+  42 0008 00000000 		.word	.LANCHOR0
+  43              		.cfi_endproc
+  44              	.LFE65:
+  46              		.section	.text.antman,"ax",%progbits
+  47              		.align	1
+  48              		.global	antman
+  49              		.syntax unified
+  50              		.thumb
+  51              		.thumb_func
+  52              		.fpu softvfp
+  54              	antman:
+  55              	.LVL0:
+  56              	.LFB66:
+  22:Core/Src/Antman.c **** 
+  23:Core/Src/Antman.c **** void antman(int d1, int d2, int velocity){
+  57              		.loc 1 23 42 is_stmt 1 view -0
+  58              		.cfi_startproc
+  59              		@ args = 0, pretend = 0, frame = 0
+  60              		@ frame_needed = 0, uses_anonymous_args = 0
+  61              		.loc 1 23 42 is_stmt 0 view .LVU5
+  62 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  63              	.LCFI0:
+  64              		.cfi_def_cfa_offset 24
+  65              		.cfi_offset 3, -24
+  66              		.cfi_offset 4, -20
+  67              		.cfi_offset 5, -16
+  68              		.cfi_offset 6, -12
+  69              		.cfi_offset 7, -8
+  70              		.cfi_offset 14, -4
+  71 0002 0446     		mov	r4, r0
+  72 0004 0E46     		mov	r6, r1
+  73 0006 1546     		mov	r5, r2
+  24:Core/Src/Antman.c **** 
+  25:Core/Src/Antman.c ****     LCD_Position(1, 8);
+  74              		.loc 1 25 5 is_stmt 1 view .LVU6
+  75 0008 0821     		movs	r1, #8
+  76              	.LVL1:
+  77              		.loc 1 25 5 is_stmt 0 view .LVU7
+  78 000a 0120     		movs	r0, #1
+  79              	.LVL2:
+  80              		.loc 1 25 5 view .LVU8
+  81 000c FFF7FEFF 		bl	LCD_Position
+  82              	.LVL3:
+  26:Core/Src/Antman.c ****     LCD_PrintInt32(state);
+  83              		.loc 1 26 5 is_stmt 1 view .LVU9
+  84 0010 2A4F     		ldr	r7, .L19
+  85 0012 3868     		ldr	r0, [r7]
+  86 0014 FFF7FEFF 		bl	LCD_PrintInt32
+  87              	.LVL4:
+  27:Core/Src/Antman.c **** 
+  28:Core/Src/Antman.c ****     if(state == ANTMAN_STATUS_LOST){
+  88              		.loc 1 28 5 view .LVU10
+  89              		.loc 1 28 14 is_stmt 0 view .LVU11
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccWP4zt4.s 			page 3
+
+
+  90 0018 3B68     		ldr	r3, [r7]
+  91              		.loc 1 28 7 view .LVU12
+  92 001a 4BB1     		cbz	r3, .L15
+  29:Core/Src/Antman.c ****         go_forward(velocity);
+  30:Core/Src/Antman.c ****         if(d1 < ANTMAN_THRESHOLD){
+  31:Core/Src/Antman.c ****             state = ANTMAN_STATUS_ESCAPE;
+  32:Core/Src/Antman.c ****         }
+  33:Core/Src/Antman.c ****         else if (d2 < ANTMAN_THRESHOLD){
+  34:Core/Src/Antman.c ****             state = ANTMAN_STATUS_DISTANCE;
+  35:Core/Src/Antman.c ****         }
+  36:Core/Src/Antman.c ****     }
+  37:Core/Src/Antman.c ****     else if (state == ANTMAN_STATUS_APPROACH){
+  93              		.loc 1 37 10 is_stmt 1 view .LVU13
+  94              		.loc 1 37 13 is_stmt 0 view .LVU14
+  95 001c 012B     		cmp	r3, #1
+  96 001e 17D0     		beq	.L16
+  38:Core/Src/Antman.c ****         turn_right_precise(velocity, ANTMAN_ALPHA);
+  39:Core/Src/Antman.c ****         if(d1 < ANTMAN_THRESHOLD){
+  40:Core/Src/Antman.c ****             state = ANTMAN_STATUS_ESCAPE;
+  41:Core/Src/Antman.c ****         }
+  42:Core/Src/Antman.c ****         else if (d2 < ANTMAN_THRESHOLD){
+  43:Core/Src/Antman.c ****             state = ANTMAN_STATUS_DISTANCE;
+  44:Core/Src/Antman.c ****         }
+  45:Core/Src/Antman.c ****     }
+  46:Core/Src/Antman.c ****     else if (state == ANTMAN_STATUS_DISTANCE){
+  97              		.loc 1 46 10 is_stmt 1 view .LVU15
+  98              		.loc 1 46 13 is_stmt 0 view .LVU16
+  99 0020 022B     		cmp	r3, #2
+ 100 0022 27D0     		beq	.L17
+  47:Core/Src/Antman.c ****         turn_left_precise(velocity, ANTMAN_BETA);
+  48:Core/Src/Antman.c ****         if(d1 < ANTMAN_THRESHOLD){
+  49:Core/Src/Antman.c ****             state = ANTMAN_STATUS_ESCAPE;
+  50:Core/Src/Antman.c ****         }
+  51:Core/Src/Antman.c ****         else if (d2 > ANTMAN_THRESHOLD + ANTMAN_HYSTERESIS){
+  52:Core/Src/Antman.c ****             state = ANTMAN_STATUS_APPROACH;
+  53:Core/Src/Antman.c ****         }
+  54:Core/Src/Antman.c ****     }
+  55:Core/Src/Antman.c ****     else if (state == ANTMAN_STATUS_ESCAPE){
+ 101              		.loc 1 55 10 is_stmt 1 view .LVU17
+ 102              		.loc 1 55 13 is_stmt 0 view .LVU18
+ 103 0024 032B     		cmp	r3, #3
+ 104 0026 37D0     		beq	.L18
+  56:Core/Src/Antman.c ****         turn_left(velocity);
+  57:Core/Src/Antman.c ****         if(d1 > ANTMAN_THRESHOLD + ANTMAN_HYSTERESIS){
+  58:Core/Src/Antman.c ****             if (d2 > ANTMAN_THRESHOLD){
+  59:Core/Src/Antman.c ****                 state = ANTMAN_STATUS_APPROACH;
+  60:Core/Src/Antman.c ****             }
+  61:Core/Src/Antman.c ****             else{
+  62:Core/Src/Antman.c ****                 state = ANTMAN_STATUS_DISTANCE;
+  63:Core/Src/Antman.c ****             }
+  64:Core/Src/Antman.c ****         }
+  65:Core/Src/Antman.c ****     }
+  66:Core/Src/Antman.c ****     else{
+  67:Core/Src/Antman.c ****         state = ANTMAN_STATUS_LOST;
+ 105              		.loc 1 67 9 is_stmt 1 view .LVU19
+ 106              		.loc 1 67 15 is_stmt 0 view .LVU20
+ 107 0028 244B     		ldr	r3, .L19
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccWP4zt4.s 			page 4
+
+
+ 108 002a 0022     		movs	r2, #0
+ 109 002c 1A60     		str	r2, [r3]
+ 110              	.L4:
+  68:Core/Src/Antman.c ****     }
+  69:Core/Src/Antman.c **** 
+  70:Core/Src/Antman.c **** }
+ 111              		.loc 1 70 1 view .LVU21
+ 112 002e F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 113              	.LVL5:
+ 114              	.L15:
+  29:Core/Src/Antman.c ****         if(d1 < ANTMAN_THRESHOLD){
+ 115              		.loc 1 29 9 is_stmt 1 view .LVU22
+ 116 0030 28B2     		sxth	r0, r5
+ 117 0032 FFF7FEFF 		bl	go_forward
+ 118              	.LVL6:
+  30:Core/Src/Antman.c ****             state = ANTMAN_STATUS_ESCAPE;
+ 119              		.loc 1 30 9 view .LVU23
+  30:Core/Src/Antman.c ****             state = ANTMAN_STATUS_ESCAPE;
+ 120              		.loc 1 30 11 is_stmt 0 view .LVU24
+ 121 0036 B4F5A06F 		cmp	r4, #1280
+ 122 003a 02DA     		bge	.L6
+  31:Core/Src/Antman.c ****         }
+ 123              		.loc 1 31 13 is_stmt 1 view .LVU25
+  31:Core/Src/Antman.c ****         }
+ 124              		.loc 1 31 19 is_stmt 0 view .LVU26
+ 125 003c 0322     		movs	r2, #3
+ 126 003e 3A60     		str	r2, [r7]
+ 127 0040 F5E7     		b	.L4
+ 128              	.L6:
+  33:Core/Src/Antman.c ****             state = ANTMAN_STATUS_DISTANCE;
+ 129              		.loc 1 33 14 is_stmt 1 view .LVU27
+  33:Core/Src/Antman.c ****             state = ANTMAN_STATUS_DISTANCE;
+ 130              		.loc 1 33 17 is_stmt 0 view .LVU28
+ 131 0042 B6F5A06F 		cmp	r6, #1280
+ 132 0046 F2DA     		bge	.L4
+  34:Core/Src/Antman.c ****         }
+ 133              		.loc 1 34 13 is_stmt 1 view .LVU29
+  34:Core/Src/Antman.c ****         }
+ 134              		.loc 1 34 19 is_stmt 0 view .LVU30
+ 135 0048 1C4B     		ldr	r3, .L19
+ 136 004a 0222     		movs	r2, #2
+ 137 004c 1A60     		str	r2, [r3]
+ 138 004e EEE7     		b	.L4
+ 139              	.L16:
+  38:Core/Src/Antman.c ****         if(d1 < ANTMAN_THRESHOLD){
+ 140              		.loc 1 38 9 is_stmt 1 view .LVU31
+ 141 0050 1B49     		ldr	r1, .L19+4
+ 142 0052 28B2     		sxth	r0, r5
+ 143 0054 FFF7FEFF 		bl	turn_right_precise
+ 144              	.LVL7:
+  39:Core/Src/Antman.c ****             state = ANTMAN_STATUS_ESCAPE;
+ 145              		.loc 1 39 9 view .LVU32
+  39:Core/Src/Antman.c ****             state = ANTMAN_STATUS_ESCAPE;
+ 146              		.loc 1 39 11 is_stmt 0 view .LVU33
+ 147 0058 B4F5A06F 		cmp	r4, #1280
+ 148 005c 03DA     		bge	.L9
+  40:Core/Src/Antman.c ****         }
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccWP4zt4.s 			page 5
+
+
+ 149              		.loc 1 40 13 is_stmt 1 view .LVU34
+  40:Core/Src/Antman.c ****         }
+ 150              		.loc 1 40 19 is_stmt 0 view .LVU35
+ 151 005e 174B     		ldr	r3, .L19
+ 152 0060 0322     		movs	r2, #3
+ 153 0062 1A60     		str	r2, [r3]
+ 154 0064 E3E7     		b	.L4
+ 155              	.L9:
+  42:Core/Src/Antman.c ****             state = ANTMAN_STATUS_DISTANCE;
+ 156              		.loc 1 42 14 is_stmt 1 view .LVU36
+  42:Core/Src/Antman.c ****             state = ANTMAN_STATUS_DISTANCE;
+ 157              		.loc 1 42 17 is_stmt 0 view .LVU37
+ 158 0066 B6F5A06F 		cmp	r6, #1280
+ 159 006a E0DA     		bge	.L4
+  43:Core/Src/Antman.c ****         }
+ 160              		.loc 1 43 13 is_stmt 1 view .LVU38
+  43:Core/Src/Antman.c ****         }
+ 161              		.loc 1 43 19 is_stmt 0 view .LVU39
+ 162 006c 134B     		ldr	r3, .L19
+ 163 006e 0222     		movs	r2, #2
+ 164 0070 1A60     		str	r2, [r3]
+ 165 0072 DCE7     		b	.L4
+ 166              	.L17:
+  47:Core/Src/Antman.c ****         if(d1 < ANTMAN_THRESHOLD){
+ 167              		.loc 1 47 9 is_stmt 1 view .LVU40
+ 168 0074 1349     		ldr	r1, .L19+8
+ 169 0076 28B2     		sxth	r0, r5
+ 170 0078 FFF7FEFF 		bl	turn_left_precise
+ 171              	.LVL8:
+  48:Core/Src/Antman.c ****             state = ANTMAN_STATUS_ESCAPE;
+ 172              		.loc 1 48 9 view .LVU41
+  48:Core/Src/Antman.c ****             state = ANTMAN_STATUS_ESCAPE;
+ 173              		.loc 1 48 11 is_stmt 0 view .LVU42
+ 174 007c B4F5A06F 		cmp	r4, #1280
+ 175 0080 03DA     		bge	.L11
+  49:Core/Src/Antman.c ****         }
+ 176              		.loc 1 49 13 is_stmt 1 view .LVU43
+  49:Core/Src/Antman.c ****         }
+ 177              		.loc 1 49 19 is_stmt 0 view .LVU44
+ 178 0082 0E4B     		ldr	r3, .L19
+ 179 0084 0322     		movs	r2, #3
+ 180 0086 1A60     		str	r2, [r3]
+ 181 0088 D1E7     		b	.L4
+ 182              	.L11:
+  51:Core/Src/Antman.c ****             state = ANTMAN_STATUS_APPROACH;
+ 183              		.loc 1 51 14 is_stmt 1 view .LVU45
+  51:Core/Src/Antman.c ****             state = ANTMAN_STATUS_APPROACH;
+ 184              		.loc 1 51 17 is_stmt 0 view .LVU46
+ 185 008a B6F5AA6F 		cmp	r6, #1360
+ 186 008e CEDD     		ble	.L4
+  52:Core/Src/Antman.c ****         }
+ 187              		.loc 1 52 13 is_stmt 1 view .LVU47
+  52:Core/Src/Antman.c ****         }
+ 188              		.loc 1 52 19 is_stmt 0 view .LVU48
+ 189 0090 0A4B     		ldr	r3, .L19
+ 190 0092 0122     		movs	r2, #1
+ 191 0094 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccWP4zt4.s 			page 6
+
+
+ 192 0096 CAE7     		b	.L4
+ 193              	.L18:
+  56:Core/Src/Antman.c ****         if(d1 > ANTMAN_THRESHOLD + ANTMAN_HYSTERESIS){
+ 194              		.loc 1 56 9 is_stmt 1 view .LVU49
+ 195 0098 28B2     		sxth	r0, r5
+ 196 009a FFF7FEFF 		bl	turn_left
+ 197              	.LVL9:
+  57:Core/Src/Antman.c ****             if (d2 > ANTMAN_THRESHOLD){
+ 198              		.loc 1 57 9 view .LVU50
+  57:Core/Src/Antman.c ****             if (d2 > ANTMAN_THRESHOLD){
+ 199              		.loc 1 57 11 is_stmt 0 view .LVU51
+ 200 009e B4F5AA6F 		cmp	r4, #1360
+ 201 00a2 C4DD     		ble	.L4
+  58:Core/Src/Antman.c ****                 state = ANTMAN_STATUS_APPROACH;
+ 202              		.loc 1 58 13 is_stmt 1 view .LVU52
+  58:Core/Src/Antman.c ****                 state = ANTMAN_STATUS_APPROACH;
+ 203              		.loc 1 58 16 is_stmt 0 view .LVU53
+ 204 00a4 B6F5A06F 		cmp	r6, #1280
+ 205 00a8 03DD     		ble	.L13
+  59:Core/Src/Antman.c ****             }
+ 206              		.loc 1 59 17 is_stmt 1 view .LVU54
+  59:Core/Src/Antman.c ****             }
+ 207              		.loc 1 59 23 is_stmt 0 view .LVU55
+ 208 00aa 044B     		ldr	r3, .L19
+ 209 00ac 0122     		movs	r2, #1
+ 210 00ae 1A60     		str	r2, [r3]
+ 211 00b0 BDE7     		b	.L4
+ 212              	.L13:
+  62:Core/Src/Antman.c ****             }
+ 213              		.loc 1 62 17 is_stmt 1 view .LVU56
+  62:Core/Src/Antman.c ****             }
+ 214              		.loc 1 62 23 is_stmt 0 view .LVU57
+ 215 00b2 024B     		ldr	r3, .L19
+ 216 00b4 0222     		movs	r2, #2
+ 217 00b6 1A60     		str	r2, [r3]
+ 218 00b8 B9E7     		b	.L4
+ 219              	.L20:
+ 220 00ba 00BF     		.align	2
+ 221              	.L19:
+ 222 00bc 00000000 		.word	.LANCHOR0
+ 223 00c0 3333333F 		.word	1060320051
+ 224 00c4 000080BF 		.word	-1082130432
+ 225              		.cfi_endproc
+ 226              	.LFE66:
+ 228              		.global	state
+ 229              		.section	.bss.state,"aw",%nobits
+ 230              		.align	2
+ 231              		.set	.LANCHOR0,. + 0
+ 234              	state:
+ 235 0000 00000000 		.space	4
+ 236              		.text
+ 237              	.Letext0:
+ 238              		.file 2 "Core/Inc/defs.h"
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccWP4zt4.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 Antman.c
+C:\Users\hw\AppData\Local\Temp\ccWP4zt4.s:16     .text.antman_init:00000000 $t
+C:\Users\hw\AppData\Local\Temp\ccWP4zt4.s:24     .text.antman_init:00000000 antman_init
+C:\Users\hw\AppData\Local\Temp\ccWP4zt4.s:42     .text.antman_init:00000008 $d
+C:\Users\hw\AppData\Local\Temp\ccWP4zt4.s:47     .text.antman:00000000 $t
+C:\Users\hw\AppData\Local\Temp\ccWP4zt4.s:54     .text.antman:00000000 antman
+C:\Users\hw\AppData\Local\Temp\ccWP4zt4.s:222    .text.antman:000000bc $d
+C:\Users\hw\AppData\Local\Temp\ccWP4zt4.s:234    .bss.state:00000000 state
+C:\Users\hw\AppData\Local\Temp\ccWP4zt4.s:230    .bss.state:00000000 $d
+
+UNDEFINED SYMBOLS
+LCD_Position
+LCD_PrintInt32
+go_forward
+turn_right_precise
+turn_left_precise
+turn_left

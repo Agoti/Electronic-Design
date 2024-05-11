@@ -1,0 +1,1017 @@
+ARM GAS  C:\Users\hw\AppData\Local\Temp\cc6g6wos.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"Ranging.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.RangingTimeoutInt1,"ax",%progbits
+  16              		.align	1
+  17              		.global	RangingTimeoutInt1
+  18              		.arch armv7-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu softvfp
+  24              	RangingTimeoutInt1:
+  25              	.LFB67:
+  26              		.file 1 "Core/Src/Ranging.c"
+   1:Core/Src/Ranging.c **** /* ========================================
+   2:Core/Src/Ranging.c ****  *
+   3:Core/Src/Ranging.c ****  * Copyright YOUR COMPANY, THE YEAR
+   4:Core/Src/Ranging.c ****  * All Rights Reserved
+   5:Core/Src/Ranging.c ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:Core/Src/Ranging.c ****  *
+   7:Core/Src/Ranging.c ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:Core/Src/Ranging.c ****  * WHICH IS THE PROPERTY OF your company.
+   9:Core/Src/Ranging.c ****  *
+  10:Core/Src/Ranging.c ****  * ========================================
+  11:Core/Src/Ranging.c **** */
+  12:Core/Src/Ranging.c **** 
+  13:Core/Src/Ranging.c **** #include "defs.h"
+  14:Core/Src/Ranging.c **** #include "param.h"
+  15:Core/Src/Ranging.c **** 
+  16:Core/Src/Ranging.c **** // ---------- Global Variables ----------
+  17:Core/Src/Ranging.c **** 
+  18:Core/Src/Ranging.c **** // Timer period and timeout flag
+  19:Core/Src/Ranging.c **** uint32 period1, period2;
+  20:Core/Src/Ranging.c **** int timeout1, timeout2;
+  21:Core/Src/Ranging.c **** 
+  22:Core/Src/Ranging.c **** // ---------- Common Functions --------
+  23:Core/Src/Ranging.c **** 
+  24:Core/Src/Ranging.c **** // Calculate the distance (millimeter) out of the count value
+  25:Core/Src/Ranging.c **** long long calculate_millimeter(uint32 cnt) {
+  26:Core/Src/Ranging.c ****     return ((long long)cnt) * SOUND_SPEED * 1000 / RANGING_CLOCK_FREQ / 2;
+  27:Core/Src/Ranging.c **** }
+  28:Core/Src/Ranging.c **** 
+  29:Core/Src/Ranging.c **** // Initialize all probes
+  30:Core/Src/Ranging.c **** void ranging_init() {
+  31:Core/Src/Ranging.c ****     ranging_init1();
+  32:Core/Src/Ranging.c ****     ranging_init2();
+ARM GAS  C:\Users\hw\AppData\Local\Temp\cc6g6wos.s 			page 2
+
+
+  33:Core/Src/Ranging.c **** }
+  34:Core/Src/Ranging.c **** 
+  35:Core/Src/Ranging.c **** // ---------- Probe 1 Functions ----------
+  36:Core/Src/Ranging.c **** 
+  37:Core/Src/Ranging.c **** // Timeout interrupt handler
+  38:Core/Src/Ranging.c **** void RangingTimeoutInt1() {
+  27              		.loc 1 38 27 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  39:Core/Src/Ranging.c ****     // Ranging_Timer1_STATUS; // Reset interrupt status
+  40:Core/Src/Ranging.c ****     timeout1 = 1; // Set timeout flag
+  36              		.loc 1 40 5 view .LVU1
+  37              		.loc 1 40 14 is_stmt 0 view .LVU2
+  38 0002 034B     		ldr	r3, .L3
+  39 0004 0122     		movs	r2, #1
+  40 0006 1A60     		str	r2, [r3]
+  41:Core/Src/Ranging.c ****     Ranging_Timer1_Stop(); // Stop timer
+  41              		.loc 1 41 5 is_stmt 1 view .LVU3
+  42 0008 FFF7FEFF 		bl	Ranging_Timer1_Stop
+  43              	.LVL0:
+  42:Core/Src/Ranging.c **** }
+  44              		.loc 1 42 1 is_stmt 0 view .LVU4
+  45 000c 08BD     		pop	{r3, pc}
+  46              	.L4:
+  47 000e 00BF     		.align	2
+  48              	.L3:
+  49 0010 00000000 		.word	.LANCHOR0
+  50              		.cfi_endproc
+  51              	.LFE67:
+  53              		.section	.text.RangingTimeoutInt2,"ax",%progbits
+  54              		.align	1
+  55              		.global	RangingTimeoutInt2
+  56              		.syntax unified
+  57              		.thumb
+  58              		.thumb_func
+  59              		.fpu softvfp
+  61              	RangingTimeoutInt2:
+  62              	.LFB73:
+  43:Core/Src/Ranging.c **** 
+  44:Core/Src/Ranging.c **** // Initialization
+  45:Core/Src/Ranging.c **** void ranging_init1() {
+  46:Core/Src/Ranging.c ****     period1 = Ranging_Timer1_ReadPeriod(); // Get period
+  47:Core/Src/Ranging.c ****     Ranging_Timer1_Clock_Start(); // Start timer clock
+  48:Core/Src/Ranging.c ****     Ranging_Timeout1_StartEx(RangingTimeoutInt1); // Enable interrupt
+  49:Core/Src/Ranging.c **** }
+  50:Core/Src/Ranging.c **** 
+  51:Core/Src/Ranging.c **** // Generate trigger pulse signal for probe 1
+  52:Core/Src/Ranging.c **** void trigger1() {
+  53:Core/Src/Ranging.c ****     Ranging_T1_Write(1);
+  54:Core/Src/Ranging.c ****     CyDelayUs(RANGING_TRIGGER);
+  55:Core/Src/Ranging.c ****     Ranging_T1_Write(0);
+ARM GAS  C:\Users\hw\AppData\Local\Temp\cc6g6wos.s 			page 3
+
+
+  56:Core/Src/Ranging.c **** }
+  57:Core/Src/Ranging.c **** 
+  58:Core/Src/Ranging.c **** // Set timer value and start timer for probe 1
+  59:Core/Src/Ranging.c **** void startcount1() {
+  60:Core/Src/Ranging.c ****     Ranging_Timer1_Start();
+  61:Core/Src/Ranging.c ****     Ranging_Timer1_WriteCounter(period1 - 1);
+  62:Core/Src/Ranging.c **** }
+  63:Core/Src/Ranging.c **** 
+  64:Core/Src/Ranging.c **** // Stop timer for probe 1 and get timer value, return count value
+  65:Core/Src/Ranging.c **** uint32 endcount1() {
+  66:Core/Src/Ranging.c ****     uint32 cnt = Ranging_Timer1_ReadCounter();
+  67:Core/Src/Ranging.c ****     Ranging_Timer1_Stop();
+  68:Core/Src/Ranging.c ****     return period1 - 1 - cnt;
+  69:Core/Src/Ranging.c **** }
+  70:Core/Src/Ranging.c **** 
+  71:Core/Src/Ranging.c **** // Get probe 1 distance (mm)
+  72:Core/Src/Ranging.c **** int get_millimeter1() {
+  73:Core/Src/Ranging.c ****     uint32 cnt;
+  74:Core/Src/Ranging.c ****     int distance;
+  75:Core/Src/Ranging.c ****     startcount1();
+  76:Core/Src/Ranging.c ****     trigger1();
+  77:Core/Src/Ranging.c ****     // Polling
+  78:Core/Src/Ranging.c ****     while (Ranging_R1_Read() == 0 && timeout1 == 0);
+  79:Core/Src/Ranging.c ****     startcount1();
+  80:Core/Src/Ranging.c ****     while (Ranging_R1_Read() != 0 && timeout1 == 0);
+  81:Core/Src/Ranging.c ****     cnt = endcount1();
+  82:Core/Src/Ranging.c ****     if (timeout1 == 0) {
+  83:Core/Src/Ranging.c ****         distance = (int)calculate_millimeter(cnt);
+  84:Core/Src/Ranging.c ****     } else {
+  85:Core/Src/Ranging.c ****         // If timeout, return int max
+  86:Core/Src/Ranging.c ****         distance = L_INT_MAX;
+  87:Core/Src/Ranging.c ****     }
+  88:Core/Src/Ranging.c ****     return distance;
+  89:Core/Src/Ranging.c **** }
+  90:Core/Src/Ranging.c **** 
+  91:Core/Src/Ranging.c **** // ---------- Probe 2 Functions ----------
+  92:Core/Src/Ranging.c **** 
+  93:Core/Src/Ranging.c **** // Timeout interrupt handler for probe 2
+  94:Core/Src/Ranging.c **** void RangingTimeoutInt2() {
+  63              		.loc 1 94 27 is_stmt 1 view -0
+  64              		.cfi_startproc
+  65              		@ args = 0, pretend = 0, frame = 0
+  66              		@ frame_needed = 0, uses_anonymous_args = 0
+  67 0000 08B5     		push	{r3, lr}
+  68              	.LCFI1:
+  69              		.cfi_def_cfa_offset 8
+  70              		.cfi_offset 3, -8
+  71              		.cfi_offset 14, -4
+  95:Core/Src/Ranging.c ****     // Ranging_Timer2_STATUS; // Reset interrupt status
+  96:Core/Src/Ranging.c ****     timeout2 = 1; // Set timeout flag
+  72              		.loc 1 96 5 view .LVU6
+  73              		.loc 1 96 14 is_stmt 0 view .LVU7
+  74 0002 034B     		ldr	r3, .L7
+  75 0004 0122     		movs	r2, #1
+  76 0006 1A60     		str	r2, [r3]
+  97:Core/Src/Ranging.c ****     Ranging_Timer2_Stop(); // Stop timer
+  77              		.loc 1 97 5 is_stmt 1 view .LVU8
+ARM GAS  C:\Users\hw\AppData\Local\Temp\cc6g6wos.s 			page 4
+
+
+  78 0008 FFF7FEFF 		bl	Ranging_Timer2_Stop
+  79              	.LVL1:
+  98:Core/Src/Ranging.c **** }
+  80              		.loc 1 98 1 is_stmt 0 view .LVU9
+  81 000c 08BD     		pop	{r3, pc}
+  82              	.L8:
+  83 000e 00BF     		.align	2
+  84              	.L7:
+  85 0010 00000000 		.word	.LANCHOR1
+  86              		.cfi_endproc
+  87              	.LFE73:
+  89              		.global	__aeabi_ldivmod
+  90              		.section	.text.calculate_millimeter,"ax",%progbits
+  91              		.align	1
+  92              		.global	calculate_millimeter
+  93              		.syntax unified
+  94              		.thumb
+  95              		.thumb_func
+  96              		.fpu softvfp
+  98              	calculate_millimeter:
+  99              	.LVL2:
+ 100              	.LFB65:
+  25:Core/Src/Ranging.c ****     return ((long long)cnt) * SOUND_SPEED * 1000 / RANGING_CLOCK_FREQ / 2;
+ 101              		.loc 1 25 44 is_stmt 1 view -0
+ 102              		.cfi_startproc
+ 103              		@ args = 0, pretend = 0, frame = 0
+ 104              		@ frame_needed = 0, uses_anonymous_args = 0
+  25:Core/Src/Ranging.c ****     return ((long long)cnt) * SOUND_SPEED * 1000 / RANGING_CLOCK_FREQ / 2;
+ 105              		.loc 1 25 44 is_stmt 0 view .LVU11
+ 106 0000 08B5     		push	{r3, lr}
+ 107              	.LCFI2:
+ 108              		.cfi_def_cfa_offset 8
+ 109              		.cfi_offset 3, -8
+ 110              		.cfi_offset 14, -4
+  26:Core/Src/Ranging.c **** }
+ 111              		.loc 1 26 5 is_stmt 1 view .LVU12
+  26:Core/Src/Ranging.c **** }
+ 112              		.loc 1 26 43 is_stmt 0 view .LVU13
+ 113 0002 0449     		ldr	r1, .L11
+  26:Core/Src/Ranging.c **** }
+ 114              		.loc 1 26 71 view .LVU14
+ 115 0004 044A     		ldr	r2, .L11+4
+ 116 0006 0023     		movs	r3, #0
+ 117 0008 A0FB0101 		umull	r0, r1, r0, r1
+ 118              	.LVL3:
+  26:Core/Src/Ranging.c **** }
+ 119              		.loc 1 26 71 view .LVU15
+ 120 000c FFF7FEFF 		bl	__aeabi_ldivmod
+ 121              	.LVL4:
+  27:Core/Src/Ranging.c **** 
+ 122              		.loc 1 27 1 view .LVU16
+ 123 0010 08BD     		pop	{r3, pc}
+ 124              	.L12:
+ 125 0012 00BF     		.align	2
+ 126              	.L11:
+ 127 0014 20300500 		.word	340000
+ 128 0018 00366E01 		.word	24000000
+ARM GAS  C:\Users\hw\AppData\Local\Temp\cc6g6wos.s 			page 5
+
+
+ 129              		.cfi_endproc
+ 130              	.LFE65:
+ 132              		.section	.text.ranging_init1,"ax",%progbits
+ 133              		.align	1
+ 134              		.global	ranging_init1
+ 135              		.syntax unified
+ 136              		.thumb
+ 137              		.thumb_func
+ 138              		.fpu softvfp
+ 140              	ranging_init1:
+ 141              	.LFB68:
+  45:Core/Src/Ranging.c ****     period1 = Ranging_Timer1_ReadPeriod(); // Get period
+ 142              		.loc 1 45 22 is_stmt 1 view -0
+ 143              		.cfi_startproc
+ 144              		@ args = 0, pretend = 0, frame = 0
+ 145              		@ frame_needed = 0, uses_anonymous_args = 0
+ 146 0000 08B5     		push	{r3, lr}
+ 147              	.LCFI3:
+ 148              		.cfi_def_cfa_offset 8
+ 149              		.cfi_offset 3, -8
+ 150              		.cfi_offset 14, -4
+  46:Core/Src/Ranging.c ****     Ranging_Timer1_Clock_Start(); // Start timer clock
+ 151              		.loc 1 46 5 view .LVU18
+  46:Core/Src/Ranging.c ****     Ranging_Timer1_Clock_Start(); // Start timer clock
+ 152              		.loc 1 46 15 is_stmt 0 view .LVU19
+ 153 0002 FFF7FEFF 		bl	Ranging_Timer1_ReadPeriod
+ 154              	.LVL5:
+  46:Core/Src/Ranging.c ****     Ranging_Timer1_Clock_Start(); // Start timer clock
+ 155              		.loc 1 46 13 view .LVU20
+ 156 0006 044B     		ldr	r3, .L15
+ 157 0008 1860     		str	r0, [r3]
+  47:Core/Src/Ranging.c ****     Ranging_Timeout1_StartEx(RangingTimeoutInt1); // Enable interrupt
+ 158              		.loc 1 47 5 is_stmt 1 view .LVU21
+ 159 000a FFF7FEFF 		bl	Ranging_Timer1_Clock_Start
+ 160              	.LVL6:
+  48:Core/Src/Ranging.c **** }
+ 161              		.loc 1 48 5 view .LVU22
+ 162 000e 0348     		ldr	r0, .L15+4
+ 163 0010 FFF7FEFF 		bl	Ranging_Timeout1_StartEx
+ 164              	.LVL7:
+  49:Core/Src/Ranging.c **** 
+ 165              		.loc 1 49 1 is_stmt 0 view .LVU23
+ 166 0014 08BD     		pop	{r3, pc}
+ 167              	.L16:
+ 168 0016 00BF     		.align	2
+ 169              	.L15:
+ 170 0018 00000000 		.word	.LANCHOR2
+ 171 001c 00000000 		.word	RangingTimeoutInt1
+ 172              		.cfi_endproc
+ 173              	.LFE68:
+ 175              		.section	.text.trigger1,"ax",%progbits
+ 176              		.align	1
+ 177              		.global	trigger1
+ 178              		.syntax unified
+ 179              		.thumb
+ 180              		.thumb_func
+ 181              		.fpu softvfp
+ARM GAS  C:\Users\hw\AppData\Local\Temp\cc6g6wos.s 			page 6
+
+
+ 183              	trigger1:
+ 184              	.LFB69:
+  52:Core/Src/Ranging.c ****     Ranging_T1_Write(1);
+ 185              		.loc 1 52 17 is_stmt 1 view -0
+ 186              		.cfi_startproc
+ 187              		@ args = 0, pretend = 0, frame = 0
+ 188              		@ frame_needed = 0, uses_anonymous_args = 0
+ 189 0000 08B5     		push	{r3, lr}
+ 190              	.LCFI4:
+ 191              		.cfi_def_cfa_offset 8
+ 192              		.cfi_offset 3, -8
+ 193              		.cfi_offset 14, -4
+  53:Core/Src/Ranging.c ****     CyDelayUs(RANGING_TRIGGER);
+ 194              		.loc 1 53 5 view .LVU25
+ 195 0002 0120     		movs	r0, #1
+ 196 0004 FFF7FEFF 		bl	Ranging_T1_Write
+ 197              	.LVL8:
+  54:Core/Src/Ranging.c ****     Ranging_T1_Write(0);
+ 198              		.loc 1 54 5 view .LVU26
+ 199 0008 3220     		movs	r0, #50
+ 200 000a FFF7FEFF 		bl	CyDelayUs
+ 201              	.LVL9:
+  55:Core/Src/Ranging.c **** }
+ 202              		.loc 1 55 5 view .LVU27
+ 203 000e 0020     		movs	r0, #0
+ 204 0010 FFF7FEFF 		bl	Ranging_T1_Write
+ 205              	.LVL10:
+  56:Core/Src/Ranging.c **** 
+ 206              		.loc 1 56 1 is_stmt 0 view .LVU28
+ 207 0014 08BD     		pop	{r3, pc}
+ 208              		.cfi_endproc
+ 209              	.LFE69:
+ 211              		.section	.text.startcount1,"ax",%progbits
+ 212              		.align	1
+ 213              		.global	startcount1
+ 214              		.syntax unified
+ 215              		.thumb
+ 216              		.thumb_func
+ 217              		.fpu softvfp
+ 219              	startcount1:
+ 220              	.LFB70:
+  59:Core/Src/Ranging.c ****     Ranging_Timer1_Start();
+ 221              		.loc 1 59 20 is_stmt 1 view -0
+ 222              		.cfi_startproc
+ 223              		@ args = 0, pretend = 0, frame = 0
+ 224              		@ frame_needed = 0, uses_anonymous_args = 0
+ 225 0000 08B5     		push	{r3, lr}
+ 226              	.LCFI5:
+ 227              		.cfi_def_cfa_offset 8
+ 228              		.cfi_offset 3, -8
+ 229              		.cfi_offset 14, -4
+  60:Core/Src/Ranging.c ****     Ranging_Timer1_WriteCounter(period1 - 1);
+ 230              		.loc 1 60 5 view .LVU30
+ 231 0002 FFF7FEFF 		bl	Ranging_Timer1_Start
+ 232              	.LVL11:
+  61:Core/Src/Ranging.c **** }
+ 233              		.loc 1 61 5 view .LVU31
+ARM GAS  C:\Users\hw\AppData\Local\Temp\cc6g6wos.s 			page 7
+
+
+ 234 0006 034B     		ldr	r3, .L21
+ 235 0008 1868     		ldr	r0, [r3]
+ 236 000a 0138     		subs	r0, r0, #1
+ 237 000c FFF7FEFF 		bl	Ranging_Timer1_WriteCounter
+ 238              	.LVL12:
+  62:Core/Src/Ranging.c **** 
+ 239              		.loc 1 62 1 is_stmt 0 view .LVU32
+ 240 0010 08BD     		pop	{r3, pc}
+ 241              	.L22:
+ 242 0012 00BF     		.align	2
+ 243              	.L21:
+ 244 0014 00000000 		.word	.LANCHOR2
+ 245              		.cfi_endproc
+ 246              	.LFE70:
+ 248              		.section	.text.endcount1,"ax",%progbits
+ 249              		.align	1
+ 250              		.global	endcount1
+ 251              		.syntax unified
+ 252              		.thumb
+ 253              		.thumb_func
+ 254              		.fpu softvfp
+ 256              	endcount1:
+ 257              	.LFB71:
+  65:Core/Src/Ranging.c ****     uint32 cnt = Ranging_Timer1_ReadCounter();
+ 258              		.loc 1 65 20 is_stmt 1 view -0
+ 259              		.cfi_startproc
+ 260              		@ args = 0, pretend = 0, frame = 0
+ 261              		@ frame_needed = 0, uses_anonymous_args = 0
+ 262 0000 10B5     		push	{r4, lr}
+ 263              	.LCFI6:
+ 264              		.cfi_def_cfa_offset 8
+ 265              		.cfi_offset 4, -8
+ 266              		.cfi_offset 14, -4
+  66:Core/Src/Ranging.c ****     Ranging_Timer1_Stop();
+ 267              		.loc 1 66 5 view .LVU34
+  66:Core/Src/Ranging.c ****     Ranging_Timer1_Stop();
+ 268              		.loc 1 66 18 is_stmt 0 view .LVU35
+ 269 0002 FFF7FEFF 		bl	Ranging_Timer1_ReadCounter
+ 270              	.LVL13:
+ 271 0006 0446     		mov	r4, r0
+ 272              	.LVL14:
+  67:Core/Src/Ranging.c ****     return period1 - 1 - cnt;
+ 273              		.loc 1 67 5 is_stmt 1 view .LVU36
+ 274 0008 FFF7FEFF 		bl	Ranging_Timer1_Stop
+ 275              	.LVL15:
+  68:Core/Src/Ranging.c **** }
+ 276              		.loc 1 68 5 view .LVU37
+  68:Core/Src/Ranging.c **** }
+ 277              		.loc 1 68 24 is_stmt 0 view .LVU38
+ 278 000c 024B     		ldr	r3, .L25
+ 279 000e 1868     		ldr	r0, [r3]
+ 280 0010 001B     		subs	r0, r0, r4
+  69:Core/Src/Ranging.c **** 
+ 281              		.loc 1 69 1 view .LVU39
+ 282 0012 0138     		subs	r0, r0, #1
+ 283 0014 10BD     		pop	{r4, pc}
+ 284              	.LVL16:
+ARM GAS  C:\Users\hw\AppData\Local\Temp\cc6g6wos.s 			page 8
+
+
+ 285              	.L26:
+  69:Core/Src/Ranging.c **** 
+ 286              		.loc 1 69 1 view .LVU40
+ 287 0016 00BF     		.align	2
+ 288              	.L25:
+ 289 0018 00000000 		.word	.LANCHOR2
+ 290              		.cfi_endproc
+ 291              	.LFE71:
+ 293              		.section	.text.get_millimeter1,"ax",%progbits
+ 294              		.align	1
+ 295              		.global	get_millimeter1
+ 296              		.syntax unified
+ 297              		.thumb
+ 298              		.thumb_func
+ 299              		.fpu softvfp
+ 301              	get_millimeter1:
+ 302              	.LFB72:
+  72:Core/Src/Ranging.c ****     uint32 cnt;
+ 303              		.loc 1 72 23 is_stmt 1 view -0
+ 304              		.cfi_startproc
+ 305              		@ args = 0, pretend = 0, frame = 0
+ 306              		@ frame_needed = 0, uses_anonymous_args = 0
+ 307 0000 08B5     		push	{r3, lr}
+ 308              	.LCFI7:
+ 309              		.cfi_def_cfa_offset 8
+ 310              		.cfi_offset 3, -8
+ 311              		.cfi_offset 14, -4
+  73:Core/Src/Ranging.c ****     int distance;
+ 312              		.loc 1 73 5 view .LVU42
+  74:Core/Src/Ranging.c ****     startcount1();
+ 313              		.loc 1 74 5 view .LVU43
+  75:Core/Src/Ranging.c ****     trigger1();
+ 314              		.loc 1 75 5 view .LVU44
+ 315 0002 FFF7FEFF 		bl	startcount1
+ 316              	.LVL17:
+  76:Core/Src/Ranging.c ****     // Polling
+ 317              		.loc 1 76 5 view .LVU45
+ 318 0006 FFF7FEFF 		bl	trigger1
+ 319              	.LVL18:
+  78:Core/Src/Ranging.c ****     startcount1();
+ 320              		.loc 1 78 5 view .LVU46
+ 321              	.L29:
+ 322              	.LBB2:
+  78:Core/Src/Ranging.c ****     startcount1();
+ 323              		.loc 1 78 52 discriminator 2 view .LVU47
+  78:Core/Src/Ranging.c ****     startcount1();
+ 324              		.loc 1 78 11 discriminator 2 view .LVU48
+  78:Core/Src/Ranging.c ****     startcount1();
+ 325              		.loc 1 78 12 is_stmt 0 discriminator 2 view .LVU49
+ 326 000a FFF7FEFF 		bl	Ranging_R1_Read
+ 327              	.LVL19:
+  78:Core/Src/Ranging.c ****     startcount1();
+ 328              		.loc 1 78 11 discriminator 2 view .LVU50
+ 329 000e 18B9     		cbnz	r0, .L28
+  78:Core/Src/Ranging.c ****     startcount1();
+ 330              		.loc 1 78 47 discriminator 1 view .LVU51
+ 331 0010 0B4B     		ldr	r3, .L35
+ARM GAS  C:\Users\hw\AppData\Local\Temp\cc6g6wos.s 			page 9
+
+
+ 332 0012 1B68     		ldr	r3, [r3]
+  78:Core/Src/Ranging.c ****     startcount1();
+ 333              		.loc 1 78 35 discriminator 1 view .LVU52
+ 334 0014 002B     		cmp	r3, #0
+ 335 0016 F8D0     		beq	.L29
+ 336              	.L28:
+ 337              	.LBE2:
+  79:Core/Src/Ranging.c ****     while (Ranging_R1_Read() != 0 && timeout1 == 0);
+ 338              		.loc 1 79 5 is_stmt 1 view .LVU53
+ 339 0018 FFF7FEFF 		bl	startcount1
+ 340              	.LVL20:
+  80:Core/Src/Ranging.c ****     cnt = endcount1();
+ 341              		.loc 1 80 5 view .LVU54
+ 342              	.L31:
+ 343              	.LBB3:
+  80:Core/Src/Ranging.c ****     cnt = endcount1();
+ 344              		.loc 1 80 52 discriminator 2 view .LVU55
+  80:Core/Src/Ranging.c ****     cnt = endcount1();
+ 345              		.loc 1 80 11 discriminator 2 view .LVU56
+  80:Core/Src/Ranging.c ****     cnt = endcount1();
+ 346              		.loc 1 80 12 is_stmt 0 discriminator 2 view .LVU57
+ 347 001c FFF7FEFF 		bl	Ranging_R1_Read
+ 348              	.LVL21:
+  80:Core/Src/Ranging.c ****     cnt = endcount1();
+ 349              		.loc 1 80 11 discriminator 2 view .LVU58
+ 350 0020 18B1     		cbz	r0, .L30
+  80:Core/Src/Ranging.c ****     cnt = endcount1();
+ 351              		.loc 1 80 47 discriminator 1 view .LVU59
+ 352 0022 074B     		ldr	r3, .L35
+ 353 0024 1B68     		ldr	r3, [r3]
+  80:Core/Src/Ranging.c ****     cnt = endcount1();
+ 354              		.loc 1 80 35 discriminator 1 view .LVU60
+ 355 0026 002B     		cmp	r3, #0
+ 356 0028 F8D0     		beq	.L31
+ 357              	.L30:
+ 358              	.LBE3:
+  81:Core/Src/Ranging.c ****     if (timeout1 == 0) {
+ 359              		.loc 1 81 5 is_stmt 1 view .LVU61
+  81:Core/Src/Ranging.c ****     if (timeout1 == 0) {
+ 360              		.loc 1 81 11 is_stmt 0 view .LVU62
+ 361 002a FFF7FEFF 		bl	endcount1
+ 362              	.LVL22:
+  82:Core/Src/Ranging.c ****         distance = (int)calculate_millimeter(cnt);
+ 363              		.loc 1 82 5 is_stmt 1 view .LVU63
+  82:Core/Src/Ranging.c ****         distance = (int)calculate_millimeter(cnt);
+ 364              		.loc 1 82 18 is_stmt 0 view .LVU64
+ 365 002e 044B     		ldr	r3, .L35
+ 366 0030 1B68     		ldr	r3, [r3]
+  82:Core/Src/Ranging.c ****         distance = (int)calculate_millimeter(cnt);
+ 367              		.loc 1 82 8 view .LVU65
+ 368 0032 13B9     		cbnz	r3, .L33
+  83:Core/Src/Ranging.c ****     } else {
+ 369              		.loc 1 83 9 is_stmt 1 view .LVU66
+  83:Core/Src/Ranging.c ****     } else {
+ 370              		.loc 1 83 25 is_stmt 0 view .LVU67
+ 371 0034 FFF7FEFF 		bl	calculate_millimeter
+ 372              	.LVL23:
+ARM GAS  C:\Users\hw\AppData\Local\Temp\cc6g6wos.s 			page 10
+
+
+ 373              	.L27:
+  89:Core/Src/Ranging.c **** 
+ 374              		.loc 1 89 1 view .LVU68
+ 375 0038 08BD     		pop	{r3, pc}
+ 376              	.LVL24:
+ 377              	.L33:
+  86:Core/Src/Ranging.c ****     }
+ 378              		.loc 1 86 18 view .LVU69
+ 379 003a 6FF00040 		mvn	r0, #-2147483648
+ 380              	.LVL25:
+  88:Core/Src/Ranging.c **** }
+ 381              		.loc 1 88 5 is_stmt 1 view .LVU70
+  88:Core/Src/Ranging.c **** }
+ 382              		.loc 1 88 12 is_stmt 0 view .LVU71
+ 383 003e FBE7     		b	.L27
+ 384              	.L36:
+ 385              		.align	2
+ 386              	.L35:
+ 387 0040 00000000 		.word	.LANCHOR0
+ 388              		.cfi_endproc
+ 389              	.LFE72:
+ 391              		.section	.text.ranging_init2,"ax",%progbits
+ 392              		.align	1
+ 393              		.global	ranging_init2
+ 394              		.syntax unified
+ 395              		.thumb
+ 396              		.thumb_func
+ 397              		.fpu softvfp
+ 399              	ranging_init2:
+ 400              	.LFB74:
+  99:Core/Src/Ranging.c **** 
+ 100:Core/Src/Ranging.c **** // Initialization for probe 2
+ 101:Core/Src/Ranging.c **** void ranging_init2() {
+ 401              		.loc 1 101 22 is_stmt 1 view -0
+ 402              		.cfi_startproc
+ 403              		@ args = 0, pretend = 0, frame = 0
+ 404              		@ frame_needed = 0, uses_anonymous_args = 0
+ 405 0000 08B5     		push	{r3, lr}
+ 406              	.LCFI8:
+ 407              		.cfi_def_cfa_offset 8
+ 408              		.cfi_offset 3, -8
+ 409              		.cfi_offset 14, -4
+ 102:Core/Src/Ranging.c ****     period2 = Ranging_Timer2_ReadPeriod(); // Get period
+ 410              		.loc 1 102 5 view .LVU73
+ 411              		.loc 1 102 15 is_stmt 0 view .LVU74
+ 412 0002 FFF7FEFF 		bl	Ranging_Timer2_ReadPeriod
+ 413              	.LVL26:
+ 414              		.loc 1 102 13 view .LVU75
+ 415 0006 044B     		ldr	r3, .L39
+ 416 0008 1860     		str	r0, [r3]
+ 103:Core/Src/Ranging.c ****     Ranging_Timer2_Clock_Start(); // Start timer clock
+ 417              		.loc 1 103 5 is_stmt 1 view .LVU76
+ 418 000a FFF7FEFF 		bl	Ranging_Timer2_Clock_Start
+ 419              	.LVL27:
+ 104:Core/Src/Ranging.c ****     Ranging_Timeout2_StartEx(RangingTimeoutInt2); // Enable interrupt
+ 420              		.loc 1 104 5 view .LVU77
+ 421 000e 0348     		ldr	r0, .L39+4
+ARM GAS  C:\Users\hw\AppData\Local\Temp\cc6g6wos.s 			page 11
+
+
+ 422 0010 FFF7FEFF 		bl	Ranging_Timeout2_StartEx
+ 423              	.LVL28:
+ 105:Core/Src/Ranging.c **** }
+ 424              		.loc 1 105 1 is_stmt 0 view .LVU78
+ 425 0014 08BD     		pop	{r3, pc}
+ 426              	.L40:
+ 427 0016 00BF     		.align	2
+ 428              	.L39:
+ 429 0018 00000000 		.word	.LANCHOR3
+ 430 001c 00000000 		.word	RangingTimeoutInt2
+ 431              		.cfi_endproc
+ 432              	.LFE74:
+ 434              		.section	.text.ranging_init,"ax",%progbits
+ 435              		.align	1
+ 436              		.global	ranging_init
+ 437              		.syntax unified
+ 438              		.thumb
+ 439              		.thumb_func
+ 440              		.fpu softvfp
+ 442              	ranging_init:
+ 443              	.LFB66:
+  30:Core/Src/Ranging.c ****     ranging_init1();
+ 444              		.loc 1 30 21 is_stmt 1 view -0
+ 445              		.cfi_startproc
+ 446              		@ args = 0, pretend = 0, frame = 0
+ 447              		@ frame_needed = 0, uses_anonymous_args = 0
+ 448 0000 08B5     		push	{r3, lr}
+ 449              	.LCFI9:
+ 450              		.cfi_def_cfa_offset 8
+ 451              		.cfi_offset 3, -8
+ 452              		.cfi_offset 14, -4
+  31:Core/Src/Ranging.c ****     ranging_init2();
+ 453              		.loc 1 31 5 view .LVU80
+ 454 0002 FFF7FEFF 		bl	ranging_init1
+ 455              	.LVL29:
+  32:Core/Src/Ranging.c **** }
+ 456              		.loc 1 32 5 view .LVU81
+ 457 0006 FFF7FEFF 		bl	ranging_init2
+ 458              	.LVL30:
+  33:Core/Src/Ranging.c **** 
+ 459              		.loc 1 33 1 is_stmt 0 view .LVU82
+ 460 000a 08BD     		pop	{r3, pc}
+ 461              		.cfi_endproc
+ 462              	.LFE66:
+ 464              		.section	.text.trigger2,"ax",%progbits
+ 465              		.align	1
+ 466              		.global	trigger2
+ 467              		.syntax unified
+ 468              		.thumb
+ 469              		.thumb_func
+ 470              		.fpu softvfp
+ 472              	trigger2:
+ 473              	.LFB75:
+ 106:Core/Src/Ranging.c **** 
+ 107:Core/Src/Ranging.c **** // Generate trigger pulse signal for probe 2
+ 108:Core/Src/Ranging.c **** void trigger2() {
+ 474              		.loc 1 108 17 is_stmt 1 view -0
+ARM GAS  C:\Users\hw\AppData\Local\Temp\cc6g6wos.s 			page 12
+
+
+ 475              		.cfi_startproc
+ 476              		@ args = 0, pretend = 0, frame = 0
+ 477              		@ frame_needed = 0, uses_anonymous_args = 0
+ 478 0000 08B5     		push	{r3, lr}
+ 479              	.LCFI10:
+ 480              		.cfi_def_cfa_offset 8
+ 481              		.cfi_offset 3, -8
+ 482              		.cfi_offset 14, -4
+ 109:Core/Src/Ranging.c ****     Ranging_T2_Write(1);
+ 483              		.loc 1 109 5 view .LVU84
+ 484 0002 0120     		movs	r0, #1
+ 485 0004 FFF7FEFF 		bl	Ranging_T2_Write
+ 486              	.LVL31:
+ 110:Core/Src/Ranging.c ****     CyDelayUs(RANGING_TRIGGER);
+ 487              		.loc 1 110 5 view .LVU85
+ 488 0008 3220     		movs	r0, #50
+ 489 000a FFF7FEFF 		bl	CyDelayUs
+ 490              	.LVL32:
+ 111:Core/Src/Ranging.c ****     Ranging_T2_Write(0);
+ 491              		.loc 1 111 5 view .LVU86
+ 492 000e 0020     		movs	r0, #0
+ 493 0010 FFF7FEFF 		bl	Ranging_T2_Write
+ 494              	.LVL33:
+ 112:Core/Src/Ranging.c **** }
+ 495              		.loc 1 112 1 is_stmt 0 view .LVU87
+ 496 0014 08BD     		pop	{r3, pc}
+ 497              		.cfi_endproc
+ 498              	.LFE75:
+ 500              		.section	.text.startcount2,"ax",%progbits
+ 501              		.align	1
+ 502              		.global	startcount2
+ 503              		.syntax unified
+ 504              		.thumb
+ 505              		.thumb_func
+ 506              		.fpu softvfp
+ 508              	startcount2:
+ 509              	.LFB76:
+ 113:Core/Src/Ranging.c **** 
+ 114:Core/Src/Ranging.c **** // Set timer value and start timer for probe 2
+ 115:Core/Src/Ranging.c **** void startcount2() {
+ 510              		.loc 1 115 20 is_stmt 1 view -0
+ 511              		.cfi_startproc
+ 512              		@ args = 0, pretend = 0, frame = 0
+ 513              		@ frame_needed = 0, uses_anonymous_args = 0
+ 514 0000 08B5     		push	{r3, lr}
+ 515              	.LCFI11:
+ 516              		.cfi_def_cfa_offset 8
+ 517              		.cfi_offset 3, -8
+ 518              		.cfi_offset 14, -4
+ 116:Core/Src/Ranging.c ****     Ranging_Timer2_Start();
+ 519              		.loc 1 116 5 view .LVU89
+ 520 0002 FFF7FEFF 		bl	Ranging_Timer2_Start
+ 521              	.LVL34:
+ 117:Core/Src/Ranging.c ****     Ranging_Timer2_WriteCounter(period2 - 1);
+ 522              		.loc 1 117 5 view .LVU90
+ 523 0006 034B     		ldr	r3, .L47
+ 524 0008 1868     		ldr	r0, [r3]
+ARM GAS  C:\Users\hw\AppData\Local\Temp\cc6g6wos.s 			page 13
+
+
+ 525 000a 0138     		subs	r0, r0, #1
+ 526 000c FFF7FEFF 		bl	Ranging_Timer2_WriteCounter
+ 527              	.LVL35:
+ 118:Core/Src/Ranging.c **** }
+ 528              		.loc 1 118 1 is_stmt 0 view .LVU91
+ 529 0010 08BD     		pop	{r3, pc}
+ 530              	.L48:
+ 531 0012 00BF     		.align	2
+ 532              	.L47:
+ 533 0014 00000000 		.word	.LANCHOR3
+ 534              		.cfi_endproc
+ 535              	.LFE76:
+ 537              		.section	.text.endcount2,"ax",%progbits
+ 538              		.align	1
+ 539              		.global	endcount2
+ 540              		.syntax unified
+ 541              		.thumb
+ 542              		.thumb_func
+ 543              		.fpu softvfp
+ 545              	endcount2:
+ 546              	.LFB77:
+ 119:Core/Src/Ranging.c **** 
+ 120:Core/Src/Ranging.c **** // Stop timer for probe 2 and get timer value, return count value
+ 121:Core/Src/Ranging.c **** uint32 endcount2() {
+ 547              		.loc 1 121 20 is_stmt 1 view -0
+ 548              		.cfi_startproc
+ 549              		@ args = 0, pretend = 0, frame = 0
+ 550              		@ frame_needed = 0, uses_anonymous_args = 0
+ 551 0000 10B5     		push	{r4, lr}
+ 552              	.LCFI12:
+ 553              		.cfi_def_cfa_offset 8
+ 554              		.cfi_offset 4, -8
+ 555              		.cfi_offset 14, -4
+ 122:Core/Src/Ranging.c ****     uint32 cnt = Ranging_Timer2_ReadCounter();
+ 556              		.loc 1 122 5 view .LVU93
+ 557              		.loc 1 122 18 is_stmt 0 view .LVU94
+ 558 0002 FFF7FEFF 		bl	Ranging_Timer2_ReadCounter
+ 559              	.LVL36:
+ 560 0006 0446     		mov	r4, r0
+ 561              	.LVL37:
+ 123:Core/Src/Ranging.c ****     Ranging_Timer2_Stop();
+ 562              		.loc 1 123 5 is_stmt 1 view .LVU95
+ 563 0008 FFF7FEFF 		bl	Ranging_Timer2_Stop
+ 564              	.LVL38:
+ 124:Core/Src/Ranging.c ****     return period2 - 1 - cnt;
+ 565              		.loc 1 124 5 view .LVU96
+ 566              		.loc 1 124 24 is_stmt 0 view .LVU97
+ 567 000c 024B     		ldr	r3, .L51
+ 568 000e 1868     		ldr	r0, [r3]
+ 569 0010 001B     		subs	r0, r0, r4
+ 125:Core/Src/Ranging.c **** }
+ 570              		.loc 1 125 1 view .LVU98
+ 571 0012 0138     		subs	r0, r0, #1
+ 572 0014 10BD     		pop	{r4, pc}
+ 573              	.LVL39:
+ 574              	.L52:
+ 575              		.loc 1 125 1 view .LVU99
+ARM GAS  C:\Users\hw\AppData\Local\Temp\cc6g6wos.s 			page 14
+
+
+ 576 0016 00BF     		.align	2
+ 577              	.L51:
+ 578 0018 00000000 		.word	.LANCHOR3
+ 579              		.cfi_endproc
+ 580              	.LFE77:
+ 582              		.section	.text.get_millimeter2,"ax",%progbits
+ 583              		.align	1
+ 584              		.global	get_millimeter2
+ 585              		.syntax unified
+ 586              		.thumb
+ 587              		.thumb_func
+ 588              		.fpu softvfp
+ 590              	get_millimeter2:
+ 591              	.LFB78:
+ 126:Core/Src/Ranging.c **** 
+ 127:Core/Src/Ranging.c **** // Get probe 2 distance (mm)
+ 128:Core/Src/Ranging.c **** int get_millimeter2() {
+ 592              		.loc 1 128 23 is_stmt 1 view -0
+ 593              		.cfi_startproc
+ 594              		@ args = 0, pretend = 0, frame = 0
+ 595              		@ frame_needed = 0, uses_anonymous_args = 0
+ 596 0000 08B5     		push	{r3, lr}
+ 597              	.LCFI13:
+ 598              		.cfi_def_cfa_offset 8
+ 599              		.cfi_offset 3, -8
+ 600              		.cfi_offset 14, -4
+ 129:Core/Src/Ranging.c ****     uint32 cnt;
+ 601              		.loc 1 129 5 view .LVU101
+ 130:Core/Src/Ranging.c ****     int distance;
+ 602              		.loc 1 130 5 view .LVU102
+ 131:Core/Src/Ranging.c ****     startcount2();
+ 603              		.loc 1 131 5 view .LVU103
+ 604 0002 FFF7FEFF 		bl	startcount2
+ 605              	.LVL40:
+ 132:Core/Src/Ranging.c ****     trigger2();
+ 606              		.loc 1 132 5 view .LVU104
+ 607 0006 FFF7FEFF 		bl	trigger2
+ 608              	.LVL41:
+ 133:Core/Src/Ranging.c ****     // Polling
+ 134:Core/Src/Ranging.c ****     while (Ranging_R2_Read() == 0 && timeout2 == 0);
+ 609              		.loc 1 134 5 view .LVU105
+ 610              	.L55:
+ 611              	.LBB4:
+ 612              		.loc 1 134 52 discriminator 2 view .LVU106
+ 613              		.loc 1 134 11 discriminator 2 view .LVU107
+ 614              		.loc 1 134 12 is_stmt 0 discriminator 2 view .LVU108
+ 615 000a FFF7FEFF 		bl	Ranging_R2_Read
+ 616              	.LVL42:
+ 617              		.loc 1 134 11 discriminator 2 view .LVU109
+ 618 000e 18B9     		cbnz	r0, .L54
+ 619              		.loc 1 134 47 discriminator 1 view .LVU110
+ 620 0010 0B4B     		ldr	r3, .L61
+ 621 0012 1B68     		ldr	r3, [r3]
+ 622              		.loc 1 134 35 discriminator 1 view .LVU111
+ 623 0014 002B     		cmp	r3, #0
+ 624 0016 F8D0     		beq	.L55
+ 625              	.L54:
+ARM GAS  C:\Users\hw\AppData\Local\Temp\cc6g6wos.s 			page 15
+
+
+ 626              	.LBE4:
+ 135:Core/Src/Ranging.c ****     startcount2();
+ 627              		.loc 1 135 5 is_stmt 1 view .LVU112
+ 628 0018 FFF7FEFF 		bl	startcount2
+ 629              	.LVL43:
+ 136:Core/Src/Ranging.c ****     while (Ranging_R2_Read() != 0 && timeout2 == 0);
+ 630              		.loc 1 136 5 view .LVU113
+ 631              	.L57:
+ 632              	.LBB5:
+ 633              		.loc 1 136 52 discriminator 2 view .LVU114
+ 634              		.loc 1 136 11 discriminator 2 view .LVU115
+ 635              		.loc 1 136 12 is_stmt 0 discriminator 2 view .LVU116
+ 636 001c FFF7FEFF 		bl	Ranging_R2_Read
+ 637              	.LVL44:
+ 638              		.loc 1 136 11 discriminator 2 view .LVU117
+ 639 0020 18B1     		cbz	r0, .L56
+ 640              		.loc 1 136 47 discriminator 1 view .LVU118
+ 641 0022 074B     		ldr	r3, .L61
+ 642 0024 1B68     		ldr	r3, [r3]
+ 643              		.loc 1 136 35 discriminator 1 view .LVU119
+ 644 0026 002B     		cmp	r3, #0
+ 645 0028 F8D0     		beq	.L57
+ 646              	.L56:
+ 647              	.LBE5:
+ 137:Core/Src/Ranging.c ****     cnt = endcount2();
+ 648              		.loc 1 137 5 is_stmt 1 view .LVU120
+ 649              		.loc 1 137 11 is_stmt 0 view .LVU121
+ 650 002a FFF7FEFF 		bl	endcount2
+ 651              	.LVL45:
+ 138:Core/Src/Ranging.c ****     if (timeout2 == 0) {
+ 652              		.loc 1 138 5 is_stmt 1 view .LVU122
+ 653              		.loc 1 138 18 is_stmt 0 view .LVU123
+ 654 002e 044B     		ldr	r3, .L61
+ 655 0030 1B68     		ldr	r3, [r3]
+ 656              		.loc 1 138 8 view .LVU124
+ 657 0032 13B9     		cbnz	r3, .L59
+ 139:Core/Src/Ranging.c ****         distance = (int)calculate_millimeter(cnt);
+ 658              		.loc 1 139 9 is_stmt 1 view .LVU125
+ 659              		.loc 1 139 25 is_stmt 0 view .LVU126
+ 660 0034 FFF7FEFF 		bl	calculate_millimeter
+ 661              	.LVL46:
+ 662              	.L53:
+ 140:Core/Src/Ranging.c ****     } else {
+ 141:Core/Src/Ranging.c ****         // If timeout, return int max
+ 142:Core/Src/Ranging.c ****         distance = L_INT_MAX;
+ 143:Core/Src/Ranging.c ****     }
+ 144:Core/Src/Ranging.c ****     return distance;
+ 145:Core/Src/Ranging.c **** }
+ 663              		.loc 1 145 1 view .LVU127
+ 664 0038 08BD     		pop	{r3, pc}
+ 665              	.LVL47:
+ 666              	.L59:
+ 142:Core/Src/Ranging.c ****     }
+ 667              		.loc 1 142 18 view .LVU128
+ 668 003a 6FF00040 		mvn	r0, #-2147483648
+ 669              	.LVL48:
+ 144:Core/Src/Ranging.c **** }
+ARM GAS  C:\Users\hw\AppData\Local\Temp\cc6g6wos.s 			page 16
+
+
+ 670              		.loc 1 144 5 is_stmt 1 view .LVU129
+ 144:Core/Src/Ranging.c **** }
+ 671              		.loc 1 144 12 is_stmt 0 view .LVU130
+ 672 003e FBE7     		b	.L53
+ 673              	.L62:
+ 674              		.align	2
+ 675              	.L61:
+ 676 0040 00000000 		.word	.LANCHOR1
+ 677              		.cfi_endproc
+ 678              	.LFE78:
+ 680              		.global	timeout2
+ 681              		.global	timeout1
+ 682              		.global	period2
+ 683              		.global	period1
+ 684              		.section	.bss.period1,"aw",%nobits
+ 685              		.align	2
+ 686              		.set	.LANCHOR2,. + 0
+ 689              	period1:
+ 690 0000 00000000 		.space	4
+ 691              		.section	.bss.period2,"aw",%nobits
+ 692              		.align	2
+ 693              		.set	.LANCHOR3,. + 0
+ 696              	period2:
+ 697 0000 00000000 		.space	4
+ 698              		.section	.bss.timeout1,"aw",%nobits
+ 699              		.align	2
+ 700              		.set	.LANCHOR0,. + 0
+ 703              	timeout1:
+ 704 0000 00000000 		.space	4
+ 705              		.section	.bss.timeout2,"aw",%nobits
+ 706              		.align	2
+ 707              		.set	.LANCHOR1,. + 0
+ 710              	timeout2:
+ 711 0000 00000000 		.space	4
+ 712              		.text
+ 713              	.Letext0:
+ 714              		.file 2 "Core/Inc/defs.h"
+ARM GAS  C:\Users\hw\AppData\Local\Temp\cc6g6wos.s 			page 17
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 Ranging.c
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:16     .text.RangingTimeoutInt1:00000000 $t
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:24     .text.RangingTimeoutInt1:00000000 RangingTimeoutInt1
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:49     .text.RangingTimeoutInt1:00000010 $d
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:54     .text.RangingTimeoutInt2:00000000 $t
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:61     .text.RangingTimeoutInt2:00000000 RangingTimeoutInt2
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:85     .text.RangingTimeoutInt2:00000010 $d
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:91     .text.calculate_millimeter:00000000 $t
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:98     .text.calculate_millimeter:00000000 calculate_millimeter
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:127    .text.calculate_millimeter:00000014 $d
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:133    .text.ranging_init1:00000000 $t
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:140    .text.ranging_init1:00000000 ranging_init1
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:170    .text.ranging_init1:00000018 $d
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:176    .text.trigger1:00000000 $t
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:183    .text.trigger1:00000000 trigger1
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:212    .text.startcount1:00000000 $t
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:219    .text.startcount1:00000000 startcount1
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:244    .text.startcount1:00000014 $d
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:249    .text.endcount1:00000000 $t
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:256    .text.endcount1:00000000 endcount1
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:289    .text.endcount1:00000018 $d
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:294    .text.get_millimeter1:00000000 $t
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:301    .text.get_millimeter1:00000000 get_millimeter1
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:387    .text.get_millimeter1:00000040 $d
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:392    .text.ranging_init2:00000000 $t
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:399    .text.ranging_init2:00000000 ranging_init2
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:429    .text.ranging_init2:00000018 $d
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:435    .text.ranging_init:00000000 $t
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:442    .text.ranging_init:00000000 ranging_init
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:465    .text.trigger2:00000000 $t
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:472    .text.trigger2:00000000 trigger2
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:501    .text.startcount2:00000000 $t
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:508    .text.startcount2:00000000 startcount2
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:533    .text.startcount2:00000014 $d
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:538    .text.endcount2:00000000 $t
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:545    .text.endcount2:00000000 endcount2
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:578    .text.endcount2:00000018 $d
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:583    .text.get_millimeter2:00000000 $t
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:590    .text.get_millimeter2:00000000 get_millimeter2
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:676    .text.get_millimeter2:00000040 $d
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:710    .bss.timeout2:00000000 timeout2
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:703    .bss.timeout1:00000000 timeout1
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:696    .bss.period2:00000000 period2
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:689    .bss.period1:00000000 period1
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:685    .bss.period1:00000000 $d
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:692    .bss.period2:00000000 $d
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:699    .bss.timeout1:00000000 $d
+C:\Users\hw\AppData\Local\Temp\cc6g6wos.s:706    .bss.timeout2:00000000 $d
+
+UNDEFINED SYMBOLS
+Ranging_Timer1_Stop
+Ranging_Timer2_Stop
+__aeabi_ldivmod
+Ranging_Timer1_ReadPeriod
+Ranging_Timer1_Clock_Start
+Ranging_Timeout1_StartEx
+ARM GAS  C:\Users\hw\AppData\Local\Temp\cc6g6wos.s 			page 18
+
+
+Ranging_T1_Write
+CyDelayUs
+Ranging_Timer1_Start
+Ranging_Timer1_WriteCounter
+Ranging_Timer1_ReadCounter
+Ranging_R1_Read
+Ranging_Timer2_ReadPeriod
+Ranging_Timer2_Clock_Start
+Ranging_Timeout2_StartEx
+Ranging_T2_Write
+Ranging_Timer2_Start
+Ranging_Timer2_WriteCounter
+Ranging_Timer2_ReadCounter
+Ranging_R2_Read

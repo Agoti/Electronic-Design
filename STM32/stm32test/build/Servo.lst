@@ -1,0 +1,1405 @@
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"Servo.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.UART_PutChar,"ax",%progbits
+  16              		.align	1
+  17              		.global	UART_PutChar
+  18              		.arch armv7-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu softvfp
+  24              	UART_PutChar:
+  25              	.LVL0:
+  26              	.LFB65:
+  27              		.file 1 "Core/Src/Servo.c"
+   1:Core/Src/Servo.c **** /* ========================================
+   2:Core/Src/Servo.c ****  *
+   3:Core/Src/Servo.c ****  * Copyright YOUR COMPANY, THE YEAR
+   4:Core/Src/Servo.c ****  * All Rights Reserved
+   5:Core/Src/Servo.c ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:Core/Src/Servo.c ****  *
+   7:Core/Src/Servo.c ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:Core/Src/Servo.c ****  * WHICH IS THE PROPERTY OF your company.
+   9:Core/Src/Servo.c ****  *
+  10:Core/Src/Servo.c ****  * ========================================
+  11:Core/Src/Servo.c **** */
+  12:Core/Src/Servo.c **** 
+  13:Core/Src/Servo.c **** #include "defs.h"
+  14:Core/Src/Servo.c **** #include "param.h"
+  15:Core/Src/Servo.c **** 
+  16:Core/Src/Servo.c **** static uint8 buffer[1] = {};
+  17:Core/Src/Servo.c **** 
+  18:Core/Src/Servo.c **** void UART_PutChar(uint8 c){
+  28              		.loc 1 18 27 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		.loc 1 18 27 is_stmt 0 view .LVU1
+  33 0000 08B5     		push	{r3, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 3, -8
+  37              		.cfi_offset 14, -4
+  19:Core/Src/Servo.c ****     buffer[0] = c;
+  38              		.loc 1 19 5 is_stmt 1 view .LVU2
+  39              		.loc 1 19 15 is_stmt 0 view .LVU3
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 2
+
+
+  40 0002 0449     		ldr	r1, .L3
+  41 0004 0870     		strb	r0, [r1]
+  20:Core/Src/Servo.c ****     HAL_UART_Transmit(&huart5, buffer, 1, HAL_MAX_DELAY);
+  42              		.loc 1 20 5 is_stmt 1 view .LVU4
+  43 0006 4FF0FF33 		mov	r3, #-1
+  44 000a 0122     		movs	r2, #1
+  45 000c 0248     		ldr	r0, .L3+4
+  46              	.LVL1:
+  47              		.loc 1 20 5 is_stmt 0 view .LVU5
+  48 000e FFF7FEFF 		bl	HAL_UART_Transmit
+  49              	.LVL2:
+  21:Core/Src/Servo.c **** }
+  50              		.loc 1 21 1 view .LVU6
+  51 0012 08BD     		pop	{r3, pc}
+  52              	.L4:
+  53              		.align	2
+  54              	.L3:
+  55 0014 00000000 		.word	.LANCHOR0
+  56 0018 00000000 		.word	huart5
+  57              		.cfi_endproc
+  58              	.LFE65:
+  60              		.section	.text.UART_1_PutChar,"ax",%progbits
+  61              		.align	1
+  62              		.global	UART_1_PutChar
+  63              		.syntax unified
+  64              		.thumb
+  65              		.thumb_func
+  66              		.fpu softvfp
+  68              	UART_1_PutChar:
+  69              	.LVL3:
+  70              	.LFB66:
+  22:Core/Src/Servo.c **** 
+  23:Core/Src/Servo.c **** void UART_1_PutChar(uint8 c){
+  71              		.loc 1 23 29 is_stmt 1 view -0
+  72              		.cfi_startproc
+  73              		@ args = 0, pretend = 0, frame = 0
+  74              		@ frame_needed = 0, uses_anonymous_args = 0
+  75              		.loc 1 23 29 is_stmt 0 view .LVU8
+  76 0000 08B5     		push	{r3, lr}
+  77              	.LCFI1:
+  78              		.cfi_def_cfa_offset 8
+  79              		.cfi_offset 3, -8
+  80              		.cfi_offset 14, -4
+  24:Core/Src/Servo.c ****     buffer[0] = c;
+  81              		.loc 1 24 5 is_stmt 1 view .LVU9
+  82              		.loc 1 24 15 is_stmt 0 view .LVU10
+  83 0002 0449     		ldr	r1, .L7
+  84 0004 0870     		strb	r0, [r1]
+  25:Core/Src/Servo.c ****     HAL_UART_Transmit(&huart5, buffer, 1, HAL_MAX_DELAY);
+  85              		.loc 1 25 5 is_stmt 1 view .LVU11
+  86 0006 4FF0FF33 		mov	r3, #-1
+  87 000a 0122     		movs	r2, #1
+  88 000c 0248     		ldr	r0, .L7+4
+  89              	.LVL4:
+  90              		.loc 1 25 5 is_stmt 0 view .LVU12
+  91 000e FFF7FEFF 		bl	HAL_UART_Transmit
+  92              	.LVL5:
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 3
+
+
+  26:Core/Src/Servo.c **** }
+  93              		.loc 1 26 1 view .LVU13
+  94 0012 08BD     		pop	{r3, pc}
+  95              	.L8:
+  96              		.align	2
+  97              	.L7:
+  98 0014 00000000 		.word	.LANCHOR0
+  99 0018 00000000 		.word	huart5
+ 100              		.cfi_endproc
+ 101              	.LFE66:
+ 103              		.section	.text.CyDelay,"ax",%progbits
+ 104              		.align	1
+ 105              		.global	CyDelay
+ 106              		.syntax unified
+ 107              		.thumb
+ 108              		.thumb_func
+ 109              		.fpu softvfp
+ 111              	CyDelay:
+ 112              	.LVL6:
+ 113              	.LFB67:
+  27:Core/Src/Servo.c **** 
+  28:Core/Src/Servo.c **** void CyDelay(int t){
+ 114              		.loc 1 28 20 is_stmt 1 view -0
+ 115              		.cfi_startproc
+ 116              		@ args = 0, pretend = 0, frame = 0
+ 117              		@ frame_needed = 0, uses_anonymous_args = 0
+ 118              		.loc 1 28 20 is_stmt 0 view .LVU15
+ 119 0000 08B5     		push	{r3, lr}
+ 120              	.LCFI2:
+ 121              		.cfi_def_cfa_offset 8
+ 122              		.cfi_offset 3, -8
+ 123              		.cfi_offset 14, -4
+  29:Core/Src/Servo.c ****     HAL_Delay(t);
+ 124              		.loc 1 29 5 is_stmt 1 view .LVU16
+ 125 0002 FFF7FEFF 		bl	HAL_Delay
+ 126              	.LVL7:
+  30:Core/Src/Servo.c **** }
+ 127              		.loc 1 30 1 is_stmt 0 view .LVU17
+ 128 0006 08BD     		pop	{r3, pc}
+ 129              		.cfi_endproc
+ 130              	.LFE67:
+ 132              		.section	.text.SetServoLimit,"ax",%progbits
+ 133              		.align	1
+ 134              		.global	SetServoLimit
+ 135              		.syntax unified
+ 136              		.thumb
+ 137              		.thumb_func
+ 138              		.fpu softvfp
+ 140              	SetServoLimit:
+ 141              	.LVL8:
+ 142              	.LFB68:
+  31:Core/Src/Servo.c **** 
+  32:Core/Src/Servo.c **** void SetServoLimit(unsigned char id, unsigned short int cw_limit, unsigned short int ccw_limit)
+  33:Core/Src/Servo.c **** {
+ 143              		.loc 1 33 1 is_stmt 1 view -0
+ 144              		.cfi_startproc
+ 145              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 4
+
+
+ 146              		@ frame_needed = 0, uses_anonymous_args = 0
+ 147              		.loc 1 33 1 is_stmt 0 view .LVU19
+ 148 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 149              	.LCFI3:
+ 150              		.cfi_def_cfa_offset 24
+ 151              		.cfi_offset 4, -24
+ 152              		.cfi_offset 5, -20
+ 153              		.cfi_offset 6, -16
+ 154              		.cfi_offset 7, -12
+ 155              		.cfi_offset 8, -8
+ 156              		.cfi_offset 14, -4
+ 157 0004 0746     		mov	r7, r0
+  34:Core/Src/Servo.c ****     unsigned short int temp_ccw = 0; // 临时速度，用于进行方向判别 // (temp velocity t
+ 158              		.loc 1 34 5 is_stmt 1 view .LVU20
+ 159              	.LVL9:
+  35:Core/Src/Servo.c ****     unsigned short int temp_cw = 0;
+ 160              		.loc 1 35 5 view .LVU21
+  36:Core/Src/Servo.c ****     unsigned char temp_ccw_h = 0; // 待发送数据h位 // (h bits to be sended)
+ 161              		.loc 1 36 5 view .LVU22
+  37:Core/Src/Servo.c ****     unsigned char temp_ccw_l = 0; // 待发送数据l位 // (l bits to be sended)
+ 162              		.loc 1 37 5 view .LVU23
+  38:Core/Src/Servo.c ****     unsigned char temp_cw_h = 0;
+ 163              		.loc 1 38 5 view .LVU24
+  39:Core/Src/Servo.c ****     unsigned char temp_cw_l = 0;
+ 164              		.loc 1 39 5 view .LVU25
+  40:Core/Src/Servo.c ****     unsigned char temp_sum = 0; // 校验和寄存变量 // (temp variable to save checksum)
+ 165              		.loc 1 40 5 view .LVU26
+  41:Core/Src/Servo.c ****     if (ccw_limit > 1023)
+ 166              		.loc 1 41 5 view .LVU27
+ 167              		.loc 1 41 8 is_stmt 0 view .LVU28
+ 168 0006 B2F5806F 		cmp	r2, #1024
+ 169 000a 01D3     		bcc	.L12
+  42:Core/Src/Servo.c ****     {
+  43:Core/Src/Servo.c ****         temp_ccw = 1023;
+ 170              		.loc 1 43 18 view .LVU29
+ 171 000c 40F2FF32 		movw	r2, #1023
+ 172              	.LVL10:
+ 173              	.L12:
+  44:Core/Src/Servo.c ****         // 限制速度值在可用范围内 // (limit the velocity to 0-1023)
+  45:Core/Src/Servo.c ****     }
+  46:Core/Src/Servo.c ****     else
+  47:Core/Src/Servo.c ****     {
+  48:Core/Src/Servo.c ****         temp_ccw = ccw_limit;
+  49:Core/Src/Servo.c ****     }
+  50:Core/Src/Servo.c ****     if (cw_limit > 1023)
+ 174              		.loc 1 50 5 is_stmt 1 view .LVU30
+ 175              		.loc 1 50 8 is_stmt 0 view .LVU31
+ 176 0010 B1F5806F 		cmp	r1, #1024
+ 177 0014 01D3     		bcc	.L13
+  51:Core/Src/Servo.c ****     {
+  52:Core/Src/Servo.c ****         temp_cw = 1023;
+ 178              		.loc 1 52 17 view .LVU32
+ 179 0016 40F2FF31 		movw	r1, #1023
+ 180              	.LVL11:
+ 181              	.L13:
+  53:Core/Src/Servo.c ****     }
+  54:Core/Src/Servo.c ****     else
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 5
+
+
+  55:Core/Src/Servo.c ****     {
+  56:Core/Src/Servo.c ****         temp_cw = cw_limit;
+  57:Core/Src/Servo.c ****     }
+  58:Core/Src/Servo.c ****     temp_ccw_h = (unsigned char)(temp_ccw >> 8);
+ 182              		.loc 1 58 5 is_stmt 1 view .LVU33
+ 183              		.loc 1 58 16 is_stmt 0 view .LVU34
+ 184 001a 150A     		lsrs	r5, r2, #8
+ 185              	.LVL12:
+  59:Core/Src/Servo.c ****     temp_ccw_l = (unsigned char)temp_ccw; // 将16bit数据拆为2个8bit数据 // (split 16 bits t
+ 186              		.loc 1 59 5 is_stmt 1 view .LVU35
+ 187              		.loc 1 59 16 is_stmt 0 view .LVU36
+ 188 001c D6B2     		uxtb	r6, r2
+ 189              	.LVL13:
+  60:Core/Src/Servo.c ****     temp_cw_h = (unsigned char)(temp_cw >> 8);
+ 190              		.loc 1 60 5 is_stmt 1 view .LVU37
+ 191              		.loc 1 60 15 is_stmt 0 view .LVU38
+ 192 001e 4FEA1128 		lsr	r8, r1, #8
+ 193              	.LVL14:
+  61:Core/Src/Servo.c ****     temp_cw_l = (unsigned char)temp_cw; // 将16bit数据拆为2个8bit数据 // (split 16 bits to 
+ 194              		.loc 1 61 5 is_stmt 1 view .LVU39
+ 195              		.loc 1 61 15 is_stmt 0 view .LVU40
+ 196 0022 CCB2     		uxtb	r4, r1
+ 197              	.LVL15:
+  62:Core/Src/Servo.c ****     // PORTA &= ~_BV(PA1);
+  63:Core/Src/Servo.c ****     // PORTA |= _BV(PA0); // 使总线处于主机发送状态 // (Set the bus to host transmit sta
+  64:Core/Src/Servo.c ****     // UCSR0A |= (1<<TXC0); // 清除UART_10写完成标志 // (Clear written flag of UART_10)
+  65:Core/Src/Servo.c ****     UART_PutChar(0xFF);       // 发送启动符号0xFF // (Send the start byte 0xff)
+ 198              		.loc 1 65 5 is_stmt 1 view .LVU41
+ 199 0024 FF20     		movs	r0, #255
+ 200              	.LVL16:
+ 201              		.loc 1 65 5 is_stmt 0 view .LVU42
+ 202 0026 FFF7FEFF 		bl	UART_PutChar
+ 203              	.LVL17:
+  66:Core/Src/Servo.c ****     UART_PutChar(0xFF);       // 发送启动符号0xFF // (Send the start byte 0xff)
+ 204              		.loc 1 66 5 is_stmt 1 view .LVU43
+ 205 002a FF20     		movs	r0, #255
+ 206 002c FFF7FEFF 		bl	UART_PutChar
+ 207              	.LVL18:
+  67:Core/Src/Servo.c ****     UART_PutChar(id);         // 发送id // (Send the servo’s ID)
+ 208              		.loc 1 67 5 view .LVU44
+ 209 0030 3846     		mov	r0, r7
+ 210 0032 FFF7FEFF 		bl	UART_PutChar
+ 211              	.LVL19:
+  68:Core/Src/Servo.c ****     UART_PutChar(7);          // 发送数据长度为参数长度+2，参数长度为3 // (Send th
+ 212              		.loc 1 68 5 view .LVU45
+ 213 0036 0720     		movs	r0, #7
+ 214 0038 FFF7FEFF 		bl	UART_PutChar
+ 215              	.LVL20:
+  69:Core/Src/Servo.c ****     UART_PutChar(0x03);       // 命令数据为“WRITE DATA” // (Send command “WRITE DATA”)
+ 216              		.loc 1 69 5 view .LVU46
+ 217 003c 0320     		movs	r0, #3
+ 218 003e FFF7FEFF 		bl	UART_PutChar
+ 219              	.LVL21:
+  70:Core/Src/Servo.c ****     UART_PutChar(0x06);       // 舵机控制寄存器首地址
+ 220              		.loc 1 70 5 view .LVU47
+ 221 0042 0620     		movs	r0, #6
+ 222 0044 FFF7FEFF 		bl	UART_PutChar
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 6
+
+
+ 223              	.LVL22:
+  71:Core/Src/Servo.c ****     UART_PutChar(temp_cw_l);  // 发送顺时针位置限制低位 // (Send the low byte of clockwi
+ 224              		.loc 1 71 5 view .LVU48
+ 225 0048 2046     		mov	r0, r4
+ 226 004a FFF7FEFF 		bl	UART_PutChar
+ 227              	.LVL23:
+  72:Core/Src/Servo.c ****     UART_PutChar(temp_cw_h);  // 发送顺时针位置限制高位 //(Send the high byte of clockwi
+ 228              		.loc 1 72 5 view .LVU49
+ 229 004e 4046     		mov	r0, r8
+ 230 0050 FFF7FEFF 		bl	UART_PutChar
+ 231              	.LVL24:
+  73:Core/Src/Servo.c ****     UART_PutChar(temp_ccw_l); // 发送逆时针位置限制低位 // (Send the low byte of counter
+ 232              		.loc 1 73 5 view .LVU50
+ 233 0054 3046     		mov	r0, r6
+ 234 0056 FFF7FEFF 		bl	UART_PutChar
+ 235              	.LVL25:
+  74:Core/Src/Servo.c ****     UART_PutChar(temp_ccw_h); // 发送逆时针位置限制高位 // (Send the low byte of counter
+ 236              		.loc 1 74 5 view .LVU51
+ 237 005a 2846     		mov	r0, r5
+ 238 005c FFF7FEFF 		bl	UART_PutChar
+ 239              	.LVL26:
+  75:Core/Src/Servo.c ****     temp_sum = id + 7 + 0x03 + 0x06 + temp_cw_l + temp_cw_h + temp_ccw_l + temp_ccw_h;
+ 240              		.loc 1 75 5 view .LVU52
+ 241              		.loc 1 75 37 is_stmt 0 view .LVU53
+ 242 0060 E019     		adds	r0, r4, r7
+ 243 0062 C0B2     		uxtb	r0, r0
+ 244              		.loc 1 75 49 view .LVU54
+ 245 0064 4044     		add	r0, r0, r8
+ 246 0066 C0B2     		uxtb	r0, r0
+ 247              		.loc 1 75 61 view .LVU55
+ 248 0068 3044     		add	r0, r0, r6
+ 249 006a C0B2     		uxtb	r0, r0
+ 250              		.loc 1 75 74 view .LVU56
+ 251 006c 2844     		add	r0, r0, r5
+ 252 006e C0B2     		uxtb	r0, r0
+ 253              		.loc 1 75 14 view .LVU57
+ 254 0070 1030     		adds	r0, r0, #16
+ 255 0072 C0B2     		uxtb	r0, r0
+ 256              	.LVL27:
+  76:Core/Src/Servo.c ****     temp_sum = ~temp_sum;   // 计算校验和 // (Calculate the checksum)
+ 257              		.loc 1 76 5 is_stmt 1 view .LVU58
+ 258              		.loc 1 76 14 is_stmt 0 view .LVU59
+ 259 0074 C043     		mvns	r0, r0
+ 260              	.LVL28:
+  77:Core/Src/Servo.c ****     UART_PutChar(temp_sum); // 发送校验和 // (Send checksum)
+ 261              		.loc 1 77 5 is_stmt 1 view .LVU60
+ 262 0076 C0B2     		uxtb	r0, r0
+ 263              		.loc 1 77 5 is_stmt 0 view .LVU61
+ 264 0078 FFF7FEFF 		bl	UART_PutChar
+ 265              	.LVL29:
+  78:Core/Src/Servo.c ****     // while ( !( UCSR0A & (1<<TXC0)) ) ;
+  79:Core/Src/Servo.c ****     // PORTA |= _BV(PA1);
+  80:Core/Src/Servo.c ****     // PORTA &= ~_BV(PA0); // 使总线处于主机接收状态 // (Set the UART bus to host receiv
+  81:Core/Src/Servo.c ****     CyDelay(WAITING_TIME); // 送完成后，总线会被从机占用，反馈应答数据，所以
+ 266              		.loc 1 81 5 is_stmt 1 view .LVU62
+ 267 007c 0220     		movs	r0, #2
+ 268 007e FFF7FEFF 		bl	CyDelay
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 7
+
+
+ 269              	.LVL30:
+  82:Core/Src/Servo.c **** }
+ 270              		.loc 1 82 1 is_stmt 0 view .LVU63
+ 271 0082 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 272              		.loc 1 82 1 view .LVU64
+ 273              		.cfi_endproc
+ 274              	.LFE68:
+ 276              		.section	.text.SetServoPosition,"ax",%progbits
+ 277              		.align	1
+ 278              		.global	SetServoPosition
+ 279              		.syntax unified
+ 280              		.thumb
+ 281              		.thumb_func
+ 282              		.fpu softvfp
+ 284              	SetServoPosition:
+ 285              	.LVL31:
+ 286              	.LFB69:
+  83:Core/Src/Servo.c **** 
+  84:Core/Src/Servo.c **** void SetServoPosition(unsigned char id, unsigned short int position, unsigned short int velocity)
+  85:Core/Src/Servo.c **** {
+ 287              		.loc 1 85 1 is_stmt 1 view -0
+ 288              		.cfi_startproc
+ 289              		@ args = 0, pretend = 0, frame = 0
+ 290              		@ frame_needed = 0, uses_anonymous_args = 0
+ 291              		.loc 1 85 1 is_stmt 0 view .LVU66
+ 292 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 293              	.LCFI4:
+ 294              		.cfi_def_cfa_offset 24
+ 295              		.cfi_offset 4, -24
+ 296              		.cfi_offset 5, -20
+ 297              		.cfi_offset 6, -16
+ 298              		.cfi_offset 7, -12
+ 299              		.cfi_offset 8, -8
+ 300              		.cfi_offset 14, -4
+ 301 0004 0746     		mov	r7, r0
+  86:Core/Src/Servo.c ****     unsigned short int temp_velocity = 0; // 临时速度，用于进行方向判别 // (temp veloc
+ 302              		.loc 1 86 5 is_stmt 1 view .LVU67
+ 303              	.LVL32:
+  87:Core/Src/Servo.c ****     unsigned short int temp_position = 0;
+ 304              		.loc 1 87 5 view .LVU68
+  88:Core/Src/Servo.c ****     unsigned char temp_velocity_h = 0; // 待发送数据h位 // (h bits to be sended)
+ 305              		.loc 1 88 5 view .LVU69
+  89:Core/Src/Servo.c ****     unsigned char temp_velocity_l = 0; // 待发送数据l位 // (l bits to be sended)
+ 306              		.loc 1 89 5 view .LVU70
+  90:Core/Src/Servo.c ****     unsigned char temp_position_h = 0;
+ 307              		.loc 1 90 5 view .LVU71
+  91:Core/Src/Servo.c ****     unsigned char temp_position_l = 0;
+ 308              		.loc 1 91 5 view .LVU72
+  92:Core/Src/Servo.c ****     unsigned char temp_sum = 0; // 校验和寄存变量 // (temp variable to save checksum)
+ 309              		.loc 1 92 5 view .LVU73
+  93:Core/Src/Servo.c ****     if (velocity > 1023)
+ 310              		.loc 1 93 5 view .LVU74
+ 311              		.loc 1 93 8 is_stmt 0 view .LVU75
+ 312 0006 B2F5806F 		cmp	r2, #1024
+ 313 000a 01D3     		bcc	.L16
+  94:Core/Src/Servo.c ****     {
+  95:Core/Src/Servo.c ****         temp_velocity = 1023;
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 8
+
+
+ 314              		.loc 1 95 23 view .LVU76
+ 315 000c 40F2FF32 		movw	r2, #1023
+ 316              	.LVL33:
+ 317              	.L16:
+  96:Core/Src/Servo.c ****         // 限制速度值在可用范围内 // (limit the velocity to 0-1023)
+  97:Core/Src/Servo.c ****     }
+  98:Core/Src/Servo.c ****     else
+  99:Core/Src/Servo.c ****     {
+ 100:Core/Src/Servo.c ****         temp_velocity = velocity;
+ 101:Core/Src/Servo.c ****     }
+ 102:Core/Src/Servo.c ****     if (position > 1023)
+ 318              		.loc 1 102 5 is_stmt 1 view .LVU77
+ 319              		.loc 1 102 8 is_stmt 0 view .LVU78
+ 320 0010 B1F5806F 		cmp	r1, #1024
+ 321 0014 01D3     		bcc	.L17
+ 103:Core/Src/Servo.c ****     {
+ 104:Core/Src/Servo.c ****         temp_position = 1023;
+ 322              		.loc 1 104 23 view .LVU79
+ 323 0016 40F2FF31 		movw	r1, #1023
+ 324              	.LVL34:
+ 325              	.L17:
+ 105:Core/Src/Servo.c ****     }
+ 106:Core/Src/Servo.c ****     else
+ 107:Core/Src/Servo.c ****     {
+ 108:Core/Src/Servo.c ****         temp_position = position;
+ 109:Core/Src/Servo.c ****     }
+ 110:Core/Src/Servo.c ****     temp_velocity_h = (unsigned char)(temp_velocity >> 8);
+ 326              		.loc 1 110 5 is_stmt 1 view .LVU80
+ 327              		.loc 1 110 21 is_stmt 0 view .LVU81
+ 328 001a 150A     		lsrs	r5, r2, #8
+ 329              	.LVL35:
+ 111:Core/Src/Servo.c ****     temp_velocity_l = (unsigned char)temp_velocity; // 将16bit数据拆为2个8bit数据 // (split
+ 330              		.loc 1 111 5 is_stmt 1 view .LVU82
+ 331              		.loc 1 111 21 is_stmt 0 view .LVU83
+ 332 001c D6B2     		uxtb	r6, r2
+ 333              	.LVL36:
+ 112:Core/Src/Servo.c ****     temp_position_h = (unsigned char)(temp_position >> 8);
+ 334              		.loc 1 112 5 is_stmt 1 view .LVU84
+ 335              		.loc 1 112 21 is_stmt 0 view .LVU85
+ 336 001e 4FEA1128 		lsr	r8, r1, #8
+ 337              	.LVL37:
+ 113:Core/Src/Servo.c ****     temp_position_l = (unsigned char)temp_position; // 将16bit数据拆为2个8bit数据 // (split
+ 338              		.loc 1 113 5 is_stmt 1 view .LVU86
+ 339              		.loc 1 113 21 is_stmt 0 view .LVU87
+ 340 0022 CCB2     		uxtb	r4, r1
+ 341              	.LVL38:
+ 114:Core/Src/Servo.c ****     // PORTA &= ~_BV(PA1);
+ 115:Core/Src/Servo.c ****     // PORTA |= _BV(PA0); // 使总线处于主机发送状态 // (Set the bus to host transmit sta
+ 116:Core/Src/Servo.c ****     // UCSR0A |= (1<<TXC0); // 清除UART0写完成标志 // (Clear written flag of UART0)
+ 117:Core/Src/Servo.c ****     UART_PutChar(0xFF);            // 发送启动符号0xFF // (Send the start byte 0xff)
+ 342              		.loc 1 117 5 is_stmt 1 view .LVU88
+ 343 0024 FF20     		movs	r0, #255
+ 344              	.LVL39:
+ 345              		.loc 1 117 5 is_stmt 0 view .LVU89
+ 346 0026 FFF7FEFF 		bl	UART_PutChar
+ 347              	.LVL40:
+ 118:Core/Src/Servo.c ****     UART_PutChar(0xFF);            // 发送启动符号0xFF // (Send the start byte 0xff)
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 9
+
+
+ 348              		.loc 1 118 5 is_stmt 1 view .LVU90
+ 349 002a FF20     		movs	r0, #255
+ 350 002c FFF7FEFF 		bl	UART_PutChar
+ 351              	.LVL41:
+ 119:Core/Src/Servo.c ****     UART_PutChar(id);              // 发送id // (Send the servo’s ID)
+ 352              		.loc 1 119 5 view .LVU91
+ 353 0030 3846     		mov	r0, r7
+ 354 0032 FFF7FEFF 		bl	UART_PutChar
+ 355              	.LVL42:
+ 120:Core/Src/Servo.c ****     UART_PutChar(7);               // 发送数据长度为参数长度+2，参数长度为3 // (Se
+ 356              		.loc 1 120 5 view .LVU92
+ 357 0036 0720     		movs	r0, #7
+ 358 0038 FFF7FEFF 		bl	UART_PutChar
+ 359              	.LVL43:
+ 121:Core/Src/Servo.c ****     UART_PutChar(0x03);            // 命令数据为“WRITE DATA” // (Send command “WRITE DAT
+ 360              		.loc 1 121 5 view .LVU93
+ 361 003c 0320     		movs	r0, #3
+ 362 003e FFF7FEFF 		bl	UART_PutChar
+ 363              	.LVL44:
+ 122:Core/Src/Servo.c ****     UART_PutChar(0x1E);            // 舵机控制寄存器首地址
+ 364              		.loc 1 122 5 view .LVU94
+ 365 0042 1E20     		movs	r0, #30
+ 366 0044 FFF7FEFF 		bl	UART_PutChar
+ 367              	.LVL45:
+ 123:Core/Src/Servo.c ****     UART_PutChar(temp_position_l); // 发送顺时针位置限制低位 // (Send the low byte of cl
+ 368              		.loc 1 123 5 view .LVU95
+ 369 0048 2046     		mov	r0, r4
+ 370 004a FFF7FEFF 		bl	UART_PutChar
+ 371              	.LVL46:
+ 124:Core/Src/Servo.c ****     UART_PutChar(temp_position_h); // 发送顺时针位置限制高位 //(Send the high byte of cl
+ 372              		.loc 1 124 5 view .LVU96
+ 373 004e 4046     		mov	r0, r8
+ 374 0050 FFF7FEFF 		bl	UART_PutChar
+ 375              	.LVL47:
+ 125:Core/Src/Servo.c ****     UART_PutChar(temp_velocity_l); // 发送逆时针位置限制低位 // (Send the low byte of co
+ 376              		.loc 1 125 5 view .LVU97
+ 377 0054 3046     		mov	r0, r6
+ 378 0056 FFF7FEFF 		bl	UART_PutChar
+ 379              	.LVL48:
+ 126:Core/Src/Servo.c ****     UART_PutChar(temp_velocity_h); // 发送逆时针位置限制高位 // (Send the low byte of co
+ 380              		.loc 1 126 5 view .LVU98
+ 381 005a 2846     		mov	r0, r5
+ 382 005c FFF7FEFF 		bl	UART_PutChar
+ 383              	.LVL49:
+ 127:Core/Src/Servo.c ****     temp_sum = id + 7 + 0x03 + 0x1E + temp_position_l + temp_position_h + temp_velocity_l + temp_ve
+ 384              		.loc 1 127 5 view .LVU99
+ 385              		.loc 1 127 37 is_stmt 0 view .LVU100
+ 386 0060 E019     		adds	r0, r4, r7
+ 387 0062 C0B2     		uxtb	r0, r0
+ 388              		.loc 1 127 55 view .LVU101
+ 389 0064 4044     		add	r0, r0, r8
+ 390 0066 C0B2     		uxtb	r0, r0
+ 391              		.loc 1 127 73 view .LVU102
+ 392 0068 3044     		add	r0, r0, r6
+ 393 006a C0B2     		uxtb	r0, r0
+ 394              		.loc 1 127 91 view .LVU103
+ 395 006c 2844     		add	r0, r0, r5
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 10
+
+
+ 396 006e C0B2     		uxtb	r0, r0
+ 397              		.loc 1 127 14 view .LVU104
+ 398 0070 2830     		adds	r0, r0, #40
+ 399 0072 C0B2     		uxtb	r0, r0
+ 400              	.LVL50:
+ 128:Core/Src/Servo.c ****     temp_sum = ~temp_sum;   // 计算校验和 // (Calculate the checksum)
+ 401              		.loc 1 128 5 is_stmt 1 view .LVU105
+ 402              		.loc 1 128 14 is_stmt 0 view .LVU106
+ 403 0074 C043     		mvns	r0, r0
+ 404              	.LVL51:
+ 129:Core/Src/Servo.c ****     UART_PutChar(temp_sum); // 发送校验和 // (Send checksum)
+ 405              		.loc 1 129 5 is_stmt 1 view .LVU107
+ 406 0076 C0B2     		uxtb	r0, r0
+ 407              		.loc 1 129 5 is_stmt 0 view .LVU108
+ 408 0078 FFF7FEFF 		bl	UART_PutChar
+ 409              	.LVL52:
+ 130:Core/Src/Servo.c ****     // while ( !( UCSR0A & (1<<TXC0)) ) ;
+ 131:Core/Src/Servo.c ****     // PORTA |= _BV(PA1);
+ 132:Core/Src/Servo.c ****     // PORTA &= ~_BV(PA0); // 使总线处于主机接收状态 // (Set the UART bus to host receiv
+ 133:Core/Src/Servo.c ****     CyDelay(WAITING_TIME); // 送完成后，总线会被从机占用，反馈应答数据，所以
+ 410              		.loc 1 133 5 is_stmt 1 view .LVU109
+ 411 007c 0220     		movs	r0, #2
+ 412 007e FFF7FEFF 		bl	CyDelay
+ 413              	.LVL53:
+ 134:Core/Src/Servo.c **** }
+ 414              		.loc 1 134 1 is_stmt 0 view .LVU110
+ 415 0082 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 416              		.loc 1 134 1 view .LVU111
+ 417              		.cfi_endproc
+ 418              	.LFE69:
+ 420              		.section	.text.SetServoVelocity,"ax",%progbits
+ 421              		.align	1
+ 422              		.global	SetServoVelocity
+ 423              		.syntax unified
+ 424              		.thumb
+ 425              		.thumb_func
+ 426              		.fpu softvfp
+ 428              	SetServoVelocity:
+ 429              	.LVL54:
+ 430              	.LFB70:
+ 135:Core/Src/Servo.c **** 
+ 136:Core/Src/Servo.c **** void SetServoVelocity(unsigned char id, signed short int velocity)
+ 137:Core/Src/Servo.c **** {
+ 431              		.loc 1 137 1 is_stmt 1 view -0
+ 432              		.cfi_startproc
+ 433              		@ args = 0, pretend = 0, frame = 0
+ 434              		@ frame_needed = 0, uses_anonymous_args = 0
+ 435              		.loc 1 137 1 is_stmt 0 view .LVU113
+ 436 0000 70B5     		push	{r4, r5, r6, lr}
+ 437              	.LCFI5:
+ 438              		.cfi_def_cfa_offset 16
+ 439              		.cfi_offset 4, -16
+ 440              		.cfi_offset 5, -12
+ 441              		.cfi_offset 6, -8
+ 442              		.cfi_offset 14, -4
+ 443 0002 0546     		mov	r5, r0
+ 138:Core/Src/Servo.c ****     unsigned char temp_sign = 0;          // 临时符号，用于进行方向判别 // (temp varia
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 11
+
+
+ 444              		.loc 1 138 5 is_stmt 1 view .LVU114
+ 445              	.LVL55:
+ 139:Core/Src/Servo.c ****     unsigned short int temp_velocity = 0; // 临时速度，用于进行方向判别 // (temp veloc
+ 446              		.loc 1 139 5 view .LVU115
+ 140:Core/Src/Servo.c ****     unsigned char temp_value_h = 0;       // 待发送数据h位 // (h bits to send)
+ 447              		.loc 1 140 5 view .LVU116
+ 141:Core/Src/Servo.c ****     unsigned char temp_value_l = 0;       // 待发送数据l位 // (l bits to send)
+ 448              		.loc 1 141 5 view .LVU117
+ 142:Core/Src/Servo.c ****     unsigned char temp_sum = 0;           // 校验和寄存变量 // (temp variable to save checks
+ 449              		.loc 1 142 5 view .LVU118
+ 143:Core/Src/Servo.c ****     if (velocity < 0)
+ 450              		.loc 1 143 5 view .LVU119
+ 451              		.loc 1 143 8 is_stmt 0 view .LVU120
+ 452 0004 0029     		cmp	r1, #0
+ 453              	.LVL56:
+ 454              		.loc 1 143 8 view .LVU121
+ 455 0006 31DB     		blt	.L25
+ 144:Core/Src/Servo.c ****     {
+ 145:Core/Src/Servo.c ****         temp_velocity = -velocity; // 如果为负数，则取绝对值 // (if negative, get the ab
+ 146:Core/Src/Servo.c ****         temp_sign = 1;             // 设置负数符号标志 // (Set negative flag)
+ 147:Core/Src/Servo.c ****     }
+ 148:Core/Src/Servo.c ****     else
+ 149:Core/Src/Servo.c ****     {
+ 150:Core/Src/Servo.c ****         temp_velocity = velocity;
+ 456              		.loc 1 150 9 is_stmt 1 view .LVU122
+ 457              		.loc 1 150 23 is_stmt 0 view .LVU123
+ 458 0008 89B2     		uxth	r1, r1
+ 459              	.LVL57:
+ 151:Core/Src/Servo.c ****         temp_sign = 0; // 设置正数符号标志 // (Set positive flag)
+ 460              		.loc 1 151 9 is_stmt 1 view .LVU124
+ 461              		.loc 1 151 19 is_stmt 0 view .LVU125
+ 462 000a 0024     		movs	r4, #0
+ 463              	.LVL58:
+ 464              	.L21:
+ 152:Core/Src/Servo.c ****     }
+ 153:Core/Src/Servo.c ****     if (temp_velocity > 1023)
+ 465              		.loc 1 153 5 is_stmt 1 view .LVU126
+ 466              		.loc 1 153 8 is_stmt 0 view .LVU127
+ 467 000c B1F5806F 		cmp	r1, #1024
+ 468 0010 01D3     		bcc	.L22
+ 154:Core/Src/Servo.c ****     {
+ 155:Core/Src/Servo.c ****         temp_velocity = 1023; // 限制速度值在可用范围内 // (Limit the velocity to 0-1023
+ 469              		.loc 1 155 23 view .LVU128
+ 470 0012 40F2FF31 		movw	r1, #1023
+ 471              	.LVL59:
+ 472              	.L22:
+ 156:Core/Src/Servo.c ****     }                         // 设置bit10为方向位，这时temp_velocity就是待发送的速
+ 157:Core/Src/Servo.c ****     temp_velocity |= (temp_sign << 10);
+ 473              		.loc 1 157 5 is_stmt 1 view .LVU129
+ 474              		.loc 1 157 19 is_stmt 0 view .LVU130
+ 475 0016 41EA8421 		orr	r1, r1, r4, lsl #10
+ 476              	.LVL60:
+ 158:Core/Src/Servo.c ****     temp_value_h = (unsigned char)(temp_velocity >> 8); // 将16bit数据拆为2个8bit数据 // (S
+ 477              		.loc 1 158 5 is_stmt 1 view .LVU131
+ 478              		.loc 1 158 18 is_stmt 0 view .LVU132
+ 479 001a C1F30726 		ubfx	r6, r1, #8, #8
+ 480              	.LVL61:
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 12
+
+
+ 159:Core/Src/Servo.c ****     temp_value_l = (unsigned char)temp_velocity;
+ 481              		.loc 1 159 5 is_stmt 1 view .LVU133
+ 482              		.loc 1 159 18 is_stmt 0 view .LVU134
+ 483 001e CCB2     		uxtb	r4, r1
+ 484              	.LVL62:
+ 160:Core/Src/Servo.c ****     UART_PutChar(0xFF);         // 发送启动符号0xFF // (Send the start byte 0xFF)
+ 485              		.loc 1 160 5 is_stmt 1 view .LVU135
+ 486 0020 FF20     		movs	r0, #255
+ 487              	.LVL63:
+ 488              		.loc 1 160 5 is_stmt 0 view .LVU136
+ 489 0022 FFF7FEFF 		bl	UART_PutChar
+ 490              	.LVL64:
+ 161:Core/Src/Servo.c ****     UART_PutChar(0xFF);         // 发送启动符号0xFF // (Send the start byte 0xFF)
+ 491              		.loc 1 161 5 is_stmt 1 view .LVU137
+ 492 0026 FF20     		movs	r0, #255
+ 493 0028 FFF7FEFF 		bl	UART_PutChar
+ 494              	.LVL65:
+ 162:Core/Src/Servo.c ****     UART_PutChar(id);           // 发送id // (Send the servo’s ID)
+ 495              		.loc 1 162 5 view .LVU138
+ 496 002c 2846     		mov	r0, r5
+ 497 002e FFF7FEFF 		bl	UART_PutChar
+ 498              	.LVL66:
+ 163:Core/Src/Servo.c ****     UART_PutChar(5);            // 发送数据长度为参数长度+2，参数长度为3 // (Send 
+ 499              		.loc 1 163 5 view .LVU139
+ 500 0032 0520     		movs	r0, #5
+ 501 0034 FFF7FEFF 		bl	UART_PutChar
+ 502              	.LVL67:
+ 164:Core/Src/Servo.c ****     UART_PutChar(0x03);         // 命令数据为“WRITE DATA” // (Send command “WRITE DATA�
+ 503              		.loc 1 164 5 view .LVU140
+ 504 0038 0320     		movs	r0, #3
+ 505 003a FFF7FEFF 		bl	UART_PutChar
+ 506              	.LVL68:
+ 165:Core/Src/Servo.c ****     UART_PutChar(0x20);         // 舵机控制寄存器首地址 // (Send the start address of con
+ 507              		.loc 1 165 5 view .LVU141
+ 508 003e 2020     		movs	r0, #32
+ 509 0040 FFF7FEFF 		bl	UART_PutChar
+ 510              	.LVL69:
+ 166:Core/Src/Servo.c ****     UART_PutChar(temp_value_l); // 发送速度数据低位 // (Send the low byte of velocity)
+ 511              		.loc 1 166 5 view .LVU142
+ 512 0044 2046     		mov	r0, r4
+ 513 0046 FFF7FEFF 		bl	UART_PutChar
+ 514              	.LVL70:
+ 167:Core/Src/Servo.c ****     UART_PutChar(temp_value_h); // 发送速度数据高位 // (Send the high byte of velocity)
+ 515              		.loc 1 167 5 view .LVU143
+ 516 004a 3046     		mov	r0, r6
+ 517 004c FFF7FEFF 		bl	UART_PutChar
+ 518              	.LVL71:
+ 168:Core/Src/Servo.c ****     temp_sum = id + 5 + 0x03 + 0x20 + temp_value_l + temp_value_h;
+ 519              		.loc 1 168 5 view .LVU144
+ 520              		.loc 1 168 37 is_stmt 0 view .LVU145
+ 521 0050 6019     		adds	r0, r4, r5
+ 522 0052 C0B2     		uxtb	r0, r0
+ 523              		.loc 1 168 52 view .LVU146
+ 524 0054 3044     		add	r0, r0, r6
+ 525 0056 C0B2     		uxtb	r0, r0
+ 526              		.loc 1 168 14 view .LVU147
+ 527 0058 2830     		adds	r0, r0, #40
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 13
+
+
+ 528 005a C0B2     		uxtb	r0, r0
+ 529              	.LVL72:
+ 169:Core/Src/Servo.c ****     temp_sum = ~temp_sum;    // 计算校验和 // (Calculate the checksum)
+ 530              		.loc 1 169 5 is_stmt 1 view .LVU148
+ 531              		.loc 1 169 14 is_stmt 0 view .LVU149
+ 532 005c C043     		mvns	r0, r0
+ 533              	.LVL73:
+ 170:Core/Src/Servo.c ****     UART_PutChar(temp_sum); // 发送校验和 // (Send the checksum)
+ 534              		.loc 1 170 5 is_stmt 1 view .LVU150
+ 535 005e C0B2     		uxtb	r0, r0
+ 536              		.loc 1 170 5 is_stmt 0 view .LVU151
+ 537 0060 FFF7FEFF 		bl	UART_PutChar
+ 538              	.LVL74:
+ 171:Core/Src/Servo.c ****     CyDelay(WAITING_TIME);
+ 539              		.loc 1 171 5 is_stmt 1 view .LVU152
+ 540 0064 0220     		movs	r0, #2
+ 541 0066 FFF7FEFF 		bl	CyDelay
+ 542              	.LVL75:
+ 172:Core/Src/Servo.c **** }
+ 543              		.loc 1 172 1 is_stmt 0 view .LVU153
+ 544 006a 70BD     		pop	{r4, r5, r6, pc}
+ 545              	.LVL76:
+ 546              	.L25:
+ 145:Core/Src/Servo.c ****         temp_sign = 1;             // 设置负数符号标志 // (Set negative flag)
+ 547              		.loc 1 145 9 is_stmt 1 view .LVU154
+ 145:Core/Src/Servo.c ****         temp_sign = 1;             // 设置负数符号标志 // (Set negative flag)
+ 548              		.loc 1 145 23 is_stmt 0 view .LVU155
+ 549 006c 4942     		rsbs	r1, r1, #0
+ 550 006e 89B2     		uxth	r1, r1
+ 551              	.LVL77:
+ 146:Core/Src/Servo.c ****     }
+ 552              		.loc 1 146 9 is_stmt 1 view .LVU156
+ 146:Core/Src/Servo.c ****     }
+ 553              		.loc 1 146 19 is_stmt 0 view .LVU157
+ 554 0070 0124     		movs	r4, #1
+ 555 0072 CBE7     		b	.L21
+ 556              		.cfi_endproc
+ 557              	.LFE70:
+ 559              		.section	.text.set_servo_limit,"ax",%progbits
+ 560              		.align	1
+ 561              		.global	set_servo_limit
+ 562              		.syntax unified
+ 563              		.thumb
+ 564              		.thumb_func
+ 565              		.fpu softvfp
+ 567              	set_servo_limit:
+ 568              	.LVL78:
+ 569              	.LFB71:
+ 173:Core/Src/Servo.c **** 
+ 174:Core/Src/Servo.c **** void set_servo_limit(unsigned char id, unsigned short int cw_limit, unsigned short int ccw_limit)
+ 175:Core/Src/Servo.c **** {
+ 570              		.loc 1 175 1 is_stmt 1 view -0
+ 571              		.cfi_startproc
+ 572              		@ args = 0, pretend = 0, frame = 0
+ 573              		@ frame_needed = 0, uses_anonymous_args = 0
+ 574              		.loc 1 175 1 is_stmt 0 view .LVU159
+ 575 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 14
+
+
+ 576              	.LCFI6:
+ 577              		.cfi_def_cfa_offset 24
+ 578              		.cfi_offset 4, -24
+ 579              		.cfi_offset 5, -20
+ 580              		.cfi_offset 6, -16
+ 581              		.cfi_offset 7, -12
+ 582              		.cfi_offset 8, -8
+ 583              		.cfi_offset 14, -4
+ 584 0004 0746     		mov	r7, r0
+ 176:Core/Src/Servo.c ****     unsigned short int temp_ccw = 0; // 临时速度，用于进行方向判别 // (temp velocity t
+ 585              		.loc 1 176 5 is_stmt 1 view .LVU160
+ 586              	.LVL79:
+ 177:Core/Src/Servo.c ****     unsigned short int temp_cw = 0;
+ 587              		.loc 1 177 5 view .LVU161
+ 178:Core/Src/Servo.c ****     unsigned char temp_ccw_h = 0; // 待发送数据h位 // (h bits to be sended)
+ 588              		.loc 1 178 5 view .LVU162
+ 179:Core/Src/Servo.c ****     unsigned char temp_ccw_l = 0; // 待发送数据l位 // (l bits to be sended)
+ 589              		.loc 1 179 5 view .LVU163
+ 180:Core/Src/Servo.c ****     unsigned char temp_cw_h = 0;
+ 590              		.loc 1 180 5 view .LVU164
+ 181:Core/Src/Servo.c ****     unsigned char temp_cw_l = 0;
+ 591              		.loc 1 181 5 view .LVU165
+ 182:Core/Src/Servo.c ****     unsigned char temp_sum = 0; // 校验和寄存变量 // (temp variable to save checksum)
+ 592              		.loc 1 182 5 view .LVU166
+ 183:Core/Src/Servo.c ****     if (ccw_limit > 1023)
+ 593              		.loc 1 183 5 view .LVU167
+ 594              		.loc 1 183 8 is_stmt 0 view .LVU168
+ 595 0006 B2F5806F 		cmp	r2, #1024
+ 596 000a 01D3     		bcc	.L27
+ 184:Core/Src/Servo.c ****     {
+ 185:Core/Src/Servo.c ****         temp_ccw = 1023;
+ 597              		.loc 1 185 18 view .LVU169
+ 598 000c 40F2FF32 		movw	r2, #1023
+ 599              	.LVL80:
+ 600              	.L27:
+ 186:Core/Src/Servo.c ****         // 限制速度值在可用范围内 // (limit the velocity to 0-1023)
+ 187:Core/Src/Servo.c ****     }
+ 188:Core/Src/Servo.c ****     else
+ 189:Core/Src/Servo.c ****     {
+ 190:Core/Src/Servo.c ****         temp_ccw = ccw_limit;
+ 191:Core/Src/Servo.c ****     }
+ 192:Core/Src/Servo.c ****     if (cw_limit > 1023)
+ 601              		.loc 1 192 5 is_stmt 1 view .LVU170
+ 602              		.loc 1 192 8 is_stmt 0 view .LVU171
+ 603 0010 B1F5806F 		cmp	r1, #1024
+ 604 0014 01D3     		bcc	.L28
+ 193:Core/Src/Servo.c ****     {
+ 194:Core/Src/Servo.c ****         temp_cw = 1023;
+ 605              		.loc 1 194 17 view .LVU172
+ 606 0016 40F2FF31 		movw	r1, #1023
+ 607              	.LVL81:
+ 608              	.L28:
+ 195:Core/Src/Servo.c ****     }
+ 196:Core/Src/Servo.c ****     else
+ 197:Core/Src/Servo.c ****     {
+ 198:Core/Src/Servo.c ****         temp_cw = cw_limit;
+ 199:Core/Src/Servo.c ****     }
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 15
+
+
+ 200:Core/Src/Servo.c ****     temp_ccw_h = (unsigned char)(temp_ccw >> 8);
+ 609              		.loc 1 200 5 is_stmt 1 view .LVU173
+ 610              		.loc 1 200 16 is_stmt 0 view .LVU174
+ 611 001a 150A     		lsrs	r5, r2, #8
+ 612              	.LVL82:
+ 201:Core/Src/Servo.c ****     temp_ccw_l = (unsigned char)temp_ccw; // 将16bit数据拆为2个8bit数据 // (split 16 bits t
+ 613              		.loc 1 201 5 is_stmt 1 view .LVU175
+ 614              		.loc 1 201 16 is_stmt 0 view .LVU176
+ 615 001c D6B2     		uxtb	r6, r2
+ 616              	.LVL83:
+ 202:Core/Src/Servo.c ****     temp_cw_h = (unsigned char)(temp_cw >> 8);
+ 617              		.loc 1 202 5 is_stmt 1 view .LVU177
+ 618              		.loc 1 202 15 is_stmt 0 view .LVU178
+ 619 001e 4FEA1128 		lsr	r8, r1, #8
+ 620              	.LVL84:
+ 203:Core/Src/Servo.c ****     temp_cw_l = (unsigned char)temp_cw; // 将16bit数据拆为2个8bit数据 // (split 16 bits to 
+ 621              		.loc 1 203 5 is_stmt 1 view .LVU179
+ 622              		.loc 1 203 15 is_stmt 0 view .LVU180
+ 623 0022 CCB2     		uxtb	r4, r1
+ 624              	.LVL85:
+ 204:Core/Src/Servo.c ****     // PORTA &= ~_BV(PA1);
+ 205:Core/Src/Servo.c ****     // PORTA |= _BV(PA0); // 使总线处于主机发送状态 // (Set the bus to host transmit sta
+ 206:Core/Src/Servo.c ****     // UCSR0A |= (1<<TXC0); // 清除UART0写完成标志 // (Clear written flag of UART0)
+ 207:Core/Src/Servo.c ****     UART_1_PutChar(0xFF);       // 发送启动符号0xFF // (Send the start byte 0xff)
+ 625              		.loc 1 207 5 is_stmt 1 view .LVU181
+ 626 0024 FF20     		movs	r0, #255
+ 627              	.LVL86:
+ 628              		.loc 1 207 5 is_stmt 0 view .LVU182
+ 629 0026 FFF7FEFF 		bl	UART_1_PutChar
+ 630              	.LVL87:
+ 208:Core/Src/Servo.c ****     UART_1_PutChar(0xFF);       // 发送启动符号0xFF // (Send the start byte 0xff)
+ 631              		.loc 1 208 5 is_stmt 1 view .LVU183
+ 632 002a FF20     		movs	r0, #255
+ 633 002c FFF7FEFF 		bl	UART_1_PutChar
+ 634              	.LVL88:
+ 209:Core/Src/Servo.c ****     UART_1_PutChar(id);         // 发送id // (Send the servo’s ID)
+ 635              		.loc 1 209 5 view .LVU184
+ 636 0030 3846     		mov	r0, r7
+ 637 0032 FFF7FEFF 		bl	UART_1_PutChar
+ 638              	.LVL89:
+ 210:Core/Src/Servo.c ****     UART_1_PutChar(7);          // 发送数据长度为参数长度+2，参数长度为3 // (Send 
+ 639              		.loc 1 210 5 view .LVU185
+ 640 0036 0720     		movs	r0, #7
+ 641 0038 FFF7FEFF 		bl	UART_1_PutChar
+ 642              	.LVL90:
+ 211:Core/Src/Servo.c ****     UART_1_PutChar(0x03);       // 命令数据为“WRITE DATA” // (Send command “WRITE DATA�
+ 643              		.loc 1 211 5 view .LVU186
+ 644 003c 0320     		movs	r0, #3
+ 645 003e FFF7FEFF 		bl	UART_1_PutChar
+ 646              	.LVL91:
+ 212:Core/Src/Servo.c ****     UART_1_PutChar(0x06);       // 舵机控制寄存器首地址
+ 647              		.loc 1 212 5 view .LVU187
+ 648 0042 0620     		movs	r0, #6
+ 649 0044 FFF7FEFF 		bl	UART_1_PutChar
+ 650              	.LVL92:
+ 213:Core/Src/Servo.c ****     UART_1_PutChar(temp_cw_l);  // 发送顺时针位置限制低位 // (Send the low byte of clock
+ 651              		.loc 1 213 5 view .LVU188
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 16
+
+
+ 652 0048 2046     		mov	r0, r4
+ 653 004a FFF7FEFF 		bl	UART_1_PutChar
+ 654              	.LVL93:
+ 214:Core/Src/Servo.c ****     UART_1_PutChar(temp_cw_h);  // 发送顺时针位置限制高位 //(Send the high byte of clock
+ 655              		.loc 1 214 5 view .LVU189
+ 656 004e 4046     		mov	r0, r8
+ 657 0050 FFF7FEFF 		bl	UART_1_PutChar
+ 658              	.LVL94:
+ 215:Core/Src/Servo.c ****     UART_1_PutChar(temp_ccw_l); // 发送逆时针位置限制低位 // (Send the low byte of count
+ 659              		.loc 1 215 5 view .LVU190
+ 660 0054 3046     		mov	r0, r6
+ 661 0056 FFF7FEFF 		bl	UART_1_PutChar
+ 662              	.LVL95:
+ 216:Core/Src/Servo.c ****     UART_1_PutChar(temp_ccw_h); // 发送逆时针位置限制高位 // (Send the low byte of count
+ 663              		.loc 1 216 5 view .LVU191
+ 664 005a 2846     		mov	r0, r5
+ 665 005c FFF7FEFF 		bl	UART_1_PutChar
+ 666              	.LVL96:
+ 217:Core/Src/Servo.c ****     temp_sum = id + 7 + 0x03 + 0x06 + temp_cw_l + temp_cw_h + temp_ccw_l + temp_ccw_h;
+ 667              		.loc 1 217 5 view .LVU192
+ 668              		.loc 1 217 37 is_stmt 0 view .LVU193
+ 669 0060 E019     		adds	r0, r4, r7
+ 670 0062 C0B2     		uxtb	r0, r0
+ 671              		.loc 1 217 49 view .LVU194
+ 672 0064 4044     		add	r0, r0, r8
+ 673 0066 C0B2     		uxtb	r0, r0
+ 674              		.loc 1 217 61 view .LVU195
+ 675 0068 3044     		add	r0, r0, r6
+ 676 006a C0B2     		uxtb	r0, r0
+ 677              		.loc 1 217 74 view .LVU196
+ 678 006c 2844     		add	r0, r0, r5
+ 679 006e C0B2     		uxtb	r0, r0
+ 680              		.loc 1 217 14 view .LVU197
+ 681 0070 1030     		adds	r0, r0, #16
+ 682 0072 C0B2     		uxtb	r0, r0
+ 683              	.LVL97:
+ 218:Core/Src/Servo.c ****     temp_sum = ~temp_sum;   // 计算校验和 // (Calculate the checksum)
+ 684              		.loc 1 218 5 is_stmt 1 view .LVU198
+ 685              		.loc 1 218 14 is_stmt 0 view .LVU199
+ 686 0074 C043     		mvns	r0, r0
+ 687              	.LVL98:
+ 219:Core/Src/Servo.c ****     UART_1_PutChar(temp_sum); // 发送校验和 // (Send checksum)
+ 688              		.loc 1 219 5 is_stmt 1 view .LVU200
+ 689 0076 C0B2     		uxtb	r0, r0
+ 690              		.loc 1 219 5 is_stmt 0 view .LVU201
+ 691 0078 FFF7FEFF 		bl	UART_1_PutChar
+ 692              	.LVL99:
+ 220:Core/Src/Servo.c ****     // while ( !( UCSR0A & (1<<TXC0)) ) ;
+ 221:Core/Src/Servo.c ****     // PORTA |= _BV(PA1);
+ 222:Core/Src/Servo.c ****     // PORTA &= ~_BV(PA0); // 使总线处于主机接收状态 // (Set the UART_1 bus to host rece
+ 223:Core/Src/Servo.c ****     CyDelay(WAITING_TIME); // 送完成后，总线会被从机占用，反馈应答数据，所以
+ 693              		.loc 1 223 5 is_stmt 1 view .LVU202
+ 694 007c 0220     		movs	r0, #2
+ 695 007e FFF7FEFF 		bl	CyDelay
+ 696              	.LVL100:
+ 224:Core/Src/Servo.c **** }
+ 697              		.loc 1 224 1 is_stmt 0 view .LVU203
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 17
+
+
+ 698 0082 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 699              		.loc 1 224 1 view .LVU204
+ 700              		.cfi_endproc
+ 701              	.LFE71:
+ 703              		.section	.text.set_servo_pos,"ax",%progbits
+ 704              		.align	1
+ 705              		.global	set_servo_pos
+ 706              		.syntax unified
+ 707              		.thumb
+ 708              		.thumb_func
+ 709              		.fpu softvfp
+ 711              	set_servo_pos:
+ 712              	.LVL101:
+ 713              	.LFB72:
+ 225:Core/Src/Servo.c **** 
+ 226:Core/Src/Servo.c **** void set_servo_pos(unsigned char id, unsigned short int position, unsigned short int velocity)
+ 227:Core/Src/Servo.c **** {
+ 714              		.loc 1 227 1 is_stmt 1 view -0
+ 715              		.cfi_startproc
+ 716              		@ args = 0, pretend = 0, frame = 0
+ 717              		@ frame_needed = 0, uses_anonymous_args = 0
+ 718              		.loc 1 227 1 is_stmt 0 view .LVU206
+ 719 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 720              	.LCFI7:
+ 721              		.cfi_def_cfa_offset 24
+ 722              		.cfi_offset 4, -24
+ 723              		.cfi_offset 5, -20
+ 724              		.cfi_offset 6, -16
+ 725              		.cfi_offset 7, -12
+ 726              		.cfi_offset 8, -8
+ 727              		.cfi_offset 14, -4
+ 728 0004 0746     		mov	r7, r0
+ 228:Core/Src/Servo.c ****     unsigned short int temp_velocity = 0; // 临时速度，用于进行方向判别 // (temp veloc
+ 729              		.loc 1 228 5 is_stmt 1 view .LVU207
+ 730              	.LVL102:
+ 229:Core/Src/Servo.c ****     unsigned short int temp_position = 0;
+ 731              		.loc 1 229 5 view .LVU208
+ 230:Core/Src/Servo.c ****     unsigned char temp_velocity_h = 0; // 待发送数据h位 // (h bits to be sended)
+ 732              		.loc 1 230 5 view .LVU209
+ 231:Core/Src/Servo.c ****     unsigned char temp_velocity_l = 0; // 待发送数据l位 // (l bits to be sended)
+ 733              		.loc 1 231 5 view .LVU210
+ 232:Core/Src/Servo.c ****     unsigned char temp_position_h = 0;
+ 734              		.loc 1 232 5 view .LVU211
+ 233:Core/Src/Servo.c ****     unsigned char temp_position_l = 0;
+ 735              		.loc 1 233 5 view .LVU212
+ 234:Core/Src/Servo.c ****     unsigned char temp_sum = 0; // 校验和寄存变量 // (temp variable to save checksum)
+ 736              		.loc 1 234 5 view .LVU213
+ 235:Core/Src/Servo.c ****     if (velocity > 1023)
+ 737              		.loc 1 235 5 view .LVU214
+ 738              		.loc 1 235 8 is_stmt 0 view .LVU215
+ 739 0006 B2F5806F 		cmp	r2, #1024
+ 740 000a 01D3     		bcc	.L31
+ 236:Core/Src/Servo.c ****     {
+ 237:Core/Src/Servo.c ****         temp_velocity = 1023;
+ 741              		.loc 1 237 23 view .LVU216
+ 742 000c 40F2FF32 		movw	r2, #1023
+ 743              	.LVL103:
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 18
+
+
+ 744              	.L31:
+ 238:Core/Src/Servo.c ****         // 限制速度值在可用范围内 // (limit the velocity to 0-1023)
+ 239:Core/Src/Servo.c ****     }
+ 240:Core/Src/Servo.c ****     else
+ 241:Core/Src/Servo.c ****     {
+ 242:Core/Src/Servo.c ****         temp_velocity = velocity;
+ 243:Core/Src/Servo.c ****     }
+ 244:Core/Src/Servo.c ****     if (position > 1023)
+ 745              		.loc 1 244 5 is_stmt 1 view .LVU217
+ 746              		.loc 1 244 8 is_stmt 0 view .LVU218
+ 747 0010 B1F5806F 		cmp	r1, #1024
+ 748 0014 01D3     		bcc	.L32
+ 245:Core/Src/Servo.c ****     {
+ 246:Core/Src/Servo.c ****         temp_position = 1023;
+ 749              		.loc 1 246 23 view .LVU219
+ 750 0016 40F2FF31 		movw	r1, #1023
+ 751              	.LVL104:
+ 752              	.L32:
+ 247:Core/Src/Servo.c ****     }
+ 248:Core/Src/Servo.c ****     else
+ 249:Core/Src/Servo.c ****     {
+ 250:Core/Src/Servo.c ****         temp_position = position;
+ 251:Core/Src/Servo.c ****     }
+ 252:Core/Src/Servo.c ****     temp_velocity_h = (unsigned char)(temp_velocity >> 8);
+ 753              		.loc 1 252 5 is_stmt 1 view .LVU220
+ 754              		.loc 1 252 21 is_stmt 0 view .LVU221
+ 755 001a 150A     		lsrs	r5, r2, #8
+ 756              	.LVL105:
+ 253:Core/Src/Servo.c ****     temp_velocity_l = (unsigned char)temp_velocity; // 将16bit数据拆为2个8bit数据 // (split
+ 757              		.loc 1 253 5 is_stmt 1 view .LVU222
+ 758              		.loc 1 253 21 is_stmt 0 view .LVU223
+ 759 001c D6B2     		uxtb	r6, r2
+ 760              	.LVL106:
+ 254:Core/Src/Servo.c ****     temp_position_h = (unsigned char)(temp_position >> 8);
+ 761              		.loc 1 254 5 is_stmt 1 view .LVU224
+ 762              		.loc 1 254 21 is_stmt 0 view .LVU225
+ 763 001e 4FEA1128 		lsr	r8, r1, #8
+ 764              	.LVL107:
+ 255:Core/Src/Servo.c ****     temp_position_l = (unsigned char)temp_position; // 将16bit数据拆为2个8bit数据 // (split
+ 765              		.loc 1 255 5 is_stmt 1 view .LVU226
+ 766              		.loc 1 255 21 is_stmt 0 view .LVU227
+ 767 0022 CCB2     		uxtb	r4, r1
+ 768              	.LVL108:
+ 256:Core/Src/Servo.c ****     // PORTA &= ~_BV(PA1);
+ 257:Core/Src/Servo.c ****     // PORTA |= _BV(PA0); // 使总线处于主机发送状态 // (Set the bus to host transmit sta
+ 258:Core/Src/Servo.c ****     // UCSR0A |= (1<<TXC0); // 清除UART_10写完成标志 // (Clear written flag of UART_10)
+ 259:Core/Src/Servo.c ****     UART_1_PutChar(0xFF);            // 发送启动符号0xFF // (Send the start byte 0xff)
+ 769              		.loc 1 259 5 is_stmt 1 view .LVU228
+ 770 0024 FF20     		movs	r0, #255
+ 771              	.LVL109:
+ 772              		.loc 1 259 5 is_stmt 0 view .LVU229
+ 773 0026 FFF7FEFF 		bl	UART_1_PutChar
+ 774              	.LVL110:
+ 260:Core/Src/Servo.c ****     UART_1_PutChar(0xFF);            // 发送启动符号0xFF // (Send the start byte 0xff)
+ 775              		.loc 1 260 5 is_stmt 1 view .LVU230
+ 776 002a FF20     		movs	r0, #255
+ 777 002c FFF7FEFF 		bl	UART_1_PutChar
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 19
+
+
+ 778              	.LVL111:
+ 261:Core/Src/Servo.c ****     UART_1_PutChar(id);              // 发送id // (Send the servo’s ID)
+ 779              		.loc 1 261 5 view .LVU231
+ 780 0030 3846     		mov	r0, r7
+ 781 0032 FFF7FEFF 		bl	UART_1_PutChar
+ 782              	.LVL112:
+ 262:Core/Src/Servo.c ****     UART_1_PutChar(7);               // 发送数据长度为参数长度+2，参数长度为3 // (
+ 783              		.loc 1 262 5 view .LVU232
+ 784 0036 0720     		movs	r0, #7
+ 785 0038 FFF7FEFF 		bl	UART_1_PutChar
+ 786              	.LVL113:
+ 263:Core/Src/Servo.c ****     UART_1_PutChar(0x03);            // 命令数据为“WRITE DATA” // (Send command “WRITE D
+ 787              		.loc 1 263 5 view .LVU233
+ 788 003c 0320     		movs	r0, #3
+ 789 003e FFF7FEFF 		bl	UART_1_PutChar
+ 790              	.LVL114:
+ 264:Core/Src/Servo.c ****     UART_1_PutChar(0x1E);            // 舵机控制寄存器首地址
+ 791              		.loc 1 264 5 view .LVU234
+ 792 0042 1E20     		movs	r0, #30
+ 793 0044 FFF7FEFF 		bl	UART_1_PutChar
+ 794              	.LVL115:
+ 265:Core/Src/Servo.c ****     UART_1_PutChar(temp_position_l); // 发送顺时针位置限制低位 // (Send the low byte of 
+ 795              		.loc 1 265 5 view .LVU235
+ 796 0048 2046     		mov	r0, r4
+ 797 004a FFF7FEFF 		bl	UART_1_PutChar
+ 798              	.LVL116:
+ 266:Core/Src/Servo.c ****     UART_1_PutChar(temp_position_h); // 发送顺时针位置限制高位 //(Send the high byte of 
+ 799              		.loc 1 266 5 view .LVU236
+ 800 004e 4046     		mov	r0, r8
+ 801 0050 FFF7FEFF 		bl	UART_1_PutChar
+ 802              	.LVL117:
+ 267:Core/Src/Servo.c ****     UART_1_PutChar(temp_velocity_l); // 发送逆时针位置限制低位 // (Send the low byte of 
+ 803              		.loc 1 267 5 view .LVU237
+ 804 0054 3046     		mov	r0, r6
+ 805 0056 FFF7FEFF 		bl	UART_1_PutChar
+ 806              	.LVL118:
+ 268:Core/Src/Servo.c ****     UART_1_PutChar(temp_velocity_h); // 发送逆时针位置限制高位 // (Send the low byte of 
+ 807              		.loc 1 268 5 view .LVU238
+ 808 005a 2846     		mov	r0, r5
+ 809 005c FFF7FEFF 		bl	UART_1_PutChar
+ 810              	.LVL119:
+ 269:Core/Src/Servo.c ****     temp_sum = id + 7 + 0x03 + 0x1E + temp_position_l + temp_position_h + temp_velocity_l + temp_ve
+ 811              		.loc 1 269 5 view .LVU239
+ 812              		.loc 1 269 37 is_stmt 0 view .LVU240
+ 813 0060 E019     		adds	r0, r4, r7
+ 814 0062 C0B2     		uxtb	r0, r0
+ 815              		.loc 1 269 55 view .LVU241
+ 816 0064 4044     		add	r0, r0, r8
+ 817 0066 C0B2     		uxtb	r0, r0
+ 818              		.loc 1 269 73 view .LVU242
+ 819 0068 3044     		add	r0, r0, r6
+ 820 006a C0B2     		uxtb	r0, r0
+ 821              		.loc 1 269 91 view .LVU243
+ 822 006c 2844     		add	r0, r0, r5
+ 823 006e C0B2     		uxtb	r0, r0
+ 824              		.loc 1 269 14 view .LVU244
+ 825 0070 2830     		adds	r0, r0, #40
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 20
+
+
+ 826 0072 C0B2     		uxtb	r0, r0
+ 827              	.LVL120:
+ 270:Core/Src/Servo.c ****     temp_sum = ~temp_sum;   // 计算校验和 // (Calculate the checksum)
+ 828              		.loc 1 270 5 is_stmt 1 view .LVU245
+ 829              		.loc 1 270 14 is_stmt 0 view .LVU246
+ 830 0074 C043     		mvns	r0, r0
+ 831              	.LVL121:
+ 271:Core/Src/Servo.c ****     UART_1_PutChar(temp_sum); // 发送校验和 // (Send checksum)
+ 832              		.loc 1 271 5 is_stmt 1 view .LVU247
+ 833 0076 C0B2     		uxtb	r0, r0
+ 834              		.loc 1 271 5 is_stmt 0 view .LVU248
+ 835 0078 FFF7FEFF 		bl	UART_1_PutChar
+ 836              	.LVL122:
+ 272:Core/Src/Servo.c ****     // while ( !( UCSR0A & (1<<TXC0)) ) ;
+ 273:Core/Src/Servo.c ****     // PORTA |= _BV(PA1);
+ 274:Core/Src/Servo.c ****     // PORTA &= ~_BV(PA0); // 使总线处于主机接收状态 // (Set the UART_1 bus to host rece
+ 275:Core/Src/Servo.c ****     CyDelay(WAITING_TIME); // 送完成后，总线会被从机占用，反馈应答数据，所以
+ 837              		.loc 1 275 5 is_stmt 1 view .LVU249
+ 838 007c 0220     		movs	r0, #2
+ 839 007e FFF7FEFF 		bl	CyDelay
+ 840              	.LVL123:
+ 276:Core/Src/Servo.c **** }
+ 841              		.loc 1 276 1 is_stmt 0 view .LVU250
+ 842 0082 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 843              		.loc 1 276 1 view .LVU251
+ 844              		.cfi_endproc
+ 845              	.LFE72:
+ 847              		.section	.text.set_servo_velocity,"ax",%progbits
+ 848              		.align	1
+ 849              		.global	set_servo_velocity
+ 850              		.syntax unified
+ 851              		.thumb
+ 852              		.thumb_func
+ 853              		.fpu softvfp
+ 855              	set_servo_velocity:
+ 856              	.LVL124:
+ 857              	.LFB73:
+ 277:Core/Src/Servo.c **** 
+ 278:Core/Src/Servo.c **** void set_servo_velocity(unsigned char id, signed short int velocity)
+ 279:Core/Src/Servo.c **** {
+ 858              		.loc 1 279 1 is_stmt 1 view -0
+ 859              		.cfi_startproc
+ 860              		@ args = 0, pretend = 0, frame = 0
+ 861              		@ frame_needed = 0, uses_anonymous_args = 0
+ 862              		.loc 1 279 1 is_stmt 0 view .LVU253
+ 863 0000 70B5     		push	{r4, r5, r6, lr}
+ 864              	.LCFI8:
+ 865              		.cfi_def_cfa_offset 16
+ 866              		.cfi_offset 4, -16
+ 867              		.cfi_offset 5, -12
+ 868              		.cfi_offset 6, -8
+ 869              		.cfi_offset 14, -4
+ 870 0002 0546     		mov	r5, r0
+ 280:Core/Src/Servo.c ****     unsigned char temp_sign = 0;          // 临时符号，用于进行方向判别 // (temp varia
+ 871              		.loc 1 280 5 is_stmt 1 view .LVU254
+ 872              	.LVL125:
+ 281:Core/Src/Servo.c ****     unsigned short int temp_velocity = 0; // 临时速度，用于进行方向判别 // (temp veloc
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 21
+
+
+ 873              		.loc 1 281 5 view .LVU255
+ 282:Core/Src/Servo.c ****     unsigned char temp_value_h = 0;       // 待发送数据h位 // (h bits to send)
+ 874              		.loc 1 282 5 view .LVU256
+ 283:Core/Src/Servo.c ****     unsigned char temp_value_l = 0;       // 待发送数据l位 // (l bits to send)
+ 875              		.loc 1 283 5 view .LVU257
+ 284:Core/Src/Servo.c ****     unsigned char temp_sum = 0;           // 校验和寄存变量 // (temp variable to save checks
+ 876              		.loc 1 284 5 view .LVU258
+ 285:Core/Src/Servo.c ****     if (velocity < 0)
+ 877              		.loc 1 285 5 view .LVU259
+ 878              		.loc 1 285 8 is_stmt 0 view .LVU260
+ 879 0004 0029     		cmp	r1, #0
+ 880              	.LVL126:
+ 881              		.loc 1 285 8 view .LVU261
+ 882 0006 31DB     		blt	.L40
+ 286:Core/Src/Servo.c ****     {
+ 287:Core/Src/Servo.c ****         temp_velocity = -velocity; // 如果为负数，则取绝对值 // (if negative, get the ab
+ 288:Core/Src/Servo.c ****         temp_sign = 1;             // 设置负数符号标志 // (Set negative flag)
+ 289:Core/Src/Servo.c ****     }
+ 290:Core/Src/Servo.c ****     else
+ 291:Core/Src/Servo.c ****     {
+ 292:Core/Src/Servo.c ****         temp_velocity = velocity;
+ 883              		.loc 1 292 9 is_stmt 1 view .LVU262
+ 884              		.loc 1 292 23 is_stmt 0 view .LVU263
+ 885 0008 89B2     		uxth	r1, r1
+ 886              	.LVL127:
+ 293:Core/Src/Servo.c ****         temp_sign = 0; // 设置正数符号标志 // (Set positive flag)
+ 887              		.loc 1 293 9 is_stmt 1 view .LVU264
+ 888              		.loc 1 293 19 is_stmt 0 view .LVU265
+ 889 000a 0024     		movs	r4, #0
+ 890              	.LVL128:
+ 891              	.L36:
+ 294:Core/Src/Servo.c ****     }
+ 295:Core/Src/Servo.c ****     if (temp_velocity > 1023)
+ 892              		.loc 1 295 5 is_stmt 1 view .LVU266
+ 893              		.loc 1 295 8 is_stmt 0 view .LVU267
+ 894 000c B1F5806F 		cmp	r1, #1024
+ 895 0010 01D3     		bcc	.L37
+ 296:Core/Src/Servo.c ****     {
+ 297:Core/Src/Servo.c ****         temp_velocity = 1023; // 限制速度值在可用范围内 // (Limit the velocity to 0-1023
+ 896              		.loc 1 297 23 view .LVU268
+ 897 0012 40F2FF31 		movw	r1, #1023
+ 898              	.LVL129:
+ 899              	.L37:
+ 298:Core/Src/Servo.c ****     }                         // 设置bit10为方向位，这时temp_velocity就是待发送的速
+ 299:Core/Src/Servo.c ****     temp_velocity |= (temp_sign << 10);
+ 900              		.loc 1 299 5 is_stmt 1 view .LVU269
+ 901              		.loc 1 299 19 is_stmt 0 view .LVU270
+ 902 0016 41EA8421 		orr	r1, r1, r4, lsl #10
+ 903              	.LVL130:
+ 300:Core/Src/Servo.c ****     temp_value_h = (unsigned char)(temp_velocity >> 8); // 将16bit数据拆为2个8bit数据 // (S
+ 904              		.loc 1 300 5 is_stmt 1 view .LVU271
+ 905              		.loc 1 300 18 is_stmt 0 view .LVU272
+ 906 001a C1F30726 		ubfx	r6, r1, #8, #8
+ 907              	.LVL131:
+ 301:Core/Src/Servo.c ****     temp_value_l = (unsigned char)temp_velocity;
+ 908              		.loc 1 301 5 is_stmt 1 view .LVU273
+ 909              		.loc 1 301 18 is_stmt 0 view .LVU274
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 22
+
+
+ 910 001e CCB2     		uxtb	r4, r1
+ 911              	.LVL132:
+ 302:Core/Src/Servo.c ****     UART_1_PutChar(0xFF);         // 发送启动符号0xFF // (Send the start byte 0xFF)
+ 912              		.loc 1 302 5 is_stmt 1 view .LVU275
+ 913 0020 FF20     		movs	r0, #255
+ 914              	.LVL133:
+ 915              		.loc 1 302 5 is_stmt 0 view .LVU276
+ 916 0022 FFF7FEFF 		bl	UART_1_PutChar
+ 917              	.LVL134:
+ 303:Core/Src/Servo.c ****     UART_1_PutChar(0xFF);         // 发送启动符号0xFF // (Send the start byte 0xFF)
+ 918              		.loc 1 303 5 is_stmt 1 view .LVU277
+ 919 0026 FF20     		movs	r0, #255
+ 920 0028 FFF7FEFF 		bl	UART_1_PutChar
+ 921              	.LVL135:
+ 304:Core/Src/Servo.c ****     UART_1_PutChar(id);           // 发送id // (Send the servo’s ID)
+ 922              		.loc 1 304 5 view .LVU278
+ 923 002c 2846     		mov	r0, r5
+ 924 002e FFF7FEFF 		bl	UART_1_PutChar
+ 925              	.LVL136:
+ 305:Core/Src/Servo.c ****     UART_1_PutChar(5);            // 发送数据长度为参数长度+2，参数长度为3 // (Sen
+ 926              		.loc 1 305 5 view .LVU279
+ 927 0032 0520     		movs	r0, #5
+ 928 0034 FFF7FEFF 		bl	UART_1_PutChar
+ 929              	.LVL137:
+ 306:Core/Src/Servo.c ****     UART_1_PutChar(0x03);         // 命令数据为“WRITE DATA” // (Send command “WRITE DATA
+ 930              		.loc 1 306 5 view .LVU280
+ 931 0038 0320     		movs	r0, #3
+ 932 003a FFF7FEFF 		bl	UART_1_PutChar
+ 933              	.LVL138:
+ 307:Core/Src/Servo.c ****     UART_1_PutChar(0x20);         // 舵机控制寄存器首地址 // (Send the start address of c
+ 934              		.loc 1 307 5 view .LVU281
+ 935 003e 2020     		movs	r0, #32
+ 936 0040 FFF7FEFF 		bl	UART_1_PutChar
+ 937              	.LVL139:
+ 308:Core/Src/Servo.c ****     UART_1_PutChar(temp_value_l); // 发送速度数据低位 // (Send the low byte of velocity)
+ 938              		.loc 1 308 5 view .LVU282
+ 939 0044 2046     		mov	r0, r4
+ 940 0046 FFF7FEFF 		bl	UART_1_PutChar
+ 941              	.LVL140:
+ 309:Core/Src/Servo.c ****     UART_1_PutChar(temp_value_h); // 发送速度数据高位 // (Send the high byte of velocity)
+ 942              		.loc 1 309 5 view .LVU283
+ 943 004a 3046     		mov	r0, r6
+ 944 004c FFF7FEFF 		bl	UART_1_PutChar
+ 945              	.LVL141:
+ 310:Core/Src/Servo.c ****     temp_sum = id + 5 + 0x03 + 0x20 + temp_value_l + temp_value_h;
+ 946              		.loc 1 310 5 view .LVU284
+ 947              		.loc 1 310 37 is_stmt 0 view .LVU285
+ 948 0050 6019     		adds	r0, r4, r5
+ 949 0052 C0B2     		uxtb	r0, r0
+ 950              		.loc 1 310 52 view .LVU286
+ 951 0054 3044     		add	r0, r0, r6
+ 952 0056 C0B2     		uxtb	r0, r0
+ 953              		.loc 1 310 14 view .LVU287
+ 954 0058 2830     		adds	r0, r0, #40
+ 955 005a C0B2     		uxtb	r0, r0
+ 956              	.LVL142:
+ 311:Core/Src/Servo.c ****     temp_sum = ~temp_sum;    // 计算校验和 // (Calculate the checksum)
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 23
+
+
+ 957              		.loc 1 311 5 is_stmt 1 view .LVU288
+ 958              		.loc 1 311 14 is_stmt 0 view .LVU289
+ 959 005c C043     		mvns	r0, r0
+ 960              	.LVL143:
+ 312:Core/Src/Servo.c ****     UART_1_PutChar(temp_sum); // 发送校验和 // (Send the checksum)
+ 961              		.loc 1 312 5 is_stmt 1 view .LVU290
+ 962 005e C0B2     		uxtb	r0, r0
+ 963              		.loc 1 312 5 is_stmt 0 view .LVU291
+ 964 0060 FFF7FEFF 		bl	UART_1_PutChar
+ 965              	.LVL144:
+ 313:Core/Src/Servo.c ****     CyDelay(WAITING_TIME);
+ 966              		.loc 1 313 5 is_stmt 1 view .LVU292
+ 967 0064 0220     		movs	r0, #2
+ 968 0066 FFF7FEFF 		bl	CyDelay
+ 969              	.LVL145:
+ 314:Core/Src/Servo.c **** }
+ 970              		.loc 1 314 1 is_stmt 0 view .LVU293
+ 971 006a 70BD     		pop	{r4, r5, r6, pc}
+ 972              	.LVL146:
+ 973              	.L40:
+ 287:Core/Src/Servo.c ****         temp_sign = 1;             // 设置负数符号标志 // (Set negative flag)
+ 974              		.loc 1 287 9 is_stmt 1 view .LVU294
+ 287:Core/Src/Servo.c ****         temp_sign = 1;             // 设置负数符号标志 // (Set negative flag)
+ 975              		.loc 1 287 23 is_stmt 0 view .LVU295
+ 976 006c 4942     		rsbs	r1, r1, #0
+ 977 006e 89B2     		uxth	r1, r1
+ 978              	.LVL147:
+ 288:Core/Src/Servo.c ****     }
+ 979              		.loc 1 288 9 is_stmt 1 view .LVU296
+ 288:Core/Src/Servo.c ****     }
+ 980              		.loc 1 288 19 is_stmt 0 view .LVU297
+ 981 0070 0124     		movs	r4, #1
+ 982 0072 CBE7     		b	.L36
+ 983              		.cfi_endproc
+ 984              	.LFE73:
+ 986              		.section	.bss.buffer,"aw",%nobits
+ 987              		.align	2
+ 988              		.set	.LANCHOR0,. + 0
+ 991              	buffer:
+ 992 0000 00       		.space	1
+ 993              		.text
+ 994              	.Letext0:
+ 995              		.file 2 "d:\\gnu arm embedded toolchain\\10 2021.07\\arm-none-eabi\\include\\machine\\_default_typ
+ 996              		.file 3 "d:\\gnu arm embedded toolchain\\10 2021.07\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 997              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h"
+ 998              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 999              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 1000              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
+ 1001              		.file 8 "Core/Inc/defs.h"
+ 1002              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ARM GAS  C:\Users\hw\AppData\Local\Temp\ccfkisX7.s 			page 24
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 Servo.c
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:16     .text.UART_PutChar:00000000 $t
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:24     .text.UART_PutChar:00000000 UART_PutChar
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:55     .text.UART_PutChar:00000014 $d
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:61     .text.UART_1_PutChar:00000000 $t
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:68     .text.UART_1_PutChar:00000000 UART_1_PutChar
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:98     .text.UART_1_PutChar:00000014 $d
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:104    .text.CyDelay:00000000 $t
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:111    .text.CyDelay:00000000 CyDelay
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:133    .text.SetServoLimit:00000000 $t
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:140    .text.SetServoLimit:00000000 SetServoLimit
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:277    .text.SetServoPosition:00000000 $t
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:284    .text.SetServoPosition:00000000 SetServoPosition
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:421    .text.SetServoVelocity:00000000 $t
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:428    .text.SetServoVelocity:00000000 SetServoVelocity
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:560    .text.set_servo_limit:00000000 $t
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:567    .text.set_servo_limit:00000000 set_servo_limit
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:704    .text.set_servo_pos:00000000 $t
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:711    .text.set_servo_pos:00000000 set_servo_pos
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:848    .text.set_servo_velocity:00000000 $t
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:855    .text.set_servo_velocity:00000000 set_servo_velocity
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:987    .bss.buffer:00000000 $d
+C:\Users\hw\AppData\Local\Temp\ccfkisX7.s:991    .bss.buffer:00000000 buffer
+
+UNDEFINED SYMBOLS
+HAL_UART_Transmit
+huart5
+HAL_Delay

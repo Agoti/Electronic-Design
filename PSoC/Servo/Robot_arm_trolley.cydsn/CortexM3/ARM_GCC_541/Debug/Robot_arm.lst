@@ -1,0 +1,3533 @@
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"Robot_arm.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.m1_left_unit,"ax",%progbits
+  20              		.align	2
+  21              		.global	m1_left_unit
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	m1_left_unit, %function
+  25              	m1_left_unit:
+  26              	.LFB63:
+  27              		.file 1 "Robot_arm.c"
+   1:Robot_arm.c   **** /* ========================================
+   2:Robot_arm.c   ****  *
+   3:Robot_arm.c   ****  * Copyright YOUR COMPANY, THE YEAR
+   4:Robot_arm.c   ****  * All Rights Reserved
+   5:Robot_arm.c   ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:Robot_arm.c   ****  *
+   7:Robot_arm.c   ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:Robot_arm.c   ****  * WHICH IS THE PROPERTY OF your company.
+   9:Robot_arm.c   ****  *
+  10:Robot_arm.c   ****  * ========================================
+  11:Robot_arm.c   **** */
+  12:Robot_arm.c   **** 
+  13:Robot_arm.c   **** #include "project.h"
+  14:Robot_arm.c   **** #include "defs.h"
+  15:Robot_arm.c   **** #include "param.h"
+  16:Robot_arm.c   **** 
+  17:Robot_arm.c   **** //全局舵机位置，记录舵机位置
+  18:Robot_arm.c   **** int cur_pos_1 = INIT_1;
+  19:Robot_arm.c   **** int cur_pos_2 = INIT_2;
+  20:Robot_arm.c   **** int cur_pos_3 = INIT_3;
+  21:Robot_arm.c   **** int cur_pos_4 = INIT_4;
+  22:Robot_arm.c   **** int cur_pos_5 = INIT_5;
+  23:Robot_arm.c   **** 
+  24:Robot_arm.c   **** enum SINGLE_MOTOR_MOTION_CMD{
+  25:Robot_arm.c   **** 	M1_L, M1_R,
+  26:Robot_arm.c   **** 	M2_F, M2_B,
+  27:Robot_arm.c   **** 	M3_U, M3_D,
+  28:Robot_arm.c   **** 	M4_U, M4_D,
+  29:Robot_arm.c   **** 	DROP, GRAB,
+  30:Robot_arm.c   **** 	RESET_INIT,
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 2
+
+
+  31:Robot_arm.c   **** 	PAUSE
+  32:Robot_arm.c   **** }Command;
+  33:Robot_arm.c   **** 
+  34:Robot_arm.c   **** #define MOVESTEP 5
+  35:Robot_arm.c   **** 
+  36:Robot_arm.c   **** //单舵机运动单元
+  37:Robot_arm.c   **** void m1_left_unit(){
+  28              		.loc 1 37 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  38:Robot_arm.c   **** 	if(cur_pos_1 >= MIN_1 && cur_pos_1 <= MAX_1){
+  36              		.loc 1 38 0
+  37 0002 0B4B     		ldr	r3, .L6
+  38 0004 1B68     		ldr	r3, [r3]
+  39 0006 B3F5806F 		cmp	r3, #1024
+  40 000a 10D2     		bcs	.L1
+  41              	.LVL0:
+  42              	.LBB2:
+  39:Robot_arm.c   **** 		int movestep = MOVESTEP;
+  40:Robot_arm.c   **** 		if(cur_pos_1 + movestep <= MAX_1){
+  43              		.loc 1 40 0
+  44 000c 0533     		adds	r3, r3, #5
+  45 000e B3F5806F 		cmp	r3, #1024
+  46 0012 02DA     		bge	.L3
+  41:Robot_arm.c   **** 			cur_pos_1 += movestep;
+  47              		.loc 1 41 0
+  48 0014 064A     		ldr	r2, .L6
+  49 0016 1360     		str	r3, [r2]
+  50 0018 03E0     		b	.L4
+  51              	.L3:
+  42:Robot_arm.c   **** 		}
+  43:Robot_arm.c   **** 		else{
+  44:Robot_arm.c   **** 			cur_pos_1 = MAX_1;
+  52              		.loc 1 44 0
+  53 001a 40F2FF32 		movw	r2, #1023
+  54 001e 044B     		ldr	r3, .L6
+  55 0020 1A60     		str	r2, [r3]
+  56              	.L4:
+  45:Robot_arm.c   **** 		}
+  46:Robot_arm.c   **** 		set_servo_pos(1, cur_pos_1, 120);
+  57              		.loc 1 46 0
+  58 0022 7822     		movs	r2, #120
+  59 0024 024B     		ldr	r3, .L6
+  60 0026 1988     		ldrh	r1, [r3]
+  61 0028 0120     		movs	r0, #1
+  62 002a FFF7FEFF 		bl	set_servo_pos
+  63              	.LVL1:
+  64              	.L1:
+  65 002e 08BD     		pop	{r3, pc}
+  66              	.L7:
+  67              		.align	2
+  68              	.L6:
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 3
+
+
+  69 0030 00000000 		.word	.LANCHOR0
+  70              	.LBE2:
+  71              		.cfi_endproc
+  72              	.LFE63:
+  73              		.size	m1_left_unit, .-m1_left_unit
+  74              		.section	.text.m1_right_unit,"ax",%progbits
+  75              		.align	2
+  76              		.global	m1_right_unit
+  77              		.thumb
+  78              		.thumb_func
+  79              		.type	m1_right_unit, %function
+  80              	m1_right_unit:
+  81              	.LFB64:
+  47:Robot_arm.c   **** 	}
+  48:Robot_arm.c   **** 	// CyDelay(100);
+  49:Robot_arm.c   **** }
+  50:Robot_arm.c   **** 
+  51:Robot_arm.c   **** void m1_right_unit(){
+  82              		.loc 1 51 0
+  83              		.cfi_startproc
+  84              		@ args = 0, pretend = 0, frame = 0
+  85              		@ frame_needed = 0, uses_anonymous_args = 0
+  86 0000 08B5     		push	{r3, lr}
+  87              		.cfi_def_cfa_offset 8
+  88              		.cfi_offset 3, -8
+  89              		.cfi_offset 14, -4
+  52:Robot_arm.c   **** 	if(cur_pos_1 >= MIN_1 && cur_pos_1 <= MAX_1){
+  90              		.loc 1 52 0
+  91 0002 0A4B     		ldr	r3, .L13
+  92 0004 1B68     		ldr	r3, [r3]
+  93 0006 B3F5806F 		cmp	r3, #1024
+  94 000a 0DD2     		bcs	.L8
+  95              	.LVL2:
+  96              	.LBB3:
+  53:Robot_arm.c   **** 		int movestep = MOVESTEP;
+  54:Robot_arm.c   **** 		if(cur_pos_1 - movestep >= MIN_1){
+  97              		.loc 1 54 0
+  98 000c 053B     		subs	r3, r3, #5
+  99 000e 02D4     		bmi	.L10
+  55:Robot_arm.c   **** 			cur_pos_1 -= movestep;
+ 100              		.loc 1 55 0
+ 101 0010 064A     		ldr	r2, .L13
+ 102 0012 1360     		str	r3, [r2]
+ 103 0014 02E0     		b	.L11
+ 104              	.L10:
+  56:Robot_arm.c   **** 		}
+  57:Robot_arm.c   **** 		else{
+  58:Robot_arm.c   **** 			cur_pos_1 = MIN_1;
+ 105              		.loc 1 58 0
+ 106 0016 0022     		movs	r2, #0
+ 107 0018 044B     		ldr	r3, .L13
+ 108 001a 1A60     		str	r2, [r3]
+ 109              	.L11:
+  59:Robot_arm.c   **** 		}
+  60:Robot_arm.c   **** 		set_servo_pos(1, cur_pos_1, 120);
+ 110              		.loc 1 60 0
+ 111 001c 7822     		movs	r2, #120
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 4
+
+
+ 112 001e 034B     		ldr	r3, .L13
+ 113 0020 1988     		ldrh	r1, [r3]
+ 114 0022 0120     		movs	r0, #1
+ 115 0024 FFF7FEFF 		bl	set_servo_pos
+ 116              	.LVL3:
+ 117              	.L8:
+ 118 0028 08BD     		pop	{r3, pc}
+ 119              	.L14:
+ 120 002a 00BF     		.align	2
+ 121              	.L13:
+ 122 002c 00000000 		.word	.LANCHOR0
+ 123              	.LBE3:
+ 124              		.cfi_endproc
+ 125              	.LFE64:
+ 126              		.size	m1_right_unit, .-m1_right_unit
+ 127              		.section	.text.m2_forward_unit,"ax",%progbits
+ 128              		.align	2
+ 129              		.global	m2_forward_unit
+ 130              		.thumb
+ 131              		.thumb_func
+ 132              		.type	m2_forward_unit, %function
+ 133              	m2_forward_unit:
+ 134              	.LFB65:
+  61:Robot_arm.c   **** 	}
+  62:Robot_arm.c   **** 	// CyDelay(100);
+  63:Robot_arm.c   **** }
+  64:Robot_arm.c   **** 
+  65:Robot_arm.c   **** void m2_forward_unit(){
+ 135              		.loc 1 65 0
+ 136              		.cfi_startproc
+ 137              		@ args = 0, pretend = 0, frame = 0
+ 138              		@ frame_needed = 0, uses_anonymous_args = 0
+ 139 0000 08B5     		push	{r3, lr}
+ 140              		.cfi_def_cfa_offset 8
+ 141              		.cfi_offset 3, -8
+ 142              		.cfi_offset 14, -4
+  66:Robot_arm.c   **** 	if(cur_pos_2 >= MIN_2 && cur_pos_2 <= MAX_2){
+ 143              		.loc 1 66 0
+ 144 0002 0A4B     		ldr	r3, .L20
+ 145 0004 5B68     		ldr	r3, [r3, #4]
+ 146 0006 B3F5C87F 		cmp	r3, #400
+ 147 000a 0DD8     		bhi	.L15
+ 148              	.LVL4:
+ 149              	.LBB4:
+  67:Robot_arm.c   **** 		int movestep = MOVESTEP;
+  68:Robot_arm.c   **** 		if(cur_pos_2 - movestep >= MIN_2){
+ 150              		.loc 1 68 0
+ 151 000c 053B     		subs	r3, r3, #5
+ 152 000e 02D4     		bmi	.L17
+  69:Robot_arm.c   **** 			cur_pos_2 -= movestep;
+ 153              		.loc 1 69 0
+ 154 0010 064A     		ldr	r2, .L20
+ 155 0012 5360     		str	r3, [r2, #4]
+ 156 0014 02E0     		b	.L18
+ 157              	.L17:
+  70:Robot_arm.c   **** 		}
+  71:Robot_arm.c   **** 		else{
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 5
+
+
+  72:Robot_arm.c   **** 			cur_pos_2 = MIN_2;
+ 158              		.loc 1 72 0
+ 159 0016 0022     		movs	r2, #0
+ 160 0018 044B     		ldr	r3, .L20
+ 161 001a 5A60     		str	r2, [r3, #4]
+ 162              	.L18:
+  73:Robot_arm.c   **** 		}
+  74:Robot_arm.c   **** 		set_servo_pos(2, cur_pos_2, 120);
+ 163              		.loc 1 74 0
+ 164 001c 7822     		movs	r2, #120
+ 165 001e 034B     		ldr	r3, .L20
+ 166 0020 9988     		ldrh	r1, [r3, #4]
+ 167 0022 0220     		movs	r0, #2
+ 168 0024 FFF7FEFF 		bl	set_servo_pos
+ 169              	.LVL5:
+ 170              	.L15:
+ 171 0028 08BD     		pop	{r3, pc}
+ 172              	.L21:
+ 173 002a 00BF     		.align	2
+ 174              	.L20:
+ 175 002c 00000000 		.word	.LANCHOR0
+ 176              	.LBE4:
+ 177              		.cfi_endproc
+ 178              	.LFE65:
+ 179              		.size	m2_forward_unit, .-m2_forward_unit
+ 180              		.section	.text.m2_backward_unit,"ax",%progbits
+ 181              		.align	2
+ 182              		.global	m2_backward_unit
+ 183              		.thumb
+ 184              		.thumb_func
+ 185              		.type	m2_backward_unit, %function
+ 186              	m2_backward_unit:
+ 187              	.LFB66:
+  75:Robot_arm.c   **** 	}
+  76:Robot_arm.c   **** 	// CyDelay(100);
+  77:Robot_arm.c   **** }
+  78:Robot_arm.c   **** 
+  79:Robot_arm.c   **** void m2_backward_unit(){
+ 188              		.loc 1 79 0
+ 189              		.cfi_startproc
+ 190              		@ args = 0, pretend = 0, frame = 0
+ 191              		@ frame_needed = 0, uses_anonymous_args = 0
+ 192 0000 08B5     		push	{r3, lr}
+ 193              		.cfi_def_cfa_offset 8
+ 194              		.cfi_offset 3, -8
+ 195              		.cfi_offset 14, -4
+  80:Robot_arm.c   **** 	if(cur_pos_2 >= MIN_2 && cur_pos_2 <= MAX_2){
+ 196              		.loc 1 80 0
+ 197 0002 0B4B     		ldr	r3, .L27
+ 198 0004 5B68     		ldr	r3, [r3, #4]
+ 199 0006 B3F5C87F 		cmp	r3, #400
+ 200 000a 10D8     		bhi	.L22
+ 201              	.LVL6:
+ 202              	.LBB5:
+  81:Robot_arm.c   **** 		int movestep = MOVESTEP;
+  82:Robot_arm.c   **** 		if(cur_pos_2 + movestep <= MAX_2){
+ 203              		.loc 1 82 0
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 6
+
+
+ 204 000c 0533     		adds	r3, r3, #5
+ 205 000e B3F5C87F 		cmp	r3, #400
+ 206 0012 02DC     		bgt	.L24
+  83:Robot_arm.c   **** 			cur_pos_2 += movestep;
+ 207              		.loc 1 83 0
+ 208 0014 064A     		ldr	r2, .L27
+ 209 0016 5360     		str	r3, [r2, #4]
+ 210 0018 03E0     		b	.L25
+ 211              	.L24:
+  84:Robot_arm.c   **** 		}
+  85:Robot_arm.c   **** 		else{
+  86:Robot_arm.c   **** 			cur_pos_2 = MAX_2;
+ 212              		.loc 1 86 0
+ 213 001a 4FF4C872 		mov	r2, #400
+ 214 001e 044B     		ldr	r3, .L27
+ 215 0020 5A60     		str	r2, [r3, #4]
+ 216              	.L25:
+  87:Robot_arm.c   **** 		}
+  88:Robot_arm.c   **** 		set_servo_pos(2, cur_pos_2, 120);
+ 217              		.loc 1 88 0
+ 218 0022 7822     		movs	r2, #120
+ 219 0024 024B     		ldr	r3, .L27
+ 220 0026 9988     		ldrh	r1, [r3, #4]
+ 221 0028 0220     		movs	r0, #2
+ 222 002a FFF7FEFF 		bl	set_servo_pos
+ 223              	.LVL7:
+ 224              	.L22:
+ 225 002e 08BD     		pop	{r3, pc}
+ 226              	.L28:
+ 227              		.align	2
+ 228              	.L27:
+ 229 0030 00000000 		.word	.LANCHOR0
+ 230              	.LBE5:
+ 231              		.cfi_endproc
+ 232              	.LFE66:
+ 233              		.size	m2_backward_unit, .-m2_backward_unit
+ 234              		.section	.text.m3_up_unit,"ax",%progbits
+ 235              		.align	2
+ 236              		.global	m3_up_unit
+ 237              		.thumb
+ 238              		.thumb_func
+ 239              		.type	m3_up_unit, %function
+ 240              	m3_up_unit:
+ 241              	.LFB67:
+  89:Robot_arm.c   **** 	}
+  90:Robot_arm.c   **** 	// CyDelay(100);
+  91:Robot_arm.c   **** }
+  92:Robot_arm.c   **** 
+  93:Robot_arm.c   **** void m3_up_unit(){
+ 242              		.loc 1 93 0
+ 243              		.cfi_startproc
+ 244              		@ args = 0, pretend = 0, frame = 0
+ 245              		@ frame_needed = 0, uses_anonymous_args = 0
+ 246 0000 08B5     		push	{r3, lr}
+ 247              		.cfi_def_cfa_offset 8
+ 248              		.cfi_offset 3, -8
+ 249              		.cfi_offset 14, -4
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 7
+
+
+  94:Robot_arm.c   **** 	if(cur_pos_3 >= MIN_3 && cur_pos_3 <= MAX_3){
+ 250              		.loc 1 94 0
+ 251 0002 0C4B     		ldr	r3, .L34
+ 252 0004 9B68     		ldr	r3, [r3, #8]
+ 253 0006 A3F56172 		sub	r2, r3, #900
+ 254 000a 7B2A     		cmp	r2, #123
+ 255 000c 10D8     		bhi	.L29
+ 256              	.LVL8:
+ 257              	.LBB6:
+  95:Robot_arm.c   **** 		int movestep = MOVESTEP;
+  96:Robot_arm.c   **** 		if(cur_pos_3 + movestep <= MAX_3){
+ 258              		.loc 1 96 0
+ 259 000e 0533     		adds	r3, r3, #5
+ 260 0010 B3F5806F 		cmp	r3, #1024
+ 261 0014 02DA     		bge	.L31
+  97:Robot_arm.c   **** 			cur_pos_3 += movestep;
+ 262              		.loc 1 97 0
+ 263 0016 074A     		ldr	r2, .L34
+ 264 0018 9360     		str	r3, [r2, #8]
+ 265 001a 03E0     		b	.L32
+ 266              	.L31:
+  98:Robot_arm.c   **** 		}
+  99:Robot_arm.c   **** 		else{
+ 100:Robot_arm.c   **** 			cur_pos_3 = MAX_3;
+ 267              		.loc 1 100 0
+ 268 001c 40F2FF32 		movw	r2, #1023
+ 269 0020 044B     		ldr	r3, .L34
+ 270 0022 9A60     		str	r2, [r3, #8]
+ 271              	.L32:
+ 101:Robot_arm.c   **** 		}
+ 102:Robot_arm.c   **** 		set_servo_pos(3, cur_pos_3, 120);
+ 272              		.loc 1 102 0
+ 273 0024 7822     		movs	r2, #120
+ 274 0026 034B     		ldr	r3, .L34
+ 275 0028 1989     		ldrh	r1, [r3, #8]
+ 276 002a 0320     		movs	r0, #3
+ 277 002c FFF7FEFF 		bl	set_servo_pos
+ 278              	.LVL9:
+ 279              	.L29:
+ 280 0030 08BD     		pop	{r3, pc}
+ 281              	.L35:
+ 282 0032 00BF     		.align	2
+ 283              	.L34:
+ 284 0034 00000000 		.word	.LANCHOR0
+ 285              	.LBE6:
+ 286              		.cfi_endproc
+ 287              	.LFE67:
+ 288              		.size	m3_up_unit, .-m3_up_unit
+ 289              		.section	.text.m3_down_unit,"ax",%progbits
+ 290              		.align	2
+ 291              		.global	m3_down_unit
+ 292              		.thumb
+ 293              		.thumb_func
+ 294              		.type	m3_down_unit, %function
+ 295              	m3_down_unit:
+ 296              	.LFB68:
+ 103:Robot_arm.c   **** 	}
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 8
+
+
+ 104:Robot_arm.c   **** 	// CyDelay(100);
+ 105:Robot_arm.c   **** }
+ 106:Robot_arm.c   **** 
+ 107:Robot_arm.c   **** void m3_down_unit(){
+ 297              		.loc 1 107 0
+ 298              		.cfi_startproc
+ 299              		@ args = 0, pretend = 0, frame = 0
+ 300              		@ frame_needed = 0, uses_anonymous_args = 0
+ 301 0000 08B5     		push	{r3, lr}
+ 302              		.cfi_def_cfa_offset 8
+ 303              		.cfi_offset 3, -8
+ 304              		.cfi_offset 14, -4
+ 108:Robot_arm.c   **** 	if(cur_pos_3 >= MIN_3 && cur_pos_3 <= MAX_3){
+ 305              		.loc 1 108 0
+ 306 0002 0C4B     		ldr	r3, .L41
+ 307 0004 9B68     		ldr	r3, [r3, #8]
+ 308 0006 A3F56172 		sub	r2, r3, #900
+ 309 000a 7B2A     		cmp	r2, #123
+ 310 000c 10D8     		bhi	.L36
+ 311              	.LVL10:
+ 312              	.LBB7:
+ 109:Robot_arm.c   **** 		int movestep = MOVESTEP;
+ 110:Robot_arm.c   **** 		if(cur_pos_3 - movestep >= MIN_3){
+ 313              		.loc 1 110 0
+ 314 000e 053B     		subs	r3, r3, #5
+ 315 0010 B3F5617F 		cmp	r3, #900
+ 316 0014 02DB     		blt	.L38
+ 111:Robot_arm.c   **** 			cur_pos_3 -= movestep;
+ 317              		.loc 1 111 0
+ 318 0016 074A     		ldr	r2, .L41
+ 319 0018 9360     		str	r3, [r2, #8]
+ 320 001a 03E0     		b	.L39
+ 321              	.L38:
+ 112:Robot_arm.c   **** 		}
+ 113:Robot_arm.c   **** 		else{
+ 114:Robot_arm.c   **** 			cur_pos_3 = MIN_3;
+ 322              		.loc 1 114 0
+ 323 001c 4FF46172 		mov	r2, #900
+ 324 0020 044B     		ldr	r3, .L41
+ 325 0022 9A60     		str	r2, [r3, #8]
+ 326              	.L39:
+ 115:Robot_arm.c   **** 		}
+ 116:Robot_arm.c   **** 		set_servo_pos(3, cur_pos_3, 120);
+ 327              		.loc 1 116 0
+ 328 0024 7822     		movs	r2, #120
+ 329 0026 034B     		ldr	r3, .L41
+ 330 0028 1989     		ldrh	r1, [r3, #8]
+ 331 002a 0320     		movs	r0, #3
+ 332 002c FFF7FEFF 		bl	set_servo_pos
+ 333              	.LVL11:
+ 334              	.L36:
+ 335 0030 08BD     		pop	{r3, pc}
+ 336              	.L42:
+ 337 0032 00BF     		.align	2
+ 338              	.L41:
+ 339 0034 00000000 		.word	.LANCHOR0
+ 340              	.LBE7:
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 9
+
+
+ 341              		.cfi_endproc
+ 342              	.LFE68:
+ 343              		.size	m3_down_unit, .-m3_down_unit
+ 344              		.section	.text.m4_up_unit,"ax",%progbits
+ 345              		.align	2
+ 346              		.global	m4_up_unit
+ 347              		.thumb
+ 348              		.thumb_func
+ 349              		.type	m4_up_unit, %function
+ 350              	m4_up_unit:
+ 351              	.LFB69:
+ 117:Robot_arm.c   **** 	}
+ 118:Robot_arm.c   **** 	// CyDelay(100);
+ 119:Robot_arm.c   **** }
+ 120:Robot_arm.c   **** 
+ 121:Robot_arm.c   **** void m4_up_unit(){
+ 352              		.loc 1 121 0
+ 353              		.cfi_startproc
+ 354              		@ args = 0, pretend = 0, frame = 0
+ 355              		@ frame_needed = 0, uses_anonymous_args = 0
+ 356 0000 08B5     		push	{r3, lr}
+ 357              		.cfi_def_cfa_offset 8
+ 358              		.cfi_offset 3, -8
+ 359              		.cfi_offset 14, -4
+ 122:Robot_arm.c   **** 	if(cur_pos_4 >= MIN_4 && cur_pos_4 <= MAX_4){
+ 360              		.loc 1 122 0
+ 361 0002 0C4B     		ldr	r3, .L48
+ 362 0004 DB68     		ldr	r3, [r3, #12]
+ 363 0006 A3F15002 		sub	r2, r3, #80
+ 364 000a B2F5347F 		cmp	r2, #720
+ 365 000e 10D8     		bhi	.L43
+ 366              	.LVL12:
+ 367              	.LBB8:
+ 123:Robot_arm.c   **** 		int movestep = MOVESTEP;
+ 124:Robot_arm.c   **** 		if(cur_pos_4 + movestep <= MAX_4){
+ 368              		.loc 1 124 0
+ 369 0010 0533     		adds	r3, r3, #5
+ 370 0012 B3F5487F 		cmp	r3, #800
+ 371 0016 02DC     		bgt	.L45
+ 125:Robot_arm.c   **** 			cur_pos_4 += movestep;
+ 372              		.loc 1 125 0
+ 373 0018 064A     		ldr	r2, .L48
+ 374 001a D360     		str	r3, [r2, #12]
+ 375 001c 03E0     		b	.L46
+ 376              	.L45:
+ 126:Robot_arm.c   **** 		}
+ 127:Robot_arm.c   **** 		else{
+ 128:Robot_arm.c   **** 			cur_pos_4 = MAX_4;
+ 377              		.loc 1 128 0
+ 378 001e 4FF44872 		mov	r2, #800
+ 379 0022 044B     		ldr	r3, .L48
+ 380 0024 DA60     		str	r2, [r3, #12]
+ 381              	.L46:
+ 129:Robot_arm.c   **** 		}
+ 130:Robot_arm.c   **** 		set_servo_pos(4, cur_pos_4, 120);
+ 382              		.loc 1 130 0
+ 383 0026 7822     		movs	r2, #120
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 10
+
+
+ 384 0028 024B     		ldr	r3, .L48
+ 385 002a 9989     		ldrh	r1, [r3, #12]
+ 386 002c 0420     		movs	r0, #4
+ 387 002e FFF7FEFF 		bl	set_servo_pos
+ 388              	.LVL13:
+ 389              	.L43:
+ 390 0032 08BD     		pop	{r3, pc}
+ 391              	.L49:
+ 392              		.align	2
+ 393              	.L48:
+ 394 0034 00000000 		.word	.LANCHOR0
+ 395              	.LBE8:
+ 396              		.cfi_endproc
+ 397              	.LFE69:
+ 398              		.size	m4_up_unit, .-m4_up_unit
+ 399              		.section	.text.m4_down_unit,"ax",%progbits
+ 400              		.align	2
+ 401              		.global	m4_down_unit
+ 402              		.thumb
+ 403              		.thumb_func
+ 404              		.type	m4_down_unit, %function
+ 405              	m4_down_unit:
+ 406              	.LFB70:
+ 131:Robot_arm.c   **** 	}
+ 132:Robot_arm.c   **** 	// CyDelay(100);
+ 133:Robot_arm.c   **** }
+ 134:Robot_arm.c   **** 
+ 135:Robot_arm.c   **** void m4_down_unit(){
+ 407              		.loc 1 135 0
+ 408              		.cfi_startproc
+ 409              		@ args = 0, pretend = 0, frame = 0
+ 410              		@ frame_needed = 0, uses_anonymous_args = 0
+ 411 0000 08B5     		push	{r3, lr}
+ 412              		.cfi_def_cfa_offset 8
+ 413              		.cfi_offset 3, -8
+ 414              		.cfi_offset 14, -4
+ 136:Robot_arm.c   **** 	if(cur_pos_4 >= MIN_4 && cur_pos_4 <= MAX_4){
+ 415              		.loc 1 136 0
+ 416 0002 0B4B     		ldr	r3, .L55
+ 417 0004 DB68     		ldr	r3, [r3, #12]
+ 418 0006 A3F15002 		sub	r2, r3, #80
+ 419 000a B2F5347F 		cmp	r2, #720
+ 420 000e 0ED8     		bhi	.L50
+ 421              	.LVL14:
+ 422              	.LBB9:
+ 137:Robot_arm.c   **** 		int movestep = MOVESTEP;
+ 138:Robot_arm.c   **** 		if(cur_pos_4 - movestep >= MIN_4){
+ 423              		.loc 1 138 0
+ 424 0010 053B     		subs	r3, r3, #5
+ 425 0012 4F2B     		cmp	r3, #79
+ 426 0014 02DD     		ble	.L52
+ 139:Robot_arm.c   **** 			cur_pos_4 -= movestep;
+ 427              		.loc 1 139 0
+ 428 0016 064A     		ldr	r2, .L55
+ 429 0018 D360     		str	r3, [r2, #12]
+ 430 001a 02E0     		b	.L53
+ 431              	.L52:
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 11
+
+
+ 140:Robot_arm.c   **** 		}
+ 141:Robot_arm.c   **** 		else{
+ 142:Robot_arm.c   **** 			cur_pos_4 = MIN_4;
+ 432              		.loc 1 142 0
+ 433 001c 5022     		movs	r2, #80
+ 434 001e 044B     		ldr	r3, .L55
+ 435 0020 DA60     		str	r2, [r3, #12]
+ 436              	.L53:
+ 143:Robot_arm.c   **** 		}
+ 144:Robot_arm.c   **** 		set_servo_pos(4, cur_pos_4, 120);
+ 437              		.loc 1 144 0
+ 438 0022 7822     		movs	r2, #120
+ 439 0024 024B     		ldr	r3, .L55
+ 440 0026 9989     		ldrh	r1, [r3, #12]
+ 441 0028 0420     		movs	r0, #4
+ 442 002a FFF7FEFF 		bl	set_servo_pos
+ 443              	.LVL15:
+ 444              	.L50:
+ 445 002e 08BD     		pop	{r3, pc}
+ 446              	.L56:
+ 447              		.align	2
+ 448              	.L55:
+ 449 0030 00000000 		.word	.LANCHOR0
+ 450              	.LBE9:
+ 451              		.cfi_endproc
+ 452              	.LFE70:
+ 453              		.size	m4_down_unit, .-m4_down_unit
+ 454              		.section	.text.forward_move_unit,"ax",%progbits
+ 455              		.align	2
+ 456              		.global	forward_move_unit
+ 457              		.thumb
+ 458              		.thumb_func
+ 459              		.type	forward_move_unit, %function
+ 460              	forward_move_unit:
+ 461              	.LFB71:
+ 145:Robot_arm.c   **** 	}
+ 146:Robot_arm.c   **** 	// CyDelay(100);
+ 147:Robot_arm.c   **** }
+ 148:Robot_arm.c   **** 
+ 149:Robot_arm.c   **** //optional 组合运动单元
+ 150:Robot_arm.c   **** void forward_move_unit(){
+ 462              		.loc 1 150 0
+ 463              		.cfi_startproc
+ 464              		@ args = 0, pretend = 0, frame = 0
+ 465              		@ frame_needed = 0, uses_anonymous_args = 0
+ 466              		@ link register save eliminated.
+ 467 0000 7047     		bx	lr
+ 468              		.cfi_endproc
+ 469              	.LFE71:
+ 470              		.size	forward_move_unit, .-forward_move_unit
+ 471 0002 00BF     		.section	.text.backward_move_unit,"ax",%progbits
+ 472              		.align	2
+ 473              		.global	backward_move_unit
+ 474              		.thumb
+ 475              		.thumb_func
+ 476              		.type	backward_move_unit, %function
+ 477              	backward_move_unit:
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 12
+
+
+ 478              	.LFB72:
+ 151:Robot_arm.c   **** 
+ 152:Robot_arm.c   **** }
+ 153:Robot_arm.c   **** 
+ 154:Robot_arm.c   **** void backward_move_unit(){
+ 479              		.loc 1 154 0
+ 480              		.cfi_startproc
+ 481              		@ args = 0, pretend = 0, frame = 0
+ 482              		@ frame_needed = 0, uses_anonymous_args = 0
+ 483              		@ link register save eliminated.
+ 484 0000 7047     		bx	lr
+ 485              		.cfi_endproc
+ 486              	.LFE72:
+ 487              		.size	backward_move_unit, .-backward_move_unit
+ 488 0002 00BF     		.section	.text.upward_move_unit,"ax",%progbits
+ 489              		.align	2
+ 490              		.global	upward_move_unit
+ 491              		.thumb
+ 492              		.thumb_func
+ 493              		.type	upward_move_unit, %function
+ 494              	upward_move_unit:
+ 495              	.LFB73:
+ 155:Robot_arm.c   **** 
+ 156:Robot_arm.c   **** }
+ 157:Robot_arm.c   **** 
+ 158:Robot_arm.c   **** void upward_move_unit(){
+ 496              		.loc 1 158 0
+ 497              		.cfi_startproc
+ 498              		@ args = 0, pretend = 0, frame = 0
+ 499              		@ frame_needed = 0, uses_anonymous_args = 0
+ 500              		@ link register save eliminated.
+ 501 0000 7047     		bx	lr
+ 502              		.cfi_endproc
+ 503              	.LFE73:
+ 504              		.size	upward_move_unit, .-upward_move_unit
+ 505 0002 00BF     		.section	.text.downward_move_unit,"ax",%progbits
+ 506              		.align	2
+ 507              		.global	downward_move_unit
+ 508              		.thumb
+ 509              		.thumb_func
+ 510              		.type	downward_move_unit, %function
+ 511              	downward_move_unit:
+ 512              	.LFB74:
+ 159:Robot_arm.c   **** 
+ 160:Robot_arm.c   **** }
+ 161:Robot_arm.c   **** 
+ 162:Robot_arm.c   **** void downward_move_unit(){
+ 513              		.loc 1 162 0
+ 514              		.cfi_startproc
+ 515              		@ args = 0, pretend = 0, frame = 0
+ 516              		@ frame_needed = 0, uses_anonymous_args = 0
+ 517              		@ link register save eliminated.
+ 518 0000 7047     		bx	lr
+ 519              		.cfi_endproc
+ 520              	.LFE74:
+ 521              		.size	downward_move_unit, .-downward_move_unit
+ 522 0002 00BF     		.section	.text.left_move_unit,"ax",%progbits
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 13
+
+
+ 523              		.align	2
+ 524              		.global	left_move_unit
+ 525              		.thumb
+ 526              		.thumb_func
+ 527              		.type	left_move_unit, %function
+ 528              	left_move_unit:
+ 529              	.LFB75:
+ 163:Robot_arm.c   **** 
+ 164:Robot_arm.c   **** }
+ 165:Robot_arm.c   **** 
+ 166:Robot_arm.c   **** void left_move_unit(){
+ 530              		.loc 1 166 0
+ 531              		.cfi_startproc
+ 532              		@ args = 0, pretend = 0, frame = 0
+ 533              		@ frame_needed = 0, uses_anonymous_args = 0
+ 534              		@ link register save eliminated.
+ 535 0000 7047     		bx	lr
+ 536              		.cfi_endproc
+ 537              	.LFE75:
+ 538              		.size	left_move_unit, .-left_move_unit
+ 539 0002 00BF     		.section	.text.right_move_unit,"ax",%progbits
+ 540              		.align	2
+ 541              		.global	right_move_unit
+ 542              		.thumb
+ 543              		.thumb_func
+ 544              		.type	right_move_unit, %function
+ 545              	right_move_unit:
+ 546              	.LFB76:
+ 167:Robot_arm.c   **** 
+ 168:Robot_arm.c   **** }
+ 169:Robot_arm.c   **** 
+ 170:Robot_arm.c   **** void right_move_unit(){
+ 547              		.loc 1 170 0
+ 548              		.cfi_startproc
+ 549              		@ args = 0, pretend = 0, frame = 0
+ 550              		@ frame_needed = 0, uses_anonymous_args = 0
+ 551              		@ link register save eliminated.
+ 552 0000 7047     		bx	lr
+ 553              		.cfi_endproc
+ 554              	.LFE76:
+ 555              		.size	right_move_unit, .-right_move_unit
+ 556 0002 00BF     		.section	.text.drop,"ax",%progbits
+ 557              		.align	2
+ 558              		.global	drop
+ 559              		.thumb
+ 560              		.thumb_func
+ 561              		.type	drop, %function
+ 562              	drop:
+ 563              	.LFB77:
+ 171:Robot_arm.c   **** 
+ 172:Robot_arm.c   **** }
+ 173:Robot_arm.c   **** 
+ 174:Robot_arm.c   **** void drop(){
+ 564              		.loc 1 174 0
+ 565              		.cfi_startproc
+ 566              		@ args = 0, pretend = 0, frame = 0
+ 567              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 14
+
+
+ 568              		.loc 1 174 0
+ 569 0000 08B5     		push	{r3, lr}
+ 570              		.cfi_def_cfa_offset 8
+ 571              		.cfi_offset 3, -8
+ 572              		.cfi_offset 14, -4
+ 175:Robot_arm.c   **** 	cur_pos_5 = MAX_5;
+ 573              		.loc 1 175 0
+ 574 0002 4FF44871 		mov	r1, #800
+ 575 0006 054B     		ldr	r3, .L65
+ 576 0008 1961     		str	r1, [r3, #16]
+ 176:Robot_arm.c   **** 	set_servo_pos(5, cur_pos_5, 150);
+ 577              		.loc 1 176 0
+ 578 000a 9622     		movs	r2, #150
+ 579 000c 0520     		movs	r0, #5
+ 580 000e FFF7FEFF 		bl	set_servo_pos
+ 581              	.LVL16:
+ 177:Robot_arm.c   **** 	CyDelay(1000);
+ 582              		.loc 1 177 0
+ 583 0012 4FF47A70 		mov	r0, #1000
+ 584 0016 FFF7FEFF 		bl	CyDelay
+ 585              	.LVL17:
+ 586 001a 08BD     		pop	{r3, pc}
+ 587              	.L66:
+ 588              		.align	2
+ 589              	.L65:
+ 590 001c 00000000 		.word	.LANCHOR0
+ 591              		.cfi_endproc
+ 592              	.LFE77:
+ 593              		.size	drop, .-drop
+ 594              		.section	.text.grab,"ax",%progbits
+ 595              		.align	2
+ 596              		.global	grab
+ 597              		.thumb
+ 598              		.thumb_func
+ 599              		.type	grab, %function
+ 600              	grab:
+ 601              	.LFB78:
+ 178:Robot_arm.c   **** }
+ 179:Robot_arm.c   **** 
+ 180:Robot_arm.c   **** void grab(){
+ 602              		.loc 1 180 0
+ 603              		.cfi_startproc
+ 604              		@ args = 0, pretend = 0, frame = 0
+ 605              		@ frame_needed = 0, uses_anonymous_args = 0
+ 606 0000 08B5     		push	{r3, lr}
+ 607              		.cfi_def_cfa_offset 8
+ 608              		.cfi_offset 3, -8
+ 609              		.cfi_offset 14, -4
+ 181:Robot_arm.c   **** 	cur_pos_5 = MIN_5;
+ 610              		.loc 1 181 0
+ 611 0002 4FF41671 		mov	r1, #600
+ 612 0006 054B     		ldr	r3, .L69
+ 613 0008 1961     		str	r1, [r3, #16]
+ 182:Robot_arm.c   **** 	set_servo_pos(5, cur_pos_5, 150);
+ 614              		.loc 1 182 0
+ 615 000a 9622     		movs	r2, #150
+ 616 000c 0520     		movs	r0, #5
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 15
+
+
+ 617 000e FFF7FEFF 		bl	set_servo_pos
+ 618              	.LVL18:
+ 183:Robot_arm.c   **** 	CyDelay(1000);
+ 619              		.loc 1 183 0
+ 620 0012 4FF47A70 		mov	r0, #1000
+ 621 0016 FFF7FEFF 		bl	CyDelay
+ 622              	.LVL19:
+ 623 001a 08BD     		pop	{r3, pc}
+ 624              	.L70:
+ 625              		.align	2
+ 626              	.L69:
+ 627 001c 00000000 		.word	.LANCHOR0
+ 628              		.cfi_endproc
+ 629              	.LFE78:
+ 630              		.size	grab, .-grab
+ 631              		.section	.text.reset_init_pos,"ax",%progbits
+ 632              		.align	2
+ 633              		.global	reset_init_pos
+ 634              		.thumb
+ 635              		.thumb_func
+ 636              		.type	reset_init_pos, %function
+ 637              	reset_init_pos:
+ 638              	.LFB79:
+ 184:Robot_arm.c   **** }
+ 185:Robot_arm.c   **** 
+ 186:Robot_arm.c   **** void reset_init_pos(){
+ 639              		.loc 1 186 0
+ 640              		.cfi_startproc
+ 641              		@ args = 0, pretend = 0, frame = 0
+ 642              		@ frame_needed = 0, uses_anonymous_args = 0
+ 643 0000 08B5     		push	{r3, lr}
+ 644              		.cfi_def_cfa_offset 8
+ 645              		.cfi_offset 3, -8
+ 646              		.cfi_offset 14, -4
+ 187:Robot_arm.c   **** 	//位置初始化 or 复位操作
+ 188:Robot_arm.c   **** 	//首先移动到安全位置
+ 189:Robot_arm.c   **** 	set_servo_pos(4,440,100);
+ 647              		.loc 1 189 0
+ 648 0002 6422     		movs	r2, #100
+ 649 0004 4FF4DC71 		mov	r1, #440
+ 650 0008 0420     		movs	r0, #4
+ 651 000a FFF7FEFF 		bl	set_servo_pos
+ 652              	.LVL20:
+ 190:Robot_arm.c   **** 	CyDelay(500);
+ 653              		.loc 1 190 0
+ 654 000e 4FF4FA70 		mov	r0, #500
+ 655 0012 FFF7FEFF 		bl	CyDelay
+ 656              	.LVL21:
+ 191:Robot_arm.c   **** 	set_servo_pos(3,1022,150);
+ 657              		.loc 1 191 0
+ 658 0016 9622     		movs	r2, #150
+ 659 0018 40F2FE31 		movw	r1, #1022
+ 660 001c 0320     		movs	r0, #3
+ 661 001e FFF7FEFF 		bl	set_servo_pos
+ 662              	.LVL22:
+ 192:Robot_arm.c   **** 	CyDelay(500);
+ 663              		.loc 1 192 0
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 16
+
+
+ 664 0022 4FF4FA70 		mov	r0, #500
+ 665 0026 FFF7FEFF 		bl	CyDelay
+ 666              	.LVL23:
+ 193:Robot_arm.c   **** 	set_servo_pos(2,250,150);
+ 667              		.loc 1 193 0
+ 668 002a 9622     		movs	r2, #150
+ 669 002c FA21     		movs	r1, #250
+ 670 002e 0220     		movs	r0, #2
+ 671 0030 FFF7FEFF 		bl	set_servo_pos
+ 672              	.LVL24:
+ 194:Robot_arm.c   **** 	CyDelay(500);
+ 673              		.loc 1 194 0
+ 674 0034 4FF4FA70 		mov	r0, #500
+ 675 0038 FFF7FEFF 		bl	CyDelay
+ 676              	.LVL25:
+ 195:Robot_arm.c   **** 
+ 196:Robot_arm.c   **** 	//然后进行缓慢复位操作
+ 197:Robot_arm.c   **** 	set_servo_pos(1,INIT_1,150);
+ 677              		.loc 1 197 0
+ 678 003c 9622     		movs	r2, #150
+ 679 003e 40F23A21 		movw	r1, #570
+ 680 0042 0120     		movs	r0, #1
+ 681 0044 FFF7FEFF 		bl	set_servo_pos
+ 682              	.LVL26:
+ 198:Robot_arm.c   **** 	CyDelay(200);
+ 683              		.loc 1 198 0
+ 684 0048 C820     		movs	r0, #200
+ 685 004a FFF7FEFF 		bl	CyDelay
+ 686              	.LVL27:
+ 199:Robot_arm.c   **** 	set_servo_pos(2,INIT_2,150);
+ 687              		.loc 1 199 0
+ 688 004e 9622     		movs	r2, #150
+ 689 0050 4FF49671 		mov	r1, #300
+ 690 0054 0220     		movs	r0, #2
+ 691 0056 FFF7FEFF 		bl	set_servo_pos
+ 692              	.LVL28:
+ 200:Robot_arm.c   **** 	CyDelay(200);
+ 693              		.loc 1 200 0
+ 694 005a C820     		movs	r0, #200
+ 695 005c FFF7FEFF 		bl	CyDelay
+ 696              	.LVL29:
+ 201:Robot_arm.c   **** 	set_servo_pos(3,INIT_3,150);
+ 697              		.loc 1 201 0
+ 698 0060 9622     		movs	r2, #150
+ 699 0062 4FF46171 		mov	r1, #900
+ 700 0066 0320     		movs	r0, #3
+ 701 0068 FFF7FEFF 		bl	set_servo_pos
+ 702              	.LVL30:
+ 202:Robot_arm.c   **** 	CyDelay(200);
+ 703              		.loc 1 202 0
+ 704 006c C820     		movs	r0, #200
+ 705 006e FFF7FEFF 		bl	CyDelay
+ 706              	.LVL31:
+ 203:Robot_arm.c   **** 	set_servo_pos(4,INIT_4,150);
+ 707              		.loc 1 203 0
+ 708 0072 9622     		movs	r2, #150
+ 709 0074 AA21     		movs	r1, #170
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 17
+
+
+ 710 0076 0420     		movs	r0, #4
+ 711 0078 FFF7FEFF 		bl	set_servo_pos
+ 712              	.LVL32:
+ 204:Robot_arm.c   **** 	CyDelay(200);
+ 713              		.loc 1 204 0
+ 714 007c C820     		movs	r0, #200
+ 715 007e FFF7FEFF 		bl	CyDelay
+ 716              	.LVL33:
+ 205:Robot_arm.c   **** 	set_servo_pos(5,INIT_5,150);
+ 717              		.loc 1 205 0
+ 718 0082 9622     		movs	r2, #150
+ 719 0084 4FF41671 		mov	r1, #600
+ 720 0088 0520     		movs	r0, #5
+ 721 008a FFF7FEFF 		bl	set_servo_pos
+ 722              	.LVL34:
+ 206:Robot_arm.c   **** 	//set_servo_pos(6,INIT_6,100);
+ 207:Robot_arm.c   **** 	CyDelay(2000);
+ 723              		.loc 1 207 0
+ 724 008e 4FF4FA60 		mov	r0, #2000
+ 725 0092 FFF7FEFF 		bl	CyDelay
+ 726              	.LVL35:
+ 208:Robot_arm.c   **** 
+ 209:Robot_arm.c   **** 	cur_pos_1 = INIT_1;
+ 727              		.loc 1 209 0
+ 728 0096 084B     		ldr	r3, .L73
+ 729 0098 40F23A22 		movw	r2, #570
+ 730 009c 1A60     		str	r2, [r3]
+ 210:Robot_arm.c   **** 	cur_pos_2 = INIT_2;
+ 731              		.loc 1 210 0
+ 732 009e 4FF49672 		mov	r2, #300
+ 733 00a2 5A60     		str	r2, [r3, #4]
+ 211:Robot_arm.c   **** 	cur_pos_3 = INIT_3;
+ 734              		.loc 1 211 0
+ 735 00a4 4FF46172 		mov	r2, #900
+ 736 00a8 9A60     		str	r2, [r3, #8]
+ 212:Robot_arm.c   **** 	cur_pos_4 = INIT_4;
+ 737              		.loc 1 212 0
+ 738 00aa AA22     		movs	r2, #170
+ 739 00ac DA60     		str	r2, [r3, #12]
+ 213:Robot_arm.c   **** 	cur_pos_5 = INIT_5;
+ 740              		.loc 1 213 0
+ 741 00ae 4FF41672 		mov	r2, #600
+ 742 00b2 1A61     		str	r2, [r3, #16]
+ 743 00b4 08BD     		pop	{r3, pc}
+ 744              	.L74:
+ 745 00b6 00BF     		.align	2
+ 746              	.L73:
+ 747 00b8 00000000 		.word	.LANCHOR0
+ 748              		.cfi_endproc
+ 749              	.LFE79:
+ 750              		.size	reset_init_pos, .-reset_init_pos
+ 751              		.section	.text.simu_fetch,"ax",%progbits
+ 752              		.align	2
+ 753              		.global	simu_fetch
+ 754              		.thumb
+ 755              		.thumb_func
+ 756              		.type	simu_fetch, %function
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 18
+
+
+ 757              	simu_fetch:
+ 758              	.LFB80:
+ 214:Robot_arm.c   **** }
+ 215:Robot_arm.c   **** 
+ 216:Robot_arm.c   **** void simu_fetch(){
+ 759              		.loc 1 216 0
+ 760              		.cfi_startproc
+ 761              		@ args = 0, pretend = 0, frame = 0
+ 762              		@ frame_needed = 0, uses_anonymous_args = 0
+ 763 0000 10B5     		push	{r4, lr}
+ 764              		.cfi_def_cfa_offset 8
+ 765              		.cfi_offset 4, -8
+ 766              		.cfi_offset 14, -4
+ 767              	.LVL36:
+ 768              	.LBB10:
+ 217:Robot_arm.c   **** 	for(int i = 0;i < 20;i++){
+ 769              		.loc 1 217 0
+ 770 0002 0024     		movs	r4, #0
+ 771 0004 04E0     		b	.L76
+ 772              	.LVL37:
+ 773              	.L77:
+ 218:Robot_arm.c   **** 		m4_up_unit();
+ 774              		.loc 1 218 0 discriminator 3
+ 775 0006 FFF7FEFF 		bl	m4_up_unit
+ 776              	.LVL38:
+ 219:Robot_arm.c   **** 		m1_left_unit();
+ 777              		.loc 1 219 0 discriminator 3
+ 778 000a FFF7FEFF 		bl	m1_left_unit
+ 779              	.LVL39:
+ 217:Robot_arm.c   **** 	for(int i = 0;i < 20;i++){
+ 780              		.loc 1 217 0 discriminator 3
+ 781 000e 0134     		adds	r4, r4, #1
+ 782              	.LVL40:
+ 783              	.L76:
+ 217:Robot_arm.c   **** 	for(int i = 0;i < 20;i++){
+ 784              		.loc 1 217 0 is_stmt 0 discriminator 1
+ 785 0010 132C     		cmp	r4, #19
+ 786 0012 F8DD     		ble	.L77
+ 787 0014 0024     		movs	r4, #0
+ 788              	.LVL41:
+ 789 0016 04E0     		b	.L78
+ 790              	.LVL42:
+ 791              	.L79:
+ 792              	.LBE10:
+ 793              	.LBB11:
+ 220:Robot_arm.c   **** 	}
+ 221:Robot_arm.c   **** 
+ 222:Robot_arm.c   **** 	for(int i = 0;i < 20;i++){
+ 223:Robot_arm.c   **** 		m4_up_unit();
+ 794              		.loc 1 223 0 is_stmt 1 discriminator 3
+ 795 0018 FFF7FEFF 		bl	m4_up_unit
+ 796              	.LVL43:
+ 224:Robot_arm.c   **** 		m2_forward_unit();
+ 797              		.loc 1 224 0 discriminator 3
+ 798 001c FFF7FEFF 		bl	m2_forward_unit
+ 799              	.LVL44:
+ 222:Robot_arm.c   **** 		m4_up_unit();
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 19
+
+
+ 800              		.loc 1 222 0 discriminator 3
+ 801 0020 0134     		adds	r4, r4, #1
+ 802              	.LVL45:
+ 803              	.L78:
+ 222:Robot_arm.c   **** 		m4_up_unit();
+ 804              		.loc 1 222 0 is_stmt 0 discriminator 1
+ 805 0022 132C     		cmp	r4, #19
+ 806 0024 F8DD     		ble	.L79
+ 807 0026 0024     		movs	r4, #0
+ 808              	.LVL46:
+ 809 0028 02E0     		b	.L80
+ 810              	.LVL47:
+ 811              	.L81:
+ 812              	.LBE11:
+ 813              	.LBB12:
+ 225:Robot_arm.c   **** 	}
+ 226:Robot_arm.c   **** 	for(int i = 0;i < 40;i++){
+ 227:Robot_arm.c   **** 		m4_up_unit();
+ 814              		.loc 1 227 0 is_stmt 1 discriminator 3
+ 815 002a FFF7FEFF 		bl	m4_up_unit
+ 816              	.LVL48:
+ 226:Robot_arm.c   **** 		m4_up_unit();
+ 817              		.loc 1 226 0 discriminator 3
+ 818 002e 0134     		adds	r4, r4, #1
+ 819              	.LVL49:
+ 820              	.L80:
+ 226:Robot_arm.c   **** 		m4_up_unit();
+ 821              		.loc 1 226 0 is_stmt 0 discriminator 1
+ 822 0030 272C     		cmp	r4, #39
+ 823 0032 FADD     		ble	.L81
+ 824 0034 0024     		movs	r4, #0
+ 825              	.LVL50:
+ 826 0036 06E0     		b	.L82
+ 827              	.LVL51:
+ 828              	.L83:
+ 829              	.LBE12:
+ 830              	.LBB13:
+ 228:Robot_arm.c   **** 	}
+ 229:Robot_arm.c   **** 	for(int i = 0;i < 20;i++){
+ 230:Robot_arm.c   **** 		m3_down_unit();
+ 831              		.loc 1 230 0 is_stmt 1 discriminator 3
+ 832 0038 FFF7FEFF 		bl	m3_down_unit
+ 833              	.LVL52:
+ 231:Robot_arm.c   **** 		m4_up_unit();
+ 834              		.loc 1 231 0 discriminator 3
+ 835 003c FFF7FEFF 		bl	m4_up_unit
+ 836              	.LVL53:
+ 232:Robot_arm.c   **** 		m2_forward_unit();
+ 837              		.loc 1 232 0 discriminator 3
+ 838 0040 FFF7FEFF 		bl	m2_forward_unit
+ 839              	.LVL54:
+ 229:Robot_arm.c   **** 		m3_down_unit();
+ 840              		.loc 1 229 0 discriminator 3
+ 841 0044 0134     		adds	r4, r4, #1
+ 842              	.LVL55:
+ 843              	.L82:
+ 229:Robot_arm.c   **** 		m3_down_unit();
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 20
+
+
+ 844              		.loc 1 229 0 is_stmt 0 discriminator 1
+ 845 0046 132C     		cmp	r4, #19
+ 846 0048 F6DD     		ble	.L83
+ 847              	.LBE13:
+ 233:Robot_arm.c   **** 	}
+ 234:Robot_arm.c   **** 
+ 235:Robot_arm.c   **** 	drop();
+ 848              		.loc 1 235 0 is_stmt 1
+ 849 004a FFF7FEFF 		bl	drop
+ 850              	.LVL56:
+ 236:Robot_arm.c   **** 	CyDelay(5000);
+ 851              		.loc 1 236 0
+ 852 004e 41F28830 		movw	r0, #5000
+ 853 0052 FFF7FEFF 		bl	CyDelay
+ 854              	.LVL57:
+ 237:Robot_arm.c   **** 	grab();
+ 855              		.loc 1 237 0
+ 856 0056 FFF7FEFF 		bl	grab
+ 857              	.LVL58:
+ 238:Robot_arm.c   **** 
+ 239:Robot_arm.c   **** 	CyDelay(5000);
+ 858              		.loc 1 239 0
+ 859 005a 41F28830 		movw	r0, #5000
+ 860 005e FFF7FEFF 		bl	CyDelay
+ 861              	.LVL59:
+ 240:Robot_arm.c   **** 
+ 241:Robot_arm.c   **** 	reset_init_pos();
+ 862              		.loc 1 241 0
+ 863 0062 FFF7FEFF 		bl	reset_init_pos
+ 864              	.LVL60:
+ 865 0066 10BD     		pop	{r4, pc}
+ 866              		.cfi_endproc
+ 867              	.LFE80:
+ 868              		.size	simu_fetch, .-simu_fetch
+ 869              		.section	.text.pause,"ax",%progbits
+ 870              		.align	2
+ 871              		.global	pause
+ 872              		.thumb
+ 873              		.thumb_func
+ 874              		.type	pause, %function
+ 875              	pause:
+ 876              	.LFB81:
+ 242:Robot_arm.c   **** }
+ 243:Robot_arm.c   **** 
+ 244:Robot_arm.c   **** void pause(){
+ 877              		.loc 1 244 0
+ 878              		.cfi_startproc
+ 879              		@ args = 0, pretend = 0, frame = 0
+ 880              		@ frame_needed = 0, uses_anonymous_args = 0
+ 881 0000 08B5     		push	{r3, lr}
+ 882              		.cfi_def_cfa_offset 8
+ 883              		.cfi_offset 3, -8
+ 884              		.cfi_offset 14, -4
+ 245:Robot_arm.c   ****     set_servo_velocity(1, 0);
+ 885              		.loc 1 245 0
+ 886 0002 0021     		movs	r1, #0
+ 887 0004 0120     		movs	r0, #1
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 21
+
+
+ 888 0006 FFF7FEFF 		bl	set_servo_velocity
+ 889              	.LVL61:
+ 246:Robot_arm.c   **** 	set_servo_velocity(2, 0);
+ 890              		.loc 1 246 0
+ 891 000a 0021     		movs	r1, #0
+ 892 000c 0220     		movs	r0, #2
+ 893 000e FFF7FEFF 		bl	set_servo_velocity
+ 894              	.LVL62:
+ 247:Robot_arm.c   **** 	set_servo_velocity(3, 0);
+ 895              		.loc 1 247 0
+ 896 0012 0021     		movs	r1, #0
+ 897 0014 0320     		movs	r0, #3
+ 898 0016 FFF7FEFF 		bl	set_servo_velocity
+ 899              	.LVL63:
+ 248:Robot_arm.c   **** 	set_servo_velocity(4, 0);
+ 900              		.loc 1 248 0
+ 901 001a 0021     		movs	r1, #0
+ 902 001c 0420     		movs	r0, #4
+ 903 001e FFF7FEFF 		bl	set_servo_velocity
+ 904              	.LVL64:
+ 249:Robot_arm.c   **** 	set_servo_velocity(5, 0);
+ 905              		.loc 1 249 0
+ 906 0022 0021     		movs	r1, #0
+ 907 0024 0520     		movs	r0, #5
+ 908 0026 FFF7FEFF 		bl	set_servo_velocity
+ 909              	.LVL65:
+ 910 002a 08BD     		pop	{r3, pc}
+ 911              		.cfi_endproc
+ 912              	.LFE81:
+ 913              		.size	pause, .-pause
+ 914              		.section	.text.steering_engine_controller,"ax",%progbits
+ 915              		.align	2
+ 916              		.global	steering_engine_controller
+ 917              		.thumb
+ 918              		.thumb_func
+ 919              		.type	steering_engine_controller, %function
+ 920              	steering_engine_controller:
+ 921              	.LFB82:
+ 250:Robot_arm.c   **** }
+ 251:Robot_arm.c   **** 
+ 252:Robot_arm.c   **** //基于单舵机运动单元的控制器
+ 253:Robot_arm.c   **** void steering_engine_controller(){
+ 922              		.loc 1 253 0
+ 923              		.cfi_startproc
+ 924              		@ Volatile: function does not return.
+ 925              		@ args = 0, pretend = 0, frame = 0
+ 926              		@ frame_needed = 0, uses_anonymous_args = 0
+ 927 0000 08B5     		push	{r3, lr}
+ 928              		.cfi_def_cfa_offset 8
+ 929              		.cfi_offset 3, -8
+ 930              		.cfi_offset 14, -4
+ 254:Robot_arm.c   **** 	//reset, initialize first
+ 255:Robot_arm.c   **** 	reset_init_pos();
+ 931              		.loc 1 255 0
+ 932 0002 FFF7FEFF 		bl	reset_init_pos
+ 933              	.LVL66:
+ 934              	.L88:
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 22
+
+
+ 256:Robot_arm.c   **** 
+ 257:Robot_arm.c   **** 	//控制器主循环，死循环
+ 258:Robot_arm.c   **** 	while(1){
+ 259:Robot_arm.c   **** 
+ 260:Robot_arm.c   **** 		if(Command == M1_L){
+ 935              		.loc 1 260 0
+ 936 0006 274B     		ldr	r3, .L117
+ 937 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 938 000a 13B1     		cbz	r3, .L89
+ 939 000c 06E0     		b	.L112
+ 940              	.L91:
+ 261:Robot_arm.c   **** 			while(Command == M1_L){
+ 262:Robot_arm.c   **** 				m1_left_unit();
+ 941              		.loc 1 262 0
+ 942 000e FFF7FEFF 		bl	m1_left_unit
+ 943              	.LVL67:
+ 944              	.L89:
+ 261:Robot_arm.c   **** 			while(Command == M1_L){
+ 945              		.loc 1 261 0
+ 946 0012 244B     		ldr	r3, .L117
+ 947 0014 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 948 0016 002B     		cmp	r3, #0
+ 949 0018 F5D1     		bne	.L88
+ 950 001a F8E7     		b	.L91
+ 951              	.L112:
+ 263:Robot_arm.c   **** 			}
+ 264:Robot_arm.c   **** 			continue;
+ 265:Robot_arm.c   **** 		}
+ 266:Robot_arm.c   **** 
+ 267:Robot_arm.c   **** 		if(Command == M1_R){
+ 952              		.loc 1 267 0
+ 953 001c 012B     		cmp	r3, #1
+ 954 001e 07D1     		bne	.L113
+ 955 0020 01E0     		b	.L93
+ 956              	.L95:
+ 268:Robot_arm.c   **** 			while(Command == M1_R){
+ 269:Robot_arm.c   **** 				m1_right_unit();
+ 957              		.loc 1 269 0
+ 958 0022 FFF7FEFF 		bl	m1_right_unit
+ 959              	.LVL68:
+ 960              	.L93:
+ 268:Robot_arm.c   **** 			while(Command == M1_R){
+ 961              		.loc 1 268 0
+ 962 0026 1F4B     		ldr	r3, .L117
+ 963 0028 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 964 002a 012B     		cmp	r3, #1
+ 965 002c F9D0     		beq	.L95
+ 966 002e EAE7     		b	.L88
+ 967              	.L113:
+ 270:Robot_arm.c   **** 			}
+ 271:Robot_arm.c   **** 			continue;
+ 272:Robot_arm.c   **** 		}
+ 273:Robot_arm.c   **** 
+ 274:Robot_arm.c   **** 		if(Command == M2_F){
+ 968              		.loc 1 274 0
+ 969 0030 022B     		cmp	r3, #2
+ 970 0032 07D1     		bne	.L114
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 23
+
+
+ 971 0034 01E0     		b	.L96
+ 972              	.L98:
+ 275:Robot_arm.c   **** 			while(Command == M2_F){
+ 276:Robot_arm.c   **** 				m2_forward_unit();
+ 973              		.loc 1 276 0
+ 974 0036 FFF7FEFF 		bl	m2_forward_unit
+ 975              	.LVL69:
+ 976              	.L96:
+ 275:Robot_arm.c   **** 			while(Command == M2_F){
+ 977              		.loc 1 275 0
+ 978 003a 1A4B     		ldr	r3, .L117
+ 979 003c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 980 003e 022B     		cmp	r3, #2
+ 981 0040 F9D0     		beq	.L98
+ 982 0042 E0E7     		b	.L88
+ 983              	.L114:
+ 277:Robot_arm.c   **** 			}
+ 278:Robot_arm.c   **** 			continue;
+ 279:Robot_arm.c   **** 		}
+ 280:Robot_arm.c   **** 
+ 281:Robot_arm.c   **** 		if(Command == M2_B){
+ 984              		.loc 1 281 0
+ 985 0044 032B     		cmp	r3, #3
+ 986 0046 07D1     		bne	.L115
+ 987 0048 01E0     		b	.L99
+ 988              	.L101:
+ 282:Robot_arm.c   **** 			while(Command == M2_B){
+ 283:Robot_arm.c   **** 				m2_backward_unit();
+ 989              		.loc 1 283 0
+ 990 004a FFF7FEFF 		bl	m2_backward_unit
+ 991              	.LVL70:
+ 992              	.L99:
+ 282:Robot_arm.c   **** 			while(Command == M2_B){
+ 993              		.loc 1 282 0
+ 994 004e 154B     		ldr	r3, .L117
+ 995 0050 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 996 0052 032B     		cmp	r3, #3
+ 997 0054 F9D0     		beq	.L101
+ 998 0056 D6E7     		b	.L88
+ 999              	.L115:
+ 284:Robot_arm.c   **** 			}
+ 285:Robot_arm.c   **** 			continue;
+ 286:Robot_arm.c   **** 		}
+ 287:Robot_arm.c   **** 
+ 288:Robot_arm.c   **** 		if(Command == M3_U){
+ 1000              		.loc 1 288 0
+ 1001 0058 042B     		cmp	r3, #4
+ 1002 005a 02D1     		bne	.L102
+ 1003              	.L103:
+ 289:Robot_arm.c   **** 			while(Command == M3_U){
+ 1004              		.loc 1 289 0 discriminator 1
+ 1005 005c 042B     		cmp	r3, #4
+ 1006 005e FDD0     		beq	.L103
+ 1007 0060 D1E7     		b	.L88
+ 1008              	.L102:
+ 290:Robot_arm.c   **** 				// m3_upward_unit();
+ 291:Robot_arm.c   **** 			}
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 24
+
+
+ 292:Robot_arm.c   **** 			continue;
+ 293:Robot_arm.c   **** 		}
+ 294:Robot_arm.c   **** 
+ 295:Robot_arm.c   **** 		if(Command == M3_D){
+ 1009              		.loc 1 295 0
+ 1010 0062 052B     		cmp	r3, #5
+ 1011 0064 02D1     		bne	.L104
+ 1012              	.L105:
+ 296:Robot_arm.c   **** 			while(Command == M3_D){
+ 1013              		.loc 1 296 0 discriminator 1
+ 1014 0066 052B     		cmp	r3, #5
+ 1015 0068 FDD0     		beq	.L105
+ 1016 006a CCE7     		b	.L88
+ 1017              	.L104:
+ 297:Robot_arm.c   **** 				// m3_downward_unit();
+ 298:Robot_arm.c   **** 			}
+ 299:Robot_arm.c   **** 			continue;
+ 300:Robot_arm.c   **** 		}
+ 301:Robot_arm.c   **** 
+ 302:Robot_arm.c   **** 		if(Command == M4_U){
+ 1018              		.loc 1 302 0
+ 1019 006c 062B     		cmp	r3, #6
+ 1020 006e 02D1     		bne	.L106
+ 1021              	.L107:
+ 303:Robot_arm.c   **** 			while(Command == M4_U){
+ 1022              		.loc 1 303 0 discriminator 1
+ 1023 0070 062B     		cmp	r3, #6
+ 1024 0072 FDD0     		beq	.L107
+ 1025 0074 C7E7     		b	.L88
+ 1026              	.L106:
+ 304:Robot_arm.c   **** 				// m4_upward_unit();
+ 305:Robot_arm.c   **** 			}
+ 306:Robot_arm.c   **** 			continue;
+ 307:Robot_arm.c   **** 		}
+ 308:Robot_arm.c   **** 
+ 309:Robot_arm.c   **** 		if(Command == M4_D){
+ 1027              		.loc 1 309 0
+ 1028 0076 072B     		cmp	r3, #7
+ 1029 0078 02D1     		bne	.L108
+ 1030              	.L109:
+ 310:Robot_arm.c   **** 			while(Command == M4_D){
+ 1031              		.loc 1 310 0 discriminator 1
+ 1032 007a 072B     		cmp	r3, #7
+ 1033 007c FDD0     		beq	.L109
+ 1034 007e C2E7     		b	.L88
+ 1035              	.L108:
+ 311:Robot_arm.c   **** 				// m4_downward_unit();
+ 312:Robot_arm.c   **** 			}
+ 313:Robot_arm.c   **** 			continue;
+ 314:Robot_arm.c   **** 		}
+ 315:Robot_arm.c   **** 
+ 316:Robot_arm.c   **** 		if(Command == DROP){
+ 1036              		.loc 1 316 0
+ 1037 0080 082B     		cmp	r3, #8
+ 1038 0082 02D1     		bne	.L110
+ 317:Robot_arm.c   **** 			drop();
+ 1039              		.loc 1 317 0
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 25
+
+
+ 1040 0084 FFF7FEFF 		bl	drop
+ 1041              	.LVL71:
+ 318:Robot_arm.c   **** 			continue;
+ 1042              		.loc 1 318 0
+ 1043 0088 BDE7     		b	.L88
+ 1044              	.L110:
+ 319:Robot_arm.c   **** 		}
+ 320:Robot_arm.c   **** 
+ 321:Robot_arm.c   **** 		if(Command == GRAB){
+ 1045              		.loc 1 321 0
+ 1046 008a 092B     		cmp	r3, #9
+ 1047 008c 02D1     		bne	.L111
+ 322:Robot_arm.c   **** 			grab();
+ 1048              		.loc 1 322 0
+ 1049 008e FFF7FEFF 		bl	grab
+ 1050              	.LVL72:
+ 323:Robot_arm.c   **** 			continue;
+ 1051              		.loc 1 323 0
+ 1052 0092 B8E7     		b	.L88
+ 1053              	.L111:
+ 324:Robot_arm.c   **** 		}
+ 325:Robot_arm.c   **** 
+ 326:Robot_arm.c   **** 		if(Command == RESET_INIT){
+ 1054              		.loc 1 326 0
+ 1055 0094 0A2B     		cmp	r3, #10
+ 1056 0096 B6D0     		beq	.L88
+ 327:Robot_arm.c   **** 			// reset();
+ 328:Robot_arm.c   **** 			continue;
+ 329:Robot_arm.c   **** 		}
+ 330:Robot_arm.c   **** 		if(Command == PAUSE){
+ 1057              		.loc 1 330 0
+ 1058 0098 0B2B     		cmp	r3, #11
+ 1059 009a B4D1     		bne	.L88
+ 331:Robot_arm.c   **** 			pause();
+ 1060              		.loc 1 331 0
+ 1061 009c FFF7FEFF 		bl	pause
+ 1062              	.LVL73:
+ 332:Robot_arm.c   **** 			continue;
+ 1063              		.loc 1 332 0
+ 1064 00a0 B1E7     		b	.L88
+ 1065              	.L118:
+ 1066 00a2 00BF     		.align	2
+ 1067              	.L117:
+ 1068 00a4 00000000 		.word	Command
+ 1069              		.cfi_endproc
+ 1070              	.LFE82:
+ 1071              		.size	steering_engine_controller, .-steering_engine_controller
+ 1072              		.comm	Command,1,1
+ 1073              		.global	cur_pos_5
+ 1074              		.global	cur_pos_4
+ 1075              		.global	cur_pos_3
+ 1076              		.global	cur_pos_2
+ 1077              		.global	cur_pos_1
+ 1078              		.data
+ 1079              		.align	2
+ 1080              		.set	.LANCHOR0,. + 0
+ 1081              		.type	cur_pos_1, %object
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 26
+
+
+ 1082              		.size	cur_pos_1, 4
+ 1083              	cur_pos_1:
+ 1084 0000 3A020000 		.word	570
+ 1085              		.type	cur_pos_2, %object
+ 1086              		.size	cur_pos_2, 4
+ 1087              	cur_pos_2:
+ 1088 0004 2C010000 		.word	300
+ 1089              		.type	cur_pos_3, %object
+ 1090              		.size	cur_pos_3, 4
+ 1091              	cur_pos_3:
+ 1092 0008 84030000 		.word	900
+ 1093              		.type	cur_pos_4, %object
+ 1094              		.size	cur_pos_4, 4
+ 1095              	cur_pos_4:
+ 1096 000c AA000000 		.word	170
+ 1097              		.type	cur_pos_5, %object
+ 1098              		.size	cur_pos_5, 4
+ 1099              	cur_pos_5:
+ 1100 0010 58020000 		.word	600
+ 1101              		.text
+ 1102              	.Letext0:
+ 1103              		.file 2 "d:\\psoccreator4.2\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.1\\arm-none-ea
+ 1104              		.file 3 "d:\\psoccreator4.2\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.1\\arm-none-ea
+ 1105              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+ 1106              		.file 5 "defs.h"
+ 1107              		.file 6 "Generated_Source\\PSoC5/CyLib.h"
+ 1108              		.section	.debug_info,"",%progbits
+ 1109              	.Ldebug_info0:
+ 1110 0000 4F080000 		.4byte	0x84f
+ 1111 0004 0400     		.2byte	0x4
+ 1112 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1113 000a 04       		.byte	0x4
+ 1114 000b 01       		.uleb128 0x1
+ 1115 000c DE020000 		.4byte	.LASF58
+ 1116 0010 0C       		.byte	0xc
+ 1117 0011 7F020000 		.4byte	.LASF59
+ 1118 0015 8B020000 		.4byte	.LASF60
+ 1119 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 1120 001d 00000000 		.4byte	0
+ 1121 0021 00000000 		.4byte	.Ldebug_line0
+ 1122 0025 02       		.uleb128 0x2
+ 1123 0026 01       		.byte	0x1
+ 1124 0027 06       		.byte	0x6
+ 1125 0028 96010000 		.4byte	.LASF0
+ 1126 002c 02       		.uleb128 0x2
+ 1127 002d 01       		.byte	0x1
+ 1128 002e 08       		.byte	0x8
+ 1129 002f 88010000 		.4byte	.LASF1
+ 1130 0033 02       		.uleb128 0x2
+ 1131 0034 02       		.byte	0x2
+ 1132 0035 05       		.byte	0x5
+ 1133 0036 53000000 		.4byte	.LASF2
+ 1134 003a 02       		.uleb128 0x2
+ 1135 003b 02       		.byte	0x2
+ 1136 003c 07       		.byte	0x7
+ 1137 003d 24020000 		.4byte	.LASF3
+ 1138 0041 03       		.uleb128 0x3
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 27
+
+
+ 1139 0042 50020000 		.4byte	.LASF9
+ 1140 0046 02       		.byte	0x2
+ 1141 0047 3F       		.byte	0x3f
+ 1142 0048 4C000000 		.4byte	0x4c
+ 1143 004c 02       		.uleb128 0x2
+ 1144 004d 04       		.byte	0x4
+ 1145 004e 05       		.byte	0x5
+ 1146 004f F2000000 		.4byte	.LASF4
+ 1147 0053 02       		.uleb128 0x2
+ 1148 0054 04       		.byte	0x4
+ 1149 0055 07       		.byte	0x7
+ 1150 0056 37020000 		.4byte	.LASF5
+ 1151 005a 02       		.uleb128 0x2
+ 1152 005b 08       		.byte	0x8
+ 1153 005c 05       		.byte	0x5
+ 1154 005d 66000000 		.4byte	.LASF6
+ 1155 0061 02       		.uleb128 0x2
+ 1156 0062 08       		.byte	0x8
+ 1157 0063 07       		.byte	0x7
+ 1158 0064 A2010000 		.4byte	.LASF7
+ 1159 0068 04       		.uleb128 0x4
+ 1160 0069 04       		.byte	0x4
+ 1161 006a 05       		.byte	0x5
+ 1162 006b 696E7400 		.ascii	"int\000"
+ 1163 006f 02       		.uleb128 0x2
+ 1164 0070 04       		.byte	0x4
+ 1165 0071 07       		.byte	0x7
+ 1166 0072 BF010000 		.4byte	.LASF8
+ 1167 0076 03       		.uleb128 0x3
+ 1168 0077 1C020000 		.4byte	.LASF10
+ 1169 007b 03       		.byte	0x3
+ 1170 007c 2C       		.byte	0x2c
+ 1171 007d 41000000 		.4byte	0x41
+ 1172 0081 02       		.uleb128 0x2
+ 1173 0082 04       		.byte	0x4
+ 1174 0083 04       		.byte	0x4
+ 1175 0084 C4000000 		.4byte	.LASF11
+ 1176 0088 02       		.uleb128 0x2
+ 1177 0089 08       		.byte	0x8
+ 1178 008a 04       		.byte	0x4
+ 1179 008b 49020000 		.4byte	.LASF12
+ 1180 008f 02       		.uleb128 0x2
+ 1181 0090 01       		.byte	0x1
+ 1182 0091 08       		.byte	0x8
+ 1183 0092 0C020000 		.4byte	.LASF13
+ 1184 0096 02       		.uleb128 0x2
+ 1185 0097 08       		.byte	0x8
+ 1186 0098 04       		.byte	0x4
+ 1187 0099 00000000 		.4byte	.LASF14
+ 1188 009d 02       		.uleb128 0x2
+ 1189 009e 04       		.byte	0x4
+ 1190 009f 07       		.byte	0x7
+ 1191 00a0 5D000000 		.4byte	.LASF15
+ 1192 00a4 05       		.uleb128 0x5
+ 1193 00a5 59010000 		.4byte	.LASF61
+ 1194 00a9 01       		.byte	0x1
+ 1195 00aa 2C000000 		.4byte	0x2c
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 28
+
+
+ 1196 00ae 01       		.byte	0x1
+ 1197 00af 18       		.byte	0x18
+ 1198 00b0 FD000000 		.4byte	0xfd
+ 1199 00b4 06       		.uleb128 0x6
+ 1200 00b5 FA010000 		.4byte	.LASF16
+ 1201 00b9 00       		.byte	0
+ 1202 00ba 06       		.uleb128 0x6
+ 1203 00bb 07020000 		.4byte	.LASF17
+ 1204 00bf 01       		.byte	0x1
+ 1205 00c0 06       		.uleb128 0x6
+ 1206 00c1 83010000 		.4byte	.LASF18
+ 1207 00c5 02       		.byte	0x2
+ 1208 00c6 06       		.uleb128 0x6
+ 1209 00c7 71010000 		.4byte	.LASF19
+ 1210 00cb 03       		.byte	0x3
+ 1211 00cc 06       		.uleb128 0x6
+ 1212 00cd 42010000 		.4byte	.LASF20
+ 1213 00d1 04       		.byte	0x4
+ 1214 00d2 06       		.uleb128 0x6
+ 1215 00d3 DD000000 		.4byte	.LASF21
+ 1216 00d7 05       		.byte	0x5
+ 1217 00d8 06       		.uleb128 0x6
+ 1218 00d9 BF000000 		.4byte	.LASF22
+ 1219 00dd 06       		.byte	0x6
+ 1220 00de 06       		.uleb128 0x6
+ 1221 00df AC000000 		.4byte	.LASF23
+ 1222 00e3 07       		.byte	0x7
+ 1223 00e4 06       		.uleb128 0x6
+ 1224 00e5 99000000 		.4byte	.LASF24
+ 1225 00e9 08       		.byte	0x8
+ 1226 00ea 06       		.uleb128 0x6
+ 1227 00eb 94000000 		.4byte	.LASF25
+ 1228 00ef 09       		.byte	0x9
+ 1229 00f0 06       		.uleb128 0x6
+ 1230 00f1 D5010000 		.4byte	.LASF26
+ 1231 00f5 0A       		.byte	0xa
+ 1232 00f6 06       		.uleb128 0x6
+ 1233 00f7 B9010000 		.4byte	.LASF27
+ 1234 00fb 0B       		.byte	0xb
+ 1235 00fc 00       		.byte	0
+ 1236 00fd 07       		.uleb128 0x7
+ 1237 00fe 76010000 		.4byte	.LASF28
+ 1238 0102 01       		.byte	0x1
+ 1239 0103 25       		.byte	0x25
+ 1240 0104 00000000 		.4byte	.LFB63
+ 1241 0108 34000000 		.4byte	.LFE63-.LFB63
+ 1242 010c 01       		.uleb128 0x1
+ 1243 010d 9C       		.byte	0x9c
+ 1244 010e 41010000 		.4byte	0x141
+ 1245 0112 08       		.uleb128 0x8
+ 1246 0113 0C000000 		.4byte	.LBB2
+ 1247 0117 28000000 		.4byte	.LBE2-.LBB2
+ 1248 011b 09       		.uleb128 0x9
+ 1249 011c CC010000 		.4byte	.LASF30
+ 1250 0120 01       		.byte	0x1
+ 1251 0121 27       		.byte	0x27
+ 1252 0122 68000000 		.4byte	0x68
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 29
+
+
+ 1253 0126 00000000 		.4byte	.LLST0
+ 1254 012a 0A       		.uleb128 0xa
+ 1255 012b 2E000000 		.4byte	.LVL1
+ 1256 012f 31080000 		.4byte	0x831
+ 1257 0133 0B       		.uleb128 0xb
+ 1258 0134 01       		.uleb128 0x1
+ 1259 0135 50       		.byte	0x50
+ 1260 0136 01       		.uleb128 0x1
+ 1261 0137 31       		.byte	0x31
+ 1262 0138 0B       		.uleb128 0xb
+ 1263 0139 01       		.uleb128 0x1
+ 1264 013a 52       		.byte	0x52
+ 1265 013b 02       		.uleb128 0x2
+ 1266 013c 08       		.byte	0x8
+ 1267 013d 78       		.byte	0x78
+ 1268 013e 00       		.byte	0
+ 1269 013f 00       		.byte	0
+ 1270 0140 00       		.byte	0
+ 1271 0141 07       		.uleb128 0x7
+ 1272 0142 9E000000 		.4byte	.LASF29
+ 1273 0146 01       		.byte	0x1
+ 1274 0147 33       		.byte	0x33
+ 1275 0148 00000000 		.4byte	.LFB64
+ 1276 014c 30000000 		.4byte	.LFE64-.LFB64
+ 1277 0150 01       		.uleb128 0x1
+ 1278 0151 9C       		.byte	0x9c
+ 1279 0152 85010000 		.4byte	0x185
+ 1280 0156 08       		.uleb128 0x8
+ 1281 0157 0C000000 		.4byte	.LBB3
+ 1282 015b 24000000 		.4byte	.LBE3-.LBB3
+ 1283 015f 09       		.uleb128 0x9
+ 1284 0160 CC010000 		.4byte	.LASF30
+ 1285 0164 01       		.byte	0x1
+ 1286 0165 35       		.byte	0x35
+ 1287 0166 68000000 		.4byte	0x68
+ 1288 016a 14000000 		.4byte	.LLST1
+ 1289 016e 0A       		.uleb128 0xa
+ 1290 016f 28000000 		.4byte	.LVL3
+ 1291 0173 31080000 		.4byte	0x831
+ 1292 0177 0B       		.uleb128 0xb
+ 1293 0178 01       		.uleb128 0x1
+ 1294 0179 50       		.byte	0x50
+ 1295 017a 01       		.uleb128 0x1
+ 1296 017b 31       		.byte	0x31
+ 1297 017c 0B       		.uleb128 0xb
+ 1298 017d 01       		.uleb128 0x1
+ 1299 017e 52       		.byte	0x52
+ 1300 017f 02       		.uleb128 0x2
+ 1301 0180 08       		.byte	0x8
+ 1302 0181 78       		.byte	0x78
+ 1303 0182 00       		.byte	0
+ 1304 0183 00       		.byte	0
+ 1305 0184 00       		.byte	0
+ 1306 0185 07       		.uleb128 0x7
+ 1307 0186 E2000000 		.4byte	.LASF31
+ 1308 018a 01       		.byte	0x1
+ 1309 018b 41       		.byte	0x41
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 30
+
+
+ 1310 018c 00000000 		.4byte	.LFB65
+ 1311 0190 30000000 		.4byte	.LFE65-.LFB65
+ 1312 0194 01       		.uleb128 0x1
+ 1313 0195 9C       		.byte	0x9c
+ 1314 0196 C9010000 		.4byte	0x1c9
+ 1315 019a 08       		.uleb128 0x8
+ 1316 019b 0C000000 		.4byte	.LBB4
+ 1317 019f 24000000 		.4byte	.LBE4-.LBB4
+ 1318 01a3 09       		.uleb128 0x9
+ 1319 01a4 CC010000 		.4byte	.LASF30
+ 1320 01a8 01       		.byte	0x1
+ 1321 01a9 43       		.byte	0x43
+ 1322 01aa 68000000 		.4byte	0x68
+ 1323 01ae 28000000 		.4byte	.LLST2
+ 1324 01b2 0A       		.uleb128 0xa
+ 1325 01b3 28000000 		.4byte	.LVL5
+ 1326 01b7 31080000 		.4byte	0x831
+ 1327 01bb 0B       		.uleb128 0xb
+ 1328 01bc 01       		.uleb128 0x1
+ 1329 01bd 50       		.byte	0x50
+ 1330 01be 01       		.uleb128 0x1
+ 1331 01bf 32       		.byte	0x32
+ 1332 01c0 0B       		.uleb128 0xb
+ 1333 01c1 01       		.uleb128 0x1
+ 1334 01c2 52       		.byte	0x52
+ 1335 01c3 02       		.uleb128 0x2
+ 1336 01c4 08       		.byte	0x8
+ 1337 01c5 78       		.byte	0x78
+ 1338 01c6 00       		.byte	0
+ 1339 01c7 00       		.byte	0
+ 1340 01c8 00       		.byte	0
+ 1341 01c9 07       		.uleb128 0x7
+ 1342 01ca 22010000 		.4byte	.LASF32
+ 1343 01ce 01       		.byte	0x1
+ 1344 01cf 4F       		.byte	0x4f
+ 1345 01d0 00000000 		.4byte	.LFB66
+ 1346 01d4 34000000 		.4byte	.LFE66-.LFB66
+ 1347 01d8 01       		.uleb128 0x1
+ 1348 01d9 9C       		.byte	0x9c
+ 1349 01da 0D020000 		.4byte	0x20d
+ 1350 01de 08       		.uleb128 0x8
+ 1351 01df 0C000000 		.4byte	.LBB5
+ 1352 01e3 28000000 		.4byte	.LBE5-.LBB5
+ 1353 01e7 09       		.uleb128 0x9
+ 1354 01e8 CC010000 		.4byte	.LASF30
+ 1355 01ec 01       		.byte	0x1
+ 1356 01ed 51       		.byte	0x51
+ 1357 01ee 68000000 		.4byte	0x68
+ 1358 01f2 3C000000 		.4byte	.LLST3
+ 1359 01f6 0A       		.uleb128 0xa
+ 1360 01f7 2E000000 		.4byte	.LVL7
+ 1361 01fb 31080000 		.4byte	0x831
+ 1362 01ff 0B       		.uleb128 0xb
+ 1363 0200 01       		.uleb128 0x1
+ 1364 0201 50       		.byte	0x50
+ 1365 0202 01       		.uleb128 0x1
+ 1366 0203 32       		.byte	0x32
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 31
+
+
+ 1367 0204 0B       		.uleb128 0xb
+ 1368 0205 01       		.uleb128 0x1
+ 1369 0206 52       		.byte	0x52
+ 1370 0207 02       		.uleb128 0x2
+ 1371 0208 08       		.byte	0x8
+ 1372 0209 78       		.byte	0x78
+ 1373 020a 00       		.byte	0
+ 1374 020b 00       		.byte	0
+ 1375 020c 00       		.byte	0
+ 1376 020d 07       		.uleb128 0x7
+ 1377 020e EF010000 		.4byte	.LASF33
+ 1378 0212 01       		.byte	0x1
+ 1379 0213 5D       		.byte	0x5d
+ 1380 0214 00000000 		.4byte	.LFB67
+ 1381 0218 38000000 		.4byte	.LFE67-.LFB67
+ 1382 021c 01       		.uleb128 0x1
+ 1383 021d 9C       		.byte	0x9c
+ 1384 021e 51020000 		.4byte	0x251
+ 1385 0222 08       		.uleb128 0x8
+ 1386 0223 0E000000 		.4byte	.LBB6
+ 1387 0227 2A000000 		.4byte	.LBE6-.LBB6
+ 1388 022b 09       		.uleb128 0x9
+ 1389 022c CC010000 		.4byte	.LASF30
+ 1390 0230 01       		.byte	0x1
+ 1391 0231 5F       		.byte	0x5f
+ 1392 0232 68000000 		.4byte	0x68
+ 1393 0236 50000000 		.4byte	.LLST4
+ 1394 023a 0A       		.uleb128 0xa
+ 1395 023b 30000000 		.4byte	.LVL9
+ 1396 023f 31080000 		.4byte	0x831
+ 1397 0243 0B       		.uleb128 0xb
+ 1398 0244 01       		.uleb128 0x1
+ 1399 0245 50       		.byte	0x50
+ 1400 0246 01       		.uleb128 0x1
+ 1401 0247 33       		.byte	0x33
+ 1402 0248 0B       		.uleb128 0xb
+ 1403 0249 01       		.uleb128 0x1
+ 1404 024a 52       		.byte	0x52
+ 1405 024b 02       		.uleb128 0x2
+ 1406 024c 08       		.byte	0x8
+ 1407 024d 78       		.byte	0x78
+ 1408 024e 00       		.byte	0
+ 1409 024f 00       		.byte	0
+ 1410 0250 00       		.byte	0
+ 1411 0251 07       		.uleb128 0x7
+ 1412 0252 87000000 		.4byte	.LASF34
+ 1413 0256 01       		.byte	0x1
+ 1414 0257 6B       		.byte	0x6b
+ 1415 0258 00000000 		.4byte	.LFB68
+ 1416 025c 38000000 		.4byte	.LFE68-.LFB68
+ 1417 0260 01       		.uleb128 0x1
+ 1418 0261 9C       		.byte	0x9c
+ 1419 0262 95020000 		.4byte	0x295
+ 1420 0266 08       		.uleb128 0x8
+ 1421 0267 0E000000 		.4byte	.LBB7
+ 1422 026b 2A000000 		.4byte	.LBE7-.LBB7
+ 1423 026f 09       		.uleb128 0x9
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 32
+
+
+ 1424 0270 CC010000 		.4byte	.LASF30
+ 1425 0274 01       		.byte	0x1
+ 1426 0275 6D       		.byte	0x6d
+ 1427 0276 68000000 		.4byte	0x68
+ 1428 027a 64000000 		.4byte	.LLST5
+ 1429 027e 0A       		.uleb128 0xa
+ 1430 027f 30000000 		.4byte	.LVL11
+ 1431 0283 31080000 		.4byte	0x831
+ 1432 0287 0B       		.uleb128 0xb
+ 1433 0288 01       		.uleb128 0x1
+ 1434 0289 50       		.byte	0x50
+ 1435 028a 01       		.uleb128 0x1
+ 1436 028b 33       		.byte	0x33
+ 1437 028c 0B       		.uleb128 0xb
+ 1438 028d 01       		.uleb128 0x1
+ 1439 028e 52       		.byte	0x52
+ 1440 028f 02       		.uleb128 0x2
+ 1441 0290 08       		.byte	0x8
+ 1442 0291 78       		.byte	0x78
+ 1443 0292 00       		.byte	0
+ 1444 0293 00       		.byte	0
+ 1445 0294 00       		.byte	0
+ 1446 0295 07       		.uleb128 0x7
+ 1447 0296 11020000 		.4byte	.LASF35
+ 1448 029a 01       		.byte	0x1
+ 1449 029b 79       		.byte	0x79
+ 1450 029c 00000000 		.4byte	.LFB69
+ 1451 02a0 38000000 		.4byte	.LFE69-.LFB69
+ 1452 02a4 01       		.uleb128 0x1
+ 1453 02a5 9C       		.byte	0x9c
+ 1454 02a6 D9020000 		.4byte	0x2d9
+ 1455 02aa 08       		.uleb128 0x8
+ 1456 02ab 10000000 		.4byte	.LBB8
+ 1457 02af 28000000 		.4byte	.LBE8-.LBB8
+ 1458 02b3 09       		.uleb128 0x9
+ 1459 02b4 CC010000 		.4byte	.LASF30
+ 1460 02b8 01       		.byte	0x1
+ 1461 02b9 7B       		.byte	0x7b
+ 1462 02ba 68000000 		.4byte	0x68
+ 1463 02be 78000000 		.4byte	.LLST6
+ 1464 02c2 0A       		.uleb128 0xa
+ 1465 02c3 32000000 		.4byte	.LVL13
+ 1466 02c7 31080000 		.4byte	0x831
+ 1467 02cb 0B       		.uleb128 0xb
+ 1468 02cc 01       		.uleb128 0x1
+ 1469 02cd 50       		.byte	0x50
+ 1470 02ce 01       		.uleb128 0x1
+ 1471 02cf 34       		.byte	0x34
+ 1472 02d0 0B       		.uleb128 0xb
+ 1473 02d1 01       		.uleb128 0x1
+ 1474 02d2 52       		.byte	0x52
+ 1475 02d3 02       		.uleb128 0x2
+ 1476 02d4 08       		.byte	0x8
+ 1477 02d5 78       		.byte	0x78
+ 1478 02d6 00       		.byte	0
+ 1479 02d7 00       		.byte	0
+ 1480 02d8 00       		.byte	0
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 33
+
+
+ 1481 02d9 07       		.uleb128 0x7
+ 1482 02da 46000000 		.4byte	.LASF36
+ 1483 02de 01       		.byte	0x1
+ 1484 02df 87       		.byte	0x87
+ 1485 02e0 00000000 		.4byte	.LFB70
+ 1486 02e4 34000000 		.4byte	.LFE70-.LFB70
+ 1487 02e8 01       		.uleb128 0x1
+ 1488 02e9 9C       		.byte	0x9c
+ 1489 02ea 1D030000 		.4byte	0x31d
+ 1490 02ee 08       		.uleb128 0x8
+ 1491 02ef 10000000 		.4byte	.LBB9
+ 1492 02f3 24000000 		.4byte	.LBE9-.LBB9
+ 1493 02f7 09       		.uleb128 0x9
+ 1494 02f8 CC010000 		.4byte	.LASF30
+ 1495 02fc 01       		.byte	0x1
+ 1496 02fd 89       		.byte	0x89
+ 1497 02fe 68000000 		.4byte	0x68
+ 1498 0302 8C000000 		.4byte	.LLST7
+ 1499 0306 0A       		.uleb128 0xa
+ 1500 0307 2E000000 		.4byte	.LVL15
+ 1501 030b 31080000 		.4byte	0x831
+ 1502 030f 0B       		.uleb128 0xb
+ 1503 0310 01       		.uleb128 0x1
+ 1504 0311 50       		.byte	0x50
+ 1505 0312 01       		.uleb128 0x1
+ 1506 0313 34       		.byte	0x34
+ 1507 0314 0B       		.uleb128 0xb
+ 1508 0315 01       		.uleb128 0x1
+ 1509 0316 52       		.byte	0x52
+ 1510 0317 02       		.uleb128 0x2
+ 1511 0318 08       		.byte	0x8
+ 1512 0319 78       		.byte	0x78
+ 1513 031a 00       		.byte	0
+ 1514 031b 00       		.byte	0
+ 1515 031c 00       		.byte	0
+ 1516 031d 0C       		.uleb128 0xc
+ 1517 031e 47010000 		.4byte	.LASF37
+ 1518 0322 01       		.byte	0x1
+ 1519 0323 96       		.byte	0x96
+ 1520 0324 00000000 		.4byte	.LFB71
+ 1521 0328 02000000 		.4byte	.LFE71-.LFB71
+ 1522 032c 01       		.uleb128 0x1
+ 1523 032d 9C       		.byte	0x9c
+ 1524 032e 0C       		.uleb128 0xc
+ 1525 032f 0F010000 		.4byte	.LASF38
+ 1526 0333 01       		.byte	0x1
+ 1527 0334 9A       		.byte	0x9a
+ 1528 0335 00000000 		.4byte	.LFB72
+ 1529 0339 02000000 		.4byte	.LFE72-.LFB72
+ 1530 033d 01       		.uleb128 0x1
+ 1531 033e 9C       		.byte	0x9c
+ 1532 033f 0C       		.uleb128 0xc
+ 1533 0340 74030000 		.4byte	.LASF39
+ 1534 0344 01       		.byte	0x1
+ 1535 0345 9E       		.byte	0x9e
+ 1536 0346 00000000 		.4byte	.LFB73
+ 1537 034a 02000000 		.4byte	.LFE73-.LFB73
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 34
+
+
+ 1538 034e 01       		.uleb128 0x1
+ 1539 034f 9C       		.byte	0x9c
+ 1540 0350 0C       		.uleb128 0xc
+ 1541 0351 74000000 		.4byte	.LASF40
+ 1542 0355 01       		.byte	0x1
+ 1543 0356 A2       		.byte	0xa2
+ 1544 0357 00000000 		.4byte	.LFB74
+ 1545 035b 02000000 		.4byte	.LFE74-.LFB74
+ 1546 035f 01       		.uleb128 0x1
+ 1547 0360 9C       		.byte	0x9c
+ 1548 0361 0C       		.uleb128 0xc
+ 1549 0362 12000000 		.4byte	.LASF41
+ 1550 0366 01       		.byte	0x1
+ 1551 0367 A6       		.byte	0xa6
+ 1552 0368 00000000 		.4byte	.LFB75
+ 1553 036c 02000000 		.4byte	.LFE75-.LFB75
+ 1554 0370 01       		.uleb128 0x1
+ 1555 0371 9C       		.byte	0x9c
+ 1556 0372 0C       		.uleb128 0xc
+ 1557 0373 5A020000 		.4byte	.LASF42
+ 1558 0377 01       		.byte	0x1
+ 1559 0378 AA       		.byte	0xaa
+ 1560 0379 00000000 		.4byte	.LFB76
+ 1561 037d 02000000 		.4byte	.LFE76-.LFB76
+ 1562 0381 01       		.uleb128 0x1
+ 1563 0382 9C       		.byte	0x9c
+ 1564 0383 07       		.uleb128 0x7
+ 1565 0384 3D010000 		.4byte	.LASF43
+ 1566 0388 01       		.byte	0x1
+ 1567 0389 AE       		.byte	0xae
+ 1568 038a 00000000 		.4byte	.LFB77
+ 1569 038e 20000000 		.4byte	.LFE77-.LFB77
+ 1570 0392 01       		.uleb128 0x1
+ 1571 0393 9C       		.byte	0x9c
+ 1572 0394 CA030000 		.4byte	0x3ca
+ 1573 0398 0D       		.uleb128 0xd
+ 1574 0399 12000000 		.4byte	.LVL16
+ 1575 039d 31080000 		.4byte	0x831
+ 1576 03a1 B8030000 		.4byte	0x3b8
+ 1577 03a5 0B       		.uleb128 0xb
+ 1578 03a6 01       		.uleb128 0x1
+ 1579 03a7 50       		.byte	0x50
+ 1580 03a8 01       		.uleb128 0x1
+ 1581 03a9 35       		.byte	0x35
+ 1582 03aa 0B       		.uleb128 0xb
+ 1583 03ab 01       		.uleb128 0x1
+ 1584 03ac 51       		.byte	0x51
+ 1585 03ad 03       		.uleb128 0x3
+ 1586 03ae 0A       		.byte	0xa
+ 1587 03af 2003     		.2byte	0x320
+ 1588 03b1 0B       		.uleb128 0xb
+ 1589 03b2 01       		.uleb128 0x1
+ 1590 03b3 52       		.byte	0x52
+ 1591 03b4 02       		.uleb128 0x2
+ 1592 03b5 08       		.byte	0x8
+ 1593 03b6 96       		.byte	0x96
+ 1594 03b7 00       		.byte	0
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 35
+
+
+ 1595 03b8 0A       		.uleb128 0xa
+ 1596 03b9 1A000000 		.4byte	.LVL17
+ 1597 03bd 3C080000 		.4byte	0x83c
+ 1598 03c1 0B       		.uleb128 0xb
+ 1599 03c2 01       		.uleb128 0x1
+ 1600 03c3 50       		.byte	0x50
+ 1601 03c4 03       		.uleb128 0x3
+ 1602 03c5 0A       		.byte	0xa
+ 1603 03c6 E803     		.2byte	0x3e8
+ 1604 03c8 00       		.byte	0
+ 1605 03c9 00       		.byte	0
+ 1606 03ca 07       		.uleb128 0x7
+ 1607 03cb CC020000 		.4byte	.LASF44
+ 1608 03cf 01       		.byte	0x1
+ 1609 03d0 B4       		.byte	0xb4
+ 1610 03d1 00000000 		.4byte	.LFB78
+ 1611 03d5 20000000 		.4byte	.LFE78-.LFB78
+ 1612 03d9 01       		.uleb128 0x1
+ 1613 03da 9C       		.byte	0x9c
+ 1614 03db 11040000 		.4byte	0x411
+ 1615 03df 0D       		.uleb128 0xd
+ 1616 03e0 12000000 		.4byte	.LVL18
+ 1617 03e4 31080000 		.4byte	0x831
+ 1618 03e8 FF030000 		.4byte	0x3ff
+ 1619 03ec 0B       		.uleb128 0xb
+ 1620 03ed 01       		.uleb128 0x1
+ 1621 03ee 50       		.byte	0x50
+ 1622 03ef 01       		.uleb128 0x1
+ 1623 03f0 35       		.byte	0x35
+ 1624 03f1 0B       		.uleb128 0xb
+ 1625 03f2 01       		.uleb128 0x1
+ 1626 03f3 51       		.byte	0x51
+ 1627 03f4 03       		.uleb128 0x3
+ 1628 03f5 0A       		.byte	0xa
+ 1629 03f6 5802     		.2byte	0x258
+ 1630 03f8 0B       		.uleb128 0xb
+ 1631 03f9 01       		.uleb128 0x1
+ 1632 03fa 52       		.byte	0x52
+ 1633 03fb 02       		.uleb128 0x2
+ 1634 03fc 08       		.byte	0x8
+ 1635 03fd 96       		.byte	0x96
+ 1636 03fe 00       		.byte	0
+ 1637 03ff 0A       		.uleb128 0xa
+ 1638 0400 1A000000 		.4byte	.LVL19
+ 1639 0404 3C080000 		.4byte	0x83c
+ 1640 0408 0B       		.uleb128 0xb
+ 1641 0409 01       		.uleb128 0x1
+ 1642 040a 50       		.byte	0x50
+ 1643 040b 03       		.uleb128 0x3
+ 1644 040c 0A       		.byte	0xa
+ 1645 040d E803     		.2byte	0x3e8
+ 1646 040f 00       		.byte	0
+ 1647 0410 00       		.byte	0
+ 1648 0411 07       		.uleb128 0x7
+ 1649 0412 E0010000 		.4byte	.LASF45
+ 1650 0416 01       		.byte	0x1
+ 1651 0417 BA       		.byte	0xba
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 36
+
+
+ 1652 0418 00000000 		.4byte	.LFB79
+ 1653 041c BC000000 		.4byte	.LFE79-.LFB79
+ 1654 0420 01       		.uleb128 0x1
+ 1655 0421 9C       		.byte	0x9c
+ 1656 0422 C5050000 		.4byte	0x5c5
+ 1657 0426 0D       		.uleb128 0xd
+ 1658 0427 0E000000 		.4byte	.LVL20
+ 1659 042b 31080000 		.4byte	0x831
+ 1660 042f 46040000 		.4byte	0x446
+ 1661 0433 0B       		.uleb128 0xb
+ 1662 0434 01       		.uleb128 0x1
+ 1663 0435 50       		.byte	0x50
+ 1664 0436 01       		.uleb128 0x1
+ 1665 0437 34       		.byte	0x34
+ 1666 0438 0B       		.uleb128 0xb
+ 1667 0439 01       		.uleb128 0x1
+ 1668 043a 51       		.byte	0x51
+ 1669 043b 03       		.uleb128 0x3
+ 1670 043c 0A       		.byte	0xa
+ 1671 043d B801     		.2byte	0x1b8
+ 1672 043f 0B       		.uleb128 0xb
+ 1673 0440 01       		.uleb128 0x1
+ 1674 0441 52       		.byte	0x52
+ 1675 0442 02       		.uleb128 0x2
+ 1676 0443 08       		.byte	0x8
+ 1677 0444 64       		.byte	0x64
+ 1678 0445 00       		.byte	0
+ 1679 0446 0D       		.uleb128 0xd
+ 1680 0447 16000000 		.4byte	.LVL21
+ 1681 044b 3C080000 		.4byte	0x83c
+ 1682 044f 5B040000 		.4byte	0x45b
+ 1683 0453 0B       		.uleb128 0xb
+ 1684 0454 01       		.uleb128 0x1
+ 1685 0455 50       		.byte	0x50
+ 1686 0456 03       		.uleb128 0x3
+ 1687 0457 0A       		.byte	0xa
+ 1688 0458 F401     		.2byte	0x1f4
+ 1689 045a 00       		.byte	0
+ 1690 045b 0D       		.uleb128 0xd
+ 1691 045c 22000000 		.4byte	.LVL22
+ 1692 0460 31080000 		.4byte	0x831
+ 1693 0464 7B040000 		.4byte	0x47b
+ 1694 0468 0B       		.uleb128 0xb
+ 1695 0469 01       		.uleb128 0x1
+ 1696 046a 50       		.byte	0x50
+ 1697 046b 01       		.uleb128 0x1
+ 1698 046c 33       		.byte	0x33
+ 1699 046d 0B       		.uleb128 0xb
+ 1700 046e 01       		.uleb128 0x1
+ 1701 046f 51       		.byte	0x51
+ 1702 0470 03       		.uleb128 0x3
+ 1703 0471 0A       		.byte	0xa
+ 1704 0472 FE03     		.2byte	0x3fe
+ 1705 0474 0B       		.uleb128 0xb
+ 1706 0475 01       		.uleb128 0x1
+ 1707 0476 52       		.byte	0x52
+ 1708 0477 02       		.uleb128 0x2
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 37
+
+
+ 1709 0478 08       		.byte	0x8
+ 1710 0479 96       		.byte	0x96
+ 1711 047a 00       		.byte	0
+ 1712 047b 0D       		.uleb128 0xd
+ 1713 047c 2A000000 		.4byte	.LVL23
+ 1714 0480 3C080000 		.4byte	0x83c
+ 1715 0484 90040000 		.4byte	0x490
+ 1716 0488 0B       		.uleb128 0xb
+ 1717 0489 01       		.uleb128 0x1
+ 1718 048a 50       		.byte	0x50
+ 1719 048b 03       		.uleb128 0x3
+ 1720 048c 0A       		.byte	0xa
+ 1721 048d F401     		.2byte	0x1f4
+ 1722 048f 00       		.byte	0
+ 1723 0490 0D       		.uleb128 0xd
+ 1724 0491 34000000 		.4byte	.LVL24
+ 1725 0495 31080000 		.4byte	0x831
+ 1726 0499 AF040000 		.4byte	0x4af
+ 1727 049d 0B       		.uleb128 0xb
+ 1728 049e 01       		.uleb128 0x1
+ 1729 049f 50       		.byte	0x50
+ 1730 04a0 01       		.uleb128 0x1
+ 1731 04a1 32       		.byte	0x32
+ 1732 04a2 0B       		.uleb128 0xb
+ 1733 04a3 01       		.uleb128 0x1
+ 1734 04a4 51       		.byte	0x51
+ 1735 04a5 02       		.uleb128 0x2
+ 1736 04a6 08       		.byte	0x8
+ 1737 04a7 FA       		.byte	0xfa
+ 1738 04a8 0B       		.uleb128 0xb
+ 1739 04a9 01       		.uleb128 0x1
+ 1740 04aa 52       		.byte	0x52
+ 1741 04ab 02       		.uleb128 0x2
+ 1742 04ac 08       		.byte	0x8
+ 1743 04ad 96       		.byte	0x96
+ 1744 04ae 00       		.byte	0
+ 1745 04af 0D       		.uleb128 0xd
+ 1746 04b0 3C000000 		.4byte	.LVL25
+ 1747 04b4 3C080000 		.4byte	0x83c
+ 1748 04b8 C4040000 		.4byte	0x4c4
+ 1749 04bc 0B       		.uleb128 0xb
+ 1750 04bd 01       		.uleb128 0x1
+ 1751 04be 50       		.byte	0x50
+ 1752 04bf 03       		.uleb128 0x3
+ 1753 04c0 0A       		.byte	0xa
+ 1754 04c1 F401     		.2byte	0x1f4
+ 1755 04c3 00       		.byte	0
+ 1756 04c4 0D       		.uleb128 0xd
+ 1757 04c5 48000000 		.4byte	.LVL26
+ 1758 04c9 31080000 		.4byte	0x831
+ 1759 04cd E4040000 		.4byte	0x4e4
+ 1760 04d1 0B       		.uleb128 0xb
+ 1761 04d2 01       		.uleb128 0x1
+ 1762 04d3 50       		.byte	0x50
+ 1763 04d4 01       		.uleb128 0x1
+ 1764 04d5 31       		.byte	0x31
+ 1765 04d6 0B       		.uleb128 0xb
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 38
+
+
+ 1766 04d7 01       		.uleb128 0x1
+ 1767 04d8 51       		.byte	0x51
+ 1768 04d9 03       		.uleb128 0x3
+ 1769 04da 0A       		.byte	0xa
+ 1770 04db 3A02     		.2byte	0x23a
+ 1771 04dd 0B       		.uleb128 0xb
+ 1772 04de 01       		.uleb128 0x1
+ 1773 04df 52       		.byte	0x52
+ 1774 04e0 02       		.uleb128 0x2
+ 1775 04e1 08       		.byte	0x8
+ 1776 04e2 96       		.byte	0x96
+ 1777 04e3 00       		.byte	0
+ 1778 04e4 0D       		.uleb128 0xd
+ 1779 04e5 4E000000 		.4byte	.LVL27
+ 1780 04e9 3C080000 		.4byte	0x83c
+ 1781 04ed F8040000 		.4byte	0x4f8
+ 1782 04f1 0B       		.uleb128 0xb
+ 1783 04f2 01       		.uleb128 0x1
+ 1784 04f3 50       		.byte	0x50
+ 1785 04f4 02       		.uleb128 0x2
+ 1786 04f5 08       		.byte	0x8
+ 1787 04f6 C8       		.byte	0xc8
+ 1788 04f7 00       		.byte	0
+ 1789 04f8 0D       		.uleb128 0xd
+ 1790 04f9 5A000000 		.4byte	.LVL28
+ 1791 04fd 31080000 		.4byte	0x831
+ 1792 0501 18050000 		.4byte	0x518
+ 1793 0505 0B       		.uleb128 0xb
+ 1794 0506 01       		.uleb128 0x1
+ 1795 0507 50       		.byte	0x50
+ 1796 0508 01       		.uleb128 0x1
+ 1797 0509 32       		.byte	0x32
+ 1798 050a 0B       		.uleb128 0xb
+ 1799 050b 01       		.uleb128 0x1
+ 1800 050c 51       		.byte	0x51
+ 1801 050d 03       		.uleb128 0x3
+ 1802 050e 0A       		.byte	0xa
+ 1803 050f 2C01     		.2byte	0x12c
+ 1804 0511 0B       		.uleb128 0xb
+ 1805 0512 01       		.uleb128 0x1
+ 1806 0513 52       		.byte	0x52
+ 1807 0514 02       		.uleb128 0x2
+ 1808 0515 08       		.byte	0x8
+ 1809 0516 96       		.byte	0x96
+ 1810 0517 00       		.byte	0
+ 1811 0518 0D       		.uleb128 0xd
+ 1812 0519 60000000 		.4byte	.LVL29
+ 1813 051d 3C080000 		.4byte	0x83c
+ 1814 0521 2C050000 		.4byte	0x52c
+ 1815 0525 0B       		.uleb128 0xb
+ 1816 0526 01       		.uleb128 0x1
+ 1817 0527 50       		.byte	0x50
+ 1818 0528 02       		.uleb128 0x2
+ 1819 0529 08       		.byte	0x8
+ 1820 052a C8       		.byte	0xc8
+ 1821 052b 00       		.byte	0
+ 1822 052c 0D       		.uleb128 0xd
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 39
+
+
+ 1823 052d 6C000000 		.4byte	.LVL30
+ 1824 0531 31080000 		.4byte	0x831
+ 1825 0535 4C050000 		.4byte	0x54c
+ 1826 0539 0B       		.uleb128 0xb
+ 1827 053a 01       		.uleb128 0x1
+ 1828 053b 50       		.byte	0x50
+ 1829 053c 01       		.uleb128 0x1
+ 1830 053d 33       		.byte	0x33
+ 1831 053e 0B       		.uleb128 0xb
+ 1832 053f 01       		.uleb128 0x1
+ 1833 0540 51       		.byte	0x51
+ 1834 0541 03       		.uleb128 0x3
+ 1835 0542 0A       		.byte	0xa
+ 1836 0543 8403     		.2byte	0x384
+ 1837 0545 0B       		.uleb128 0xb
+ 1838 0546 01       		.uleb128 0x1
+ 1839 0547 52       		.byte	0x52
+ 1840 0548 02       		.uleb128 0x2
+ 1841 0549 08       		.byte	0x8
+ 1842 054a 96       		.byte	0x96
+ 1843 054b 00       		.byte	0
+ 1844 054c 0D       		.uleb128 0xd
+ 1845 054d 72000000 		.4byte	.LVL31
+ 1846 0551 3C080000 		.4byte	0x83c
+ 1847 0555 60050000 		.4byte	0x560
+ 1848 0559 0B       		.uleb128 0xb
+ 1849 055a 01       		.uleb128 0x1
+ 1850 055b 50       		.byte	0x50
+ 1851 055c 02       		.uleb128 0x2
+ 1852 055d 08       		.byte	0x8
+ 1853 055e C8       		.byte	0xc8
+ 1854 055f 00       		.byte	0
+ 1855 0560 0D       		.uleb128 0xd
+ 1856 0561 7C000000 		.4byte	.LVL32
+ 1857 0565 31080000 		.4byte	0x831
+ 1858 0569 7F050000 		.4byte	0x57f
+ 1859 056d 0B       		.uleb128 0xb
+ 1860 056e 01       		.uleb128 0x1
+ 1861 056f 50       		.byte	0x50
+ 1862 0570 01       		.uleb128 0x1
+ 1863 0571 34       		.byte	0x34
+ 1864 0572 0B       		.uleb128 0xb
+ 1865 0573 01       		.uleb128 0x1
+ 1866 0574 51       		.byte	0x51
+ 1867 0575 02       		.uleb128 0x2
+ 1868 0576 08       		.byte	0x8
+ 1869 0577 AA       		.byte	0xaa
+ 1870 0578 0B       		.uleb128 0xb
+ 1871 0579 01       		.uleb128 0x1
+ 1872 057a 52       		.byte	0x52
+ 1873 057b 02       		.uleb128 0x2
+ 1874 057c 08       		.byte	0x8
+ 1875 057d 96       		.byte	0x96
+ 1876 057e 00       		.byte	0
+ 1877 057f 0D       		.uleb128 0xd
+ 1878 0580 82000000 		.4byte	.LVL33
+ 1879 0584 3C080000 		.4byte	0x83c
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 40
+
+
+ 1880 0588 93050000 		.4byte	0x593
+ 1881 058c 0B       		.uleb128 0xb
+ 1882 058d 01       		.uleb128 0x1
+ 1883 058e 50       		.byte	0x50
+ 1884 058f 02       		.uleb128 0x2
+ 1885 0590 08       		.byte	0x8
+ 1886 0591 C8       		.byte	0xc8
+ 1887 0592 00       		.byte	0
+ 1888 0593 0D       		.uleb128 0xd
+ 1889 0594 8E000000 		.4byte	.LVL34
+ 1890 0598 31080000 		.4byte	0x831
+ 1891 059c B3050000 		.4byte	0x5b3
+ 1892 05a0 0B       		.uleb128 0xb
+ 1893 05a1 01       		.uleb128 0x1
+ 1894 05a2 50       		.byte	0x50
+ 1895 05a3 01       		.uleb128 0x1
+ 1896 05a4 35       		.byte	0x35
+ 1897 05a5 0B       		.uleb128 0xb
+ 1898 05a6 01       		.uleb128 0x1
+ 1899 05a7 51       		.byte	0x51
+ 1900 05a8 03       		.uleb128 0x3
+ 1901 05a9 0A       		.byte	0xa
+ 1902 05aa 5802     		.2byte	0x258
+ 1903 05ac 0B       		.uleb128 0xb
+ 1904 05ad 01       		.uleb128 0x1
+ 1905 05ae 52       		.byte	0x52
+ 1906 05af 02       		.uleb128 0x2
+ 1907 05b0 08       		.byte	0x8
+ 1908 05b1 96       		.byte	0x96
+ 1909 05b2 00       		.byte	0
+ 1910 05b3 0A       		.uleb128 0xa
+ 1911 05b4 96000000 		.4byte	.LVL35
+ 1912 05b8 3C080000 		.4byte	0x83c
+ 1913 05bc 0B       		.uleb128 0xb
+ 1914 05bd 01       		.uleb128 0x1
+ 1915 05be 50       		.byte	0x50
+ 1916 05bf 03       		.uleb128 0x3
+ 1917 05c0 0A       		.byte	0xa
+ 1918 05c1 D007     		.2byte	0x7d0
+ 1919 05c3 00       		.byte	0
+ 1920 05c4 00       		.byte	0
+ 1921 05c5 07       		.uleb128 0x7
+ 1922 05c6 6A020000 		.4byte	.LASF46
+ 1923 05ca 01       		.byte	0x1
+ 1924 05cb D8       		.byte	0xd8
+ 1925 05cc 00000000 		.4byte	.LFB80
+ 1926 05d0 68000000 		.4byte	.LFE80-.LFB80
+ 1927 05d4 01       		.uleb128 0x1
+ 1928 05d5 9C       		.byte	0x9c
+ 1929 05d6 D2060000 		.4byte	0x6d2
+ 1930 05da 0E       		.uleb128 0xe
+ 1931 05db 02000000 		.4byte	.LBB10
+ 1932 05df 16000000 		.4byte	.LBE10-.LBB10
+ 1933 05e3 07060000 		.4byte	0x607
+ 1934 05e7 0F       		.uleb128 0xf
+ 1935 05e8 6900     		.ascii	"i\000"
+ 1936 05ea 01       		.byte	0x1
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 41
+
+
+ 1937 05eb D9       		.byte	0xd9
+ 1938 05ec 68000000 		.4byte	0x68
+ 1939 05f0 A0000000 		.4byte	.LLST8
+ 1940 05f4 10       		.uleb128 0x10
+ 1941 05f5 0A000000 		.4byte	.LVL38
+ 1942 05f9 95020000 		.4byte	0x295
+ 1943 05fd 10       		.uleb128 0x10
+ 1944 05fe 0E000000 		.4byte	.LVL39
+ 1945 0602 FD000000 		.4byte	0xfd
+ 1946 0606 00       		.byte	0
+ 1947 0607 0E       		.uleb128 0xe
+ 1948 0608 18000000 		.4byte	.LBB11
+ 1949 060c 12000000 		.4byte	.LBE11-.LBB11
+ 1950 0610 34060000 		.4byte	0x634
+ 1951 0614 0F       		.uleb128 0xf
+ 1952 0615 6900     		.ascii	"i\000"
+ 1953 0617 01       		.byte	0x1
+ 1954 0618 DE       		.byte	0xde
+ 1955 0619 68000000 		.4byte	0x68
+ 1956 061d BF000000 		.4byte	.LLST9
+ 1957 0621 10       		.uleb128 0x10
+ 1958 0622 1C000000 		.4byte	.LVL43
+ 1959 0626 95020000 		.4byte	0x295
+ 1960 062a 10       		.uleb128 0x10
+ 1961 062b 20000000 		.4byte	.LVL44
+ 1962 062f 85010000 		.4byte	0x185
+ 1963 0633 00       		.byte	0
+ 1964 0634 0E       		.uleb128 0xe
+ 1965 0635 2A000000 		.4byte	.LBB12
+ 1966 0639 0E000000 		.4byte	.LBE12-.LBB12
+ 1967 063d 58060000 		.4byte	0x658
+ 1968 0641 0F       		.uleb128 0xf
+ 1969 0642 6900     		.ascii	"i\000"
+ 1970 0644 01       		.byte	0x1
+ 1971 0645 E2       		.byte	0xe2
+ 1972 0646 68000000 		.4byte	0x68
+ 1973 064a D2000000 		.4byte	.LLST10
+ 1974 064e 10       		.uleb128 0x10
+ 1975 064f 2E000000 		.4byte	.LVL48
+ 1976 0653 95020000 		.4byte	0x295
+ 1977 0657 00       		.byte	0
+ 1978 0658 0E       		.uleb128 0xe
+ 1979 0659 38000000 		.4byte	.LBB13
+ 1980 065d 12000000 		.4byte	.LBE13-.LBB13
+ 1981 0661 8C060000 		.4byte	0x68c
+ 1982 0665 11       		.uleb128 0x11
+ 1983 0666 6900     		.ascii	"i\000"
+ 1984 0668 01       		.byte	0x1
+ 1985 0669 E5       		.byte	0xe5
+ 1986 066a 68000000 		.4byte	0x68
+ 1987 066e 01       		.uleb128 0x1
+ 1988 066f 54       		.byte	0x54
+ 1989 0670 10       		.uleb128 0x10
+ 1990 0671 3C000000 		.4byte	.LVL52
+ 1991 0675 51020000 		.4byte	0x251
+ 1992 0679 10       		.uleb128 0x10
+ 1993 067a 40000000 		.4byte	.LVL53
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 42
+
+
+ 1994 067e 95020000 		.4byte	0x295
+ 1995 0682 10       		.uleb128 0x10
+ 1996 0683 44000000 		.4byte	.LVL54
+ 1997 0687 85010000 		.4byte	0x185
+ 1998 068b 00       		.byte	0
+ 1999 068c 10       		.uleb128 0x10
+ 2000 068d 4E000000 		.4byte	.LVL56
+ 2001 0691 83030000 		.4byte	0x383
+ 2002 0695 0D       		.uleb128 0xd
+ 2003 0696 56000000 		.4byte	.LVL57
+ 2004 069a 3C080000 		.4byte	0x83c
+ 2005 069e AA060000 		.4byte	0x6aa
+ 2006 06a2 0B       		.uleb128 0xb
+ 2007 06a3 01       		.uleb128 0x1
+ 2008 06a4 50       		.byte	0x50
+ 2009 06a5 03       		.uleb128 0x3
+ 2010 06a6 0A       		.byte	0xa
+ 2011 06a7 8813     		.2byte	0x1388
+ 2012 06a9 00       		.byte	0
+ 2013 06aa 10       		.uleb128 0x10
+ 2014 06ab 5A000000 		.4byte	.LVL58
+ 2015 06af CA030000 		.4byte	0x3ca
+ 2016 06b3 0D       		.uleb128 0xd
+ 2017 06b4 62000000 		.4byte	.LVL59
+ 2018 06b8 3C080000 		.4byte	0x83c
+ 2019 06bc C8060000 		.4byte	0x6c8
+ 2020 06c0 0B       		.uleb128 0xb
+ 2021 06c1 01       		.uleb128 0x1
+ 2022 06c2 50       		.byte	0x50
+ 2023 06c3 03       		.uleb128 0x3
+ 2024 06c4 0A       		.byte	0xa
+ 2025 06c5 8813     		.2byte	0x1388
+ 2026 06c7 00       		.byte	0
+ 2027 06c8 10       		.uleb128 0x10
+ 2028 06c9 66000000 		.4byte	.LVL60
+ 2029 06cd 11040000 		.4byte	0x411
+ 2030 06d1 00       		.byte	0
+ 2031 06d2 07       		.uleb128 0x7
+ 2032 06d3 0C000000 		.4byte	.LASF47
+ 2033 06d7 01       		.byte	0x1
+ 2034 06d8 F4       		.byte	0xf4
+ 2035 06d9 00000000 		.4byte	.LFB81
+ 2036 06dd 2C000000 		.4byte	.LFE81-.LFB81
+ 2037 06e1 01       		.uleb128 0x1
+ 2038 06e2 9C       		.byte	0x9c
+ 2039 06e3 5C070000 		.4byte	0x75c
+ 2040 06e7 0D       		.uleb128 0xd
+ 2041 06e8 0A000000 		.4byte	.LVL61
+ 2042 06ec 47080000 		.4byte	0x847
+ 2043 06f0 FF060000 		.4byte	0x6ff
+ 2044 06f4 0B       		.uleb128 0xb
+ 2045 06f5 01       		.uleb128 0x1
+ 2046 06f6 50       		.byte	0x50
+ 2047 06f7 01       		.uleb128 0x1
+ 2048 06f8 31       		.byte	0x31
+ 2049 06f9 0B       		.uleb128 0xb
+ 2050 06fa 01       		.uleb128 0x1
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 43
+
+
+ 2051 06fb 51       		.byte	0x51
+ 2052 06fc 01       		.uleb128 0x1
+ 2053 06fd 30       		.byte	0x30
+ 2054 06fe 00       		.byte	0
+ 2055 06ff 0D       		.uleb128 0xd
+ 2056 0700 12000000 		.4byte	.LVL62
+ 2057 0704 47080000 		.4byte	0x847
+ 2058 0708 17070000 		.4byte	0x717
+ 2059 070c 0B       		.uleb128 0xb
+ 2060 070d 01       		.uleb128 0x1
+ 2061 070e 50       		.byte	0x50
+ 2062 070f 01       		.uleb128 0x1
+ 2063 0710 32       		.byte	0x32
+ 2064 0711 0B       		.uleb128 0xb
+ 2065 0712 01       		.uleb128 0x1
+ 2066 0713 51       		.byte	0x51
+ 2067 0714 01       		.uleb128 0x1
+ 2068 0715 30       		.byte	0x30
+ 2069 0716 00       		.byte	0
+ 2070 0717 0D       		.uleb128 0xd
+ 2071 0718 1A000000 		.4byte	.LVL63
+ 2072 071c 47080000 		.4byte	0x847
+ 2073 0720 2F070000 		.4byte	0x72f
+ 2074 0724 0B       		.uleb128 0xb
+ 2075 0725 01       		.uleb128 0x1
+ 2076 0726 50       		.byte	0x50
+ 2077 0727 01       		.uleb128 0x1
+ 2078 0728 33       		.byte	0x33
+ 2079 0729 0B       		.uleb128 0xb
+ 2080 072a 01       		.uleb128 0x1
+ 2081 072b 51       		.byte	0x51
+ 2082 072c 01       		.uleb128 0x1
+ 2083 072d 30       		.byte	0x30
+ 2084 072e 00       		.byte	0
+ 2085 072f 0D       		.uleb128 0xd
+ 2086 0730 22000000 		.4byte	.LVL64
+ 2087 0734 47080000 		.4byte	0x847
+ 2088 0738 47070000 		.4byte	0x747
+ 2089 073c 0B       		.uleb128 0xb
+ 2090 073d 01       		.uleb128 0x1
+ 2091 073e 50       		.byte	0x50
+ 2092 073f 01       		.uleb128 0x1
+ 2093 0740 34       		.byte	0x34
+ 2094 0741 0B       		.uleb128 0xb
+ 2095 0742 01       		.uleb128 0x1
+ 2096 0743 51       		.byte	0x51
+ 2097 0744 01       		.uleb128 0x1
+ 2098 0745 30       		.byte	0x30
+ 2099 0746 00       		.byte	0
+ 2100 0747 0A       		.uleb128 0xa
+ 2101 0748 2A000000 		.4byte	.LVL65
+ 2102 074c 47080000 		.4byte	0x847
+ 2103 0750 0B       		.uleb128 0xb
+ 2104 0751 01       		.uleb128 0x1
+ 2105 0752 50       		.byte	0x50
+ 2106 0753 01       		.uleb128 0x1
+ 2107 0754 35       		.byte	0x35
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 44
+
+
+ 2108 0755 0B       		.uleb128 0xb
+ 2109 0756 01       		.uleb128 0x1
+ 2110 0757 51       		.byte	0x51
+ 2111 0758 01       		.uleb128 0x1
+ 2112 0759 30       		.byte	0x30
+ 2113 075a 00       		.byte	0
+ 2114 075b 00       		.byte	0
+ 2115 075c 12       		.uleb128 0x12
+ 2116 075d 2B000000 		.4byte	.LASF62
+ 2117 0761 01       		.byte	0x1
+ 2118 0762 FD       		.byte	0xfd
+ 2119 0763 00000000 		.4byte	.LFB82
+ 2120 0767 A8000000 		.4byte	.LFE82-.LFB82
+ 2121 076b 01       		.uleb128 0x1
+ 2122 076c 9C       		.byte	0x9c
+ 2123 076d BA070000 		.4byte	0x7ba
+ 2124 0771 10       		.uleb128 0x10
+ 2125 0772 06000000 		.4byte	.LVL66
+ 2126 0776 11040000 		.4byte	0x411
+ 2127 077a 10       		.uleb128 0x10
+ 2128 077b 12000000 		.4byte	.LVL67
+ 2129 077f FD000000 		.4byte	0xfd
+ 2130 0783 10       		.uleb128 0x10
+ 2131 0784 26000000 		.4byte	.LVL68
+ 2132 0788 41010000 		.4byte	0x141
+ 2133 078c 10       		.uleb128 0x10
+ 2134 078d 3A000000 		.4byte	.LVL69
+ 2135 0791 85010000 		.4byte	0x185
+ 2136 0795 10       		.uleb128 0x10
+ 2137 0796 4E000000 		.4byte	.LVL70
+ 2138 079a C9010000 		.4byte	0x1c9
+ 2139 079e 10       		.uleb128 0x10
+ 2140 079f 88000000 		.4byte	.LVL71
+ 2141 07a3 83030000 		.4byte	0x383
+ 2142 07a7 10       		.uleb128 0x10
+ 2143 07a8 92000000 		.4byte	.LVL72
+ 2144 07ac CA030000 		.4byte	0x3ca
+ 2145 07b0 10       		.uleb128 0x10
+ 2146 07b1 A0000000 		.4byte	.LVL73
+ 2147 07b5 D2060000 		.4byte	0x6d2
+ 2148 07b9 00       		.byte	0
+ 2149 07ba 13       		.uleb128 0x13
+ 2150 07bb D1020000 		.4byte	.LASF48
+ 2151 07bf 04       		.byte	0x4
+ 2152 07c0 9606     		.2byte	0x696
+ 2153 07c2 C6070000 		.4byte	0x7c6
+ 2154 07c6 14       		.uleb128 0x14
+ 2155 07c7 76000000 		.4byte	0x76
+ 2156 07cb 15       		.uleb128 0x15
+ 2157 07cc FB000000 		.4byte	.LASF49
+ 2158 07d0 01       		.byte	0x1
+ 2159 07d1 12       		.byte	0x12
+ 2160 07d2 68000000 		.4byte	0x68
+ 2161 07d6 05       		.uleb128 0x5
+ 2162 07d7 03       		.byte	0x3
+ 2163 07d8 00000000 		.4byte	cur_pos_1
+ 2164 07dc 15       		.uleb128 0x15
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 45
+
+
+ 2165 07dd 05010000 		.4byte	.LASF50
+ 2166 07e1 01       		.byte	0x1
+ 2167 07e2 13       		.byte	0x13
+ 2168 07e3 68000000 		.4byte	0x68
+ 2169 07e7 05       		.uleb128 0x5
+ 2170 07e8 03       		.byte	0x3
+ 2171 07e9 00000000 		.4byte	cur_pos_2
+ 2172 07ed 15       		.uleb128 0x15
+ 2173 07ee 21000000 		.4byte	.LASF51
+ 2174 07f2 01       		.byte	0x1
+ 2175 07f3 14       		.byte	0x14
+ 2176 07f4 68000000 		.4byte	0x68
+ 2177 07f8 05       		.uleb128 0x5
+ 2178 07f9 03       		.byte	0x3
+ 2179 07fa 00000000 		.4byte	cur_pos_3
+ 2180 07fe 15       		.uleb128 0x15
+ 2181 07ff 75020000 		.4byte	.LASF52
+ 2182 0803 01       		.byte	0x1
+ 2183 0804 15       		.byte	0x15
+ 2184 0805 68000000 		.4byte	0x68
+ 2185 0809 05       		.uleb128 0x5
+ 2186 080a 03       		.byte	0x3
+ 2187 080b 00000000 		.4byte	cur_pos_4
+ 2188 080f 15       		.uleb128 0x15
+ 2189 0810 33010000 		.4byte	.LASF53
+ 2190 0814 01       		.byte	0x1
+ 2191 0815 16       		.byte	0x16
+ 2192 0816 68000000 		.4byte	0x68
+ 2193 081a 05       		.uleb128 0x5
+ 2194 081b 03       		.byte	0x3
+ 2195 081c 00000000 		.4byte	cur_pos_5
+ 2196 0820 15       		.uleb128 0x15
+ 2197 0821 FF010000 		.4byte	.LASF54
+ 2198 0825 01       		.byte	0x1
+ 2199 0826 20       		.byte	0x20
+ 2200 0827 A4000000 		.4byte	0xa4
+ 2201 082b 05       		.uleb128 0x5
+ 2202 082c 03       		.byte	0x3
+ 2203 082d 00000000 		.4byte	Command
+ 2204 0831 16       		.uleb128 0x16
+ 2205 0832 B1000000 		.4byte	.LASF55
+ 2206 0836 B1000000 		.4byte	.LASF55
+ 2207 083a 05       		.byte	0x5
+ 2208 083b 13       		.byte	0x13
+ 2209 083c 16       		.uleb128 0x16
+ 2210 083d 6C030000 		.4byte	.LASF56
+ 2211 0841 6C030000 		.4byte	.LASF56
+ 2212 0845 06       		.byte	0x6
+ 2213 0846 76       		.byte	0x76
+ 2214 0847 16       		.uleb128 0x16
+ 2215 0848 CA000000 		.4byte	.LASF57
+ 2216 084c CA000000 		.4byte	.LASF57
+ 2217 0850 05       		.byte	0x5
+ 2218 0851 14       		.byte	0x14
+ 2219 0852 00       		.byte	0
+ 2220              		.section	.debug_abbrev,"",%progbits
+ 2221              	.Ldebug_abbrev0:
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 46
+
+
+ 2222 0000 01       		.uleb128 0x1
+ 2223 0001 11       		.uleb128 0x11
+ 2224 0002 01       		.byte	0x1
+ 2225 0003 25       		.uleb128 0x25
+ 2226 0004 0E       		.uleb128 0xe
+ 2227 0005 13       		.uleb128 0x13
+ 2228 0006 0B       		.uleb128 0xb
+ 2229 0007 03       		.uleb128 0x3
+ 2230 0008 0E       		.uleb128 0xe
+ 2231 0009 1B       		.uleb128 0x1b
+ 2232 000a 0E       		.uleb128 0xe
+ 2233 000b 55       		.uleb128 0x55
+ 2234 000c 17       		.uleb128 0x17
+ 2235 000d 11       		.uleb128 0x11
+ 2236 000e 01       		.uleb128 0x1
+ 2237 000f 10       		.uleb128 0x10
+ 2238 0010 17       		.uleb128 0x17
+ 2239 0011 00       		.byte	0
+ 2240 0012 00       		.byte	0
+ 2241 0013 02       		.uleb128 0x2
+ 2242 0014 24       		.uleb128 0x24
+ 2243 0015 00       		.byte	0
+ 2244 0016 0B       		.uleb128 0xb
+ 2245 0017 0B       		.uleb128 0xb
+ 2246 0018 3E       		.uleb128 0x3e
+ 2247 0019 0B       		.uleb128 0xb
+ 2248 001a 03       		.uleb128 0x3
+ 2249 001b 0E       		.uleb128 0xe
+ 2250 001c 00       		.byte	0
+ 2251 001d 00       		.byte	0
+ 2252 001e 03       		.uleb128 0x3
+ 2253 001f 16       		.uleb128 0x16
+ 2254 0020 00       		.byte	0
+ 2255 0021 03       		.uleb128 0x3
+ 2256 0022 0E       		.uleb128 0xe
+ 2257 0023 3A       		.uleb128 0x3a
+ 2258 0024 0B       		.uleb128 0xb
+ 2259 0025 3B       		.uleb128 0x3b
+ 2260 0026 0B       		.uleb128 0xb
+ 2261 0027 49       		.uleb128 0x49
+ 2262 0028 13       		.uleb128 0x13
+ 2263 0029 00       		.byte	0
+ 2264 002a 00       		.byte	0
+ 2265 002b 04       		.uleb128 0x4
+ 2266 002c 24       		.uleb128 0x24
+ 2267 002d 00       		.byte	0
+ 2268 002e 0B       		.uleb128 0xb
+ 2269 002f 0B       		.uleb128 0xb
+ 2270 0030 3E       		.uleb128 0x3e
+ 2271 0031 0B       		.uleb128 0xb
+ 2272 0032 03       		.uleb128 0x3
+ 2273 0033 08       		.uleb128 0x8
+ 2274 0034 00       		.byte	0
+ 2275 0035 00       		.byte	0
+ 2276 0036 05       		.uleb128 0x5
+ 2277 0037 04       		.uleb128 0x4
+ 2278 0038 01       		.byte	0x1
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 47
+
+
+ 2279 0039 03       		.uleb128 0x3
+ 2280 003a 0E       		.uleb128 0xe
+ 2281 003b 0B       		.uleb128 0xb
+ 2282 003c 0B       		.uleb128 0xb
+ 2283 003d 49       		.uleb128 0x49
+ 2284 003e 13       		.uleb128 0x13
+ 2285 003f 3A       		.uleb128 0x3a
+ 2286 0040 0B       		.uleb128 0xb
+ 2287 0041 3B       		.uleb128 0x3b
+ 2288 0042 0B       		.uleb128 0xb
+ 2289 0043 01       		.uleb128 0x1
+ 2290 0044 13       		.uleb128 0x13
+ 2291 0045 00       		.byte	0
+ 2292 0046 00       		.byte	0
+ 2293 0047 06       		.uleb128 0x6
+ 2294 0048 28       		.uleb128 0x28
+ 2295 0049 00       		.byte	0
+ 2296 004a 03       		.uleb128 0x3
+ 2297 004b 0E       		.uleb128 0xe
+ 2298 004c 1C       		.uleb128 0x1c
+ 2299 004d 0B       		.uleb128 0xb
+ 2300 004e 00       		.byte	0
+ 2301 004f 00       		.byte	0
+ 2302 0050 07       		.uleb128 0x7
+ 2303 0051 2E       		.uleb128 0x2e
+ 2304 0052 01       		.byte	0x1
+ 2305 0053 3F       		.uleb128 0x3f
+ 2306 0054 19       		.uleb128 0x19
+ 2307 0055 03       		.uleb128 0x3
+ 2308 0056 0E       		.uleb128 0xe
+ 2309 0057 3A       		.uleb128 0x3a
+ 2310 0058 0B       		.uleb128 0xb
+ 2311 0059 3B       		.uleb128 0x3b
+ 2312 005a 0B       		.uleb128 0xb
+ 2313 005b 11       		.uleb128 0x11
+ 2314 005c 01       		.uleb128 0x1
+ 2315 005d 12       		.uleb128 0x12
+ 2316 005e 06       		.uleb128 0x6
+ 2317 005f 40       		.uleb128 0x40
+ 2318 0060 18       		.uleb128 0x18
+ 2319 0061 9742     		.uleb128 0x2117
+ 2320 0063 19       		.uleb128 0x19
+ 2321 0064 01       		.uleb128 0x1
+ 2322 0065 13       		.uleb128 0x13
+ 2323 0066 00       		.byte	0
+ 2324 0067 00       		.byte	0
+ 2325 0068 08       		.uleb128 0x8
+ 2326 0069 0B       		.uleb128 0xb
+ 2327 006a 01       		.byte	0x1
+ 2328 006b 11       		.uleb128 0x11
+ 2329 006c 01       		.uleb128 0x1
+ 2330 006d 12       		.uleb128 0x12
+ 2331 006e 06       		.uleb128 0x6
+ 2332 006f 00       		.byte	0
+ 2333 0070 00       		.byte	0
+ 2334 0071 09       		.uleb128 0x9
+ 2335 0072 34       		.uleb128 0x34
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 48
+
+
+ 2336 0073 00       		.byte	0
+ 2337 0074 03       		.uleb128 0x3
+ 2338 0075 0E       		.uleb128 0xe
+ 2339 0076 3A       		.uleb128 0x3a
+ 2340 0077 0B       		.uleb128 0xb
+ 2341 0078 3B       		.uleb128 0x3b
+ 2342 0079 0B       		.uleb128 0xb
+ 2343 007a 49       		.uleb128 0x49
+ 2344 007b 13       		.uleb128 0x13
+ 2345 007c 02       		.uleb128 0x2
+ 2346 007d 17       		.uleb128 0x17
+ 2347 007e 00       		.byte	0
+ 2348 007f 00       		.byte	0
+ 2349 0080 0A       		.uleb128 0xa
+ 2350 0081 898201   		.uleb128 0x4109
+ 2351 0084 01       		.byte	0x1
+ 2352 0085 11       		.uleb128 0x11
+ 2353 0086 01       		.uleb128 0x1
+ 2354 0087 31       		.uleb128 0x31
+ 2355 0088 13       		.uleb128 0x13
+ 2356 0089 00       		.byte	0
+ 2357 008a 00       		.byte	0
+ 2358 008b 0B       		.uleb128 0xb
+ 2359 008c 8A8201   		.uleb128 0x410a
+ 2360 008f 00       		.byte	0
+ 2361 0090 02       		.uleb128 0x2
+ 2362 0091 18       		.uleb128 0x18
+ 2363 0092 9142     		.uleb128 0x2111
+ 2364 0094 18       		.uleb128 0x18
+ 2365 0095 00       		.byte	0
+ 2366 0096 00       		.byte	0
+ 2367 0097 0C       		.uleb128 0xc
+ 2368 0098 2E       		.uleb128 0x2e
+ 2369 0099 00       		.byte	0
+ 2370 009a 3F       		.uleb128 0x3f
+ 2371 009b 19       		.uleb128 0x19
+ 2372 009c 03       		.uleb128 0x3
+ 2373 009d 0E       		.uleb128 0xe
+ 2374 009e 3A       		.uleb128 0x3a
+ 2375 009f 0B       		.uleb128 0xb
+ 2376 00a0 3B       		.uleb128 0x3b
+ 2377 00a1 0B       		.uleb128 0xb
+ 2378 00a2 11       		.uleb128 0x11
+ 2379 00a3 01       		.uleb128 0x1
+ 2380 00a4 12       		.uleb128 0x12
+ 2381 00a5 06       		.uleb128 0x6
+ 2382 00a6 40       		.uleb128 0x40
+ 2383 00a7 18       		.uleb128 0x18
+ 2384 00a8 9742     		.uleb128 0x2117
+ 2385 00aa 19       		.uleb128 0x19
+ 2386 00ab 00       		.byte	0
+ 2387 00ac 00       		.byte	0
+ 2388 00ad 0D       		.uleb128 0xd
+ 2389 00ae 898201   		.uleb128 0x4109
+ 2390 00b1 01       		.byte	0x1
+ 2391 00b2 11       		.uleb128 0x11
+ 2392 00b3 01       		.uleb128 0x1
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 49
+
+
+ 2393 00b4 31       		.uleb128 0x31
+ 2394 00b5 13       		.uleb128 0x13
+ 2395 00b6 01       		.uleb128 0x1
+ 2396 00b7 13       		.uleb128 0x13
+ 2397 00b8 00       		.byte	0
+ 2398 00b9 00       		.byte	0
+ 2399 00ba 0E       		.uleb128 0xe
+ 2400 00bb 0B       		.uleb128 0xb
+ 2401 00bc 01       		.byte	0x1
+ 2402 00bd 11       		.uleb128 0x11
+ 2403 00be 01       		.uleb128 0x1
+ 2404 00bf 12       		.uleb128 0x12
+ 2405 00c0 06       		.uleb128 0x6
+ 2406 00c1 01       		.uleb128 0x1
+ 2407 00c2 13       		.uleb128 0x13
+ 2408 00c3 00       		.byte	0
+ 2409 00c4 00       		.byte	0
+ 2410 00c5 0F       		.uleb128 0xf
+ 2411 00c6 34       		.uleb128 0x34
+ 2412 00c7 00       		.byte	0
+ 2413 00c8 03       		.uleb128 0x3
+ 2414 00c9 08       		.uleb128 0x8
+ 2415 00ca 3A       		.uleb128 0x3a
+ 2416 00cb 0B       		.uleb128 0xb
+ 2417 00cc 3B       		.uleb128 0x3b
+ 2418 00cd 0B       		.uleb128 0xb
+ 2419 00ce 49       		.uleb128 0x49
+ 2420 00cf 13       		.uleb128 0x13
+ 2421 00d0 02       		.uleb128 0x2
+ 2422 00d1 17       		.uleb128 0x17
+ 2423 00d2 00       		.byte	0
+ 2424 00d3 00       		.byte	0
+ 2425 00d4 10       		.uleb128 0x10
+ 2426 00d5 898201   		.uleb128 0x4109
+ 2427 00d8 00       		.byte	0
+ 2428 00d9 11       		.uleb128 0x11
+ 2429 00da 01       		.uleb128 0x1
+ 2430 00db 31       		.uleb128 0x31
+ 2431 00dc 13       		.uleb128 0x13
+ 2432 00dd 00       		.byte	0
+ 2433 00de 00       		.byte	0
+ 2434 00df 11       		.uleb128 0x11
+ 2435 00e0 34       		.uleb128 0x34
+ 2436 00e1 00       		.byte	0
+ 2437 00e2 03       		.uleb128 0x3
+ 2438 00e3 08       		.uleb128 0x8
+ 2439 00e4 3A       		.uleb128 0x3a
+ 2440 00e5 0B       		.uleb128 0xb
+ 2441 00e6 3B       		.uleb128 0x3b
+ 2442 00e7 0B       		.uleb128 0xb
+ 2443 00e8 49       		.uleb128 0x49
+ 2444 00e9 13       		.uleb128 0x13
+ 2445 00ea 02       		.uleb128 0x2
+ 2446 00eb 18       		.uleb128 0x18
+ 2447 00ec 00       		.byte	0
+ 2448 00ed 00       		.byte	0
+ 2449 00ee 12       		.uleb128 0x12
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 50
+
+
+ 2450 00ef 2E       		.uleb128 0x2e
+ 2451 00f0 01       		.byte	0x1
+ 2452 00f1 3F       		.uleb128 0x3f
+ 2453 00f2 19       		.uleb128 0x19
+ 2454 00f3 03       		.uleb128 0x3
+ 2455 00f4 0E       		.uleb128 0xe
+ 2456 00f5 3A       		.uleb128 0x3a
+ 2457 00f6 0B       		.uleb128 0xb
+ 2458 00f7 3B       		.uleb128 0x3b
+ 2459 00f8 0B       		.uleb128 0xb
+ 2460 00f9 8701     		.uleb128 0x87
+ 2461 00fb 19       		.uleb128 0x19
+ 2462 00fc 11       		.uleb128 0x11
+ 2463 00fd 01       		.uleb128 0x1
+ 2464 00fe 12       		.uleb128 0x12
+ 2465 00ff 06       		.uleb128 0x6
+ 2466 0100 40       		.uleb128 0x40
+ 2467 0101 18       		.uleb128 0x18
+ 2468 0102 9742     		.uleb128 0x2117
+ 2469 0104 19       		.uleb128 0x19
+ 2470 0105 01       		.uleb128 0x1
+ 2471 0106 13       		.uleb128 0x13
+ 2472 0107 00       		.byte	0
+ 2473 0108 00       		.byte	0
+ 2474 0109 13       		.uleb128 0x13
+ 2475 010a 34       		.uleb128 0x34
+ 2476 010b 00       		.byte	0
+ 2477 010c 03       		.uleb128 0x3
+ 2478 010d 0E       		.uleb128 0xe
+ 2479 010e 3A       		.uleb128 0x3a
+ 2480 010f 0B       		.uleb128 0xb
+ 2481 0110 3B       		.uleb128 0x3b
+ 2482 0111 05       		.uleb128 0x5
+ 2483 0112 49       		.uleb128 0x49
+ 2484 0113 13       		.uleb128 0x13
+ 2485 0114 3F       		.uleb128 0x3f
+ 2486 0115 19       		.uleb128 0x19
+ 2487 0116 3C       		.uleb128 0x3c
+ 2488 0117 19       		.uleb128 0x19
+ 2489 0118 00       		.byte	0
+ 2490 0119 00       		.byte	0
+ 2491 011a 14       		.uleb128 0x14
+ 2492 011b 35       		.uleb128 0x35
+ 2493 011c 00       		.byte	0
+ 2494 011d 49       		.uleb128 0x49
+ 2495 011e 13       		.uleb128 0x13
+ 2496 011f 00       		.byte	0
+ 2497 0120 00       		.byte	0
+ 2498 0121 15       		.uleb128 0x15
+ 2499 0122 34       		.uleb128 0x34
+ 2500 0123 00       		.byte	0
+ 2501 0124 03       		.uleb128 0x3
+ 2502 0125 0E       		.uleb128 0xe
+ 2503 0126 3A       		.uleb128 0x3a
+ 2504 0127 0B       		.uleb128 0xb
+ 2505 0128 3B       		.uleb128 0x3b
+ 2506 0129 0B       		.uleb128 0xb
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 51
+
+
+ 2507 012a 49       		.uleb128 0x49
+ 2508 012b 13       		.uleb128 0x13
+ 2509 012c 3F       		.uleb128 0x3f
+ 2510 012d 19       		.uleb128 0x19
+ 2511 012e 02       		.uleb128 0x2
+ 2512 012f 18       		.uleb128 0x18
+ 2513 0130 00       		.byte	0
+ 2514 0131 00       		.byte	0
+ 2515 0132 16       		.uleb128 0x16
+ 2516 0133 2E       		.uleb128 0x2e
+ 2517 0134 00       		.byte	0
+ 2518 0135 3F       		.uleb128 0x3f
+ 2519 0136 19       		.uleb128 0x19
+ 2520 0137 3C       		.uleb128 0x3c
+ 2521 0138 19       		.uleb128 0x19
+ 2522 0139 6E       		.uleb128 0x6e
+ 2523 013a 0E       		.uleb128 0xe
+ 2524 013b 03       		.uleb128 0x3
+ 2525 013c 0E       		.uleb128 0xe
+ 2526 013d 3A       		.uleb128 0x3a
+ 2527 013e 0B       		.uleb128 0xb
+ 2528 013f 3B       		.uleb128 0x3b
+ 2529 0140 0B       		.uleb128 0xb
+ 2530 0141 00       		.byte	0
+ 2531 0142 00       		.byte	0
+ 2532 0143 00       		.byte	0
+ 2533              		.section	.debug_loc,"",%progbits
+ 2534              	.Ldebug_loc0:
+ 2535              	.LLST0:
+ 2536 0000 0C000000 		.4byte	.LVL0
+ 2537 0004 2E000000 		.4byte	.LVL1
+ 2538 0008 0200     		.2byte	0x2
+ 2539 000a 35       		.byte	0x35
+ 2540 000b 9F       		.byte	0x9f
+ 2541 000c 00000000 		.4byte	0
+ 2542 0010 00000000 		.4byte	0
+ 2543              	.LLST1:
+ 2544 0014 0C000000 		.4byte	.LVL2
+ 2545 0018 28000000 		.4byte	.LVL3
+ 2546 001c 0200     		.2byte	0x2
+ 2547 001e 35       		.byte	0x35
+ 2548 001f 9F       		.byte	0x9f
+ 2549 0020 00000000 		.4byte	0
+ 2550 0024 00000000 		.4byte	0
+ 2551              	.LLST2:
+ 2552 0028 0C000000 		.4byte	.LVL4
+ 2553 002c 28000000 		.4byte	.LVL5
+ 2554 0030 0200     		.2byte	0x2
+ 2555 0032 35       		.byte	0x35
+ 2556 0033 9F       		.byte	0x9f
+ 2557 0034 00000000 		.4byte	0
+ 2558 0038 00000000 		.4byte	0
+ 2559              	.LLST3:
+ 2560 003c 0C000000 		.4byte	.LVL6
+ 2561 0040 2E000000 		.4byte	.LVL7
+ 2562 0044 0200     		.2byte	0x2
+ 2563 0046 35       		.byte	0x35
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 52
+
+
+ 2564 0047 9F       		.byte	0x9f
+ 2565 0048 00000000 		.4byte	0
+ 2566 004c 00000000 		.4byte	0
+ 2567              	.LLST4:
+ 2568 0050 0E000000 		.4byte	.LVL8
+ 2569 0054 30000000 		.4byte	.LVL9
+ 2570 0058 0200     		.2byte	0x2
+ 2571 005a 35       		.byte	0x35
+ 2572 005b 9F       		.byte	0x9f
+ 2573 005c 00000000 		.4byte	0
+ 2574 0060 00000000 		.4byte	0
+ 2575              	.LLST5:
+ 2576 0064 0E000000 		.4byte	.LVL10
+ 2577 0068 30000000 		.4byte	.LVL11
+ 2578 006c 0200     		.2byte	0x2
+ 2579 006e 35       		.byte	0x35
+ 2580 006f 9F       		.byte	0x9f
+ 2581 0070 00000000 		.4byte	0
+ 2582 0074 00000000 		.4byte	0
+ 2583              	.LLST6:
+ 2584 0078 10000000 		.4byte	.LVL12
+ 2585 007c 32000000 		.4byte	.LVL13
+ 2586 0080 0200     		.2byte	0x2
+ 2587 0082 35       		.byte	0x35
+ 2588 0083 9F       		.byte	0x9f
+ 2589 0084 00000000 		.4byte	0
+ 2590 0088 00000000 		.4byte	0
+ 2591              	.LLST7:
+ 2592 008c 10000000 		.4byte	.LVL14
+ 2593 0090 2E000000 		.4byte	.LVL15
+ 2594 0094 0200     		.2byte	0x2
+ 2595 0096 35       		.byte	0x35
+ 2596 0097 9F       		.byte	0x9f
+ 2597 0098 00000000 		.4byte	0
+ 2598 009c 00000000 		.4byte	0
+ 2599              	.LLST8:
+ 2600 00a0 02000000 		.4byte	.LVL36
+ 2601 00a4 06000000 		.4byte	.LVL37
+ 2602 00a8 0200     		.2byte	0x2
+ 2603 00aa 30       		.byte	0x30
+ 2604 00ab 9F       		.byte	0x9f
+ 2605 00ac 06000000 		.4byte	.LVL37
+ 2606 00b0 16000000 		.4byte	.LVL41
+ 2607 00b4 0100     		.2byte	0x1
+ 2608 00b6 54       		.byte	0x54
+ 2609 00b7 00000000 		.4byte	0
+ 2610 00bb 00000000 		.4byte	0
+ 2611              	.LLST9:
+ 2612 00bf 18000000 		.4byte	.LVL42
+ 2613 00c3 28000000 		.4byte	.LVL46
+ 2614 00c7 0100     		.2byte	0x1
+ 2615 00c9 54       		.byte	0x54
+ 2616 00ca 00000000 		.4byte	0
+ 2617 00ce 00000000 		.4byte	0
+ 2618              	.LLST10:
+ 2619 00d2 2A000000 		.4byte	.LVL47
+ 2620 00d6 36000000 		.4byte	.LVL50
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 53
+
+
+ 2621 00da 0100     		.2byte	0x1
+ 2622 00dc 54       		.byte	0x54
+ 2623 00dd 00000000 		.4byte	0
+ 2624 00e1 00000000 		.4byte	0
+ 2625              		.section	.debug_aranges,"",%progbits
+ 2626 0000 B4000000 		.4byte	0xb4
+ 2627 0004 0200     		.2byte	0x2
+ 2628 0006 00000000 		.4byte	.Ldebug_info0
+ 2629 000a 04       		.byte	0x4
+ 2630 000b 00       		.byte	0
+ 2631 000c 0000     		.2byte	0
+ 2632 000e 0000     		.2byte	0
+ 2633 0010 00000000 		.4byte	.LFB63
+ 2634 0014 34000000 		.4byte	.LFE63-.LFB63
+ 2635 0018 00000000 		.4byte	.LFB64
+ 2636 001c 30000000 		.4byte	.LFE64-.LFB64
+ 2637 0020 00000000 		.4byte	.LFB65
+ 2638 0024 30000000 		.4byte	.LFE65-.LFB65
+ 2639 0028 00000000 		.4byte	.LFB66
+ 2640 002c 34000000 		.4byte	.LFE66-.LFB66
+ 2641 0030 00000000 		.4byte	.LFB67
+ 2642 0034 38000000 		.4byte	.LFE67-.LFB67
+ 2643 0038 00000000 		.4byte	.LFB68
+ 2644 003c 38000000 		.4byte	.LFE68-.LFB68
+ 2645 0040 00000000 		.4byte	.LFB69
+ 2646 0044 38000000 		.4byte	.LFE69-.LFB69
+ 2647 0048 00000000 		.4byte	.LFB70
+ 2648 004c 34000000 		.4byte	.LFE70-.LFB70
+ 2649 0050 00000000 		.4byte	.LFB71
+ 2650 0054 02000000 		.4byte	.LFE71-.LFB71
+ 2651 0058 00000000 		.4byte	.LFB72
+ 2652 005c 02000000 		.4byte	.LFE72-.LFB72
+ 2653 0060 00000000 		.4byte	.LFB73
+ 2654 0064 02000000 		.4byte	.LFE73-.LFB73
+ 2655 0068 00000000 		.4byte	.LFB74
+ 2656 006c 02000000 		.4byte	.LFE74-.LFB74
+ 2657 0070 00000000 		.4byte	.LFB75
+ 2658 0074 02000000 		.4byte	.LFE75-.LFB75
+ 2659 0078 00000000 		.4byte	.LFB76
+ 2660 007c 02000000 		.4byte	.LFE76-.LFB76
+ 2661 0080 00000000 		.4byte	.LFB77
+ 2662 0084 20000000 		.4byte	.LFE77-.LFB77
+ 2663 0088 00000000 		.4byte	.LFB78
+ 2664 008c 20000000 		.4byte	.LFE78-.LFB78
+ 2665 0090 00000000 		.4byte	.LFB79
+ 2666 0094 BC000000 		.4byte	.LFE79-.LFB79
+ 2667 0098 00000000 		.4byte	.LFB80
+ 2668 009c 68000000 		.4byte	.LFE80-.LFB80
+ 2669 00a0 00000000 		.4byte	.LFB81
+ 2670 00a4 2C000000 		.4byte	.LFE81-.LFB81
+ 2671 00a8 00000000 		.4byte	.LFB82
+ 2672 00ac A8000000 		.4byte	.LFE82-.LFB82
+ 2673 00b0 00000000 		.4byte	0
+ 2674 00b4 00000000 		.4byte	0
+ 2675              		.section	.debug_ranges,"",%progbits
+ 2676              	.Ldebug_ranges0:
+ 2677 0000 00000000 		.4byte	.LFB63
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 54
+
+
+ 2678 0004 34000000 		.4byte	.LFE63
+ 2679 0008 00000000 		.4byte	.LFB64
+ 2680 000c 30000000 		.4byte	.LFE64
+ 2681 0010 00000000 		.4byte	.LFB65
+ 2682 0014 30000000 		.4byte	.LFE65
+ 2683 0018 00000000 		.4byte	.LFB66
+ 2684 001c 34000000 		.4byte	.LFE66
+ 2685 0020 00000000 		.4byte	.LFB67
+ 2686 0024 38000000 		.4byte	.LFE67
+ 2687 0028 00000000 		.4byte	.LFB68
+ 2688 002c 38000000 		.4byte	.LFE68
+ 2689 0030 00000000 		.4byte	.LFB69
+ 2690 0034 38000000 		.4byte	.LFE69
+ 2691 0038 00000000 		.4byte	.LFB70
+ 2692 003c 34000000 		.4byte	.LFE70
+ 2693 0040 00000000 		.4byte	.LFB71
+ 2694 0044 02000000 		.4byte	.LFE71
+ 2695 0048 00000000 		.4byte	.LFB72
+ 2696 004c 02000000 		.4byte	.LFE72
+ 2697 0050 00000000 		.4byte	.LFB73
+ 2698 0054 02000000 		.4byte	.LFE73
+ 2699 0058 00000000 		.4byte	.LFB74
+ 2700 005c 02000000 		.4byte	.LFE74
+ 2701 0060 00000000 		.4byte	.LFB75
+ 2702 0064 02000000 		.4byte	.LFE75
+ 2703 0068 00000000 		.4byte	.LFB76
+ 2704 006c 02000000 		.4byte	.LFE76
+ 2705 0070 00000000 		.4byte	.LFB77
+ 2706 0074 20000000 		.4byte	.LFE77
+ 2707 0078 00000000 		.4byte	.LFB78
+ 2708 007c 20000000 		.4byte	.LFE78
+ 2709 0080 00000000 		.4byte	.LFB79
+ 2710 0084 BC000000 		.4byte	.LFE79
+ 2711 0088 00000000 		.4byte	.LFB80
+ 2712 008c 68000000 		.4byte	.LFE80
+ 2713 0090 00000000 		.4byte	.LFB81
+ 2714 0094 2C000000 		.4byte	.LFE81
+ 2715 0098 00000000 		.4byte	.LFB82
+ 2716 009c A8000000 		.4byte	.LFE82
+ 2717 00a0 00000000 		.4byte	0
+ 2718 00a4 00000000 		.4byte	0
+ 2719              		.section	.debug_line,"",%progbits
+ 2720              	.Ldebug_line0:
+ 2721 0000 59030000 		.section	.debug_str,"MS",%progbits,1
+ 2721      02003F01 
+ 2721      00000201 
+ 2721      FB0E0D00 
+ 2721      01010101 
+ 2722              	.LASF14:
+ 2723 0000 6C6F6E67 		.ascii	"long double\000"
+ 2723      20646F75 
+ 2723      626C6500 
+ 2724              	.LASF47:
+ 2725 000c 70617573 		.ascii	"pause\000"
+ 2725      6500
+ 2726              	.LASF41:
+ 2727 0012 6C656674 		.ascii	"left_move_unit\000"
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 55
+
+
+ 2727      5F6D6F76 
+ 2727      655F756E 
+ 2727      697400
+ 2728              	.LASF51:
+ 2729 0021 6375725F 		.ascii	"cur_pos_3\000"
+ 2729      706F735F 
+ 2729      3300
+ 2730              	.LASF62:
+ 2731 002b 73746565 		.ascii	"steering_engine_controller\000"
+ 2731      72696E67 
+ 2731      5F656E67 
+ 2731      696E655F 
+ 2731      636F6E74 
+ 2732              	.LASF36:
+ 2733 0046 6D345F64 		.ascii	"m4_down_unit\000"
+ 2733      6F776E5F 
+ 2733      756E6974 
+ 2733      00
+ 2734              	.LASF2:
+ 2735 0053 73686F72 		.ascii	"short int\000"
+ 2735      7420696E 
+ 2735      7400
+ 2736              	.LASF15:
+ 2737 005d 73697A65 		.ascii	"sizetype\000"
+ 2737      74797065 
+ 2737      00
+ 2738              	.LASF6:
+ 2739 0066 6C6F6E67 		.ascii	"long long int\000"
+ 2739      206C6F6E 
+ 2739      6720696E 
+ 2739      7400
+ 2740              	.LASF40:
+ 2741 0074 646F776E 		.ascii	"downward_move_unit\000"
+ 2741      77617264 
+ 2741      5F6D6F76 
+ 2741      655F756E 
+ 2741      697400
+ 2742              	.LASF34:
+ 2743 0087 6D335F64 		.ascii	"m3_down_unit\000"
+ 2743      6F776E5F 
+ 2743      756E6974 
+ 2743      00
+ 2744              	.LASF25:
+ 2745 0094 47524142 		.ascii	"GRAB\000"
+ 2745      00
+ 2746              	.LASF24:
+ 2747 0099 44524F50 		.ascii	"DROP\000"
+ 2747      00
+ 2748              	.LASF29:
+ 2749 009e 6D315F72 		.ascii	"m1_right_unit\000"
+ 2749      69676874 
+ 2749      5F756E69 
+ 2749      7400
+ 2750              	.LASF23:
+ 2751 00ac 4D345F44 		.ascii	"M4_D\000"
+ 2751      00
+ 2752              	.LASF55:
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 56
+
+
+ 2753 00b1 7365745F 		.ascii	"set_servo_pos\000"
+ 2753      73657276 
+ 2753      6F5F706F 
+ 2753      7300
+ 2754              	.LASF22:
+ 2755 00bf 4D345F55 		.ascii	"M4_U\000"
+ 2755      00
+ 2756              	.LASF11:
+ 2757 00c4 666C6F61 		.ascii	"float\000"
+ 2757      7400
+ 2758              	.LASF57:
+ 2759 00ca 7365745F 		.ascii	"set_servo_velocity\000"
+ 2759      73657276 
+ 2759      6F5F7665 
+ 2759      6C6F6369 
+ 2759      747900
+ 2760              	.LASF21:
+ 2761 00dd 4D335F44 		.ascii	"M3_D\000"
+ 2761      00
+ 2762              	.LASF31:
+ 2763 00e2 6D325F66 		.ascii	"m2_forward_unit\000"
+ 2763      6F727761 
+ 2763      72645F75 
+ 2763      6E697400 
+ 2764              	.LASF4:
+ 2765 00f2 6C6F6E67 		.ascii	"long int\000"
+ 2765      20696E74 
+ 2765      00
+ 2766              	.LASF49:
+ 2767 00fb 6375725F 		.ascii	"cur_pos_1\000"
+ 2767      706F735F 
+ 2767      3100
+ 2768              	.LASF50:
+ 2769 0105 6375725F 		.ascii	"cur_pos_2\000"
+ 2769      706F735F 
+ 2769      3200
+ 2770              	.LASF38:
+ 2771 010f 6261636B 		.ascii	"backward_move_unit\000"
+ 2771      77617264 
+ 2771      5F6D6F76 
+ 2771      655F756E 
+ 2771      697400
+ 2772              	.LASF32:
+ 2773 0122 6D325F62 		.ascii	"m2_backward_unit\000"
+ 2773      61636B77 
+ 2773      6172645F 
+ 2773      756E6974 
+ 2773      00
+ 2774              	.LASF53:
+ 2775 0133 6375725F 		.ascii	"cur_pos_5\000"
+ 2775      706F735F 
+ 2775      3500
+ 2776              	.LASF43:
+ 2777 013d 64726F70 		.ascii	"drop\000"
+ 2777      00
+ 2778              	.LASF20:
+ 2779 0142 4D335F55 		.ascii	"M3_U\000"
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 57
+
+
+ 2779      00
+ 2780              	.LASF37:
+ 2781 0147 666F7277 		.ascii	"forward_move_unit\000"
+ 2781      6172645F 
+ 2781      6D6F7665 
+ 2781      5F756E69 
+ 2781      7400
+ 2782              	.LASF61:
+ 2783 0159 53494E47 		.ascii	"SINGLE_MOTOR_MOTION_CMD\000"
+ 2783      4C455F4D 
+ 2783      4F544F52 
+ 2783      5F4D4F54 
+ 2783      494F4E5F 
+ 2784              	.LASF19:
+ 2785 0171 4D325F42 		.ascii	"M2_B\000"
+ 2785      00
+ 2786              	.LASF28:
+ 2787 0176 6D315F6C 		.ascii	"m1_left_unit\000"
+ 2787      6566745F 
+ 2787      756E6974 
+ 2787      00
+ 2788              	.LASF18:
+ 2789 0183 4D325F46 		.ascii	"M2_F\000"
+ 2789      00
+ 2790              	.LASF1:
+ 2791 0188 756E7369 		.ascii	"unsigned char\000"
+ 2791      676E6564 
+ 2791      20636861 
+ 2791      7200
+ 2792              	.LASF0:
+ 2793 0196 7369676E 		.ascii	"signed char\000"
+ 2793      65642063 
+ 2793      68617200 
+ 2794              	.LASF7:
+ 2795 01a2 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2795      206C6F6E 
+ 2795      6720756E 
+ 2795      7369676E 
+ 2795      65642069 
+ 2796              	.LASF27:
+ 2797 01b9 50415553 		.ascii	"PAUSE\000"
+ 2797      4500
+ 2798              	.LASF8:
+ 2799 01bf 756E7369 		.ascii	"unsigned int\000"
+ 2799      676E6564 
+ 2799      20696E74 
+ 2799      00
+ 2800              	.LASF30:
+ 2801 01cc 6D6F7665 		.ascii	"movestep\000"
+ 2801      73746570 
+ 2801      00
+ 2802              	.LASF26:
+ 2803 01d5 52455345 		.ascii	"RESET_INIT\000"
+ 2803      545F494E 
+ 2803      495400
+ 2804              	.LASF45:
+ 2805 01e0 72657365 		.ascii	"reset_init_pos\000"
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 58
+
+
+ 2805      745F696E 
+ 2805      69745F70 
+ 2805      6F7300
+ 2806              	.LASF33:
+ 2807 01ef 6D335F75 		.ascii	"m3_up_unit\000"
+ 2807      705F756E 
+ 2807      697400
+ 2808              	.LASF16:
+ 2809 01fa 4D315F4C 		.ascii	"M1_L\000"
+ 2809      00
+ 2810              	.LASF54:
+ 2811 01ff 436F6D6D 		.ascii	"Command\000"
+ 2811      616E6400 
+ 2812              	.LASF17:
+ 2813 0207 4D315F52 		.ascii	"M1_R\000"
+ 2813      00
+ 2814              	.LASF13:
+ 2815 020c 63686172 		.ascii	"char\000"
+ 2815      00
+ 2816              	.LASF35:
+ 2817 0211 6D345F75 		.ascii	"m4_up_unit\000"
+ 2817      705F756E 
+ 2817      697400
+ 2818              	.LASF10:
+ 2819 021c 696E7433 		.ascii	"int32_t\000"
+ 2819      325F7400 
+ 2820              	.LASF3:
+ 2821 0224 73686F72 		.ascii	"short unsigned int\000"
+ 2821      7420756E 
+ 2821      7369676E 
+ 2821      65642069 
+ 2821      6E7400
+ 2822              	.LASF5:
+ 2823 0237 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2823      20756E73 
+ 2823      69676E65 
+ 2823      6420696E 
+ 2823      7400
+ 2824              	.LASF12:
+ 2825 0249 646F7562 		.ascii	"double\000"
+ 2825      6C6500
+ 2826              	.LASF9:
+ 2827 0250 5F5F696E 		.ascii	"__int32_t\000"
+ 2827      7433325F 
+ 2827      7400
+ 2828              	.LASF42:
+ 2829 025a 72696768 		.ascii	"right_move_unit\000"
+ 2829      745F6D6F 
+ 2829      76655F75 
+ 2829      6E697400 
+ 2830              	.LASF46:
+ 2831 026a 73696D75 		.ascii	"simu_fetch\000"
+ 2831      5F666574 
+ 2831      636800
+ 2832              	.LASF52:
+ 2833 0275 6375725F 		.ascii	"cur_pos_4\000"
+ 2833      706F735F 
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccAR0DOr.s 			page 59
+
+
+ 2833      3400
+ 2834              	.LASF59:
+ 2835 027f 526F626F 		.ascii	"Robot_arm.c\000"
+ 2835      745F6172 
+ 2835      6D2E6300 
+ 2836              	.LASF60:
+ 2837 028b 433A5C55 		.ascii	"C:\\Users\\lab512\\Desktop\\lmx_borrow\\Servo\\Robo"
+ 2837      73657273 
+ 2837      5C6C6162 
+ 2837      3531325C 
+ 2837      4465736B 
+ 2838 02b8 745F6172 		.ascii	"t_arm_trolley.cydsn\000"
+ 2838      6D5F7472 
+ 2838      6F6C6C65 
+ 2838      792E6379 
+ 2838      64736E00 
+ 2839              	.LASF44:
+ 2840 02cc 67726162 		.ascii	"grab\000"
+ 2840      00
+ 2841              	.LASF48:
+ 2842 02d1 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2842      52784275 
+ 2842      66666572 
+ 2842      00
+ 2843              	.LASF58:
+ 2844 02de 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2844      43313120 
+ 2844      352E342E 
+ 2844      31203230 
+ 2844      31363036 
+ 2845 0311 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2845      20726576 
+ 2845      6973696F 
+ 2845      6E203233 
+ 2845      37373135 
+ 2846 0344 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2846      66756E63 
+ 2846      74696F6E 
+ 2846      2D736563 
+ 2846      74696F6E 
+ 2847              	.LASF56:
+ 2848 036c 43794465 		.ascii	"CyDelay\000"
+ 2848      6C617900 
+ 2849              	.LASF39:
+ 2850 0374 75707761 		.ascii	"upward_move_unit\000"
+ 2850      72645F6D 
+ 2850      6F76655F 
+ 2850      756E6974 
+ 2850      00
+ 2851              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

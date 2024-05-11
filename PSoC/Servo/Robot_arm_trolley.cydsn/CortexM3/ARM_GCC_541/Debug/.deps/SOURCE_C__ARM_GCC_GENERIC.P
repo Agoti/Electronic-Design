@@ -1,0 +1,94 @@
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/CortexM3/ARM_GCC_541/Debug/Robot_arm.o : C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/CyDmac.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/CyFlash.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/CyLib.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/CySpc.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/LCD.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/LCD_LCDPort.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/LCD_LCDPort_aliases.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_R1.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_R1_aliases.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_R2.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_R2_aliases.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_T1.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_T1_aliases.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_T2.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_T2_aliases.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_Timeout1.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_Timeout2.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_Timer1.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_Timer1_Clock.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_Timer2.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_Timer2_Clock.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/UART.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/UART_1.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/UART_1_IntClock.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/UART_2.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/UART_2_IntClock.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/UART_IntClock.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cmsis_armcc.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cmsis_gcc.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/core_cm3.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/core_cmFunc.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/core_cmInstr.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cyPm.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cy_em_eeprom.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cydevice.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cydevice_trm.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cydisabledsheets.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cyfitter.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cypins.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cytypes.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/project.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Robot_arm.c C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/defs.h C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/param.h 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/CyDmac.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/CyFlash.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/CyLib.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/CySpc.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/LCD.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/LCD_LCDPort.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/LCD_LCDPort_aliases.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_R1.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_R1_aliases.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_R2.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_R2_aliases.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_T1.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_T1_aliases.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_T2.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_T2_aliases.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_Timeout1.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_Timeout2.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_Timer1.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_Timer1_Clock.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_Timer2.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/Ranging_Timer2_Clock.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/UART.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/UART_1.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/UART_1_IntClock.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/UART_2.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/UART_2_IntClock.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/UART_IntClock.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cmsis_armcc.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cmsis_gcc.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/core_cm3.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/core_cmFunc.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/core_cmInstr.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cyPm.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cy_em_eeprom.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cydevice.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cydevice_trm.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cydisabledsheets.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cyfitter.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cypins.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/cytypes.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Generated_Source/PSoC5/project.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/Robot_arm.c : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/defs.h : 
+
+C:/Users/lab512/Desktop/lmx_borrow/Servo/Robot_arm_trolley.cydsn/param.h : 
+

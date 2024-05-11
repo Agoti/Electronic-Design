@@ -1,0 +1,2045 @@
+Archive member included to satisfy reference by file (symbol)
+
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (UART_Start)
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o) (UART_IntClock_Start)
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o (CyHalt)
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o) (CyPmReadStatus)
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (LCD_PrintString)
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (UART_1_Start)
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o) (UART_1_IntClock_Start)
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (UART_2_Start)
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o) (UART_2_IntClock_Start)
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R1.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Ranging.o (Ranging_R1_Read)
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T1.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Ranging.o (Ranging_T1_Write)
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R2.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Ranging.o (Ranging_R2_Read)
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T2.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Ranging.o (Ranging_T2_Write)
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Ranging.o (Ranging_Timer1_Clock_Start)
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Ranging.o (Ranging_Timer1_Stop)
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Ranging.o (Ranging_Timer2_Clock_Start)
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Ranging.o (Ranging_Timer2_Stop)
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Ranging.o (Ranging_Timeout1_StartEx)
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Ranging.o (Ranging_Timeout2_StartEx)
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyBootAsmGnu.o)
+                              .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o (CyDelayCycles)
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o) (CyFlash_SetWaitCycles)
+.\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o) (CySpcStart)
+d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubdf3.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Driving.o (__aeabi_i2d)
+d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivdf3.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Driving.o (__aeabi_dmul)
+d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixdfsi.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Driving.o (__aeabi_d2iz)
+d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Driving.o (__aeabi_i2f)
+d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Driving.o (__aeabi_fmul)
+d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixsfsi.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Driving.o (__aeabi_f2iz)
+d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_aeabi_ldivmod.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Ranging.o (__aeabi_ldivmod)
+d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_udivmoddi4.o)
+                              d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_aeabi_ldivmod.o) (__udivmoddi4)
+d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_dvmd_tls.o)
+                              d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_aeabi_ldivmod.o) (__aeabi_ldiv0)
+d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o (__errno)
+d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+                              d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o (exit)
+d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                              d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o) (_global_impure_ptr)
+d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+                              d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o (__libc_init_array)
+d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+                              .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o (memcpy)
+d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+                              d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o (memset)
+
+Allocating common symbols
+Common symbol       size              file
+
+timeout2            0x4               .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+period1             0x4               .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+period2             0x4               .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+dieTemperature      0x2               .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+timeout1            0x4               .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+Command             0x1               .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+
+Discarded input sections
+
+ .text          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+ .data          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+ .bss           0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+ .data          0x00000000        0x4 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .text          0x00000000       0x74 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .data          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .bss           0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .ARM.extab     0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .ARM.exidx     0x00000000        0x8 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Servo.o
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Servo.o
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Servo.o
+ .text.SetServoPosition
+                0x00000000       0x80 .\CortexM3\ARM_GCC_541\Debug\Servo.o
+ .text.set_servo_limit
+                0x00000000       0x80 .\CortexM3\ARM_GCC_541\Debug\Servo.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Driving.o
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Driving.o
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Driving.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Antman.o
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Antman.o
+ .text.antman   0x00000000       0xc8 .\CortexM3\ARM_GCC_541\Debug\Antman.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+ .text.m4_down_unit
+                0x00000000       0x34 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+ .text.forward_move_unit
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+ .text.backward_move_unit
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+ .text.upward_move_unit
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+ .text.downward_move_unit
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+ .text.left_move_unit
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+ .text.right_move_unit
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+ .text.simu_fetch
+                0x00000000       0x68 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+ .text.steering_engine_controller
+                0x00000000       0xa8 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+ COMMON         0x00000000        0x1 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.SetAnalogRoutingPumps
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .data          0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .text._exit    0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .text._sbrk    0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_Stop
+                0x00000000       0x3c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_ReadControlRegister
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_WriteControlRegister
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_SetRxInterruptMode
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_ReadRxData
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_ReadRxStatus
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_GetChar
+                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_GetByte
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_GetRxBufferSize
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_ClearRxBuffer
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_SetRxAddressMode
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_SetRxAddress1
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_SetRxAddress2
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_SetTxInterruptMode
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_WriteTxData
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_ReadTxStatus
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_PutString
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_PutArray
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_PutCRLF
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_GetTxBufferSize
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_ClearTxBuffer
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_SendBreak
+                0x00000000       0x58 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text.UART_SetTxAddressMode
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .text.UART_IntClock_Stop
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .text.UART_IntClock_StopBlock
+                0x00000000       0x6c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .text.UART_IntClock_StandbyPower
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .text.UART_IntClock_GetDividerRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .text.UART_IntClock_SetModeRegister
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .text.UART_IntClock_ClearModeRegister
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .text.UART_IntClock_GetModeRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .text.UART_IntClock_GetSourceRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .text.UART_IntClock_SetDividerRegister
+                0x00000000       0xdc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .text.UART_IntClock_SetSourceRegister
+                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .bss           0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyUSB_PowerOnCheck
+                0x00000000       0x48 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyBusClk_Internal_SetDivider
+                0x00000000       0x48 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyPLL_OUT_Stop
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyIMO_Stop
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyIMO_EnableDoubler
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyIMO_DisableDoubler
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyMasterClk_SetSource
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyMasterClk_SetDivider
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyBusClk_SetDivider
+                0x00000000       0x70 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyUsbClk_SetSource
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyILO_Start1K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyILO_Stop1K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyILO_Start100K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyILO_Stop100K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyPLL_OUT_Start
+                0x00000000       0x78 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyIMO_Start
+                0x00000000       0x60 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyILO_Enable33K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyILO_Disable33K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyILO_SetSource
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyILO_SetPowerMode
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyXTAL_32KHZ_Stop
+                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyXTAL_32KHZ_ReadStatus
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyXTAL_Start
+                0x00000000       0xac .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyXTAL_Stop
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyXTAL_EnableErrStatus
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyXTAL_DisableErrStatus
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyXTAL_ReadStatus
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyXTAL_EnableFaultRecovery
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyXTAL_DisableFaultRecovery
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyXTAL_SetStartup
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyXTAL_SetFbVoltage
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyXTAL_SetWdVoltage
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyHalt   0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyPLL_OUT_SetPQ
+                0x00000000       0x60 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyPLL_OUT_SetSource
+                0x00000000       0x34 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyIMO_SetTrimValue
+                0x00000000       0xcc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyIMO_SetFreq
+                0x00000000       0xf4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyIMO_SetSource
+                0x00000000       0x58 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CySoftwareReset
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyXTAL_32KHZ_SetPowerMode
+                0x00000000       0x84 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyXTAL_32KHZ_Start
+                0x00000000       0x74 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyDelayFreq
+                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyWdtStart
+                0x00000000       0x40 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyWdtClear
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyVdStickyStatus
+                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyVdLvDigitEnable
+                0x00000000       0x84 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyVdLvAnalogEnable
+                0x00000000       0x80 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyVdLvDigitDisable
+                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyVdLvAnalogDisable
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyVdHvAnalogEnable
+                0x00000000       0x54 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyVdHvAnalogDisable
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyVdRealTimeStatus
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyDisableInts
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyEnableInts
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyFlushCache
+                0x00000000       0x44 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyIntSetSysVector
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyIntGetSysVector
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyIntSetVector
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyIntGetVector
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyIntSetPriority
+                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyIntGetPriority
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyIntGetState
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CySysTickStop
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CySysTickEnableInterrupt
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CySysTickEnable
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CySysTickDisableInterrupt
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CySysTickSetReload
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CySysTickGetReload
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CySysTickGetValue
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CySysTickSetClockSource
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CySysTickGetCountFlag
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CySysTickServiceCallbacks
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CySysTickClear
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CySysTickInit
+                0x00000000       0x58 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CySysTickStart
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CySysTickSetCallback
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CySysTickGetCallback
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text.CyGetUniqueId
+                0x00000000       0x70 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .bss           0x00000000       0x43 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .text.CyPmHibSlpSaveSet
+                0x00000000      0x1dc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .text.CyPmHibSlpRestore
+                0x00000000       0xd4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .text.CyPmHviLviSaveDisable
+                0x00000000       0xa0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .text.CyPmHibSaveSet
+                0x00000000       0x8c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .text.CyPmHviLviRestore
+                0x00000000       0x48 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .text.CyPmHibRestore
+                0x00000000       0x58 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .text.CyPmSaveClocks
+                0x00000000      0x218 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .text.CyPmRestoreClocks
+                0x00000000      0x24c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .text.CyPmAltAct
+                0x00000000       0x6c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .text.CyPmSleep
+                0x00000000       0xf4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .text.CyPmHibernateEx
+                0x00000000       0xf4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .text.CyPmHibernate
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .text.CyPmReadStatus
+                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .text.CyPmCtwSetInterval
+                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .text.CyPmOppsSet
+                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .text.CyPmFtwSetInterval
+                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .rodata        0x00000000        0xf .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+ .text.LCD_Stop
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+ .text.LCD_PrintInt16
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+ .text.LCD_PrintU32Number
+                0x00000000       0x64 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_Stop
+                0x00000000       0x3c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_ReadControlRegister
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_WriteControlRegister
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_SetRxInterruptMode
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_ReadRxData
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_ReadRxStatus
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_GetChar
+                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_GetByte
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_GetRxBufferSize
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_ClearRxBuffer
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_SetRxAddressMode
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_SetRxAddress1
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_SetRxAddress2
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_SetTxInterruptMode
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_WriteTxData
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_ReadTxStatus
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_PutString
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_PutArray
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_PutCRLF
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_GetTxBufferSize
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_ClearTxBuffer
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_SendBreak
+                0x00000000       0x58 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text.UART_1_SetTxAddressMode
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .text.UART_1_IntClock_Stop
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .text.UART_1_IntClock_StopBlock
+                0x00000000       0x6c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .text.UART_1_IntClock_StandbyPower
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .text.UART_1_IntClock_GetDividerRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .text.UART_1_IntClock_SetModeRegister
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .text.UART_1_IntClock_ClearModeRegister
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .text.UART_1_IntClock_GetModeRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .text.UART_1_IntClock_GetSourceRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .text.UART_1_IntClock_SetDividerRegister
+                0x00000000       0xdc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .text.UART_1_IntClock_SetSourceRegister
+                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_Stop
+                0x00000000       0x3c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_ReadControlRegister
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_WriteControlRegister
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_SetRxInterruptMode
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_ReadRxData
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_ReadRxStatus
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_GetByte
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_ClearRxBuffer
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_SetRxAddressMode
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_SetRxAddress1
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_SetRxAddress2
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_SetTxInterruptMode
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_WriteTxData
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_ReadTxStatus
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_PutChar
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_PutString
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_PutArray
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_PutCRLF
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_GetTxBufferSize
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_ClearTxBuffer
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_SendBreak
+                0x00000000       0x58 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text.UART_2_SetTxAddressMode
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .text.UART_2_IntClock_Stop
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .text.UART_2_IntClock_StopBlock
+                0x00000000       0x6c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .text.UART_2_IntClock_StandbyPower
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .text.UART_2_IntClock_GetDividerRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .text.UART_2_IntClock_SetModeRegister
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .text.UART_2_IntClock_ClearModeRegister
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .text.UART_2_IntClock_GetModeRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .text.UART_2_IntClock_GetSourceRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .text.UART_2_IntClock_SetDividerRegister
+                0x00000000       0xdc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .text.UART_2_IntClock_SetSourceRegister
+                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R1.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R1.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R1.o)
+ .text.Ranging_R1_Write
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R1.o)
+ .text.Ranging_R1_SetDriveMode
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R1.o)
+ .text.Ranging_R1_ReadDataReg
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R1.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T1.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T1.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T1.o)
+ .text.Ranging_T1_SetDriveMode
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T1.o)
+ .text.Ranging_T1_Read
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T1.o)
+ .text.Ranging_T1_ReadDataReg
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T1.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R2.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R2.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R2.o)
+ .text.Ranging_R2_Write
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R2.o)
+ .text.Ranging_R2_SetDriveMode
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R2.o)
+ .text.Ranging_R2_ReadDataReg
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R2.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T2.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T2.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T2.o)
+ .text.Ranging_T2_SetDriveMode
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T2.o)
+ .text.Ranging_T2_Read
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T2.o)
+ .text.Ranging_T2_ReadDataReg
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T2.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .text.Ranging_Timer1_Clock_Stop
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .text.Ranging_Timer1_Clock_StopBlock
+                0x00000000       0x6c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .text.Ranging_Timer1_Clock_StandbyPower
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .text.Ranging_Timer1_Clock_GetDividerRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .text.Ranging_Timer1_Clock_SetModeRegister
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .text.Ranging_Timer1_Clock_ClearModeRegister
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .text.Ranging_Timer1_Clock_GetModeRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .text.Ranging_Timer1_Clock_GetSourceRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .text.Ranging_Timer1_Clock_SetDividerRegister
+                0x00000000       0xdc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .text.Ranging_Timer1_Clock_SetSourceRegister
+                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+ .text.Ranging_Timer1_SoftwareCapture
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+ .text.Ranging_Timer1_ReadControlRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+ .text.Ranging_Timer1_WriteControlRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .text.Ranging_Timer2_Clock_Stop
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .text.Ranging_Timer2_Clock_StopBlock
+                0x00000000       0x6c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .text.Ranging_Timer2_Clock_StandbyPower
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .text.Ranging_Timer2_Clock_GetDividerRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .text.Ranging_Timer2_Clock_SetModeRegister
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .text.Ranging_Timer2_Clock_ClearModeRegister
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .text.Ranging_Timer2_Clock_GetModeRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .text.Ranging_Timer2_Clock_GetSourceRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .text.Ranging_Timer2_Clock_SetDividerRegister
+                0x00000000       0xd8 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .text.Ranging_Timer2_Clock_SetSourceRegister
+                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+ .text.Ranging_Timer2_SoftwareCapture
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+ .text.Ranging_Timer2_ReadControlRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+ .text.Ranging_Timer2_WriteControlRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+ .text.Ranging_Timeout1_Interrupt
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+ .text.Ranging_Timeout1_GetVector
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+ .text.Ranging_Timeout1_GetPriority
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+ .text.Ranging_Timeout1_GetState
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+ .text.Ranging_Timeout1_Start
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+ .text.Ranging_Timeout1_Stop
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+ .text.Ranging_Timeout1_SetPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+ .text.Ranging_Timeout1_ClearPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+ .text.Ranging_Timeout2_Interrupt
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+ .text.Ranging_Timeout2_GetVector
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+ .text.Ranging_Timeout2_GetPriority
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+ .text.Ranging_Timeout2_GetState
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+ .text.Ranging_Timeout2_Start
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+ .text.Ranging_Timeout2_Stop
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+ .text.Ranging_Timeout2_SetPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+ .text.Ranging_Timeout2_ClearPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyBootAsmGnu.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyBootAsmGnu.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .text.CyFlashGetSpcAlgorithm
+                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .text.CySetTempInt
+                0x00000000       0x60 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .text.CyFlash_Start
+                0x00000000       0x54 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .text.CyFlash_Stop
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .text.CySetTemp
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .text.CySetFlashEEBuffer
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .text.CyWriteRowFull
+                0x00000000       0xf8 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .text.CyWriteRowData
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .text.CyFlash_SetWaitCycles
+                0x00000000       0x7c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .text.CyEEPROM_Start
+                0x00000000       0x54 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .text.CyEEPROM_Stop
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .text.CyEEPROM_ReadReserve
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .text.CyEEPROM_ReadRelease
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ COMMON         0x00000000        0x2 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+ .bss           0x00000000        0x8 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+ .text.CySpcStart
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+ .text.CySpcStop
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+ .text.CySpcReadData
+                0x00000000       0x34 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+ .text.CySpcLoadMultiByte
+                0x00000000       0x78 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+ .text.CySpcLoadRow
+                0x00000000       0x50 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+ .text.CySpcLoadRowFull
+                0x00000000       0x80 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+ .text.CySpcWriteRow
+                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+ .text.CySpcEraseSector
+                0x00000000       0x3c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+ .text.CySpcGetTemp
+                0x00000000       0x3c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+ .text.CySpcLock
+                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+ .text.CySpcUnlock
+                0x00000000       0x38 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+ .text.CySpcGetAlgorithm
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+ .data          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubdf3.o)
+ .bss           0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubdf3.o)
+ .data          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivdf3.o)
+ .bss           0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivdf3.o)
+ .data          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixdfsi.o)
+ .bss           0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixdfsi.o)
+ .data          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
+ .bss           0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
+ .data          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
+ .bss           0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
+ .data          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixsfsi.o)
+ .bss           0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixsfsi.o)
+ .data          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_aeabi_ldivmod.o)
+ .bss           0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_aeabi_ldivmod.o)
+ .data          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_udivmoddi4.o)
+ .bss           0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_udivmoddi4.o)
+ .ARM.extab     0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_udivmoddi4.o)
+ .data          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_dvmd_tls.o)
+ .bss           0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_dvmd_tls.o)
+ .text          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .data          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .bss           0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .text.__errno  0x00000000        0xc d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .text          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .data          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .bss           0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .text.exit     0x00000000       0x28 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .text          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .data          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .bss           0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .data.impure_data
+                0x00000000       0x60 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .data._impure_ptr
+                0x00000000        0x4 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .rodata.str1.1
+                0x00000000        0x2 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .rodata._global_impure_ptr
+                0x00000000        0x4 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .text          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .data          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .bss           0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .text          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .data          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .bss           0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .text          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .data          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .bss           0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .text          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .data          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .bss           0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .text          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+ .data          0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+ .bss           0x00000000        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+rom              0x00000000         0x00040000         xr
+ram              0x1fff8000         0x00010000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+LOAD d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+LOAD d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+START GROUP
+LOAD .\CortexM3\ARM_GCC_541\Debug\main.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\Servo.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\Driving.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\Antman.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a
+LOAD D:\PsocCreator4.2\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a
+END GROUP
+START GROUP
+LOAD d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a
+LOAD d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a
+LOAD d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libc_nano.a
+END GROUP
+START GROUP
+LOAD d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a
+LOAD d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libc_nano.a
+END GROUP
+LOAD d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+LOAD d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+START GROUP
+LOAD d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a
+LOAD d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libc.a
+LOAD d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libnosys.a
+END GROUP
+                0x00000000                CY_APPL_ORIGIN = 0x0
+                0x00000100                CY_FLASH_ROW_SIZE = 0x100
+                0x00000020                CY_ECC_ROW_SIZE = 0x20
+                0x00000000                CY_EE_IN_BTLDR = 0x0
+                0x00000000                CY_APPL_LOADABLE = 0x0
+                0x00000800                CY_EE_SIZE = 0x800
+                0x00000001                CY_APPL_NUM = 0x1
+                0x00000001                CY_APPL_MAX = 0x1
+                0x00000040                CY_METADATA_SIZE = 0x40
+                0x00000000                CY_APPL_LOADABLE = 0x0
+                0x00000000                CY_CHECKSUM_EXCLUDE_SIZE = ALIGN (0x0, CY_FLASH_ROW_SIZE)
+                [!provide]                PROVIDE (__cy_heap_start, _end)
+                0x00000001                PROVIDE (__cy_region_num, ((__cy_regions_end - __cy_regions) / 0x10))
+                0x20008000                PROVIDE (__cy_stack, (ORIGIN (ram) + LENGTH (ram)))
+                [!provide]                PROVIDE (__cy_heap_end, (__cy_stack - 0x800))
+
+.cybootloader   0x00000000        0x0
+ *(.cybootloader)
+                0x00000000                appl1_start = CY_APPL_ORIGIN?CY_APPL_ORIGIN:ALIGN (CY_FLASH_ROW_SIZE)
+                0x0001ff00                appl2_start = (appl1_start + ALIGN ((((LENGTH (rom) - appl1_start) - (0x2 * CY_FLASH_ROW_SIZE)) / 0x2), CY_FLASH_ROW_SIZE))
+                0x00000000                appl_start = (CY_APPL_NUM == 0x1)?appl1_start:appl2_start
+                0x00000000                ecc_offset = ((appl_start / CY_FLASH_ROW_SIZE) * CY_ECC_ROW_SIZE)
+                0x00000000                ee_offset = (CY_APPL_LOADABLE && ! (CY_EE_IN_BTLDR))?((CY_EE_SIZE / CY_APPL_MAX) * (CY_APPL_NUM - 0x1)):0x0
+                0x00000800                ee_size = (CY_APPL_LOADABLE && ! (CY_EE_IN_BTLDR))?(CY_EE_SIZE / CY_APPL_MAX):CY_EE_SIZE
+                [!provide]                PROVIDE (CY_ECC_OFFSET, ecc_offset)
+
+.text           0x00000000     0x2686
+ CREATE_OBJECT_SYMBOLS
+                0x00000000                PROVIDE (__cy_interrupt_vector, RomVectors)
+ *(.romvectors)
+ .romvectors    0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000000                RomVectors
+                0x00000001                ASSERT ((. != __cy_interrupt_vector), No interrupt vector)
+                0x00000001                ASSERT (CY_APPL_ORIGIN?(SIZEOF (.cybootloader) <= CY_APPL_ORIGIN):0x1, Wrong image location)
+                0x00000010                PROVIDE (__cy_reset, Reset)
+ *(.text.Reset)
+ .text.Reset    0x00000010       0x18 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000010                Reset
+                0x00000001                ASSERT ((. != __cy_reset), No reset code)
+ *(.dma_init)
+                0x00000001                ASSERT ((((appl_start + .) <= 0x10000) || 0x1), DMA Init must be within the first 64k of flash)
+ *(.text .text.* .gnu.linkonce.t.*)
+ .text          0x00000028       0x5c d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .text.main     0x00000084      0x1a0 .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x00000084                main
+ .text.SetServoLimit
+                0x00000224       0x80 .\CortexM3\ARM_GCC_541\Debug\Servo.o
+                0x00000224                SetServoLimit
+ .text.SetServoVelocity
+                0x000002a4       0x74 .\CortexM3\ARM_GCC_541\Debug\Servo.o
+                0x000002a4                SetServoVelocity
+ .text.set_servo_pos
+                0x00000318       0x80 .\CortexM3\ARM_GCC_541\Debug\Servo.o
+                0x00000318                set_servo_pos
+ .text.set_servo_velocity
+                0x00000398       0x74 .\CortexM3\ARM_GCC_541\Debug\Servo.o
+                0x00000398                set_servo_velocity
+ .text.servos_motormode
+                0x0000040c       0x2c .\CortexM3\ARM_GCC_541\Debug\Driving.o
+                0x0000040c                servos_motormode
+ .text.go_forward
+                0x00000438       0x48 .\CortexM3\ARM_GCC_541\Debug\Driving.o
+                0x00000438                go_forward
+ .text.stop     0x00000480        0xc .\CortexM3\ARM_GCC_541\Debug\Driving.o
+                0x00000480                stop
+ *fill*         0x0000048c        0x4 
+ .text.turn_left_precise
+                0x00000490       0x58 .\CortexM3\ARM_GCC_541\Debug\Driving.o
+                0x00000490                turn_left_precise
+ .text.turn_left
+                0x000004e8       0x10 .\CortexM3\ARM_GCC_541\Debug\Driving.o
+                0x000004e8                turn_left
+ .text.turn_right_precise
+                0x000004f8       0x58 .\CortexM3\ARM_GCC_541\Debug\Driving.o
+                0x000004f8                turn_right_precise
+ .text.turn_right
+                0x00000550       0x10 .\CortexM3\ARM_GCC_541\Debug\Driving.o
+                0x00000550                turn_right
+ .text.reverse_turn_left
+                0x00000560       0x10 .\CortexM3\ARM_GCC_541\Debug\Driving.o
+                0x00000560                reverse_turn_left
+ .text.reverse_turn_right
+                0x00000570       0x10 .\CortexM3\ARM_GCC_541\Debug\Driving.o
+                0x00000570                reverse_turn_right
+ .text.RangingTimeoutInt1
+                0x00000580       0x1c .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+                0x00000580                RangingTimeoutInt1
+ .text.RangingTimeoutInt2
+                0x0000059c       0x1c .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+                0x0000059c                RangingTimeoutInt2
+ .text.calculate_millimeter
+                0x000005b8       0x48 .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+                0x000005b8                calculate_millimeter
+ .text.ranging_init1
+                0x00000600       0x20 .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+                0x00000600                ranging_init1
+ .text.trigger1
+                0x00000620       0x18 .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+                0x00000620                trigger1
+ .text.startcount1
+                0x00000638       0x18 .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+                0x00000638                startcount1
+ .text.endcount1
+                0x00000650       0x1c .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+                0x00000650                endcount1
+ .text.get_millimeter1
+                0x0000066c       0x44 .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+                0x0000066c                get_millimeter1
+ .text.ranging_init2
+                0x000006b0       0x20 .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+                0x000006b0                ranging_init2
+ .text.ranging_init
+                0x000006d0        0xc .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+                0x000006d0                ranging_init
+ .text.trigger2
+                0x000006dc       0x18 .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+                0x000006dc                trigger2
+ .text.startcount2
+                0x000006f4       0x18 .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+                0x000006f4                startcount2
+ .text.endcount2
+                0x0000070c       0x1c .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+                0x0000070c                endcount2
+ .text.get_millimeter2
+                0x00000728       0x44 .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+                0x00000728                get_millimeter2
+ .text.antman_init
+                0x0000076c        0xc .\CortexM3\ARM_GCC_541\Debug\Antman.o
+                0x0000076c                antman_init
+ .text.m1_left_unit
+                0x00000778       0x34 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+                0x00000778                m1_left_unit
+ .text.m1_right_unit
+                0x000007ac       0x30 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+                0x000007ac                m1_right_unit
+ .text.m2_forward_unit
+                0x000007dc       0x30 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+                0x000007dc                m2_forward_unit
+ .text.m2_backward_unit
+                0x0000080c       0x34 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+                0x0000080c                m2_backward_unit
+ .text.m3_up_unit
+                0x00000840       0x38 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+                0x00000840                m3_up_unit
+ .text.m3_down_unit
+                0x00000878       0x38 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+                0x00000878                m3_down_unit
+ .text.m4_up_unit
+                0x000008b0       0x38 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+                0x000008b0                m4_up_unit
+ .text.drop     0x000008e8       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+                0x000008e8                drop
+ .text.grab     0x00000908       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+                0x00000908                grab
+ .text.reset_init_pos
+                0x00000928       0xbc .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+                0x00000928                reset_init_pos
+ .text.pause    0x000009e4       0x2c .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+                0x000009e4                pause
+ .text.CyClockStartupError
+                0x00000a10        0x4 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.cfg_write_bytes32
+                0x00000a14       0x34 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.AnalogSetDefault
+                0x00000a48       0x28 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.CYMEMZERO
+                0x00000a70        0xc .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.ClockSetup
+                0x00000a7c       0xe0 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.CYCONFIGCPY
+                0x00000b5c        0x8 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.cyfitter_cfg
+                0x00000b64      0x134 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000b64                cyfitter_cfg
+ .text.IntDefaultHandler
+                0x00000c98        0x4 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000c98                IntDefaultHandler
+ .text.Start_c  0x00000c9c       0x4c .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000c9c                Start_c
+ .text.initialize_psoc
+                0x00000ce8       0x68 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000ce8                initialize_psoc
+ .text.UART_Init
+                0x00000d50       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+                0x00000d50                UART_Init
+ .text.UART_Enable
+                0x00000d74       0x38 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+                0x00000d74                UART_Enable
+ .text.UART_Start
+                0x00000dac       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+                0x00000dac                UART_Start
+ .text.UART_PutChar
+                0x00000dc8       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+                0x00000dc8                UART_PutChar
+ .text.UART_IntClock_Start
+                0x00000de0       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+                0x00000de0                UART_IntClock_Start
+ .text.CyDelay  0x00000dfc       0x2c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+                0x00000dfc                CyDelay
+ .text.CyDelayUs
+                0x00000e28       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+                0x00000e28                CyDelayUs
+ .text.LCD_WrCntrlNib
+                0x00000e3c       0x34 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+ .text.LCD_WrDatNib
+                0x00000e70       0x44 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+ .text.LCD_IsReady
+                0x00000eb4       0xe4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+                0x00000eb4                LCD_IsReady
+ .text.LCD_WriteData
+                0x00000f98       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+                0x00000f98                LCD_WriteData
+ .text.LCD_PrintString
+                0x00000fb0       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+                0x00000fb0                LCD_PrintString
+ .text.LCD_PutChar
+                0x00000fcc        0x8 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+                0x00000fcc                LCD_PutChar
+ .text.LCD_WriteControl
+                0x00000fd4       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+                0x00000fd4                LCD_WriteControl
+ .text.LCD_Init
+                0x00000fec       0x6c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+                0x00000fec                LCD_Init
+ .text.LCD_Enable
+                0x00001058       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+                0x00001058                LCD_Enable
+ .text.LCD_Start
+                0x0000106c       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+                0x0000106c                LCD_Start
+ .text.LCD_Position
+                0x00001088       0x3c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+                0x00001088                LCD_Position
+ .text.LCD_PrintInt8
+                0x000010c4       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+                0x000010c4                LCD_PrintInt8
+ .text.LCD_PrintInt32
+                0x000010e4       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+                0x000010e4                LCD_PrintInt32
+ .text.UART_1_Init
+                0x00001100       0x24 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+                0x00001100                UART_1_Init
+ .text.UART_1_Enable
+                0x00001124       0x38 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+                0x00001124                UART_1_Enable
+ .text.UART_1_Start
+                0x0000115c       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+                0x0000115c                UART_1_Start
+ .text.UART_1_PutChar
+                0x00001178       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+                0x00001178                UART_1_PutChar
+ .text.UART_1_IntClock_Start
+                0x00001190       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+                0x00001190                UART_1_IntClock_Start
+ .text.UART_2_Init
+                0x000011ac       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+                0x000011ac                UART_2_Init
+ .text.UART_2_Enable
+                0x000011d4       0x38 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+                0x000011d4                UART_2_Enable
+ .text.UART_2_Start
+                0x0000120c       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+                0x0000120c                UART_2_Start
+ .text.UART_2_GetChar
+                0x00001228       0x2c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+                0x00001228                UART_2_GetChar
+ .text.UART_2_GetRxBufferSize
+                0x00001254       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+                0x00001254                UART_2_GetRxBufferSize
+ .text.UART_2_IntClock_Start
+                0x0000126c       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+                0x0000126c                UART_2_IntClock_Start
+ .text.Ranging_R1_Read
+                0x00001288       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R1.o)
+                0x00001288                Ranging_R1_Read
+ .text.Ranging_T1_Write
+                0x00001298       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T1.o)
+                0x00001298                Ranging_T1_Write
+ .text.Ranging_R2_Read
+                0x000012b0       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R2.o)
+                0x000012b0                Ranging_R2_Read
+ .text.Ranging_T2_Write
+                0x000012c0       0x18 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T2.o)
+                0x000012c0                Ranging_T2_Write
+ .text.Ranging_Timer1_Clock_Start
+                0x000012d8       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+                0x000012d8                Ranging_Timer1_Clock_Start
+ .text.Ranging_Timer1_Enable
+                0x000012f4       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+                0x000012f4                Ranging_Timer1_Enable
+ .text.Ranging_Timer1_Stop
+                0x00001304       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+                0x00001304                Ranging_Timer1_Stop
+ .text.Ranging_Timer1_SetInterruptMode
+                0x00001314        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+                0x00001314                Ranging_Timer1_SetInterruptMode
+ .text.Ranging_Timer1_ReadStatusRegister
+                0x00001320        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+                0x00001320                Ranging_Timer1_ReadStatusRegister
+ .text.Ranging_Timer1_ReadPeriod
+                0x0000132c        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+                0x0000132c                Ranging_Timer1_ReadPeriod
+ .text.Ranging_Timer1_WritePeriod
+                0x00001338        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+                0x00001338                Ranging_Timer1_WritePeriod
+ .text.Ranging_Timer1_ReadCapture
+                0x00001344        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+                0x00001344                Ranging_Timer1_ReadCapture
+ .text.Ranging_Timer1_WriteCounter
+                0x00001350        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+                0x00001350                Ranging_Timer1_WriteCounter
+ .text.Ranging_Timer1_ReadCounter
+                0x0000135c       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+                0x0000135c                Ranging_Timer1_ReadCounter
+ .text.Ranging_Timer1_ClearFIFO
+                0x00001370       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+                0x00001370                Ranging_Timer1_ClearFIFO
+ .text.Ranging_Timer1_Init
+                0x00001384       0x38 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+                0x00001384                Ranging_Timer1_Init
+ .text.Ranging_Timer1_Start
+                0x000013bc       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+                0x000013bc                Ranging_Timer1_Start
+ .text.Ranging_Timer2_Clock_Start
+                0x000013d8       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+                0x000013d8                Ranging_Timer2_Clock_Start
+ .text.Ranging_Timer2_Enable
+                0x000013f4       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+                0x000013f4                Ranging_Timer2_Enable
+ .text.Ranging_Timer2_Stop
+                0x00001404       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+                0x00001404                Ranging_Timer2_Stop
+ .text.Ranging_Timer2_SetInterruptMode
+                0x00001414        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+                0x00001414                Ranging_Timer2_SetInterruptMode
+ .text.Ranging_Timer2_ReadStatusRegister
+                0x00001420        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+                0x00001420                Ranging_Timer2_ReadStatusRegister
+ .text.Ranging_Timer2_ReadPeriod
+                0x0000142c        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+                0x0000142c                Ranging_Timer2_ReadPeriod
+ .text.Ranging_Timer2_WritePeriod
+                0x00001438        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+                0x00001438                Ranging_Timer2_WritePeriod
+ .text.Ranging_Timer2_ReadCapture
+                0x00001444        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+                0x00001444                Ranging_Timer2_ReadCapture
+ .text.Ranging_Timer2_WriteCounter
+                0x00001450        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+                0x00001450                Ranging_Timer2_WriteCounter
+ .text.Ranging_Timer2_ReadCounter
+                0x0000145c       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+                0x0000145c                Ranging_Timer2_ReadCounter
+ .text.Ranging_Timer2_ClearFIFO
+                0x00001470       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+                0x00001470                Ranging_Timer2_ClearFIFO
+ .text.Ranging_Timer2_Init
+                0x00001484       0x38 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+                0x00001484                Ranging_Timer2_Init
+ .text.Ranging_Timer2_Start
+                0x000014bc       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+                0x000014bc                Ranging_Timer2_Start
+ .text.Ranging_Timeout1_SetVector
+                0x000014d8        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+                0x000014d8                Ranging_Timeout1_SetVector
+ .text.Ranging_Timeout1_SetPriority
+                0x000014e4       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+                0x000014e4                Ranging_Timeout1_SetPriority
+ .text.Ranging_Timeout1_Enable
+                0x000014f4        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+                0x000014f4                Ranging_Timeout1_Enable
+ .text.Ranging_Timeout1_Disable
+                0x00001500        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+                0x00001500                Ranging_Timeout1_Disable
+ .text.Ranging_Timeout1_StartEx
+                0x0000150c       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+                0x0000150c                Ranging_Timeout1_StartEx
+ .text.Ranging_Timeout2_SetVector
+                0x00001528        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+                0x00001528                Ranging_Timeout2_SetVector
+ .text.Ranging_Timeout2_SetPriority
+                0x00001534       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+                0x00001534                Ranging_Timeout2_SetPriority
+ .text.Ranging_Timeout2_Enable
+                0x00001544        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+                0x00001544                Ranging_Timeout2_Enable
+ .text.Ranging_Timeout2_Disable
+                0x00001550        0xc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+                0x00001550                Ranging_Timeout2_Disable
+ .text.Ranging_Timeout2_StartEx
+                0x0000155c       0x1c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+                0x0000155c                Ranging_Timeout2_StartEx
+ .text          0x00001578       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyBootAsmGnu.o)
+                0x00001578                CyDelayCycles
+                0x00001588                CyEnterCriticalSection
+                0x00001590                CyExitCriticalSection
+ .text          0x00001598      0x370 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubdf3.o)
+                0x00001598                __aeabi_drsub
+                0x000015a0                __aeabi_dsub
+                0x000015a0                __subdf3
+                0x000015a4                __aeabi_dadd
+                0x000015a4                __adddf3
+                0x0000181c                __floatunsidf
+                0x0000181c                __aeabi_ui2d
+                0x0000183c                __floatsidf
+                0x0000183c                __aeabi_i2d
+                0x00001860                __aeabi_f2d
+                0x00001860                __extendsfdf2
+                0x0000189c                __floatundidf
+                0x0000189c                __aeabi_ul2d
+                0x000018ac                __floatdidf
+                0x000018ac                __aeabi_l2d
+ .text          0x00001908      0x424 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivdf3.o)
+                0x00001908                __aeabi_dmul
+                0x00001908                __muldf3
+                0x00001b5c                __divdf3
+                0x00001b5c                __aeabi_ddiv
+ .text          0x00001d2c       0x50 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixdfsi.o)
+                0x00001d2c                __aeabi_d2iz
+                0x00001d2c                __fixdfsi
+ .text          0x00001d7c      0x21c d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
+                0x00001d7c                __aeabi_frsub
+                0x00001d84                __subsf3
+                0x00001d84                __aeabi_fsub
+                0x00001d88                __aeabi_fadd
+                0x00001d88                __addsf3
+                0x00001ee8                __aeabi_ui2f
+                0x00001ee8                __floatunsisf
+                0x00001ef0                __aeabi_i2f
+                0x00001ef0                __floatsisf
+                0x00001f0c                __aeabi_ul2f
+                0x00001f0c                __floatundisf
+                0x00001f1c                __aeabi_l2f
+                0x00001f1c                __floatdisf
+ .text          0x00001f98      0x2a0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
+                0x00001f98                __mulsf3
+                0x00001f98                __aeabi_fmul
+                0x00002100                __aeabi_fdiv
+                0x00002100                __divsf3
+ .text          0x00002238       0x4c d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixsfsi.o)
+                0x00002238                __aeabi_f2iz
+                0x00002238                __fixsfsi
+ .text          0x00002284       0xa0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_aeabi_ldivmod.o)
+                0x00002284                __aeabi_ldivmod
+ .text          0x00002324      0x2ec d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_udivmoddi4.o)
+                0x00002324                __udivmoddi4
+ .text          0x00002610        0x4 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_dvmd_tls.o)
+                0x00002610                __aeabi_idiv0
+                0x00002610                __aeabi_ldiv0
+ .text.__libc_init_array
+                0x00002614       0x4c d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+                0x00002614                __libc_init_array
+ .text.memcpy   0x00002660       0x16 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+                0x00002660                memcpy
+ .text.memset   0x00002676       0x10 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+                0x00002676                memset
+ *(.plt)
+ *(.gnu.warning)
+ *(.glue_7t)
+ .glue_7t       0x00002686        0x0 linker stubs
+ *(.glue_7)
+ .glue_7        0x00002686        0x0 linker stubs
+ *(.vfp11_veneer)
+ .vfp11_veneer  0x00002686        0x0 linker stubs
+ *(.bootloader)
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+ *(.gcc_except_table)
+
+.v4_bx          0x00002688        0x0
+ .v4_bx         0x00002688        0x0 linker stubs
+
+.iplt           0x00002688        0x0
+ .iplt          0x00002688        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+
+.eh_frame       0x00002688        0x4
+ *(.eh_frame)
+ .eh_frame      0x00002688        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .eh_frame      0x00002688        0x4 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+                [!provide]                PROVIDE (__exidx_start, .)
+
+.ARM.exidx      0x0000268c        0x8
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+ .ARM.exidx     0x0000268c        0x8 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_udivmoddi4.o)
+                0x00002694                __exidx_end = .
+
+.rodata         0x00002694       0xb4
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata.str1.4
+                0x00002694       0x14 .\CortexM3\ARM_GCC_541\Debug\main.o
+                                 0x11 (size before relaxing)
+ .rodata        0x000026a8       0x56 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ *fill*         0x000026fe        0x2 
+ .rodata        0x00002700       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+                0x00002710                . = ALIGN (0x4)
+ *(.init)
+ .init          0x00002710        0x4 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+                0x00002710                _init
+ .init          0x00002714        0x8 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+                0x0000271c                . = ALIGN (0x4)
+                0x0000271c                __preinit_array_start = .
+ *(.preinit_array)
+                0x0000271c                __preinit_array_end = .
+                0x0000271c                . = ALIGN (0x4)
+                0x0000271c                __init_array_start = .
+ *(SORT(.init_array.*))
+ *(.init_array)
+ .init_array    0x0000271c        0x4 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .init_array    0x00002720        0x4 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00002724                __init_array_end = .
+                0x00002724                . = ALIGN (0x4)
+ *(.fini)
+ .fini          0x00002724        0x4 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+                0x00002724                _fini
+ .fini          0x00002728        0x8 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+                0x00002730                . = ALIGN (0x4)
+                0x00002730                __fini_array_start = .
+ *(.fini_array)
+ .fini_array    0x00002730        0x4 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ *(SORT(.fini_array.*))
+                0x00002734                __fini_array_end = .
+                0x00002734                . = ALIGN (0x4)
+ *crtbegin.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o) .ctors)
+ *(SORT(.ctors.*))
+ *crtend.o(.ctors)
+                0x00002734                . = ALIGN (0x4)
+ *crtbegin.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o) .dtors)
+ *(SORT(.dtors.*))
+ *crtend.o(.dtors)
+                0x00002734                . = ALIGN (0x4)
+                0x00002734                __cy_regions = .
+                0x00002734        0x4 LONG 0x2748 __cy_region_init_ram
+                0x00002738        0x4 LONG 0x1fff80c8 __cy_region_start_data
+                0x0000273c        0x4 LONG 0x28 __cy_region_init_size_ram
+                0x00002740        0x4 LONG 0x40 __cy_region_zero_size_ram
+                0x00002744                __cy_regions_end = .
+                0x00002748                . = ALIGN (0x8)
+ *fill*         0x00002744        0x4 
+                0x00002748                _etext = .
+
+.cy_checksum_exclude
+                0x00002748        0x0
+ *(.cy_checksum_exclude)
+
+.ramvectors     0x1fff8000       0xc0
+                0x1fff8000                __cy_region_start_ram = .
+ *(.ramvectors)
+ .ramvectors    0x1fff8000       0xc0 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x1fff8000                CyRamVectors
+
+.noinit         0x1fff80c0        0x1
+ *(.noinit)
+ .noinit        0x1fff80c0        0x1 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+                0x1fff80c0                CyResetStatus
+
+.data           0x1fff80c8       0x28 load address 0x00002748
+                0x1fff80c8                __cy_region_start_data = .
+ *(.jcr)
+ .jcr           0x1fff80c8        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .jcr           0x1fff80c8        0x4 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ *(.got.plt)
+ *(.got)
+ *(.shdata)
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x1fff80cc       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+                0x1fff80cc                cur_pos_1
+                0x1fff80d0                cur_pos_2
+                0x1fff80d4                cur_pos_3
+                0x1fff80d8                cur_pos_4
+                0x1fff80dc                cur_pos_5
+ .data          0x1fff80e0       0x10 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+                0x1fff80e0                cydelay_32k_ms
+                0x1fff80e4                cydelay_freq_khz
+                0x1fff80e8                cydelay_freq_mhz
+                0x1fff80ec                cydelay_freq_hz
+                0x1fff80f0                . = ALIGN (0x8)
+ *(.ram)
+                0x1fff80f0                _edata = .
+
+.igot.plt       0x1fff80f0        0x0 load address 0x00002770
+ .igot.plt      0x1fff80f0        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+
+.bss            0x1fff80f0       0x40 load address 0x00002770
+                0x1fff80f0                PROVIDE (__bss_start__, .)
+ *(.shbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x1fff80f0       0x1c d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .bss           0x1fff810c        0x4 .\CortexM3\ARM_GCC_541\Debug\Antman.o
+                0x1fff810c                state
+ .bss           0x1fff8110        0x2 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+                0x1fff8110                UART_initVar
+ .bss           0x1fff8112        0x2 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+                0x1fff8112                LCD_enableState
+                0x1fff8113                LCD_initVar
+ .bss           0x1fff8114        0x2 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+                0x1fff8114                UART_1_initVar
+ .bss           0x1fff8116        0x2 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+                0x1fff8116                UART_2_initVar
+ .bss           0x1fff8118        0x1 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+                0x1fff8118                Ranging_Timer1_initVar
+ .bss           0x1fff8119        0x1 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+                0x1fff8119                Ranging_Timer2_initVar
+ *(COMMON)
+ *fill*         0x1fff811a        0x2 
+ COMMON         0x1fff811c       0x10 .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+                0x1fff811c                timeout2
+                0x1fff8120                period1
+                0x1fff8124                period2
+                0x1fff8128                timeout1
+                0x1fff8130                . = ALIGN (0x8)
+ *fill*         0x1fff812c        0x4 
+ *(.ram.b)
+                0x1fff8130                _end = .
+                0x1fff8130                __end = .
+                0x1fff8130                PROVIDE (end, .)
+                0x1fff8130                PROVIDE (__bss_end__, .)
+                0x00002748                __cy_region_init_ram = LOADADDR (.data)
+                0x00000028                __cy_region_init_size_ram = (_edata - ADDR (.data))
+                0x00000040                __cy_region_zero_size_ram = (_end - _edata)
+
+.heap           0x1fff8130       0x80 load address 0x00002770
+                0x1fff8130                . = _end
+                0x1fff81b0                . = (. + 0x80)
+ *fill*         0x1fff8130       0x80 
+                0x1fff81b0                __cy_heap_limit = .
+
+.stack          0x20007800      0x800
+                0x20007800                __cy_stack_limit = .
+                0x20008000                . = (. + 0x800)
+ *fill*         0x20007800      0x800 
+                0x00000001                ASSERT ((__cy_stack_limit >= __cy_heap_limit), region RAM overflowed with stack)
+                0x00000000                cy_checksum_exclude_size = (CY_APPL_LOADABLE == 0x1)?SIZEOF (.cy_checksum_exclude):0x0
+                0x00000001                ASSERT ((cy_checksum_exclude_size <= CY_CHECKSUM_EXCLUDE_SIZE), CY_BOOT: Section .cy_checksum_exclude size exceedes specified limit.)
+
+.cyloadermeta
+ *(.cyloadermeta)
+
+.cyloadablemeta
+ *(.cyloadablemeta)
+
+.cyconfigecc    0x80000000      0xb9c
+ *(.cyconfigecc)
+ .cyconfigecc   0x80000000      0xb9c .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                0x80000000                cy_meta_configecc
+
+.cycustnvl      0x90000000        0x4
+ *(.cycustnvl)
+ .cycustnvl     0x90000000        0x4 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                0x90000000                cy_meta_custnvl
+
+.cywolatch      0x90100000        0x4
+ *(.cywolatch)
+ .cywolatch     0x90100000        0x4 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                0x90100000                cy_meta_wonvl
+
+.cyeeprom       0x90200000        0x0
+ *(.cyeeprom)
+                0x00000001                ASSERT ((. <= ((0x90200000 + ee_offset) + ee_size)), .cyeeprom data will not fit in EEPROM)
+
+.cyflashprotect
+                0x90400000      0x100
+ *(.cyflashprotect)
+ .cyflashprotect
+                0x90400000      0x100 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                0x90400000                cy_meta_flashprotect
+
+.cymeta         0x90500000        0xc
+ *(.cymeta)
+ .cymeta        0x90500000        0xc .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                0x90500000                cy_metadata
+
+.rel.dyn        0x00002770        0x0 load address 0x9050000c
+ .rel.iplt      0x00002770        0x0 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0xfc8
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_aranges
+                0x00000020       0x48 .\CortexM3\ARM_GCC_541\Debug\Servo.o
+ .debug_aranges
+                0x00000068       0x60 .\CortexM3\ARM_GCC_541\Debug\Driving.o
+ .debug_aranges
+                0x000000c8       0x88 .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+ .debug_aranges
+                0x00000150       0x28 .\CortexM3\ARM_GCC_541\Debug\Antman.o
+ .debug_aranges
+                0x00000178       0xb8 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+ .debug_aranges
+                0x00000230       0x58 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_aranges
+                0x00000288       0x18 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_aranges
+                0x000002a0       0x48 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_aranges
+                0x000002e8       0xf0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .debug_aranges
+                0x000003d8       0x70 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .debug_aranges
+                0x00000448      0x298 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .debug_aranges
+                0x000006e0       0x98 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .debug_aranges
+                0x00000778       0x98 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+ .debug_aranges
+                0x00000810       0xf0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .debug_aranges
+                0x00000900       0x70 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .debug_aranges
+                0x00000970       0xf0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .debug_aranges
+                0x00000a60       0x70 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .debug_aranges
+                0x00000ad0       0x38 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R1.o)
+ .debug_aranges
+                0x00000b08       0x38 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T1.o)
+ .debug_aranges
+                0x00000b40       0x38 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R2.o)
+ .debug_aranges
+                0x00000b78       0x38 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T2.o)
+ .debug_aranges
+                0x00000bb0       0x70 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .debug_aranges
+                0x00000c20       0x90 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+ .debug_aranges
+                0x00000cb0       0x70 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .debug_aranges
+                0x00000d20       0x90 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+ .debug_aranges
+                0x00000db0       0x80 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+ .debug_aranges
+                0x00000e30       0x80 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+ .debug_aranges
+                0x00000eb0       0x20 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyBootAsmGnu.o)
+ .debug_aranges
+                0x00000ed0       0x80 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .debug_aranges
+                0x00000f50       0x78 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000     0x8b5e
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0x4de .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_info    0x000004de      0xa09 .\CortexM3\ARM_GCC_541\Debug\Servo.o
+ .debug_info    0x00000ee7      0x3dc .\CortexM3\ARM_GCC_541\Debug\Driving.o
+ .debug_info    0x000012c3      0x545 .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+ .debug_info    0x00001808      0x1c8 .\CortexM3\ARM_GCC_541\Debug\Antman.o
+ .debug_info    0x000019d0      0x853 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+ .debug_info    0x00002223      0x5f2 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_info    0x00002815      0x139 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_info    0x0000294e      0x3a1 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_info    0x00002cef      0x60c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .debug_info    0x000032fb      0x283 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .debug_info    0x0000357e     0x135e .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .debug_info    0x000048dc      0xa1d .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .debug_info    0x000052f9      0x715 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+ .debug_info    0x00005a0e      0x60c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .debug_info    0x0000601a      0x283 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .debug_info    0x0000629d      0x60c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .debug_info    0x000068a9      0x283 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .debug_info    0x00006b2c      0x11f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R1.o)
+ .debug_info    0x00006c4b      0x11f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T1.o)
+ .debug_info    0x00006d6a      0x11f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R2.o)
+ .debug_info    0x00006e89      0x11f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T2.o)
+ .debug_info    0x00006fa8      0x283 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .debug_info    0x0000722b      0x2ee .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+ .debug_info    0x00007519      0x283 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .debug_info    0x0000779c      0x2ee .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+ .debug_info    0x00007a8a      0x2d2 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+ .debug_info    0x00007d5c      0x2d2 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+ .debug_info    0x0000802e       0x8f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyBootAsmGnu.o)
+ .debug_info    0x000080bd      0x5b8 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .debug_info    0x00008675      0x4e9 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+
+.debug_abbrev   0x00000000     0x254f
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0xca .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_abbrev  0x000000ca      0x112 .\CortexM3\ARM_GCC_541\Debug\Servo.o
+ .debug_abbrev  0x000001dc       0xea .\CortexM3\ARM_GCC_541\Debug\Driving.o
+ .debug_abbrev  0x000002c6      0x142 .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+ .debug_abbrev  0x00000408       0xee .\CortexM3\ARM_GCC_541\Debug\Antman.o
+ .debug_abbrev  0x000004f6      0x144 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+ .debug_abbrev  0x0000063a      0x20d .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_abbrev  0x00000847       0x77 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_abbrev  0x000008be      0x203 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_abbrev  0x00000ac1      0x175 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .debug_abbrev  0x00000c36      0x139 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .debug_abbrev  0x00000d6f      0x254 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .debug_abbrev  0x00000fc3      0x1ab .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .debug_abbrev  0x0000116e      0x157 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+ .debug_abbrev  0x000012c5      0x175 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .debug_abbrev  0x0000143a      0x139 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .debug_abbrev  0x00001573      0x175 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .debug_abbrev  0x000016e8      0x139 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .debug_abbrev  0x00001821       0x90 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R1.o)
+ .debug_abbrev  0x000018b1       0x90 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T1.o)
+ .debug_abbrev  0x00001941       0x90 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R2.o)
+ .debug_abbrev  0x000019d1       0x90 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T2.o)
+ .debug_abbrev  0x00001a61      0x139 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .debug_abbrev  0x00001b9a      0x12b .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+ .debug_abbrev  0x00001cc5      0x139 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .debug_abbrev  0x00001dfe      0x12b .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+ .debug_abbrev  0x00001f29      0x173 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+ .debug_abbrev  0x0000209c      0x173 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+ .debug_abbrev  0x0000220f       0x14 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyBootAsmGnu.o)
+ .debug_abbrev  0x00002223      0x198 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .debug_abbrev  0x000023bb      0x194 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+
+.debug_line     0x00000000     0x3c69
+ *(.debug_line)
+ .debug_line    0x00000000      0x1af .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_line    0x000001af      0x234 .\CortexM3\ARM_GCC_541\Debug\Servo.o
+ .debug_line    0x000003e3      0x1da .\CortexM3\ARM_GCC_541\Debug\Driving.o
+ .debug_line    0x000005bd      0x34f .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+ .debug_line    0x0000090c      0x17e .\CortexM3\ARM_GCC_541\Debug\Antman.o
+ .debug_line    0x00000a8a      0x35d .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+ .debug_line    0x00000de7      0x1f0 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_line    0x00000fd7      0x127 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_line    0x000010fe      0x21a .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_line    0x00001318      0x2bc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .debug_line    0x000015d4      0x17c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .debug_line    0x00001750      0x804 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .debug_line    0x00001f54      0x364 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .debug_line    0x000022b8      0x1dc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+ .debug_line    0x00002494      0x2c0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .debug_line    0x00002754      0x17e .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .debug_line    0x000028d2      0x2c0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .debug_line    0x00002b92      0x17e .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .debug_line    0x00002d10       0x97 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R1.o)
+ .debug_line    0x00002da7       0x97 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T1.o)
+ .debug_line    0x00002e3e       0x97 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R2.o)
+ .debug_line    0x00002ed5       0x97 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T2.o)
+ .debug_line    0x00002f6c      0x183 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .debug_line    0x000030ef      0x179 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+ .debug_line    0x00003268      0x183 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .debug_line    0x000033eb      0x179 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+ .debug_line    0x00003564      0x13d .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+ .debug_line    0x000036a1      0x13d .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+ .debug_line    0x000037de       0x66 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyBootAsmGnu.o)
+ .debug_line    0x00003844      0x1e9 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .debug_line    0x00003a2d      0x23c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+
+.debug_frame    0x00000000     0x279c
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_frame   0x00000030       0xf0 .\CortexM3\ARM_GCC_541\Debug\Servo.o
+ .debug_frame   0x00000120      0x114 .\CortexM3\ARM_GCC_541\Debug\Driving.o
+ .debug_frame   0x00000234      0x1a4 .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+ .debug_frame   0x000003d8       0x48 .\CortexM3\ARM_GCC_541\Debug\Antman.o
+ .debug_frame   0x00000420      0x1f8 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+ .debug_frame   0x00000618       0xe4 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_frame   0x000006fc       0xac .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_frame   0x000007a8      0x250 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .debug_frame   0x000009f8       0xe0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .debug_frame   0x00000ad8      0x728 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .debug_frame   0x00001200      0x1f8 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .debug_frame   0x000013f8      0x1e8 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+ .debug_frame   0x000015e0      0x250 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .debug_frame   0x00001830       0xe0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .debug_frame   0x00001910      0x250 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .debug_frame   0x00001b60       0xe0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .debug_frame   0x00001c40       0x50 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R1.o)
+ .debug_frame   0x00001c90       0x50 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T1.o)
+ .debug_frame   0x00001ce0       0x50 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R2.o)
+ .debug_frame   0x00001d30       0x50 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T2.o)
+ .debug_frame   0x00001d80       0xe0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .debug_frame   0x00001e60      0x124 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+ .debug_frame   0x00001f84       0xe0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .debug_frame   0x00002064      0x124 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+ .debug_frame   0x00002188      0x104 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+ .debug_frame   0x0000228c      0x104 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+ .debug_frame   0x00002390      0x174 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .debug_frame   0x00002504      0x160 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+ .debug_frame   0x00002664       0x44 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_aeabi_ldivmod.o)
+ .debug_frame   0x000026a8       0x38 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x000026e0       0x20 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x00002700       0x28 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .debug_frame   0x00002728       0x2c d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .debug_frame   0x00002754       0x28 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x0000277c       0x20 d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+
+.debug_str      0x00000000     0x3066
+ *(.debug_str)
+ .debug_str     0x00000000      0x317 .\CortexM3\ARM_GCC_541\Debug\main.o
+                                0x374 (size before relaxing)
+ .debug_str     0x00000317      0x153 .\CortexM3\ARM_GCC_541\Debug\Servo.o
+                                0x30f (size before relaxing)
+ .debug_str     0x0000046a       0x10 .\CortexM3\ARM_GCC_541\Debug\Driving.o
+                                0x251 (size before relaxing)
+ .debug_str     0x0000047a      0x284 .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+                                0x44a (size before relaxing)
+ .debug_str     0x000006fe       0x16 .\CortexM3\ARM_GCC_541\Debug\Antman.o
+                                0x21a (size before relaxing)
+ .debug_str     0x00000714      0x145 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+                                0x385 (size before relaxing)
+ .debug_str     0x00000859      0x1aa .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                                0x343 (size before relaxing)
+ .debug_str     0x00000a03       0x7f .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                                0x1e3 (size before relaxing)
+ .debug_str     0x00000a82      0x139 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                                0x309 (size before relaxing)
+ .debug_str     0x00000bbb      0x2bc .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+                                0x474 (size before relaxing)
+ .debug_str     0x00000e77      0x183 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+                                0x335 (size before relaxing)
+ .debug_str     0x00000ffa      0x7e3 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+                                0xa2e (size before relaxing)
+ .debug_str     0x000017dd      0x359 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+                                0x726 (size before relaxing)
+ .debug_str     0x00001b36      0x125 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+                                0x32a (size before relaxing)
+ .debug_str     0x00001c5b      0x249 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+                                0x4b2 (size before relaxing)
+ .debug_str     0x00001ea4      0x14c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+                                0x34d (size before relaxing)
+ .debug_str     0x00001ff0      0x232 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+                                0x4b2 (size before relaxing)
+ .debug_str     0x00002222      0x14c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+                                0x34d (size before relaxing)
+ .debug_str     0x0000236e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R1.o)
+                                0x1fa (size before relaxing)
+ .debug_str     0x000023dd       0x63 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T1.o)
+                                0x1fa (size before relaxing)
+ .debug_str     0x00002440       0x64 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R2.o)
+                                0x1fa (size before relaxing)
+ .debug_str     0x000024a4       0x63 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T2.o)
+                                0x1fa (size before relaxing)
+ .debug_str     0x00002507      0x198 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+                                0x389 (size before relaxing)
+ .debug_str     0x0000269f      0x19b .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+                                0x3dc (size before relaxing)
+ .debug_str     0x0000283a      0x198 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+                                0x389 (size before relaxing)
+ .debug_str     0x000029d2      0x17e .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+                                0x3dc (size before relaxing)
+ .debug_str     0x00002b50      0x167 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+                                0x33f (size before relaxing)
+ .debug_str     0x00002cb7      0x167 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+                                0x33f (size before relaxing)
+ .debug_str     0x00002e1e      0x19c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+                                0x3a0 (size before relaxing)
+ .debug_str     0x00002fba       0xac .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+                                0x329 (size before relaxing)
+
+.debug_loc      0x00000000     0x371c
+ *(.debug_loc)
+ .debug_loc     0x00000000       0x4f .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_loc     0x0000004f      0x7cc .\CortexM3\ARM_GCC_541\Debug\Servo.o
+ .debug_loc     0x0000081b      0x143 .\CortexM3\ARM_GCC_541\Debug\Driving.o
+ .debug_loc     0x0000095e       0xe0 .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+ .debug_loc     0x00000a3e       0x84 .\CortexM3\ARM_GCC_541\Debug\Antman.o
+ .debug_loc     0x00000ac2       0xe5 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+ .debug_loc     0x00000ba7      0x289 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_loc     0x00000e30      0x144 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_loc     0x00000f74      0x258 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .debug_loc     0x000011cc      0x128 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .debug_loc     0x000012f4      0xa11 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .debug_loc     0x00001d05      0x1e4 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .debug_loc     0x00001ee9      0x3c6 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+ .debug_loc     0x000022af      0x258 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .debug_loc     0x00002507      0x128 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .debug_loc     0x0000262f      0x258 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .debug_loc     0x00002887      0x128 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .debug_loc     0x000029af       0x42 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R1.o)
+ .debug_loc     0x000029f1       0x42 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T1.o)
+ .debug_loc     0x00002a33       0x42 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R2.o)
+ .debug_loc     0x00002a75       0x42 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T2.o)
+ .debug_loc     0x00002ab7      0x128 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .debug_loc     0x00002bdf       0x13 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+ .debug_loc     0x00002bf2      0x12c .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .debug_loc     0x00002d1e       0x13 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+ .debug_loc     0x00002d31       0x56 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+ .debug_loc     0x00002d87       0x56 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+ .debug_loc     0x00002ddd      0x2f2 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .debug_loc     0x000030cf      0x64d .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_ranges   0x00000000      0xdc0
+ *(.debug_ranges)
+ .debug_ranges  0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_ranges  0x00000010       0x38 .\CortexM3\ARM_GCC_541\Debug\Servo.o
+ .debug_ranges  0x00000048       0x50 .\CortexM3\ARM_GCC_541\Debug\Driving.o
+ .debug_ranges  0x00000098       0x78 .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+ .debug_ranges  0x00000110       0x18 .\CortexM3\ARM_GCC_541\Debug\Antman.o
+ .debug_ranges  0x00000128       0xa8 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+ .debug_ranges  0x000001d0       0x48 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_ranges  0x00000218       0x38 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_ranges  0x00000250       0xe0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .debug_ranges  0x00000330       0x60 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .debug_ranges  0x00000390      0x288 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .debug_ranges  0x00000618       0x88 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .debug_ranges  0x000006a0       0x88 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+ .debug_ranges  0x00000728       0xe0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .debug_ranges  0x00000808       0x60 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .debug_ranges  0x00000868       0xe0 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .debug_ranges  0x00000948       0x60 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .debug_ranges  0x000009a8       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R1.o)
+ .debug_ranges  0x000009d0       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T1.o)
+ .debug_ranges  0x000009f8       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R2.o)
+ .debug_ranges  0x00000a20       0x28 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T2.o)
+ .debug_ranges  0x00000a48       0x60 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .debug_ranges  0x00000aa8       0x80 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+ .debug_ranges  0x00000b28       0x60 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .debug_ranges  0x00000b88       0x80 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+ .debug_ranges  0x00000c08       0x70 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+ .debug_ranges  0x00000c78       0x70 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+ .debug_ranges  0x00000ce8       0x70 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .debug_ranges  0x00000d58       0x68 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+
+.comment        0x00000000       0x6e
+ .comment       0x00000000       0x6e .\CortexM3\ARM_GCC_541\Debug\main.o
+                                 0x6f (size before relaxing)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Servo.o
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Driving.o
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Antman.o
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R1.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T1.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R2.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T2.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.note.gnu.arm.ident
+ *(.note.gnu.arm.ident)
+
+.ARM.attributes
+                0x00000000       0x29
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x00000000       0x1d d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+ .ARM.attributes
+                0x0000001d       0x2d d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .ARM.attributes
+                0x0000004a       0x1b d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .ARM.attributes
+                0x00000065       0x33 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .ARM.attributes
+                0x00000098       0x33 .\CortexM3\ARM_GCC_541\Debug\Servo.o
+ .ARM.attributes
+                0x000000cb       0x33 .\CortexM3\ARM_GCC_541\Debug\Driving.o
+ .ARM.attributes
+                0x000000fe       0x33 .\CortexM3\ARM_GCC_541\Debug\Ranging.o
+ .ARM.attributes
+                0x00000131       0x33 .\CortexM3\ARM_GCC_541\Debug\Antman.o
+ .ARM.attributes
+                0x00000164       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm.o
+ .ARM.attributes
+                0x00000197       0x33 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .ARM.attributes
+                0x000001ca       0x33 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .ARM.attributes
+                0x000001fd       0x33 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .ARM.attributes
+                0x00000230       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART.o)
+ .ARM.attributes
+                0x00000263       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_IntClock.o)
+ .ARM.attributes
+                0x00000296       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyLib.o)
+ .ARM.attributes
+                0x000002c9       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(cyPm.o)
+ .ARM.attributes
+                0x000002fc       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(LCD.o)
+ .ARM.attributes
+                0x0000032f       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1.o)
+ .ARM.attributes
+                0x00000362       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_1_IntClock.o)
+ .ARM.attributes
+                0x00000395       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2.o)
+ .ARM.attributes
+                0x000003c8       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(UART_2_IntClock.o)
+ .ARM.attributes
+                0x000003fb       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R1.o)
+ .ARM.attributes
+                0x0000042e       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T1.o)
+ .ARM.attributes
+                0x00000461       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_R2.o)
+ .ARM.attributes
+                0x00000494       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_T2.o)
+ .ARM.attributes
+                0x000004c7       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1_Clock.o)
+ .ARM.attributes
+                0x000004fa       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer1.o)
+ .ARM.attributes
+                0x0000052d       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2_Clock.o)
+ .ARM.attributes
+                0x00000560       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timer2.o)
+ .ARM.attributes
+                0x00000593       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout1.o)
+ .ARM.attributes
+                0x000005c6       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(Ranging_Timeout2.o)
+ .ARM.attributes
+                0x000005f9       0x21 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyBootAsmGnu.o)
+ .ARM.attributes
+                0x0000061a       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CyFlash.o)
+ .ARM.attributes
+                0x0000064d       0x33 .\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.a(CySpc.o)
+ .ARM.attributes
+                0x00000680       0x1d d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubdf3.o)
+ .ARM.attributes
+                0x0000069d       0x1d d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivdf3.o)
+ .ARM.attributes
+                0x000006ba       0x1d d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixdfsi.o)
+ .ARM.attributes
+                0x000006d7       0x1d d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
+ .ARM.attributes
+                0x000006f4       0x1d d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
+ .ARM.attributes
+                0x00000711       0x1d d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixsfsi.o)
+ .ARM.attributes
+                0x0000072e       0x1d d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_aeabi_ldivmod.o)
+ .ARM.attributes
+                0x0000074b       0x2d d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_udivmoddi4.o)
+ .ARM.attributes
+                0x00000778       0x1d d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x00000795       0x2d d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .ARM.attributes
+                0x000007c2       0x2d d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .ARM.attributes
+                0x000007ef       0x2d d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .ARM.attributes
+                0x0000081c       0x2d d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .ARM.attributes
+                0x00000849       0x2d d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .ARM.attributes
+                0x00000876       0x2d d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .ARM.attributes
+                0x000008a3       0x2d d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .ARM.attributes
+                0x000008d0       0x1d d:/psoccreator4.2/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+
+/DISCARD/
+ *(.note.GNU-stack)
+OUTPUT(C:\Users\lab512\Desktop\lmx_borrow\Servo\Robot_arm_trolley.cydsn\CortexM3\ARM_GCC_541\Debug\Robot_arm_trolley.elf elf32-littlearm)

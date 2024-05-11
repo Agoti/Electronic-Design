@@ -1,0 +1,1 @@
+'C:\Users\lab512\Desktop\lmx_borrow\Servo\Servo.cydsn\main.c' -o .o -T C_FILE -I 'C:\Users\lab512\Desktop\lmx_borrow\Servo\Servo.cydsn' -I 'C:\Users\lab512\Desktop\lmx_borrow\Servo\Servo.cydsn\Generated_Source\PSoC5' -f 'C:\Users\lab512\Desktop\lmx_borrow\Servo\Servo.cydsn\CortexM3\ARM_GCC_493\Debug\.deps\C_FILE.d'

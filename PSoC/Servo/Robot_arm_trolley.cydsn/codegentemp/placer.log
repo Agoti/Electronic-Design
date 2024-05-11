@@ -1,0 +1,267 @@
+#***************************************************************************
+
+#sjplacer
+
+#Version:            1.1
+
+#Build Date:         Dec  5 2017 15:35:27
+
+#File Generated:     Sep 10 2023 17:49:22
+
+#Purpose:            
+
+#Copyright (C) 2010-2011 by Softjin Technologies Pvt Ltd. All rights reserved.
+
+#***************************************************************************
+
+Executing : D:\PsocCreator4.2\PSoC Creator\4.2\PSoC Creator\bin/sjplacer.exe --proj-name Robot_arm_trolley --netlist-vh2 Robot_arm_trolley_p.vh2 --arch p35_udb4x6 --arch-file D:\PsocCreator4.2\PSoC Creator\4.2\PSoC Creator\dev\arch/udbdsi_4x6_24.cydata --ip-file D:\PsocCreator4.2\PSoC Creator\4.2\PSoC Creator\dev\psoc5/psoc5lp/ip_blocks.cydata --rrg-file D:\PsocCreator4.2\PSoC Creator\4.2\PSoC Creator\dev\psoc5/psoc5lp/route_arch-rrg.cydata --irq-file D:\PsocCreator4.2\PSoC Creator\4.2\PSoC Creator\dev\psoc5/psoc5lp/irqconn.cydata --drq-file D:\PsocCreator4.2\PSoC Creator\4.2\PSoC Creator\dev\psoc5/psoc5lp/dmaconn.cydata --dsi-conn-file D:\PsocCreator4.2\PSoC Creator\4.2\PSoC Creator\dev\psoc5/psoc5lp/dsiconn.cydata --pins-file pins_100-TQFP.xml --lib-file Robot_arm_trolley_p.lib --sdc-file Robot_arm_trolley.sdc --io-pcf Robot_arm_trolley.pci --outdir .
+
+		Softjin Techologies Placer, Version 1.1
+
+Build Date : Dec  5 2017	15:33:41
+
+D2004: Option and Settings Summary
+=============================================================
+Netlist vh2 file          - Robot_arm_trolley_p.vh2
+Architecture file         - D:\PsocCreator4.2\PSoC Creator\4.2\PSoC Creator\dev\arch/udbdsi_4x6_24.cydata
+Package                   - 
+Defparam file             - 
+SDC file                  - Robot_arm_trolley.sdc
+Output directory          - .
+Timing library            - Robot_arm_trolley_p.lib
+IO Placement file         - Robot_arm_trolley.pci
+
+D2050: Starting reading inputs for placer
+=============================================================
+D2065: Reading netlist file : "Robot_arm_trolley_p.vh2"
+D2065: Reading arch file : "D:\PsocCreator4.2\PSoC Creator\4.2\PSoC Creator\dev\arch/udbdsi_4x6_24.cydata"
+D2051: Reading of inputs for placer completed successfully
+
+D2053: Starting placement of the design
+=============================================================
+
+Phase 2
+Phase 3
+
+Design Statistics after Packing
+    Number of Combinational MCs 	:	26
+    Number of Sequential MCs    	:	48
+    Number of DPs               	:	17
+    Number of Controls          	:	5
+    Number of Status            	:	8
+    Number of SyncCells         	:	0
+    Number of count7cells       	:	3
+
+Device Utilization Summary after Packing
+    Macrocells                  :	74/192
+    UDBS                        :	21/24
+    IOs                         :	17/72
+
+
+D2088: Phase 3, elapsed time : 0.0 (sec)
+
+Phase 4
+D2088: Phase 4, elapsed time : 0.0 (sec)
+
+Phase 5
+D2088: Phase 5, elapsed time : 0.0 (sec)
+
+Phase 6
+
+######################################################################
+Placement Timing Summary
+
+The timing summary is based on estimated routing delays after
+placement. For final timing report, please carry out the timing
+analysis after routing.
+======================================================================
+
+######################################################################
+                     Clock Summary 
+======================================================================
+Number of clocks: 10
+Clock: CyBUS_CLK            | Frequency:  47.5 MHz | Target:  24.0 MHz
+Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
+Clock: CyIMO                | Frequency: N/A       | Target:   3.0 MHz
+Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
+Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
+Clock: Ranging_Timer1_Clock | Frequency:  35.7 MHz | Target:  12.0 MHz
+Clock: Ranging_Timer2_Clock | Frequency:  35.7 MHz | Target:  12.0 MHz
+Clock: UART_1_IntClock      | Frequency:  46.9 MHz | Target:   0.9 MHz
+Clock: UART_2_IntClock      | Frequency:  55.5 MHz | Target:   0.9 MHz
+Clock: UART_IntClock        | Frequency:  47.5 MHz | Target:   0.9 MHz
+
+======================================================================
+                     End of Clock Summary
+######################################################################
+
+D2088: Phase 6, elapsed time : 0.1 (sec)
+
+Phase 7
+######################################################################
+                     Clock Summary 
+======================================================================
+Number of clocks: 10
+Clock: CyBUS_CLK            | Frequency:   1.1 MHz | Target:  24.0 MHz
+Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
+Clock: CyIMO                | Frequency: N/A       | Target:   3.0 MHz
+Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
+Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
+Clock: Ranging_Timer1_Clock | Frequency:  35.7 MHz | Target:  12.0 MHz
+Clock: Ranging_Timer2_Clock | Frequency:  35.7 MHz | Target:  12.0 MHz
+Clock: UART_1_IntClock      | Frequency:   1.2 MHz | Target:   0.9 MHz
+Clock: UART_2_IntClock      | Frequency:   1.4 MHz | Target:   0.9 MHz
+Clock: UART_IntClock        | Frequency:   1.1 MHz | Target:   0.9 MHz
+
+======================================================================
+                     End of Clock Summary
+######################################################################
+D2088: Phase 7, elapsed time : 0.7 (sec)
+
+Final Design Statistics
+    Number of Combinational MCs 	:	26
+    Number of Sequential MCs    	:	48
+    Number of DPs               	:	17
+    Number of Controls          	:	5
+    Number of Status            	:	8
+    Number of SyncCells         	:	0
+    Number of count7cells       	:	3
+    Number of IOs       	:	17
+
+Device Utilization Summary
+    Macrocells                  :	74/192
+    IOs                         :	17/72
+
+
+
+######################################################################
+Placement Timing Summary
+
+The timing summary is based on estimated routing delays after
+placement. For final timing report, please carry out the timing
+analysis after routing.
+======================================================================
+
+
+######################################################################
+                     Clock Summary 
+======================================================================
+Number of clocks: 10
+Clock: CyBUS_CLK            | Frequency:   1.1 MHz | Target:  24.0 MHz
+Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
+Clock: CyIMO                | Frequency: N/A       | Target:   3.0 MHz
+Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
+Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
+Clock: Ranging_Timer1_Clock | Frequency:  35.7 MHz | Target:  12.0 MHz
+Clock: Ranging_Timer2_Clock | Frequency:  35.7 MHz | Target:  12.0 MHz
+Clock: UART_1_IntClock      | Frequency:   1.1 MHz | Target:   0.9 MHz
+Clock: UART_2_IntClock      | Frequency:   1.4 MHz | Target:   0.9 MHz
+Clock: UART_IntClock        | Frequency:   1.1 MHz | Target:   0.9 MHz
+
+======================================================================
+                     End of Clock Summary
+######################################################################
+
+Phase 6
+
+######################################################################
+Placement Timing Summary
+
+The timing summary is based on estimated routing delays after
+placement. For final timing report, please carry out the timing
+analysis after routing.
+======================================================================
+
+######################################################################
+                     Clock Summary 
+======================================================================
+Number of clocks: 10
+Clock: CyBUS_CLK            | Frequency:   1.1 MHz | Target:  24.0 MHz
+Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
+Clock: CyIMO                | Frequency: N/A       | Target:   3.0 MHz
+Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
+Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
+Clock: Ranging_Timer1_Clock | Frequency:  35.7 MHz | Target:  12.0 MHz
+Clock: Ranging_Timer2_Clock | Frequency:  35.7 MHz | Target:  12.0 MHz
+Clock: UART_1_IntClock      | Frequency:   1.1 MHz | Target:   0.9 MHz
+Clock: UART_2_IntClock      | Frequency:   1.4 MHz | Target:   0.9 MHz
+Clock: UART_IntClock        | Frequency:   1.1 MHz | Target:   0.9 MHz
+
+======================================================================
+                     End of Clock Summary
+######################################################################
+
+D2088: Phase 6, elapsed time : 0.1 (sec)
+
+Phase 7
+######################################################################
+                     Clock Summary 
+======================================================================
+Number of clocks: 10
+Clock: CyBUS_CLK            | Frequency:   1.1 MHz | Target:  24.0 MHz
+Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
+Clock: CyIMO                | Frequency: N/A       | Target:   3.0 MHz
+Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
+Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
+Clock: Ranging_Timer1_Clock | Frequency:  35.7 MHz | Target:  12.0 MHz
+Clock: Ranging_Timer2_Clock | Frequency:  35.7 MHz | Target:  12.0 MHz
+Clock: UART_1_IntClock      | Frequency:   1.1 MHz | Target:   0.9 MHz
+Clock: UART_2_IntClock      | Frequency:   1.5 MHz | Target:   0.9 MHz
+Clock: UART_IntClock        | Frequency:   1.1 MHz | Target:   0.9 MHz
+
+======================================================================
+                     End of Clock Summary
+######################################################################
+D2088: Phase 7, elapsed time : 1.1 (sec)
+
+Final Design Statistics
+    Number of Combinational MCs 	:	26
+    Number of Sequential MCs    	:	48
+    Number of DPs               	:	17
+    Number of Controls          	:	5
+    Number of Status            	:	8
+    Number of SyncCells         	:	0
+    Number of count7cells       	:	3
+    Number of IOs       	:	17
+
+Device Utilization Summary
+    Macrocells                  :	74/192
+    IOs                         :	17/72
+
+
+
+######################################################################
+Placement Timing Summary
+
+The timing summary is based on estimated routing delays after
+placement. For final timing report, please carry out the timing
+analysis after routing.
+======================================================================
+
+
+######################################################################
+                     Clock Summary 
+======================================================================
+Number of clocks: 10
+Clock: CyBUS_CLK            | Frequency:   1.2 MHz | Target:  24.0 MHz
+Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
+Clock: CyIMO                | Frequency: N/A       | Target:   3.0 MHz
+Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
+Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
+Clock: Ranging_Timer1_Clock | Frequency:  35.7 MHz | Target:  12.0 MHz
+Clock: Ranging_Timer2_Clock | Frequency:  35.7 MHz | Target:  12.0 MHz
+Clock: UART_1_IntClock      | Frequency:   1.2 MHz | Target:   0.9 MHz
+Clock: UART_2_IntClock      | Frequency:   1.5 MHz | Target:   0.9 MHz
+Clock: UART_IntClock        | Frequency:   1.2 MHz | Target:   0.9 MHz
+
+======================================================================
+                     End of Clock Summary
+######################################################################
+
+Phase 8
+D2088: Phase 8, elapsed time : 0.0 (sec)
+
+D2054: Placement of the design completed successfully
+
+I2076: Total run-time: 2.6 sec.
+

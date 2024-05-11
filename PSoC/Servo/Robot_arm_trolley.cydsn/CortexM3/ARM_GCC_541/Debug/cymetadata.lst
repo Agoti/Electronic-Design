@@ -1,0 +1,3634 @@
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 2972
+  28              	cy_meta_configecc:
+  29 0000 01       		.byte	1
+  30 0001 52       		.byte	82
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 07       		.byte	7
+  34 0005 64       		.byte	100
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 04       		.byte	4
+  38 0009 65       		.byte	101
+  39 000a 00       		.byte	0
+  40 000b 40       		.byte	64
+  41 000c 40       		.byte	64
+  42 000d 00       		.byte	0
+  43 000e 01       		.byte	1
+  44 000f 40       		.byte	64
+  45 0010 2F       		.byte	47
+  46 0011 01       		.byte	1
+  47 0012 01       		.byte	1
+  48 0013 40       		.byte	64
+  49 0014 59       		.byte	89
+  50 0015 02       		.byte	2
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 49       		.byte	73
+  54 0019 03       		.byte	3
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 15       		.byte	21
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 2
+
+
+  58 001d 04       		.byte	4
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 3A       		.byte	58
+  62 0021 05       		.byte	5
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 53       		.byte	83
+  66 0025 06       		.byte	6
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 39       		.byte	57
+  70 0029 07       		.byte	7
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 40       		.byte	64
+  74 002d 08       		.byte	8
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 2B       		.byte	43
+  78 0031 09       		.byte	9
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 2E       		.byte	46
+  82 0035 0A       		.byte	10
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 14       		.byte	20
+  86 0039 0B       		.byte	11
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 35       		.byte	53
+  90 003d 0C       		.byte	12
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 14       		.byte	20
+  94 0041 0D       		.byte	13
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 57       		.byte	87
+  98 0045 14       		.byte	20
+  99 0046 01       		.byte	1
+ 100 0047 40       		.byte	64
+ 101 0048 4C       		.byte	76
+ 102 0049 15       		.byte	21
+ 103 004a 01       		.byte	1
+ 104 004b 40       		.byte	64
+ 105 004c 2F       		.byte	47
+ 106 004d 16       		.byte	22
+ 107 004e 01       		.byte	1
+ 108 004f 40       		.byte	64
+ 109 0050 3C       		.byte	60
+ 110 0051 17       		.byte	23
+ 111 0052 01       		.byte	1
+ 112 0053 40       		.byte	64
+ 113 0054 52       		.byte	82
+ 114 0055 18       		.byte	24
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 3
+
+
+ 115 0056 01       		.byte	1
+ 116 0057 40       		.byte	64
+ 117 0058 2D       		.byte	45
+ 118 0059 19       		.byte	25
+ 119 005a 01       		.byte	1
+ 120 005b 40       		.byte	64
+ 121 005c 32       		.byte	50
+ 122 005d 1A       		.byte	26
+ 123 005e 01       		.byte	1
+ 124 005f 40       		.byte	64
+ 125 0060 18       		.byte	24
+ 126 0061 1B       		.byte	27
+ 127 0062 01       		.byte	1
+ 128 0063 40       		.byte	64
+ 129 0064 03       		.byte	3
+ 130 0065 40       		.byte	64
+ 131 0066 01       		.byte	1
+ 132 0067 40       		.byte	64
+ 133 0068 07       		.byte	7
+ 134 0069 41       		.byte	65
+ 135 006a 01       		.byte	1
+ 136 006b 40       		.byte	64
+ 137 006c 0A       		.byte	10
+ 138 006d 42       		.byte	66
+ 139 006e 01       		.byte	1
+ 140 006f 40       		.byte	64
+ 141 0070 04       		.byte	4
+ 142 0071 43       		.byte	67
+ 143 0072 01       		.byte	1
+ 144 0073 40       		.byte	64
+ 145 0074 02       		.byte	2
+ 146 0075 48       		.byte	72
+ 147 0076 01       		.byte	1
+ 148 0077 40       		.byte	64
+ 149 0078 09       		.byte	9
+ 150 0079 49       		.byte	73
+ 151 007a 01       		.byte	1
+ 152 007b 40       		.byte	64
+ 153 007c 08       		.byte	8
+ 154 007d 50       		.byte	80
+ 155 007e 01       		.byte	1
+ 156 007f 40       		.byte	64
+ 157 0080 01       		.byte	1
+ 158 0081 51       		.byte	81
+ 159 0082 01       		.byte	1
+ 160 0083 40       		.byte	64
+ 161 0084 04       		.byte	4
+ 162 0085 03       		.byte	3
+ 163 0086 81       		.byte	-127
+ 164 0087 72       		.byte	114
+ 165 0088 82       		.byte	-126
+ 166 0089 38       		.byte	56
+ 167 008a 84       		.byte	-124
+ 168 008b 72       		.byte	114
+ 169 008c 86       		.byte	-122
+ 170 008d 0F       		.byte	15
+ 171 008e 87       		.byte	-121
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 4
+
+
+ 172 008f 38       		.byte	56
+ 173 0090 8B       		.byte	-117
+ 174 0091 0F       		.byte	15
+ 175 0092 8D       		.byte	-115
+ 176 0093 0D       		.byte	13
+ 177 0094 84       		.byte	-124
+ 178 0095 0F       		.byte	15
+ 179 0096 85       		.byte	-123
+ 180 0097 72       		.byte	114
+ 181 0098 86       		.byte	-122
+ 182 0099 38       		.byte	56
+ 183 009a 8B       		.byte	-117
+ 184 009b 0D       		.byte	13
+ 185 009c 09       		.byte	9
+ 186 009d 01       		.byte	1
+ 187 009e 0D       		.byte	13
+ 188 009f 03       		.byte	3
+ 189 00a0 15       		.byte	21
+ 190 00a1 03       		.byte	3
+ 191 00a2 1B       		.byte	27
+ 192 00a3 03       		.byte	3
+ 193 00a4 1D       		.byte	29
+ 194 00a5 02       		.byte	2
+ 195 00a6 27       		.byte	39
+ 196 00a7 03       		.byte	3
+ 197 00a8 29       		.byte	41
+ 198 00a9 03       		.byte	3
+ 199 00aa 2F       		.byte	47
+ 200 00ab 03       		.byte	3
+ 201 00ac 31       		.byte	49
+ 202 00ad 03       		.byte	3
+ 203 00ae 3A       		.byte	58
+ 204 00af 80       		.byte	-128
+ 205 00b0 3B       		.byte	59
+ 206 00b1 80       		.byte	-128
+ 207 00b2 58       		.byte	88
+ 208 00b3 04       		.byte	4
+ 209 00b4 59       		.byte	89
+ 210 00b5 04       		.byte	4
+ 211 00b6 5C       		.byte	92
+ 212 00b7 24       		.byte	36
+ 213 00b8 5F       		.byte	95
+ 214 00b9 01       		.byte	1
+ 215 00ba 80       		.byte	-128
+ 216 00bb FF       		.byte	-1
+ 217 00bc 81       		.byte	-127
+ 218 00bd 10       		.byte	16
+ 219 00be 84       		.byte	-124
+ 220 00bf 0C       		.byte	12
+ 221 00c0 85       		.byte	-123
+ 222 00c1 18       		.byte	24
+ 223 00c2 88       		.byte	-120
+ 224 00c3 F3       		.byte	-13
+ 225 00c4 89       		.byte	-119
+ 226 00c5 5C       		.byte	92
+ 227 00c6 8A       		.byte	-118
+ 228 00c7 0C       		.byte	12
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 5
+
+
+ 229 00c8 8B       		.byte	-117
+ 230 00c9 21       		.byte	33
+ 231 00ca 8C       		.byte	-116
+ 232 00cb 08       		.byte	8
+ 233 00cc 8D       		.byte	-115
+ 234 00cd 7C       		.byte	124
+ 235 00ce 8F       		.byte	-113
+ 236 00cf 02       		.byte	2
+ 237 00d0 90       		.byte	-112
+ 238 00d1 0C       		.byte	12
+ 239 00d2 91       		.byte	-111
+ 240 00d3 04       		.byte	4
+ 241 00d4 92       		.byte	-110
+ 242 00d5 F3       		.byte	-13
+ 243 00d6 94       		.byte	-108
+ 244 00d7 0F       		.byte	15
+ 245 00d8 95       		.byte	-107
+ 246 00d9 08       		.byte	8
+ 247 00da 96       		.byte	-106
+ 248 00db F0       		.byte	-16
+ 249 00dc 98       		.byte	-104
+ 250 00dd 82       		.byte	-126
+ 251 00de 9B       		.byte	-101
+ 252 00df 04       		.byte	4
+ 253 00e0 9E       		.byte	-98
+ 254 00e1 E3       		.byte	-29
+ 255 00e2 9F       		.byte	-97
+ 256 00e3 23       		.byte	35
+ 257 00e4 A0       		.byte	-96
+ 258 00e5 C3       		.byte	-61
+ 259 00e6 A3       		.byte	-93
+ 260 00e7 80       		.byte	-128
+ 261 00e8 A4       		.byte	-92
+ 262 00e9 04       		.byte	4
+ 263 00ea A5       		.byte	-91
+ 264 00eb 67       		.byte	103
+ 265 00ec A7       		.byte	-89
+ 266 00ed 18       		.byte	24
+ 267 00ee AB       		.byte	-85
+ 268 00ef 80       		.byte	-128
+ 269 00f0 AC       		.byte	-84
+ 270 00f1 41       		.byte	65
+ 271 00f2 AD       		.byte	-83
+ 272 00f3 7F       		.byte	127
+ 273 00f4 B0       		.byte	-80
+ 274 00f5 C0       		.byte	-64
+ 275 00f6 B1       		.byte	-79
+ 276 00f7 1F       		.byte	31
+ 277 00f8 B2       		.byte	-78
+ 278 00f9 2C       		.byte	44
+ 279 00fa B3       		.byte	-77
+ 280 00fb 40       		.byte	64
+ 281 00fc B4       		.byte	-76
+ 282 00fd 0F       		.byte	15
+ 283 00fe B5       		.byte	-75
+ 284 00ff 80       		.byte	-128
+ 285 0100 B6       		.byte	-74
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 6
+
+
+ 286 0101 10       		.byte	16
+ 287 0102 B7       		.byte	-73
+ 288 0103 38       		.byte	56
+ 289 0104 B8       		.byte	-72
+ 290 0105 80       		.byte	-128
+ 291 0106 BA       		.byte	-70
+ 292 0107 28       		.byte	40
+ 293 0108 BB       		.byte	-69
+ 294 0109 02       		.byte	2
+ 295 010a BF       		.byte	-65
+ 296 010b 14       		.byte	20
+ 297 010c D6       		.byte	-42
+ 298 010d 02       		.byte	2
+ 299 010e D7       		.byte	-41
+ 300 010f 11       		.byte	17
+ 301 0110 D8       		.byte	-40
+ 302 0111 04       		.byte	4
+ 303 0112 D9       		.byte	-39
+ 304 0113 04       		.byte	4
+ 305 0114 DB       		.byte	-37
+ 306 0115 04       		.byte	4
+ 307 0116 DC       		.byte	-36
+ 308 0117 44       		.byte	68
+ 309 0118 DD       		.byte	-35
+ 310 0119 40       		.byte	64
+ 311 011a DF       		.byte	-33
+ 312 011b 01       		.byte	1
+ 313 011c 04       		.byte	4
+ 314 011d 02       		.byte	2
+ 315 011e 06       		.byte	6
+ 316 011f 28       		.byte	40
+ 317 0120 07       		.byte	7
+ 318 0121 01       		.byte	1
+ 319 0122 0C       		.byte	12
+ 320 0123 40       		.byte	64
+ 321 0124 0E       		.byte	14
+ 322 0125 18       		.byte	24
+ 323 0126 0F       		.byte	15
+ 324 0127 40       		.byte	64
+ 325 0128 15       		.byte	21
+ 326 0129 02       		.byte	2
+ 327 012a 17       		.byte	23
+ 328 012b 44       		.byte	68
+ 329 012c 18       		.byte	24
+ 330 012d 02       		.byte	2
+ 331 012e 19       		.byte	25
+ 332 012f 80       		.byte	-128
+ 333 0130 1E       		.byte	30
+ 334 0131 10       		.byte	16
+ 335 0132 1F       		.byte	31
+ 336 0133 61       		.byte	97
+ 337 0134 21       		.byte	33
+ 338 0135 40       		.byte	64
+ 339 0136 22       		.byte	34
+ 340 0137 01       		.byte	1
+ 341 0138 24       		.byte	36
+ 342 0139 50       		.byte	80
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 7
+
+
+ 343 013a 25       		.byte	37
+ 344 013b 20       		.byte	32
+ 345 013c 26       		.byte	38
+ 346 013d 80       		.byte	-128
+ 347 013e 29       		.byte	41
+ 348 013f 24       		.byte	36
+ 349 0140 2B       		.byte	43
+ 350 0141 02       		.byte	2
+ 351 0142 2D       		.byte	45
+ 352 0143 80       		.byte	-128
+ 353 0144 2E       		.byte	46
+ 354 0145 08       		.byte	8
+ 355 0146 2F       		.byte	47
+ 356 0147 68       		.byte	104
+ 357 0148 30       		.byte	48
+ 358 0149 80       		.byte	-128
+ 359 014a 32       		.byte	50
+ 360 014b 18       		.byte	24
+ 361 014c 34       		.byte	52
+ 362 014d C2       		.byte	-62
+ 363 014e 36       		.byte	54
+ 364 014f 10       		.byte	16
+ 365 0150 37       		.byte	55
+ 366 0151 04       		.byte	4
+ 367 0152 39       		.byte	57
+ 368 0153 91       		.byte	-111
+ 369 0154 3B       		.byte	59
+ 370 0155 02       		.byte	2
+ 371 0156 3C       		.byte	60
+ 372 0157 48       		.byte	72
+ 373 0158 3E       		.byte	62
+ 374 0159 12       		.byte	18
+ 375 015a 3F       		.byte	63
+ 376 015b 40       		.byte	64
+ 377 015c 5C       		.byte	92
+ 378 015d 10       		.byte	16
+ 379 015e 60       		.byte	96
+ 380 015f 08       		.byte	8
+ 381 0160 61       		.byte	97
+ 382 0161 20       		.byte	32
+ 383 0162 6D       		.byte	109
+ 384 0163 68       		.byte	104
+ 385 0164 6F       		.byte	111
+ 386 0165 10       		.byte	16
+ 387 0166 74       		.byte	116
+ 388 0167 04       		.byte	4
+ 389 0168 76       		.byte	118
+ 390 0169 22       		.byte	34
+ 391 016a 77       		.byte	119
+ 392 016b 05       		.byte	5
+ 393 016c C0       		.byte	-64
+ 394 016d F0       		.byte	-16
+ 395 016e C2       		.byte	-62
+ 396 016f F0       		.byte	-16
+ 397 0170 C4       		.byte	-60
+ 398 0171 B0       		.byte	-80
+ 399 0172 CA       		.byte	-54
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 8
+
+
+ 400 0173 FE       		.byte	-2
+ 401 0174 CC       		.byte	-52
+ 402 0175 FE       		.byte	-2
+ 403 0176 CE       		.byte	-50
+ 404 0177 FC       		.byte	-4
+ 405 0178 D6       		.byte	-42
+ 406 0179 20       		.byte	32
+ 407 017a 00       		.byte	0
+ 408 017b 21       		.byte	33
+ 409 017c 02       		.byte	2
+ 410 017d 4E       		.byte	78
+ 411 017e 05       		.byte	5
+ 412 017f 02       		.byte	2
+ 413 0180 09       		.byte	9
+ 414 0181 02       		.byte	2
+ 415 0182 0F       		.byte	15
+ 416 0183 01       		.byte	1
+ 417 0184 10       		.byte	16
+ 418 0185 40       		.byte	64
+ 419 0186 12       		.byte	18
+ 420 0187 B0       		.byte	-80
+ 421 0188 18       		.byte	24
+ 422 0189 82       		.byte	-126
+ 423 018a 1A       		.byte	26
+ 424 018b 49       		.byte	73
+ 425 018c 1F       		.byte	31
+ 426 018d 01       		.byte	1
+ 427 018e 24       		.byte	36
+ 428 018f E3       		.byte	-29
+ 429 0190 28       		.byte	40
+ 430 0191 E3       		.byte	-29
+ 431 0192 2D       		.byte	45
+ 432 0193 02       		.byte	2
+ 433 0194 30       		.byte	48
+ 434 0195 E0       		.byte	-32
+ 435 0196 31       		.byte	49
+ 436 0197 02       		.byte	2
+ 437 0198 32       		.byte	50
+ 438 0199 04       		.byte	4
+ 439 019a 34       		.byte	52
+ 440 019b 03       		.byte	3
+ 441 019c 36       		.byte	54
+ 442 019d 18       		.byte	24
+ 443 019e 37       		.byte	55
+ 444 019f 01       		.byte	1
+ 445 01a0 3E       		.byte	62
+ 446 01a1 40       		.byte	64
+ 447 01a2 3F       		.byte	63
+ 448 01a3 40       		.byte	64
+ 449 01a4 40       		.byte	64
+ 450 01a5 24       		.byte	36
+ 451 01a6 41       		.byte	65
+ 452 01a7 03       		.byte	3
+ 453 01a8 42       		.byte	66
+ 454 01a9 05       		.byte	5
+ 455 01aa 44       		.byte	68
+ 456 01ab 01       		.byte	1
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 9
+
+
+ 457 01ac 46       		.byte	70
+ 458 01ad 0C       		.byte	12
+ 459 01ae 47       		.byte	71
+ 460 01af 0E       		.byte	14
+ 461 01b0 48       		.byte	72
+ 462 01b1 14       		.byte	20
+ 463 01b2 49       		.byte	73
+ 464 01b3 FF       		.byte	-1
+ 465 01b4 4A       		.byte	74
+ 466 01b5 FF       		.byte	-1
+ 467 01b6 4B       		.byte	75
+ 468 01b7 FF       		.byte	-1
+ 469 01b8 4C       		.byte	76
+ 470 01b9 62       		.byte	98
+ 471 01ba 4D       		.byte	77
+ 472 01bb A0       		.byte	-96
+ 473 01bc 4E       		.byte	78
+ 474 01bd F0       		.byte	-16
+ 475 01be 4F       		.byte	79
+ 476 01bf 41       		.byte	65
+ 477 01c0 50       		.byte	80
+ 478 01c1 0C       		.byte	12
+ 479 01c2 54       		.byte	84
+ 480 01c3 18       		.byte	24
+ 481 01c4 58       		.byte	88
+ 482 01c5 04       		.byte	4
+ 483 01c6 59       		.byte	89
+ 484 01c7 04       		.byte	4
+ 485 01c8 5A       		.byte	90
+ 486 01c9 04       		.byte	4
+ 487 01ca 5B       		.byte	91
+ 488 01cb 04       		.byte	4
+ 489 01cc 5C       		.byte	92
+ 490 01cd 44       		.byte	68
+ 491 01ce 5D       		.byte	93
+ 492 01cf 44       		.byte	68
+ 493 01d0 5F       		.byte	95
+ 494 01d1 01       		.byte	1
+ 495 01d2 66       		.byte	102
+ 496 01d3 40       		.byte	64
+ 497 01d4 67       		.byte	103
+ 498 01d5 02       		.byte	2
+ 499 01d6 69       		.byte	105
+ 500 01d7 10       		.byte	16
+ 501 01d8 6A       		.byte	106
+ 502 01d9 30       		.byte	48
+ 503 01da 6B       		.byte	107
+ 504 01db 10       		.byte	16
+ 505 01dc 6D       		.byte	109
+ 506 01dd 10       		.byte	16
+ 507 01de 6E       		.byte	110
+ 508 01df 10       		.byte	16
+ 509 01e0 6F       		.byte	111
+ 510 01e1 12       		.byte	18
+ 511 01e2 81       		.byte	-127
+ 512 01e3 08       		.byte	8
+ 513 01e4 84       		.byte	-124
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 10
+
+
+ 514 01e5 06       		.byte	6
+ 515 01e6 85       		.byte	-123
+ 516 01e7 0C       		.byte	12
+ 517 01e8 86       		.byte	-122
+ 518 01e9 01       		.byte	1
+ 519 01ea 88       		.byte	-120
+ 520 01eb 01       		.byte	1
+ 521 01ec 8A       		.byte	-118
+ 522 01ed 06       		.byte	6
+ 523 01ee 8B       		.byte	-117
+ 524 01ef 33       		.byte	51
+ 525 01f0 8C       		.byte	-116
+ 526 01f1 07       		.byte	7
+ 527 01f2 8D       		.byte	-115
+ 528 01f3 7F       		.byte	127
+ 529 01f4 90       		.byte	-112
+ 530 01f5 06       		.byte	6
+ 531 01f6 92       		.byte	-110
+ 532 01f7 01       		.byte	1
+ 533 01f8 93       		.byte	-109
+ 534 01f9 40       		.byte	64
+ 535 01fa 94       		.byte	-108
+ 536 01fb 02       		.byte	2
+ 537 01fc 95       		.byte	-107
+ 538 01fd 73       		.byte	115
+ 539 01fe 97       		.byte	-105
+ 540 01ff 0C       		.byte	12
+ 541 0200 99       		.byte	-103
+ 542 0201 4C       		.byte	76
+ 543 0202 9B       		.byte	-101
+ 544 0203 23       		.byte	35
+ 545 0204 9D       		.byte	-99
+ 546 0205 02       		.byte	2
+ 547 0206 A1       		.byte	-95
+ 548 0207 41       		.byte	65
+ 549 0208 A3       		.byte	-93
+ 550 0209 80       		.byte	-128
+ 551 020a A5       		.byte	-91
+ 552 020b 03       		.byte	3
+ 553 020c A6       		.byte	-90
+ 554 020d 01       		.byte	1
+ 555 020e A8       		.byte	-88
+ 556 020f 06       		.byte	6
+ 557 0210 A9       		.byte	-87
+ 558 0211 04       		.byte	4
+ 559 0212 AC       		.byte	-84
+ 560 0213 04       		.byte	4
+ 561 0214 AD       		.byte	-83
+ 562 0215 4F       		.byte	79
+ 563 0216 AF       		.byte	-81
+ 564 0217 10       		.byte	16
+ 565 0218 B0       		.byte	-80
+ 566 0219 07       		.byte	7
+ 567 021a B1       		.byte	-79
+ 568 021b 80       		.byte	-128
+ 569 021c B3       		.byte	-77
+ 570 021d 0F       		.byte	15
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 11
+
+
+ 571 021e B5       		.byte	-75
+ 572 021f 7C       		.byte	124
+ 573 0220 BA       		.byte	-70
+ 574 0221 02       		.byte	2
+ 575 0222 BB       		.byte	-69
+ 576 0223 28       		.byte	40
+ 577 0224 D8       		.byte	-40
+ 578 0225 04       		.byte	4
+ 579 0226 D9       		.byte	-39
+ 580 0227 04       		.byte	4
+ 581 0228 DC       		.byte	-36
+ 582 0229 22       		.byte	34
+ 583 022a DF       		.byte	-33
+ 584 022b 01       		.byte	1
+ 585 022c 00       		.byte	0
+ 586 022d 48       		.byte	72
+ 587 022e 02       		.byte	2
+ 588 022f 08       		.byte	8
+ 589 0230 05       		.byte	5
+ 590 0231 04       		.byte	4
+ 591 0232 06       		.byte	6
+ 592 0233 10       		.byte	16
+ 593 0234 07       		.byte	7
+ 594 0235 40       		.byte	64
+ 595 0236 08       		.byte	8
+ 596 0237 04       		.byte	4
+ 597 0238 0A       		.byte	10
+ 598 0239 40       		.byte	64
+ 599 023a 0D       		.byte	13
+ 600 023b 01       		.byte	1
+ 601 023c 0E       		.byte	14
+ 602 023d 88       		.byte	-120
+ 603 023e 12       		.byte	18
+ 604 023f 15       		.byte	21
+ 605 0240 16       		.byte	22
+ 606 0241 20       		.byte	32
+ 607 0242 17       		.byte	23
+ 608 0243 10       		.byte	16
+ 609 0244 19       		.byte	25
+ 610 0245 02       		.byte	2
+ 611 0246 1A       		.byte	26
+ 612 0247 40       		.byte	64
+ 613 0248 1B       		.byte	27
+ 614 0249 02       		.byte	2
+ 615 024a 1D       		.byte	29
+ 616 024b 80       		.byte	-128
+ 617 024c 1E       		.byte	30
+ 618 024d A8       		.byte	-88
+ 619 024e 20       		.byte	32
+ 620 024f 08       		.byte	8
+ 621 0250 22       		.byte	34
+ 622 0251 1A       		.byte	26
+ 623 0252 25       		.byte	37
+ 624 0253 01       		.byte	1
+ 625 0254 27       		.byte	39
+ 626 0255 02       		.byte	2
+ 627 0256 28       		.byte	40
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 12
+
+
+ 628 0257 44       		.byte	68
+ 629 0258 29       		.byte	41
+ 630 0259 10       		.byte	16
+ 631 025a 2B       		.byte	43
+ 632 025b 12       		.byte	18
+ 633 025c 2D       		.byte	45
+ 634 025d 40       		.byte	64
+ 635 025e 30       		.byte	48
+ 636 025f 80       		.byte	-128
+ 637 0260 32       		.byte	50
+ 638 0261 1A       		.byte	26
+ 639 0262 35       		.byte	53
+ 640 0263 80       		.byte	-128
+ 641 0264 36       		.byte	54
+ 642 0265 80       		.byte	-128
+ 643 0266 38       		.byte	56
+ 644 0267 48       		.byte	72
+ 645 0268 39       		.byte	57
+ 646 0269 80       		.byte	-128
+ 647 026a 3A       		.byte	58
+ 648 026b 17       		.byte	23
+ 649 026c 3D       		.byte	61
+ 650 026d 28       		.byte	40
+ 651 026e 3E       		.byte	62
+ 652 026f 20       		.byte	32
+ 653 0270 3F       		.byte	63
+ 654 0271 80       		.byte	-128
+ 655 0272 44       		.byte	68
+ 656 0273 80       		.byte	-128
+ 657 0274 45       		.byte	69
+ 658 0275 81       		.byte	-127
+ 659 0276 46       		.byte	70
+ 660 0277 08       		.byte	8
+ 661 0278 47       		.byte	71
+ 662 0279 08       		.byte	8
+ 663 027a 4D       		.byte	77
+ 664 027b 80       		.byte	-128
+ 665 027c 57       		.byte	87
+ 666 027d 48       		.byte	72
+ 667 027e 58       		.byte	88
+ 668 027f 01       		.byte	1
+ 669 0280 5B       		.byte	91
+ 670 0281 02       		.byte	2
+ 671 0282 5D       		.byte	93
+ 672 0283 01       		.byte	1
+ 673 0284 64       		.byte	100
+ 674 0285 09       		.byte	9
+ 675 0286 91       		.byte	-111
+ 676 0287 C1       		.byte	-63
+ 677 0288 92       		.byte	-110
+ 678 0289 02       		.byte	2
+ 679 028a 95       		.byte	-107
+ 680 028b 12       		.byte	18
+ 681 028c 96       		.byte	-106
+ 682 028d 20       		.byte	32
+ 683 028e 98       		.byte	-104
+ 684 028f 08       		.byte	8
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 13
+
+
+ 685 0290 9A       		.byte	-102
+ 686 0291 08       		.byte	8
+ 687 0292 9B       		.byte	-101
+ 688 0293 18       		.byte	24
+ 689 0294 9C       		.byte	-100
+ 690 0295 82       		.byte	-126
+ 691 0296 9D       		.byte	-99
+ 692 0297 24       		.byte	36
+ 693 0298 9F       		.byte	-97
+ 694 0299 40       		.byte	64
+ 695 029a A1       		.byte	-95
+ 696 029b 14       		.byte	20
+ 697 029c A2       		.byte	-94
+ 698 029d 80       		.byte	-128
+ 699 029e A4       		.byte	-92
+ 700 029f 80       		.byte	-128
+ 701 02a0 A6       		.byte	-90
+ 702 02a1 1C       		.byte	28
+ 703 02a2 A7       		.byte	-89
+ 704 02a3 0A       		.byte	10
+ 705 02a4 A9       		.byte	-87
+ 706 02a5 80       		.byte	-128
+ 707 02a6 AB       		.byte	-85
+ 708 02a7 08       		.byte	8
+ 709 02a8 C0       		.byte	-64
+ 710 02a9 17       		.byte	23
+ 711 02aa C2       		.byte	-62
+ 712 02ab 5C       		.byte	92
+ 713 02ac C4       		.byte	-60
+ 714 02ad 67       		.byte	103
+ 715 02ae CA       		.byte	-54
+ 716 02af 1F       		.byte	31
+ 717 02b0 CC       		.byte	-52
+ 718 02b1 1F       		.byte	31
+ 719 02b2 CE       		.byte	-50
+ 720 02b3 7F       		.byte	127
+ 721 02b4 D0       		.byte	-48
+ 722 02b5 F0       		.byte	-16
+ 723 02b6 D2       		.byte	-46
+ 724 02b7 10       		.byte	16
+ 725 02b8 D6       		.byte	-42
+ 726 02b9 80       		.byte	-128
+ 727 02ba D8       		.byte	-40
+ 728 02bb 30       		.byte	48
+ 729 02bc E6       		.byte	-26
+ 730 02bd 02       		.byte	2
+ 731 02be 9C       		.byte	-100
+ 732 02bf 01       		.byte	1
+ 733 02c0 B2       		.byte	-78
+ 734 02c1 01       		.byte	1
+ 735 02c2 BE       		.byte	-66
+ 736 02c3 04       		.byte	4
+ 737 02c4 C0       		.byte	-64
+ 738 02c5 03       		.byte	3
+ 739 02c6 C7       		.byte	-57
+ 740 02c7 04       		.byte	4
+ 741 02c8 C9       		.byte	-55
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 14
+
+
+ 742 02c9 FF       		.byte	-1
+ 743 02ca CA       		.byte	-54
+ 744 02cb 07       		.byte	7
+ 745 02cc CB       		.byte	-53
+ 746 02cd FF       		.byte	-1
+ 747 02ce CC       		.byte	-52
+ 748 02cf 40       		.byte	64
+ 749 02d0 CD       		.byte	-51
+ 750 02d1 20       		.byte	32
+ 751 02d2 CE       		.byte	-50
+ 752 02d3 F0       		.byte	-16
+ 753 02d4 CF       		.byte	-49
+ 754 02d5 05       		.byte	5
+ 755 02d6 D0       		.byte	-48
+ 756 02d7 08       		.byte	8
+ 757 02d8 D8       		.byte	-40
+ 758 02d9 04       		.byte	4
+ 759 02da DA       		.byte	-38
+ 760 02db 04       		.byte	4
+ 761 02dc DD       		.byte	-35
+ 762 02dd 03       		.byte	3
+ 763 02de DF       		.byte	-33
+ 764 02df 01       		.byte	1
+ 765 02e0 E0       		.byte	-32
+ 766 02e1 40       		.byte	64
+ 767 02e2 E1       		.byte	-31
+ 768 02e3 A8       		.byte	-88
+ 769 02e4 E2       		.byte	-30
+ 770 02e5 40       		.byte	64
+ 771 02e6 E3       		.byte	-29
+ 772 02e7 20       		.byte	32
+ 773 02e8 03       		.byte	3
+ 774 02e9 04       		.byte	4
+ 775 02ea 0A       		.byte	10
+ 776 02eb 44       		.byte	68
+ 777 02ec 0D       		.byte	13
+ 778 02ed 80       		.byte	-128
+ 779 02ee 10       		.byte	16
+ 780 02ef 22       		.byte	34
+ 781 02f0 11       		.byte	17
+ 782 02f1 10       		.byte	16
+ 783 02f2 18       		.byte	24
+ 784 02f3 01       		.byte	1
+ 785 02f4 19       		.byte	25
+ 786 02f5 24       		.byte	36
+ 787 02f6 1A       		.byte	26
+ 788 02f7 54       		.byte	84
+ 789 02f8 1B       		.byte	27
+ 790 02f9 10       		.byte	16
+ 791 02fa 1E       		.byte	30
+ 792 02fb 20       		.byte	32
+ 793 02fc 20       		.byte	32
+ 794 02fd 02       		.byte	2
+ 795 02fe 22       		.byte	34
+ 796 02ff 66       		.byte	102
+ 797 0300 29       		.byte	41
+ 798 0301 56       		.byte	86
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 15
+
+
+ 799 0302 32       		.byte	50
+ 800 0303 1A       		.byte	26
+ 801 0304 38       		.byte	56
+ 802 0305 48       		.byte	72
+ 803 0306 39       		.byte	57
+ 804 0307 80       		.byte	-128
+ 805 0308 3B       		.byte	59
+ 806 0309 20       		.byte	32
+ 807 030a 40       		.byte	64
+ 808 030b 41       		.byte	65
+ 809 030c 42       		.byte	66
+ 810 030d 10       		.byte	16
+ 811 030e 45       		.byte	69
+ 812 030f 08       		.byte	8
+ 813 0310 48       		.byte	72
+ 814 0311 01       		.byte	1
+ 815 0312 4A       		.byte	74
+ 816 0313 08       		.byte	8
+ 817 0314 51       		.byte	81
+ 818 0315 04       		.byte	4
+ 819 0316 53       		.byte	83
+ 820 0317 10       		.byte	16
+ 821 0318 54       		.byte	84
+ 822 0319 08       		.byte	8
+ 823 031a 56       		.byte	86
+ 824 031b 40       		.byte	64
+ 825 031c 5A       		.byte	90
+ 826 031d 08       		.byte	8
+ 827 031e 68       		.byte	104
+ 828 031f 22       		.byte	34
+ 829 0320 6B       		.byte	107
+ 830 0321 04       		.byte	4
+ 831 0322 70       		.byte	112
+ 832 0323 04       		.byte	4
+ 833 0324 71       		.byte	113
+ 834 0325 50       		.byte	80
+ 835 0326 72       		.byte	114
+ 836 0327 02       		.byte	2
+ 837 0328 80       		.byte	-128
+ 838 0329 80       		.byte	-128
+ 839 032a 82       		.byte	-126
+ 840 032b 40       		.byte	64
+ 841 032c 8A       		.byte	-118
+ 842 032d 10       		.byte	16
+ 843 032e 91       		.byte	-111
+ 844 032f 90       		.byte	-112
+ 845 0330 92       		.byte	-110
+ 846 0331 22       		.byte	34
+ 847 0332 94       		.byte	-108
+ 848 0333 08       		.byte	8
+ 849 0334 99       		.byte	-103
+ 850 0335 02       		.byte	2
+ 851 0336 9D       		.byte	-99
+ 852 0337 34       		.byte	52
+ 853 0338 9E       		.byte	-98
+ 854 0339 02       		.byte	2
+ 855 033a A2       		.byte	-94
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 16
+
+
+ 856 033b 08       		.byte	8
+ 857 033c A4       		.byte	-92
+ 858 033d 80       		.byte	-128
+ 859 033e A7       		.byte	-89
+ 860 033f 10       		.byte	16
+ 861 0340 A8       		.byte	-88
+ 862 0341 02       		.byte	2
+ 863 0342 AB       		.byte	-85
+ 864 0343 40       		.byte	64
+ 865 0344 AC       		.byte	-84
+ 866 0345 40       		.byte	64
+ 867 0346 AD       		.byte	-83
+ 868 0347 10       		.byte	16
+ 869 0348 C0       		.byte	-64
+ 870 0349 02       		.byte	2
+ 871 034a C2       		.byte	-62
+ 872 034b 8A       		.byte	-118
+ 873 034c C4       		.byte	-60
+ 874 034d 07       		.byte	7
+ 875 034e CA       		.byte	-54
+ 876 034f 0F       		.byte	15
+ 877 0350 CC       		.byte	-52
+ 878 0351 07       		.byte	7
+ 879 0352 CE       		.byte	-50
+ 880 0353 0E       		.byte	14
+ 881 0354 D0       		.byte	-48
+ 882 0355 4B       		.byte	75
+ 883 0356 D2       		.byte	-46
+ 884 0357 0C       		.byte	12
+ 885 0358 D6       		.byte	-42
+ 886 0359 02       		.byte	2
+ 887 035a E2       		.byte	-30
+ 888 035b 81       		.byte	-127
+ 889 035c 02       		.byte	2
+ 890 035d A0       		.byte	-96
+ 891 035e 06       		.byte	6
+ 892 035f 80       		.byte	-128
+ 893 0360 08       		.byte	8
+ 894 0361 14       		.byte	20
+ 895 0362 0C       		.byte	12
+ 896 0363 F0       		.byte	-16
+ 897 0364 0E       		.byte	14
+ 898 0365 0C       		.byte	12
+ 899 0366 12       		.byte	18
+ 900 0367 03       		.byte	3
+ 901 0368 14       		.byte	20
+ 902 0369 10       		.byte	16
+ 903 036a 20       		.byte	32
+ 904 036b 5C       		.byte	92
+ 905 036c 21       		.byte	33
+ 906 036d 02       		.byte	2
+ 907 036e 22       		.byte	34
+ 908 036f 82       		.byte	-126
+ 909 0370 24       		.byte	36
+ 910 0371 09       		.byte	9
+ 911 0372 26       		.byte	38
+ 912 0373 10       		.byte	16
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 17
+
+
+ 913 0374 28       		.byte	40
+ 914 0375 EC       		.byte	-20
+ 915 0376 2A       		.byte	42
+ 916 0377 11       		.byte	17
+ 917 0378 2D       		.byte	45
+ 918 0379 01       		.byte	1
+ 919 037a 30       		.byte	48
+ 920 037b 1F       		.byte	31
+ 921 037c 31       		.byte	49
+ 922 037d 01       		.byte	1
+ 923 037e 32       		.byte	50
+ 924 037f 60       		.byte	96
+ 925 0380 34       		.byte	52
+ 926 0381 80       		.byte	-128
+ 927 0382 35       		.byte	53
+ 928 0383 02       		.byte	2
+ 929 0384 38       		.byte	56
+ 930 0385 08       		.byte	8
+ 931 0386 3E       		.byte	62
+ 932 0387 14       		.byte	20
+ 933 0388 3F       		.byte	63
+ 934 0389 11       		.byte	17
+ 935 038a 40       		.byte	64
+ 936 038b 14       		.byte	20
+ 937 038c 41       		.byte	65
+ 938 038d 02       		.byte	2
+ 939 038e 46       		.byte	70
+ 940 038f CE       		.byte	-50
+ 941 0390 47       		.byte	71
+ 942 0391 0B       		.byte	11
+ 943 0392 48       		.byte	72
+ 944 0393 1C       		.byte	28
+ 945 0394 49       		.byte	73
+ 946 0395 FF       		.byte	-1
+ 947 0396 4A       		.byte	74
+ 948 0397 FF       		.byte	-1
+ 949 0398 4B       		.byte	75
+ 950 0399 FF       		.byte	-1
+ 951 039a 4E       		.byte	78
+ 952 039b F0       		.byte	-16
+ 953 039c 4F       		.byte	79
+ 954 039d 44       		.byte	68
+ 955 039e 50       		.byte	80
+ 956 039f 0C       		.byte	12
+ 957 03a0 54       		.byte	84
+ 958 03a1 01       		.byte	1
+ 959 03a2 58       		.byte	88
+ 960 03a3 04       		.byte	4
+ 961 03a4 59       		.byte	89
+ 962 03a5 04       		.byte	4
+ 963 03a6 5A       		.byte	90
+ 964 03a7 04       		.byte	4
+ 965 03a8 5B       		.byte	91
+ 966 03a9 04       		.byte	4
+ 967 03aa 5C       		.byte	92
+ 968 03ab 03       		.byte	3
+ 969 03ac 5D       		.byte	93
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 18
+
+
+ 970 03ad 33       		.byte	51
+ 971 03ae 5F       		.byte	95
+ 972 03af 01       		.byte	1
+ 973 03b0 66       		.byte	102
+ 974 03b1 C0       		.byte	-64
+ 975 03b2 6A       		.byte	106
+ 976 03b3 40       		.byte	64
+ 977 03b4 6B       		.byte	107
+ 978 03b5 02       		.byte	2
+ 979 03b6 80       		.byte	-128
+ 980 03b7 20       		.byte	32
+ 981 03b8 82       		.byte	-126
+ 982 03b9 05       		.byte	5
+ 983 03ba 84       		.byte	-124
+ 984 03bb 13       		.byte	19
+ 985 03bc 86       		.byte	-122
+ 986 03bd 04       		.byte	4
+ 987 03be 87       		.byte	-121
+ 988 03bf 01       		.byte	1
+ 989 03c0 8A       		.byte	-118
+ 990 03c1 08       		.byte	8
+ 991 03c2 8B       		.byte	-117
+ 992 03c3 10       		.byte	16
+ 993 03c4 8C       		.byte	-116
+ 994 03c5 13       		.byte	19
+ 995 03c6 8D       		.byte	-115
+ 996 03c7 02       		.byte	2
+ 997 03c8 8E       		.byte	-114
+ 998 03c9 0C       		.byte	12
+ 999 03ca 8F       		.byte	-113
+ 1000 03cb 2C       		.byte	44
+ 1001 03cc 91       		.byte	-111
+ 1002 03cd 38       		.byte	56
+ 1003 03ce 93       		.byte	-109
+ 1004 03cf 06       		.byte	6
+ 1005 03d0 99       		.byte	-103
+ 1006 03d1 02       		.byte	2
+ 1007 03d2 9B       		.byte	-101
+ 1008 03d3 1C       		.byte	28
+ 1009 03d4 9F       		.byte	-97
+ 1010 03d5 01       		.byte	1
+ 1011 03d6 A4       		.byte	-92
+ 1012 03d7 03       		.byte	3
+ 1013 03d8 A6       		.byte	-90
+ 1014 03d9 04       		.byte	4
+ 1015 03da AB       		.byte	-85
+ 1016 03db 38       		.byte	56
+ 1017 03dc AC       		.byte	-84
+ 1018 03dd 0A       		.byte	10
+ 1019 03de AE       		.byte	-82
+ 1020 03df 14       		.byte	20
+ 1021 03e0 AF       		.byte	-81
+ 1022 03e1 06       		.byte	6
+ 1023 03e2 B0       		.byte	-80
+ 1024 03e3 0F       		.byte	15
+ 1025 03e4 B1       		.byte	-79
+ 1026 03e5 1E       		.byte	30
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 19
+
+
+ 1027 03e6 B4       		.byte	-76
+ 1028 03e7 30       		.byte	48
+ 1029 03e8 B5       		.byte	-75
+ 1030 03e9 34       		.byte	52
+ 1031 03ea B7       		.byte	-73
+ 1032 03eb 01       		.byte	1
+ 1033 03ec B8       		.byte	-72
+ 1034 03ed 20       		.byte	32
+ 1035 03ee BA       		.byte	-70
+ 1036 03ef 02       		.byte	2
+ 1037 03f0 BB       		.byte	-69
+ 1038 03f1 22       		.byte	34
+ 1039 03f2 BF       		.byte	-65
+ 1040 03f3 40       		.byte	64
+ 1041 03f4 D4       		.byte	-44
+ 1042 03f5 18       		.byte	24
+ 1043 03f6 D8       		.byte	-40
+ 1044 03f7 04       		.byte	4
+ 1045 03f8 D9       		.byte	-39
+ 1046 03f9 04       		.byte	4
+ 1047 03fa DB       		.byte	-37
+ 1048 03fb 04       		.byte	4
+ 1049 03fc DC       		.byte	-36
+ 1050 03fd 33       		.byte	51
+ 1051 03fe DD       		.byte	-35
+ 1052 03ff 20       		.byte	32
+ 1053 0400 DF       		.byte	-33
+ 1054 0401 01       		.byte	1
+ 1055 0402 01       		.byte	1
+ 1056 0403 20       		.byte	32
+ 1057 0404 02       		.byte	2
+ 1058 0405 41       		.byte	65
+ 1059 0406 03       		.byte	3
+ 1060 0407 14       		.byte	20
+ 1061 0408 04       		.byte	4
+ 1062 0409 80       		.byte	-128
+ 1063 040a 06       		.byte	6
+ 1064 040b 65       		.byte	101
+ 1065 040c 07       		.byte	7
+ 1066 040d 20       		.byte	32
+ 1067 040e 0C       		.byte	12
+ 1068 040f 08       		.byte	8
+ 1069 0410 0E       		.byte	14
+ 1070 0411 40       		.byte	64
+ 1071 0412 0F       		.byte	15
+ 1072 0413 10       		.byte	16
+ 1073 0414 10       		.byte	16
+ 1074 0415 20       		.byte	32
+ 1075 0416 12       		.byte	18
+ 1076 0417 02       		.byte	2
+ 1077 0418 15       		.byte	21
+ 1078 0419 22       		.byte	34
+ 1079 041a 17       		.byte	23
+ 1080 041b 14       		.byte	20
+ 1081 041c 18       		.byte	24
+ 1082 041d 80       		.byte	-128
+ 1083 041e 19       		.byte	25
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 20
+
+
+ 1084 041f 20       		.byte	32
+ 1085 0420 1D       		.byte	29
+ 1086 0421 18       		.byte	24
+ 1087 0422 1E       		.byte	30
+ 1088 0423 40       		.byte	64
+ 1089 0424 21       		.byte	33
+ 1090 0425 11       		.byte	17
+ 1091 0426 22       		.byte	34
+ 1092 0427 82       		.byte	-126
+ 1093 0428 25       		.byte	37
+ 1094 0429 01       		.byte	1
+ 1095 042a 27       		.byte	39
+ 1096 042b 08       		.byte	8
+ 1097 042c 29       		.byte	41
+ 1098 042d 20       		.byte	32
+ 1099 042e 2A       		.byte	42
+ 1100 042f 40       		.byte	64
+ 1101 0430 2D       		.byte	45
+ 1102 0431 01       		.byte	1
+ 1103 0432 2E       		.byte	46
+ 1104 0433 40       		.byte	64
+ 1105 0434 2F       		.byte	47
+ 1106 0435 80       		.byte	-128
+ 1107 0436 32       		.byte	50
+ 1108 0437 42       		.byte	66
+ 1109 0438 33       		.byte	51
+ 1110 0439 10       		.byte	16
+ 1111 043a 38       		.byte	56
+ 1112 043b 80       		.byte	-128
+ 1113 043c 39       		.byte	57
+ 1114 043d 08       		.byte	8
+ 1115 043e 3B       		.byte	59
+ 1116 043f 10       		.byte	16
+ 1117 0440 46       		.byte	70
+ 1118 0441 41       		.byte	65
+ 1119 0442 47       		.byte	71
+ 1120 0443 10       		.byte	16
+ 1121 0444 54       		.byte	84
+ 1122 0445 20       		.byte	32
+ 1123 0446 56       		.byte	86
+ 1124 0447 24       		.byte	36
+ 1125 0448 57       		.byte	87
+ 1126 0449 80       		.byte	-128
+ 1127 044a 5A       		.byte	90
+ 1128 044b 02       		.byte	2
+ 1129 044c 5C       		.byte	92
+ 1130 044d 40       		.byte	64
+ 1131 044e 5D       		.byte	93
+ 1132 044f 01       		.byte	1
+ 1133 0450 5F       		.byte	95
+ 1134 0451 28       		.byte	40
+ 1135 0452 62       		.byte	98
+ 1136 0453 A0       		.byte	-96
+ 1137 0454 91       		.byte	-111
+ 1138 0455 08       		.byte	8
+ 1139 0456 92       		.byte	-110
+ 1140 0457 82       		.byte	-126
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 21
+
+
+ 1141 0458 9A       		.byte	-102
+ 1142 0459 40       		.byte	64
+ 1143 045a A0       		.byte	-96
+ 1144 045b 08       		.byte	8
+ 1145 045c A2       		.byte	-94
+ 1146 045d 20       		.byte	32
+ 1147 045e A5       		.byte	-91
+ 1148 045f 89       		.byte	-119
+ 1149 0460 A9       		.byte	-87
+ 1150 0461 01       		.byte	1
+ 1151 0462 C0       		.byte	-64
+ 1152 0463 FF       		.byte	-1
+ 1153 0464 C2       		.byte	-62
+ 1154 0465 30       		.byte	48
+ 1155 0466 C4       		.byte	-60
+ 1156 0467 75       		.byte	117
+ 1157 0468 CA       		.byte	-54
+ 1158 0469 9C       		.byte	-100
+ 1159 046a CC       		.byte	-52
+ 1160 046b 0D       		.byte	13
+ 1161 046c CE       		.byte	-50
+ 1162 046d 0E       		.byte	14
+ 1163 046e D0       		.byte	-48
+ 1164 046f B0       		.byte	-80
+ 1165 0470 D6       		.byte	-42
+ 1166 0471 F1       		.byte	-15
+ 1167 0472 D8       		.byte	-40
+ 1168 0473 0C       		.byte	12
+ 1169 0474 00       		.byte	0
+ 1170 0475 09       		.byte	9
+ 1171 0476 02       		.byte	2
+ 1172 0477 10       		.byte	16
+ 1173 0478 0C       		.byte	12
+ 1174 0479 1C       		.byte	28
+ 1175 047a 0E       		.byte	14
+ 1176 047b 02       		.byte	2
+ 1177 047c 0F       		.byte	15
+ 1178 047d 01       		.byte	1
+ 1179 047e 12       		.byte	18
+ 1180 047f 03       		.byte	3
+ 1181 0480 13       		.byte	19
+ 1182 0481 01       		.byte	1
+ 1183 0482 17       		.byte	23
+ 1184 0483 01       		.byte	1
+ 1185 0484 18       		.byte	24
+ 1186 0485 10       		.byte	16
+ 1187 0486 1C       		.byte	28
+ 1188 0487 0C       		.byte	12
+ 1189 0488 1D       		.byte	29
+ 1190 0489 01       		.byte	1
+ 1191 048a 1E       		.byte	30
+ 1192 048b 11       		.byte	17
+ 1193 048c 20       		.byte	32
+ 1194 048d 10       		.byte	16
+ 1195 048e 21       		.byte	33
+ 1196 048f 01       		.byte	1
+ 1197 0490 22       		.byte	34
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 22
+
+
+ 1198 0491 0C       		.byte	12
+ 1199 0492 28       		.byte	40
+ 1200 0493 14       		.byte	20
+ 1201 0494 30       		.byte	48
+ 1202 0495 1F       		.byte	31
+ 1203 0496 31       		.byte	49
+ 1204 0497 01       		.byte	1
+ 1205 0498 3F       		.byte	63
+ 1206 0499 01       		.byte	1
+ 1207 049a 40       		.byte	64
+ 1208 049b 46       		.byte	70
+ 1209 049c 41       		.byte	65
+ 1210 049d 01       		.byte	1
+ 1211 049e 46       		.byte	70
+ 1212 049f 0C       		.byte	12
+ 1213 04a0 47       		.byte	71
+ 1214 04a1 EB       		.byte	-21
+ 1215 04a2 48       		.byte	72
+ 1216 04a3 34       		.byte	52
+ 1217 04a4 49       		.byte	73
+ 1218 04a5 FF       		.byte	-1
+ 1219 04a6 4A       		.byte	74
+ 1220 04a7 FF       		.byte	-1
+ 1221 04a8 4B       		.byte	75
+ 1222 04a9 FF       		.byte	-1
+ 1223 04aa 4E       		.byte	78
+ 1224 04ab F0       		.byte	-16
+ 1225 04ac 4F       		.byte	79
+ 1226 04ad 44       		.byte	68
+ 1227 04ae 50       		.byte	80
+ 1228 04af 0C       		.byte	12
+ 1229 04b0 58       		.byte	88
+ 1230 04b1 04       		.byte	4
+ 1231 04b2 59       		.byte	89
+ 1232 04b3 04       		.byte	4
+ 1233 04b4 5A       		.byte	90
+ 1234 04b5 04       		.byte	4
+ 1235 04b6 5C       		.byte	92
+ 1236 04b7 04       		.byte	4
+ 1237 04b8 5D       		.byte	93
+ 1238 04b9 04       		.byte	4
+ 1239 04ba 5F       		.byte	95
+ 1240 04bb 01       		.byte	1
+ 1241 04bc 66       		.byte	102
+ 1242 04bd C0       		.byte	-64
+ 1243 04be 6A       		.byte	106
+ 1244 04bf 40       		.byte	64
+ 1245 04c0 6B       		.byte	107
+ 1246 04c1 02       		.byte	2
+ 1247 04c2 87       		.byte	-121
+ 1248 04c3 01       		.byte	1
+ 1249 04c4 91       		.byte	-111
+ 1250 04c5 02       		.byte	2
+ 1251 04c6 9D       		.byte	-99
+ 1252 04c7 03       		.byte	3
+ 1253 04c8 A1       		.byte	-95
+ 1254 04c9 03       		.byte	3
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 23
+
+
+ 1255 04ca B7       		.byte	-73
+ 1256 04cb 03       		.byte	3
+ 1257 04cc B9       		.byte	-71
+ 1258 04cd 80       		.byte	-128
+ 1259 04ce BF       		.byte	-65
+ 1260 04cf 40       		.byte	64
+ 1261 04d0 C0       		.byte	-64
+ 1262 04d1 01       		.byte	1
+ 1263 04d2 C5       		.byte	-59
+ 1264 04d3 04       		.byte	4
+ 1265 04d4 C9       		.byte	-55
+ 1266 04d5 FF       		.byte	-1
+ 1267 04d6 CA       		.byte	-54
+ 1268 04d7 07       		.byte	7
+ 1269 04d8 CB       		.byte	-53
+ 1270 04d9 FF       		.byte	-1
+ 1271 04da CC       		.byte	-52
+ 1272 04db 40       		.byte	64
+ 1273 04dc CD       		.byte	-51
+ 1274 04dd 20       		.byte	32
+ 1275 04de CE       		.byte	-50
+ 1276 04df F0       		.byte	-16
+ 1277 04e0 CF       		.byte	-49
+ 1278 04e1 05       		.byte	5
+ 1279 04e2 D0       		.byte	-48
+ 1280 04e3 08       		.byte	8
+ 1281 04e4 D9       		.byte	-39
+ 1282 04e5 04       		.byte	4
+ 1283 04e6 DA       		.byte	-38
+ 1284 04e7 04       		.byte	4
+ 1285 04e8 DD       		.byte	-35
+ 1286 04e9 04       		.byte	4
+ 1287 04ea DF       		.byte	-33
+ 1288 04eb 01       		.byte	1
+ 1289 04ec E0       		.byte	-32
+ 1290 04ed 40       		.byte	64
+ 1291 04ee E1       		.byte	-31
+ 1292 04ef A8       		.byte	-88
+ 1293 04f0 E2       		.byte	-30
+ 1294 04f1 40       		.byte	64
+ 1295 04f2 E3       		.byte	-29
+ 1296 04f3 20       		.byte	32
+ 1297 04f4 05       		.byte	5
+ 1298 04f5 02       		.byte	2
+ 1299 04f6 07       		.byte	7
+ 1300 04f7 01       		.byte	1
+ 1301 04f8 0C       		.byte	12
+ 1302 04f9 80       		.byte	-128
+ 1303 04fa 0E       		.byte	14
+ 1304 04fb 40       		.byte	64
+ 1305 04fc 0F       		.byte	15
+ 1306 04fd 04       		.byte	4
+ 1307 04fe 14       		.byte	20
+ 1308 04ff 80       		.byte	-128
+ 1309 0500 16       		.byte	22
+ 1310 0501 08       		.byte	8
+ 1311 0502 1E       		.byte	30
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 24
+
+
+ 1312 0503 40       		.byte	64
+ 1313 0504 20       		.byte	32
+ 1314 0505 01       		.byte	1
+ 1315 0506 24       		.byte	36
+ 1316 0507 40       		.byte	64
+ 1317 0508 28       		.byte	40
+ 1318 0509 80       		.byte	-128
+ 1319 050a 2B       		.byte	43
+ 1320 050b 80       		.byte	-128
+ 1321 050c 2F       		.byte	47
+ 1322 050d 80       		.byte	-128
+ 1323 050e 30       		.byte	48
+ 1324 050f 80       		.byte	-128
+ 1325 0510 31       		.byte	49
+ 1326 0511 02       		.byte	2
+ 1327 0512 32       		.byte	50
+ 1328 0513 80       		.byte	-128
+ 1329 0514 33       		.byte	51
+ 1330 0515 01       		.byte	1
+ 1331 0516 36       		.byte	54
+ 1332 0517 88       		.byte	-120
+ 1333 0518 37       		.byte	55
+ 1334 0519 41       		.byte	65
+ 1335 051a 38       		.byte	56
+ 1336 051b 08       		.byte	8
+ 1337 051c 3F       		.byte	63
+ 1338 051d 80       		.byte	-128
+ 1339 051e 40       		.byte	64
+ 1340 051f 01       		.byte	1
+ 1341 0520 44       		.byte	68
+ 1342 0521 80       		.byte	-128
+ 1343 0522 47       		.byte	71
+ 1344 0523 40       		.byte	64
+ 1345 0524 4B       		.byte	75
+ 1346 0525 04       		.byte	4
+ 1347 0526 4C       		.byte	76
+ 1348 0527 04       		.byte	4
+ 1349 0528 50       		.byte	80
+ 1350 0529 04       		.byte	4
+ 1351 052a 52       		.byte	82
+ 1352 052b 08       		.byte	8
+ 1353 052c 56       		.byte	86
+ 1354 052d 49       		.byte	73
+ 1355 052e 57       		.byte	87
+ 1356 052f 40       		.byte	64
+ 1357 0530 94       		.byte	-108
+ 1358 0531 40       		.byte	64
+ 1359 0532 96       		.byte	-106
+ 1360 0533 40       		.byte	64
+ 1361 0534 9E       		.byte	-98
+ 1362 0535 41       		.byte	65
+ 1363 0536 AE       		.byte	-82
+ 1364 0537 40       		.byte	64
+ 1365 0538 AF       		.byte	-81
+ 1366 0539 10       		.byte	16
+ 1367 053a C0       		.byte	-64
+ 1368 053b 90       		.byte	-112
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 25
+
+
+ 1369 053c C2       		.byte	-62
+ 1370 053d D0       		.byte	-48
+ 1371 053e C4       		.byte	-60
+ 1372 053f 50       		.byte	80
+ 1373 0540 CA       		.byte	-54
+ 1374 0541 81       		.byte	-127
+ 1375 0542 CC       		.byte	-52
+ 1376 0543 D9       		.byte	-39
+ 1377 0544 CE       		.byte	-50
+ 1378 0545 12       		.byte	18
+ 1379 0546 D0       		.byte	-48
+ 1380 0547 98       		.byte	-104
+ 1381 0548 D2       		.byte	-46
+ 1382 0549 20       		.byte	32
+ 1383 054a 40       		.byte	64
+ 1384 054b 46       		.byte	70
+ 1385 054c 49       		.byte	73
+ 1386 054d FF       		.byte	-1
+ 1387 054e 4A       		.byte	74
+ 1388 054f FF       		.byte	-1
+ 1389 0550 4B       		.byte	75
+ 1390 0551 FF       		.byte	-1
+ 1391 0552 4F       		.byte	79
+ 1392 0553 01       		.byte	1
+ 1393 0554 50       		.byte	80
+ 1394 0555 18       		.byte	24
+ 1395 0556 5A       		.byte	90
+ 1396 0557 04       		.byte	4
+ 1397 0558 5D       		.byte	93
+ 1398 0559 01       		.byte	1
+ 1399 055a 5F       		.byte	95
+ 1400 055b 01       		.byte	1
+ 1401 055c 60       		.byte	96
+ 1402 055d 40       		.byte	64
+ 1403 055e 62       		.byte	98
+ 1404 055f 40       		.byte	64
+ 1405 0560 64       		.byte	100
+ 1406 0561 40       		.byte	64
+ 1407 0562 65       		.byte	101
+ 1408 0563 40       		.byte	64
+ 1409 0564 66       		.byte	102
+ 1410 0565 80       		.byte	-128
+ 1411 0566 68       		.byte	104
+ 1412 0567 80       		.byte	-128
+ 1413 0568 6A       		.byte	106
+ 1414 0569 80       		.byte	-128
+ 1415 056a 6C       		.byte	108
+ 1416 056b 80       		.byte	-128
+ 1417 056c 6E       		.byte	110
+ 1418 056d 80       		.byte	-128
+ 1419 056e 90       		.byte	-112
+ 1420 056f 01       		.byte	1
+ 1421 0570 AC       		.byte	-84
+ 1422 0571 02       		.byte	2
+ 1423 0572 B0       		.byte	-80
+ 1424 0573 01       		.byte	1
+ 1425 0574 B4       		.byte	-76
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 26
+
+
+ 1426 0575 02       		.byte	2
+ 1427 0576 BE       		.byte	-66
+ 1428 0577 11       		.byte	17
+ 1429 0578 C0       		.byte	-64
+ 1430 0579 46       		.byte	70
+ 1431 057a C9       		.byte	-55
+ 1432 057b FF       		.byte	-1
+ 1433 057c CA       		.byte	-54
+ 1434 057d FF       		.byte	-1
+ 1435 057e CB       		.byte	-53
+ 1436 057f FF       		.byte	-1
+ 1437 0580 CD       		.byte	-51
+ 1438 0581 83       		.byte	-125
+ 1439 0582 CE       		.byte	-50
+ 1440 0583 03       		.byte	3
+ 1441 0584 CF       		.byte	-49
+ 1442 0585 01       		.byte	1
+ 1443 0586 D0       		.byte	-48
+ 1444 0587 18       		.byte	24
+ 1445 0588 D4       		.byte	-44
+ 1446 0589 01       		.byte	1
+ 1447 058a D8       		.byte	-40
+ 1448 058b 04       		.byte	4
+ 1449 058c DA       		.byte	-38
+ 1450 058d 04       		.byte	4
+ 1451 058e DB       		.byte	-37
+ 1452 058f 04       		.byte	4
+ 1453 0590 DD       		.byte	-35
+ 1454 0591 41       		.byte	65
+ 1455 0592 DF       		.byte	-33
+ 1456 0593 01       		.byte	1
+ 1457 0594 E0       		.byte	-32
+ 1458 0595 40       		.byte	64
+ 1459 0596 E2       		.byte	-30
+ 1460 0597 40       		.byte	64
+ 1461 0598 E4       		.byte	-28
+ 1462 0599 40       		.byte	64
+ 1463 059a E5       		.byte	-27
+ 1464 059b 40       		.byte	64
+ 1465 059c E6       		.byte	-26
+ 1466 059d 80       		.byte	-128
+ 1467 059e E8       		.byte	-24
+ 1468 059f 80       		.byte	-128
+ 1469 05a0 EA       		.byte	-22
+ 1470 05a1 80       		.byte	-128
+ 1471 05a2 EC       		.byte	-20
+ 1472 05a3 80       		.byte	-128
+ 1473 05a4 EE       		.byte	-18
+ 1474 05a5 80       		.byte	-128
+ 1475 05a6 0E       		.byte	14
+ 1476 05a7 40       		.byte	64
+ 1477 05a8 14       		.byte	20
+ 1478 05a9 02       		.byte	2
+ 1479 05aa 16       		.byte	22
+ 1480 05ab 01       		.byte	1
+ 1481 05ac 1D       		.byte	29
+ 1482 05ad 02       		.byte	2
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 27
+
+
+ 1483 05ae 1E       		.byte	30
+ 1484 05af 04       		.byte	4
+ 1485 05b0 42       		.byte	66
+ 1486 05b1 80       		.byte	-128
+ 1487 05b2 46       		.byte	70
+ 1488 05b3 80       		.byte	-128
+ 1489 05b4 48       		.byte	72
+ 1490 05b5 08       		.byte	8
+ 1491 05b6 4C       		.byte	76
+ 1492 05b7 08       		.byte	8
+ 1493 05b8 5C       		.byte	92
+ 1494 05b9 42       		.byte	66
+ 1495 05ba 5E       		.byte	94
+ 1496 05bb 04       		.byte	4
+ 1497 05bc 5F       		.byte	95
+ 1498 05bd 10       		.byte	16
+ 1499 05be 81       		.byte	-127
+ 1500 05bf 02       		.byte	2
+ 1501 05c0 9A       		.byte	-102
+ 1502 05c1 80       		.byte	-128
+ 1503 05c2 A0       		.byte	-96
+ 1504 05c3 08       		.byte	8
+ 1505 05c4 C2       		.byte	-62
+ 1506 05c5 10       		.byte	16
+ 1507 05c6 C4       		.byte	-60
+ 1508 05c7 80       		.byte	-128
+ 1509 05c8 D0       		.byte	-48
+ 1510 05c9 81       		.byte	-127
+ 1511 05ca D2       		.byte	-46
+ 1512 05cb 24       		.byte	36
+ 1513 05cc D6       		.byte	-42
+ 1514 05cd F0       		.byte	-16
+ 1515 05ce 40       		.byte	64
+ 1516 05cf 46       		.byte	70
+ 1517 05d0 49       		.byte	73
+ 1518 05d1 FF       		.byte	-1
+ 1519 05d2 4A       		.byte	74
+ 1520 05d3 FF       		.byte	-1
+ 1521 05d4 4B       		.byte	75
+ 1522 05d5 FF       		.byte	-1
+ 1523 05d6 4D       		.byte	77
+ 1524 05d7 83       		.byte	-125
+ 1525 05d8 4E       		.byte	78
+ 1526 05d9 03       		.byte	3
+ 1527 05da 4F       		.byte	79
+ 1528 05db 01       		.byte	1
+ 1529 05dc 50       		.byte	80
+ 1530 05dd 18       		.byte	24
+ 1531 05de 52       		.byte	82
+ 1532 05df 80       		.byte	-128
+ 1533 05e0 5A       		.byte	90
+ 1534 05e1 04       		.byte	4
+ 1535 05e2 5B       		.byte	91
+ 1536 05e3 04       		.byte	4
+ 1537 05e4 5D       		.byte	93
+ 1538 05e5 11       		.byte	17
+ 1539 05e6 5F       		.byte	95
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 28
+
+
+ 1540 05e7 01       		.byte	1
+ 1541 05e8 60       		.byte	96
+ 1542 05e9 40       		.byte	64
+ 1543 05ea 62       		.byte	98
+ 1544 05eb 40       		.byte	64
+ 1545 05ec 64       		.byte	100
+ 1546 05ed 40       		.byte	64
+ 1547 05ee 65       		.byte	101
+ 1548 05ef 40       		.byte	64
+ 1549 05f0 66       		.byte	102
+ 1550 05f1 80       		.byte	-128
+ 1551 05f2 68       		.byte	104
+ 1552 05f3 80       		.byte	-128
+ 1553 05f4 6A       		.byte	106
+ 1554 05f5 80       		.byte	-128
+ 1555 05f6 6C       		.byte	108
+ 1556 05f7 80       		.byte	-128
+ 1557 05f8 6E       		.byte	110
+ 1558 05f9 80       		.byte	-128
+ 1559 05fa 82       		.byte	-126
+ 1560 05fb 01       		.byte	1
+ 1561 05fc AA       		.byte	-86
+ 1562 05fd 01       		.byte	1
+ 1563 05fe B6       		.byte	-74
+ 1564 05ff 01       		.byte	1
+ 1565 0600 BE       		.byte	-66
+ 1566 0601 40       		.byte	64
+ 1567 0602 C0       		.byte	-64
+ 1568 0603 46       		.byte	70
+ 1569 0604 C5       		.byte	-59
+ 1570 0605 EC       		.byte	-20
+ 1571 0606 C7       		.byte	-57
+ 1572 0607 02       		.byte	2
+ 1573 0608 C8       		.byte	-56
+ 1574 0609 13       		.byte	19
+ 1575 060a C9       		.byte	-55
+ 1576 060b FF       		.byte	-1
+ 1577 060c CA       		.byte	-54
+ 1578 060d FF       		.byte	-1
+ 1579 060e CB       		.byte	-53
+ 1580 060f FF       		.byte	-1
+ 1581 0610 CD       		.byte	-51
+ 1582 0611 83       		.byte	-125
+ 1583 0612 CE       		.byte	-50
+ 1584 0613 03       		.byte	3
+ 1585 0614 CF       		.byte	-49
+ 1586 0615 01       		.byte	1
+ 1587 0616 D0       		.byte	-48
+ 1588 0617 18       		.byte	24
+ 1589 0618 D4       		.byte	-44
+ 1590 0619 01       		.byte	1
+ 1591 061a D6       		.byte	-42
+ 1592 061b 04       		.byte	4
+ 1593 061c D8       		.byte	-40
+ 1594 061d 04       		.byte	4
+ 1595 061e DA       		.byte	-38
+ 1596 061f 04       		.byte	4
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 29
+
+
+ 1597 0620 DB       		.byte	-37
+ 1598 0621 04       		.byte	4
+ 1599 0622 DD       		.byte	-35
+ 1600 0623 11       		.byte	17
+ 1601 0624 DF       		.byte	-33
+ 1602 0625 01       		.byte	1
+ 1603 0626 E0       		.byte	-32
+ 1604 0627 40       		.byte	64
+ 1605 0628 E2       		.byte	-30
+ 1606 0629 40       		.byte	64
+ 1607 062a E4       		.byte	-28
+ 1608 062b 40       		.byte	64
+ 1609 062c E5       		.byte	-27
+ 1610 062d 40       		.byte	64
+ 1611 062e E6       		.byte	-26
+ 1612 062f 80       		.byte	-128
+ 1613 0630 E8       		.byte	-24
+ 1614 0631 80       		.byte	-128
+ 1615 0632 EA       		.byte	-22
+ 1616 0633 80       		.byte	-128
+ 1617 0634 EC       		.byte	-20
+ 1618 0635 80       		.byte	-128
+ 1619 0636 EE       		.byte	-18
+ 1620 0637 80       		.byte	-128
+ 1621 0638 00       		.byte	0
+ 1622 0639 02       		.byte	2
+ 1623 063a 10       		.byte	16
+ 1624 063b 08       		.byte	8
+ 1625 063c 19       		.byte	25
+ 1626 063d 40       		.byte	64
+ 1627 063e 42       		.byte	66
+ 1628 063f 80       		.byte	-128
+ 1629 0640 46       		.byte	70
+ 1630 0641 80       		.byte	-128
+ 1631 0642 48       		.byte	72
+ 1632 0643 08       		.byte	8
+ 1633 0644 49       		.byte	73
+ 1634 0645 05       		.byte	5
+ 1635 0646 4C       		.byte	76
+ 1636 0647 08       		.byte	8
+ 1637 0648 50       		.byte	80
+ 1638 0649 08       		.byte	8
+ 1639 064a 59       		.byte	89
+ 1640 064b 45       		.byte	69
+ 1641 064c 63       		.byte	99
+ 1642 064d 40       		.byte	64
+ 1643 064e 74       		.byte	116
+ 1644 064f 01       		.byte	1
+ 1645 0650 76       		.byte	118
+ 1646 0651 80       		.byte	-128
+ 1647 0652 87       		.byte	-121
+ 1648 0653 40       		.byte	64
+ 1649 0654 C0       		.byte	-64
+ 1650 0655 08       		.byte	8
+ 1651 0656 C4       		.byte	-60
+ 1652 0657 02       		.byte	2
+ 1653 0658 D0       		.byte	-48
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 30
+
+
+ 1654 0659 81       		.byte	-127
+ 1655 065a D2       		.byte	-46
+ 1656 065b 24       		.byte	36
+ 1657 065c D6       		.byte	-42
+ 1658 065d 0B       		.byte	11
+ 1659 065e D8       		.byte	-40
+ 1660 065f 01       		.byte	1
+ 1661 0660 02       		.byte	2
+ 1662 0661 08       		.byte	8
+ 1663 0662 04       		.byte	4
+ 1664 0663 13       		.byte	19
+ 1665 0664 05       		.byte	5
+ 1666 0665 02       		.byte	2
+ 1667 0666 06       		.byte	6
+ 1668 0667 0C       		.byte	12
+ 1669 0668 0B       		.byte	11
+ 1670 0669 02       		.byte	2
+ 1671 066a 0F       		.byte	15
+ 1672 066b 02       		.byte	2
+ 1673 066c 14       		.byte	20
+ 1674 066d 0A       		.byte	10
+ 1675 066e 16       		.byte	22
+ 1676 066f 14       		.byte	20
+ 1677 0670 17       		.byte	23
+ 1678 0671 02       		.byte	2
+ 1679 0672 20       		.byte	32
+ 1680 0673 03       		.byte	3
+ 1681 0674 22       		.byte	34
+ 1682 0675 04       		.byte	4
+ 1683 0676 24       		.byte	36
+ 1684 0677 13       		.byte	19
+ 1685 0678 25       		.byte	37
+ 1686 0679 01       		.byte	1
+ 1687 067a 26       		.byte	38
+ 1688 067b 04       		.byte	4
+ 1689 067c 28       		.byte	40
+ 1690 067d 20       		.byte	32
+ 1691 067e 29       		.byte	41
+ 1692 067f 02       		.byte	2
+ 1693 0680 2A       		.byte	42
+ 1694 0681 05       		.byte	5
+ 1695 0682 30       		.byte	48
+ 1696 0683 30       		.byte	48
+ 1697 0684 33       		.byte	51
+ 1698 0685 01       		.byte	1
+ 1699 0686 34       		.byte	52
+ 1700 0687 0F       		.byte	15
+ 1701 0688 37       		.byte	55
+ 1702 0689 02       		.byte	2
+ 1703 068a 38       		.byte	56
+ 1704 068b 02       		.byte	2
+ 1705 068c 3A       		.byte	58
+ 1706 068d 20       		.byte	32
+ 1707 068e 3F       		.byte	63
+ 1708 068f 44       		.byte	68
+ 1709 0690 40       		.byte	64
+ 1710 0691 23       		.byte	35
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 31
+
+
+ 1711 0692 41       		.byte	65
+ 1712 0693 06       		.byte	6
+ 1713 0694 45       		.byte	69
+ 1714 0695 EB       		.byte	-21
+ 1715 0696 46       		.byte	70
+ 1716 0697 0C       		.byte	12
+ 1717 0698 47       		.byte	71
+ 1718 0699 0E       		.byte	14
+ 1719 069a 48       		.byte	72
+ 1720 069b 17       		.byte	23
+ 1721 069c 49       		.byte	73
+ 1722 069d FF       		.byte	-1
+ 1723 069e 4A       		.byte	74
+ 1724 069f FF       		.byte	-1
+ 1725 06a0 4B       		.byte	75
+ 1726 06a1 FF       		.byte	-1
+ 1727 06a2 4E       		.byte	78
+ 1728 06a3 F0       		.byte	-16
+ 1729 06a4 4F       		.byte	79
+ 1730 06a5 44       		.byte	68
+ 1731 06a6 50       		.byte	80
+ 1732 06a7 0C       		.byte	12
+ 1733 06a8 54       		.byte	84
+ 1734 06a9 01       		.byte	1
+ 1735 06aa 58       		.byte	88
+ 1736 06ab 04       		.byte	4
+ 1737 06ac 59       		.byte	89
+ 1738 06ad 04       		.byte	4
+ 1739 06ae 5A       		.byte	90
+ 1740 06af 04       		.byte	4
+ 1741 06b0 5B       		.byte	91
+ 1742 06b1 04       		.byte	4
+ 1743 06b2 5C       		.byte	92
+ 1744 06b3 02       		.byte	2
+ 1745 06b4 5D       		.byte	93
+ 1746 06b5 22       		.byte	34
+ 1747 06b6 5F       		.byte	95
+ 1748 06b7 01       		.byte	1
+ 1749 06b8 66       		.byte	102
+ 1750 06b9 C0       		.byte	-64
+ 1751 06ba 6A       		.byte	106
+ 1752 06bb 40       		.byte	64
+ 1753 06bc 6B       		.byte	107
+ 1754 06bd 02       		.byte	2
+ 1755 06be 81       		.byte	-127
+ 1756 06bf 08       		.byte	8
+ 1757 06c0 85       		.byte	-123
+ 1758 06c1 04       		.byte	4
+ 1759 06c2 89       		.byte	-119
+ 1760 06c3 40       		.byte	64
+ 1761 06c4 8D       		.byte	-115
+ 1762 06c5 F3       		.byte	-13
+ 1763 06c6 8F       		.byte	-113
+ 1764 06c7 0C       		.byte	12
+ 1765 06c8 90       		.byte	-112
+ 1766 06c9 01       		.byte	1
+ 1767 06ca 91       		.byte	-111
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 32
+
+
+ 1768 06cb FF       		.byte	-1
+ 1769 06cc 92       		.byte	-110
+ 1770 06cd 06       		.byte	6
+ 1771 06ce 94       		.byte	-108
+ 1772 06cf 24       		.byte	36
+ 1773 06d0 95       		.byte	-107
+ 1774 06d1 4D       		.byte	77
+ 1775 06d2 96       		.byte	-106
+ 1776 06d3 11       		.byte	17
+ 1777 06d4 97       		.byte	-105
+ 1778 06d5 92       		.byte	-110
+ 1779 06d6 98       		.byte	-104
+ 1780 06d7 77       		.byte	119
+ 1781 06d8 99       		.byte	-103
+ 1782 06d9 4F       		.byte	79
+ 1783 06da 9B       		.byte	-101
+ 1784 06db A0       		.byte	-96
+ 1785 06dc 9C       		.byte	-100
+ 1786 06dd 12       		.byte	18
+ 1787 06de 9E       		.byte	-98
+ 1788 06df 29       		.byte	41
+ 1789 06e0 A3       		.byte	-93
+ 1790 06e1 40       		.byte	64
+ 1791 06e2 A4       		.byte	-92
+ 1792 06e3 77       		.byte	119
+ 1793 06e4 A7       		.byte	-89
+ 1794 06e5 B2       		.byte	-78
+ 1795 06e6 A9       		.byte	-87
+ 1796 06e7 0C       		.byte	12
+ 1797 06e8 AC       		.byte	-84
+ 1798 06e9 40       		.byte	64
+ 1799 06ea B0       		.byte	-80
+ 1800 06eb 07       		.byte	7
+ 1801 06ec B1       		.byte	-79
+ 1802 06ed 01       		.byte	1
+ 1803 06ee B2       		.byte	-78
+ 1804 06ef 30       		.byte	48
+ 1805 06f0 B3       		.byte	-77
+ 1806 06f1 8C       		.byte	-116
+ 1807 06f2 B4       		.byte	-76
+ 1808 06f3 40       		.byte	64
+ 1809 06f4 B5       		.byte	-75
+ 1810 06f5 7C       		.byte	124
+ 1811 06f6 B6       		.byte	-74
+ 1812 06f7 08       		.byte	8
+ 1813 06f8 B7       		.byte	-73
+ 1814 06f9 0E       		.byte	14
+ 1815 06fa BB       		.byte	-69
+ 1816 06fb 28       		.byte	40
+ 1817 06fc BF       		.byte	-65
+ 1818 06fd 01       		.byte	1
+ 1819 06fe D6       		.byte	-42
+ 1820 06ff 02       		.byte	2
+ 1821 0700 D7       		.byte	-41
+ 1822 0701 13       		.byte	19
+ 1823 0702 D8       		.byte	-40
+ 1824 0703 04       		.byte	4
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 33
+
+
+ 1825 0704 D9       		.byte	-39
+ 1826 0705 04       		.byte	4
+ 1827 0706 DB       		.byte	-37
+ 1828 0707 04       		.byte	4
+ 1829 0708 DC       		.byte	-36
+ 1830 0709 33       		.byte	51
+ 1831 070a DD       		.byte	-35
+ 1832 070b 30       		.byte	48
+ 1833 070c DF       		.byte	-33
+ 1834 070d 01       		.byte	1
+ 1835 070e 00       		.byte	0
+ 1836 070f 04       		.byte	4
+ 1837 0710 01       		.byte	1
+ 1838 0711 02       		.byte	2
+ 1839 0712 0A       		.byte	10
+ 1840 0713 10       		.byte	16
+ 1841 0714 0D       		.byte	13
+ 1842 0715 08       		.byte	8
+ 1843 0716 0E       		.byte	14
+ 1844 0717 45       		.byte	69
+ 1845 0718 10       		.byte	16
+ 1846 0719 88       		.byte	-120
+ 1847 071a 12       		.byte	18
+ 1848 071b 10       		.byte	16
+ 1849 071c 15       		.byte	21
+ 1850 071d 40       		.byte	64
+ 1851 071e 17       		.byte	23
+ 1852 071f 04       		.byte	4
+ 1853 0720 18       		.byte	24
+ 1854 0721 04       		.byte	4
+ 1855 0722 19       		.byte	25
+ 1856 0723 02       		.byte	2
+ 1857 0724 1D       		.byte	29
+ 1858 0725 28       		.byte	40
+ 1859 0726 1E       		.byte	30
+ 1860 0727 40       		.byte	64
+ 1861 0728 1F       		.byte	31
+ 1862 0729 58       		.byte	88
+ 1863 072a 22       		.byte	34
+ 1864 072b 44       		.byte	68
+ 1865 072c 24       		.byte	36
+ 1866 072d 08       		.byte	8
+ 1867 072e 26       		.byte	38
+ 1868 072f 15       		.byte	21
+ 1869 0730 27       		.byte	39
+ 1870 0731 01       		.byte	1
+ 1871 0732 29       		.byte	41
+ 1872 0733 20       		.byte	32
+ 1873 0734 2A       		.byte	42
+ 1874 0735 14       		.byte	20
+ 1875 0736 2E       		.byte	46
+ 1876 0737 20       		.byte	32
+ 1877 0738 2F       		.byte	47
+ 1878 0739 50       		.byte	80
+ 1879 073a 30       		.byte	48
+ 1880 073b 08       		.byte	8
+ 1881 073c 34       		.byte	52
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 34
+
+
+ 1882 073d 08       		.byte	8
+ 1883 073e 36       		.byte	54
+ 1884 073f 16       		.byte	22
+ 1885 0740 38       		.byte	56
+ 1886 0741 A4       		.byte	-92
+ 1887 0742 3C       		.byte	60
+ 1888 0743 20       		.byte	32
+ 1889 0744 3E       		.byte	62
+ 1890 0745 0A       		.byte	10
+ 1891 0746 3F       		.byte	63
+ 1892 0747 80       		.byte	-128
+ 1893 0748 40       		.byte	64
+ 1894 0749 04       		.byte	4
+ 1895 074a 41       		.byte	65
+ 1896 074b 04       		.byte	4
+ 1897 074c 49       		.byte	73
+ 1898 074d 25       		.byte	37
+ 1899 074e 50       		.byte	80
+ 1900 074f C0       		.byte	-64
+ 1901 0750 52       		.byte	82
+ 1902 0751 04       		.byte	4
+ 1903 0752 59       		.byte	89
+ 1904 0753 01       		.byte	1
+ 1905 0754 5A       		.byte	90
+ 1906 0755 88       		.byte	-120
+ 1907 0756 5B       		.byte	91
+ 1908 0757 10       		.byte	16
+ 1909 0758 5E       		.byte	94
+ 1910 0759 02       		.byte	2
+ 1911 075a 6D       		.byte	109
+ 1912 075b 40       		.byte	64
+ 1913 075c 6E       		.byte	110
+ 1914 075d 04       		.byte	4
+ 1915 075e 6F       		.byte	111
+ 1916 075f 04       		.byte	4
+ 1917 0760 74       		.byte	116
+ 1918 0761 20       		.byte	32
+ 1919 0762 75       		.byte	117
+ 1920 0763 80       		.byte	-128
+ 1921 0764 76       		.byte	118
+ 1922 0765 2A       		.byte	42
+ 1923 0766 84       		.byte	-124
+ 1924 0767 10       		.byte	16
+ 1925 0768 86       		.byte	-122
+ 1926 0769 01       		.byte	1
+ 1927 076a 8C       		.byte	-116
+ 1928 076b 80       		.byte	-128
+ 1929 076c 8F       		.byte	-113
+ 1930 076d 10       		.byte	16
+ 1931 076e 90       		.byte	-112
+ 1932 076f 20       		.byte	32
+ 1933 0770 91       		.byte	-111
+ 1934 0771 08       		.byte	8
+ 1935 0772 92       		.byte	-110
+ 1936 0773 10       		.byte	16
+ 1937 0774 94       		.byte	-108
+ 1938 0775 0C       		.byte	12
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 35
+
+
+ 1939 0776 96       		.byte	-106
+ 1940 0777 41       		.byte	65
+ 1941 0778 99       		.byte	-103
+ 1942 0779 20       		.byte	32
+ 1943 077a 9C       		.byte	-100
+ 1944 077b 08       		.byte	8
+ 1945 077c 9D       		.byte	-99
+ 1946 077d 86       		.byte	-122
+ 1947 077e 9E       		.byte	-98
+ 1948 077f 20       		.byte	32
+ 1949 0780 9F       		.byte	-97
+ 1950 0781 01       		.byte	1
+ 1951 0782 A0       		.byte	-96
+ 1952 0783 08       		.byte	8
+ 1953 0784 A2       		.byte	-94
+ 1954 0785 02       		.byte	2
+ 1955 0786 A3       		.byte	-93
+ 1956 0787 40       		.byte	64
+ 1957 0788 A4       		.byte	-92
+ 1958 0789 20       		.byte	32
+ 1959 078a A5       		.byte	-91
+ 1960 078b 20       		.byte	32
+ 1961 078c A6       		.byte	-90
+ 1962 078d 10       		.byte	16
+ 1963 078e A7       		.byte	-89
+ 1964 078f 08       		.byte	8
+ 1965 0790 AB       		.byte	-85
+ 1966 0791 48       		.byte	72
+ 1967 0792 C0       		.byte	-64
+ 1968 0793 0C       		.byte	12
+ 1969 0794 C2       		.byte	-62
+ 1970 0795 F4       		.byte	-12
+ 1971 0796 C4       		.byte	-60
+ 1972 0797 AE       		.byte	-82
+ 1973 0798 CA       		.byte	-54
+ 1974 0799 E6       		.byte	-26
+ 1975 079a CC       		.byte	-52
+ 1976 079b E2       		.byte	-30
+ 1977 079c CE       		.byte	-50
+ 1978 079d FE       		.byte	-2
+ 1979 079e D0       		.byte	-48
+ 1980 079f 06       		.byte	6
+ 1981 07a0 D2       		.byte	-46
+ 1982 07a1 04       		.byte	4
+ 1983 07a2 D6       		.byte	-42
+ 1984 07a3 8F       		.byte	-113
+ 1985 07a4 E6       		.byte	-26
+ 1986 07a5 80       		.byte	-128
+ 1987 07a6 81       		.byte	-127
+ 1988 07a7 10       		.byte	16
+ 1989 07a8 82       		.byte	-126
+ 1990 07a9 4C       		.byte	76
+ 1991 07aa 84       		.byte	-124
+ 1992 07ab 31       		.byte	49
+ 1993 07ac 85       		.byte	-123
+ 1994 07ad 10       		.byte	16
+ 1995 07ae 86       		.byte	-122
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 36
+
+
+ 1996 07af 46       		.byte	70
+ 1997 07b0 87       		.byte	-121
+ 1998 07b1 0C       		.byte	12
+ 1999 07b2 89       		.byte	-119
+ 2000 07b3 1C       		.byte	28
+ 2001 07b4 8B       		.byte	-117
+ 2002 07b5 02       		.byte	2
+ 2003 07b6 94       		.byte	-108
+ 2004 07b7 6C       		.byte	108
+ 2005 07b8 95       		.byte	-107
+ 2006 07b9 14       		.byte	20
+ 2007 07ba 96       		.byte	-106
+ 2008 07bb 03       		.byte	3
+ 2009 07bc 98       		.byte	-104
+ 2010 07bd 31       		.byte	49
+ 2011 07be 9A       		.byte	-102
+ 2012 07bf 0E       		.byte	14
+ 2013 07c0 9F       		.byte	-97
+ 2014 07c1 03       		.byte	3
+ 2015 07c2 A1       		.byte	-95
+ 2016 07c3 09       		.byte	9
+ 2017 07c4 A2       		.byte	-94
+ 2018 07c5 08       		.byte	8
+ 2019 07c6 A3       		.byte	-93
+ 2020 07c7 10       		.byte	16
+ 2021 07c8 A9       		.byte	-87
+ 2022 07c9 0C       		.byte	12
+ 2023 07ca AA       		.byte	-86
+ 2024 07cb 13       		.byte	19
+ 2025 07cc AB       		.byte	-85
+ 2026 07cd 11       		.byte	17
+ 2027 07ce B0       		.byte	-80
+ 2028 07cf 30       		.byte	48
+ 2029 07d0 B2       		.byte	-78
+ 2030 07d1 0F       		.byte	15
+ 2031 07d2 B4       		.byte	-76
+ 2032 07d3 4A       		.byte	74
+ 2033 07d4 B7       		.byte	-73
+ 2034 07d5 1F       		.byte	31
+ 2035 07d6 B8       		.byte	-72
+ 2036 07d7 02       		.byte	2
+ 2037 07d8 BA       		.byte	-70
+ 2038 07d9 28       		.byte	40
+ 2039 07da BE       		.byte	-66
+ 2040 07db 01       		.byte	1
+ 2041 07dc C0       		.byte	-64
+ 2042 07dd 04       		.byte	4
+ 2043 07de C5       		.byte	-59
+ 2044 07df 40       		.byte	64
+ 2045 07e0 C9       		.byte	-55
+ 2046 07e1 FF       		.byte	-1
+ 2047 07e2 CA       		.byte	-54
+ 2048 07e3 07       		.byte	7
+ 2049 07e4 CB       		.byte	-53
+ 2050 07e5 FF       		.byte	-1
+ 2051 07e6 CC       		.byte	-52
+ 2052 07e7 40       		.byte	64
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 37
+
+
+ 2053 07e8 CD       		.byte	-51
+ 2054 07e9 20       		.byte	32
+ 2055 07ea CE       		.byte	-50
+ 2056 07eb F0       		.byte	-16
+ 2057 07ec CF       		.byte	-49
+ 2058 07ed 05       		.byte	5
+ 2059 07ee D0       		.byte	-48
+ 2060 07ef 08       		.byte	8
+ 2061 07f0 D8       		.byte	-40
+ 2062 07f1 04       		.byte	4
+ 2063 07f2 D9       		.byte	-39
+ 2064 07f3 04       		.byte	4
+ 2065 07f4 DA       		.byte	-38
+ 2066 07f5 04       		.byte	4
+ 2067 07f6 DC       		.byte	-36
+ 2068 07f7 22       		.byte	34
+ 2069 07f8 DD       		.byte	-35
+ 2070 07f9 02       		.byte	2
+ 2071 07fa DF       		.byte	-33
+ 2072 07fb 01       		.byte	1
+ 2073 07fc E0       		.byte	-32
+ 2074 07fd 40       		.byte	64
+ 2075 07fe E1       		.byte	-31
+ 2076 07ff A8       		.byte	-88
+ 2077 0800 E2       		.byte	-30
+ 2078 0801 40       		.byte	64
+ 2079 0802 E3       		.byte	-29
+ 2080 0803 20       		.byte	32
+ 2081 0804 00       		.byte	0
+ 2082 0805 04       		.byte	4
+ 2083 0806 01       		.byte	1
+ 2084 0807 02       		.byte	2
+ 2085 0808 04       		.byte	4
+ 2086 0809 08       		.byte	8
+ 2087 080a 06       		.byte	6
+ 2088 080b 40       		.byte	64
+ 2089 080c 07       		.byte	7
+ 2090 080d 08       		.byte	8
+ 2091 080e 0A       		.byte	10
+ 2092 080f 14       		.byte	20
+ 2093 0810 0E       		.byte	14
+ 2094 0811 0A       		.byte	10
+ 2095 0812 0F       		.byte	15
+ 2096 0813 20       		.byte	32
+ 2097 0814 10       		.byte	16
+ 2098 0815 88       		.byte	-120
+ 2099 0816 14       		.byte	20
+ 2100 0817 08       		.byte	8
+ 2101 0818 16       		.byte	22
+ 2102 0819 08       		.byte	8
+ 2103 081a 17       		.byte	23
+ 2104 081b 01       		.byte	1
+ 2105 081c 18       		.byte	24
+ 2106 081d 60       		.byte	96
+ 2107 081e 19       		.byte	25
+ 2108 081f 20       		.byte	32
+ 2109 0820 1A       		.byte	26
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 38
+
+
+ 2110 0821 14       		.byte	20
+ 2111 0822 1D       		.byte	29
+ 2112 0823 40       		.byte	64
+ 2113 0824 1E       		.byte	30
+ 2114 0825 08       		.byte	8
+ 2115 0826 1F       		.byte	31
+ 2116 0827 04       		.byte	4
+ 2117 0828 21       		.byte	33
+ 2118 0829 80       		.byte	-128
+ 2119 082a 26       		.byte	38
+ 2120 082b 0B       		.byte	11
+ 2121 082c 27       		.byte	39
+ 2122 082d 0A       		.byte	10
+ 2123 082e 29       		.byte	41
+ 2124 082f 22       		.byte	34
+ 2125 0830 2C       		.byte	44
+ 2126 0831 20       		.byte	32
+ 2127 0832 2D       		.byte	45
+ 2128 0833 80       		.byte	-128
+ 2129 0834 2E       		.byte	46
+ 2130 0835 01       		.byte	1
+ 2131 0836 2F       		.byte	47
+ 2132 0837 08       		.byte	8
+ 2133 0838 31       		.byte	49
+ 2134 0839 84       		.byte	-124
+ 2135 083a 36       		.byte	54
+ 2136 083b 12       		.byte	18
+ 2137 083c 37       		.byte	55
+ 2138 083d 08       		.byte	8
+ 2139 083e 38       		.byte	56
+ 2140 083f 24       		.byte	36
+ 2141 0840 3B       		.byte	59
+ 2142 0841 01       		.byte	1
+ 2143 0842 3D       		.byte	61
+ 2144 0843 01       		.byte	1
+ 2145 0844 3E       		.byte	62
+ 2146 0845 68       		.byte	104
+ 2147 0846 40       		.byte	64
+ 2148 0847 40       		.byte	64
+ 2149 0848 45       		.byte	69
+ 2150 0849 20       		.byte	32
+ 2151 084a 47       		.byte	71
+ 2152 084b 09       		.byte	9
+ 2153 084c 48       		.byte	72
+ 2154 084d 80       		.byte	-128
+ 2155 084e 4B       		.byte	75
+ 2156 084f 01       		.byte	1
+ 2157 0850 4E       		.byte	78
+ 2158 0851 0A       		.byte	10
+ 2159 0852 50       		.byte	80
+ 2160 0853 08       		.byte	8
+ 2161 0854 51       		.byte	81
+ 2162 0855 04       		.byte	4
+ 2163 0856 56       		.byte	86
+ 2164 0857 40       		.byte	64
+ 2165 0858 57       		.byte	87
+ 2166 0859 10       		.byte	16
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 39
+
+
+ 2167 085a 5F       		.byte	95
+ 2168 085b 02       		.byte	2
+ 2169 085c 65       		.byte	101
+ 2170 085d 40       		.byte	64
+ 2171 085e 67       		.byte	103
+ 2172 085f 08       		.byte	8
+ 2173 0860 85       		.byte	-123
+ 2174 0861 21       		.byte	33
+ 2175 0862 A5       		.byte	-91
+ 2176 0863 80       		.byte	-128
+ 2177 0864 A8       		.byte	-88
+ 2178 0865 40       		.byte	64
+ 2179 0866 A9       		.byte	-87
+ 2180 0867 10       		.byte	16
+ 2181 0868 C0       		.byte	-64
+ 2182 0869 7C       		.byte	124
+ 2183 086a C2       		.byte	-62
+ 2184 086b E6       		.byte	-26
+ 2185 086c C4       		.byte	-60
+ 2186 086d 5A       		.byte	90
+ 2187 086e CA       		.byte	-54
+ 2188 086f F5       		.byte	-11
+ 2189 0870 CC       		.byte	-52
+ 2190 0871 EA       		.byte	-22
+ 2191 0872 CE       		.byte	-50
+ 2192 0873 F7       		.byte	-9
+ 2193 0874 D0       		.byte	-48
+ 2194 0875 E1       		.byte	-31
+ 2195 0876 D2       		.byte	-46
+ 2196 0877 30       		.byte	48
+ 2197 0878 D6       		.byte	-42
+ 2198 0879 80       		.byte	-128
+ 2199 087a D8       		.byte	-40
+ 2200 087b 30       		.byte	48
+ 2201 087c 00       		.byte	0
+ 2202 087d 03       		.byte	3
+ 2203 087e 02       		.byte	2
+ 2204 087f 04       		.byte	4
+ 2205 0880 06       		.byte	6
+ 2206 0881 05       		.byte	5
+ 2207 0882 07       		.byte	7
+ 2208 0883 02       		.byte	2
+ 2209 0884 0C       		.byte	12
+ 2210 0885 03       		.byte	3
+ 2211 0886 0D       		.byte	13
+ 2212 0887 06       		.byte	6
+ 2213 0888 0E       		.byte	14
+ 2214 0889 0C       		.byte	12
+ 2215 088a 0F       		.byte	15
+ 2216 088b 01       		.byte	1
+ 2217 088c 10       		.byte	16
+ 2218 088d 0A       		.byte	10
+ 2219 088e 12       		.byte	18
+ 2220 088f 04       		.byte	4
+ 2221 0890 17       		.byte	23
+ 2222 0891 01       		.byte	1
+ 2223 0892 1E       		.byte	30
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 40
+
+
+ 2224 0893 08       		.byte	8
+ 2225 0894 1F       		.byte	31
+ 2226 0895 03       		.byte	3
+ 2227 0896 20       		.byte	32
+ 2228 0897 03       		.byte	3
+ 2229 0898 22       		.byte	34
+ 2230 0899 04       		.byte	4
+ 2231 089a 23       		.byte	35
+ 2232 089b 05       		.byte	5
+ 2233 089c 2F       		.byte	47
+ 2234 089d 06       		.byte	6
+ 2235 089e 36       		.byte	54
+ 2236 089f 0F       		.byte	15
+ 2237 08a0 37       		.byte	55
+ 2238 08a1 07       		.byte	7
+ 2239 08a2 3A       		.byte	58
+ 2240 08a3 80       		.byte	-128
+ 2241 08a4 3B       		.byte	59
+ 2242 08a5 80       		.byte	-128
+ 2243 08a6 40       		.byte	64
+ 2244 08a7 13       		.byte	19
+ 2245 08a8 49       		.byte	73
+ 2246 08a9 FF       		.byte	-1
+ 2247 08aa 4A       		.byte	74
+ 2248 08ab FF       		.byte	-1
+ 2249 08ac 4B       		.byte	75
+ 2250 08ad FF       		.byte	-1
+ 2251 08ae 4F       		.byte	79
+ 2252 08af 01       		.byte	1
+ 2253 08b0 50       		.byte	80
+ 2254 08b1 18       		.byte	24
+ 2255 08b2 58       		.byte	88
+ 2256 08b3 04       		.byte	4
+ 2257 08b4 59       		.byte	89
+ 2258 08b5 04       		.byte	4
+ 2259 08b6 5A       		.byte	90
+ 2260 08b7 04       		.byte	4
+ 2261 08b8 5C       		.byte	92
+ 2262 08b9 44       		.byte	68
+ 2263 08ba 5F       		.byte	95
+ 2264 08bb 01       		.byte	1
+ 2265 08bc 60       		.byte	96
+ 2266 08bd 40       		.byte	64
+ 2267 08be 62       		.byte	98
+ 2268 08bf 40       		.byte	64
+ 2269 08c0 64       		.byte	100
+ 2270 08c1 40       		.byte	64
+ 2271 08c2 65       		.byte	101
+ 2272 08c3 40       		.byte	64
+ 2273 08c4 66       		.byte	102
+ 2274 08c5 80       		.byte	-128
+ 2275 08c6 68       		.byte	104
+ 2276 08c7 80       		.byte	-128
+ 2277 08c8 6A       		.byte	106
+ 2278 08c9 80       		.byte	-128
+ 2279 08ca 6C       		.byte	108
+ 2280 08cb 80       		.byte	-128
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 41
+
+
+ 2281 08cc 6E       		.byte	110
+ 2282 08cd 80       		.byte	-128
+ 2283 08ce 80       		.byte	-128
+ 2284 08cf 01       		.byte	1
+ 2285 08d0 87       		.byte	-121
+ 2286 08d1 03       		.byte	3
+ 2287 08d2 91       		.byte	-111
+ 2288 08d3 0C       		.byte	12
+ 2289 08d4 92       		.byte	-110
+ 2290 08d5 01       		.byte	1
+ 2291 08d6 93       		.byte	-109
+ 2292 08d7 03       		.byte	3
+ 2293 08d8 9D       		.byte	-99
+ 2294 08d9 01       		.byte	1
+ 2295 08da 9F       		.byte	-97
+ 2296 08db 0E       		.byte	14
+ 2297 08dc A0       		.byte	-96
+ 2298 08dd 01       		.byte	1
+ 2299 08de A1       		.byte	-95
+ 2300 08df 01       		.byte	1
+ 2301 08e0 A3       		.byte	-93
+ 2302 08e1 06       		.byte	6
+ 2303 08e2 A7       		.byte	-89
+ 2304 08e3 0C       		.byte	12
+ 2305 08e4 A8       		.byte	-88
+ 2306 08e5 02       		.byte	2
+ 2307 08e6 AB       		.byte	-85
+ 2308 08e7 08       		.byte	8
+ 2309 08e8 B0       		.byte	-80
+ 2310 08e9 03       		.byte	3
+ 2311 08ea B1       		.byte	-79
+ 2312 08eb 0F       		.byte	15
+ 2313 08ec B2       		.byte	-78
+ 2314 08ed 03       		.byte	3
+ 2315 08ee B6       		.byte	-74
+ 2316 08ef 03       		.byte	3
+ 2317 08f0 B8       		.byte	-72
+ 2318 08f1 8A       		.byte	-118
+ 2319 08f2 BB       		.byte	-69
+ 2320 08f3 02       		.byte	2
+ 2321 08f4 C0       		.byte	-64
+ 2322 08f5 13       		.byte	19
+ 2323 08f6 C9       		.byte	-55
+ 2324 08f7 FF       		.byte	-1
+ 2325 08f8 CA       		.byte	-54
+ 2326 08f9 FF       		.byte	-1
+ 2327 08fa CB       		.byte	-53
+ 2328 08fb FF       		.byte	-1
+ 2329 08fc CD       		.byte	-51
+ 2330 08fd 83       		.byte	-125
+ 2331 08fe CE       		.byte	-50
+ 2332 08ff 03       		.byte	3
+ 2333 0900 CF       		.byte	-49
+ 2334 0901 01       		.byte	1
+ 2335 0902 D0       		.byte	-48
+ 2336 0903 18       		.byte	24
+ 2337 0904 D8       		.byte	-40
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 42
+
+
+ 2338 0905 04       		.byte	4
+ 2339 0906 D9       		.byte	-39
+ 2340 0907 04       		.byte	4
+ 2341 0908 DA       		.byte	-38
+ 2342 0909 04       		.byte	4
+ 2343 090a DC       		.byte	-36
+ 2344 090b 44       		.byte	68
+ 2345 090c DF       		.byte	-33
+ 2346 090d 01       		.byte	1
+ 2347 090e E0       		.byte	-32
+ 2348 090f 40       		.byte	64
+ 2349 0910 E2       		.byte	-30
+ 2350 0911 40       		.byte	64
+ 2351 0912 E4       		.byte	-28
+ 2352 0913 40       		.byte	64
+ 2353 0914 E5       		.byte	-27
+ 2354 0915 40       		.byte	64
+ 2355 0916 E6       		.byte	-26
+ 2356 0917 80       		.byte	-128
+ 2357 0918 E8       		.byte	-24
+ 2358 0919 80       		.byte	-128
+ 2359 091a EA       		.byte	-22
+ 2360 091b 80       		.byte	-128
+ 2361 091c EC       		.byte	-20
+ 2362 091d 80       		.byte	-128
+ 2363 091e EE       		.byte	-18
+ 2364 091f 80       		.byte	-128
+ 2365 0920 03       		.byte	3
+ 2366 0921 80       		.byte	-128
+ 2367 0922 04       		.byte	4
+ 2368 0923 08       		.byte	8
+ 2369 0924 05       		.byte	5
+ 2370 0925 40       		.byte	64
+ 2371 0926 06       		.byte	6
+ 2372 0927 40       		.byte	64
+ 2373 0928 09       		.byte	9
+ 2374 0929 02       		.byte	2
+ 2375 092a 0E       		.byte	14
+ 2376 092b 01       		.byte	1
+ 2377 092c 0F       		.byte	15
+ 2378 092d 40       		.byte	64
+ 2379 092e 12       		.byte	18
+ 2380 092f 88       		.byte	-120
+ 2381 0930 17       		.byte	23
+ 2382 0931 01       		.byte	1
+ 2383 0932 19       		.byte	25
+ 2384 0933 8A       		.byte	-118
+ 2385 0934 1A       		.byte	26
+ 2386 0935 01       		.byte	1
+ 2387 0936 1D       		.byte	29
+ 2388 0937 40       		.byte	64
+ 2389 0938 1F       		.byte	31
+ 2390 0939 80       		.byte	-128
+ 2391 093a 21       		.byte	33
+ 2392 093b 02       		.byte	2
+ 2393 093c 23       		.byte	35
+ 2394 093d 40       		.byte	64
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 43
+
+
+ 2395 093e 26       		.byte	38
+ 2396 093f 80       		.byte	-128
+ 2397 0940 27       		.byte	39
+ 2398 0941 01       		.byte	1
+ 2399 0942 29       		.byte	41
+ 2400 0943 08       		.byte	8
+ 2401 0944 2B       		.byte	43
+ 2402 0945 84       		.byte	-124
+ 2403 0946 2D       		.byte	45
+ 2404 0947 80       		.byte	-128
+ 2405 0948 2F       		.byte	47
+ 2406 0949 80       		.byte	-128
+ 2407 094a 31       		.byte	49
+ 2408 094b 02       		.byte	2
+ 2409 094c 32       		.byte	50
+ 2410 094d 80       		.byte	-128
+ 2411 094e 36       		.byte	54
+ 2412 094f 88       		.byte	-120
+ 2413 0950 38       		.byte	56
+ 2414 0951 08       		.byte	8
+ 2415 0952 3F       		.byte	63
+ 2416 0953 4C       		.byte	76
+ 2417 0954 42       		.byte	66
+ 2418 0955 20       		.byte	32
+ 2419 0956 43       		.byte	67
+ 2420 0957 40       		.byte	64
+ 2421 0958 46       		.byte	70
+ 2422 0959 20       		.byte	32
+ 2423 095a 47       		.byte	71
+ 2424 095b 40       		.byte	64
+ 2425 095c 90       		.byte	-112
+ 2426 095d 08       		.byte	8
+ 2427 095e 93       		.byte	-109
+ 2428 095f 04       		.byte	4
+ 2429 0960 9A       		.byte	-102
+ 2430 0961 40       		.byte	64
+ 2431 0962 9D       		.byte	-99
+ 2432 0963 02       		.byte	2
+ 2433 0964 A2       		.byte	-94
+ 2434 0965 08       		.byte	8
+ 2435 0966 A5       		.byte	-91
+ 2436 0967 02       		.byte	2
+ 2437 0968 A6       		.byte	-90
+ 2438 0969 80       		.byte	-128
+ 2439 096a A7       		.byte	-89
+ 2440 096b 80       		.byte	-128
+ 2441 096c C0       		.byte	-64
+ 2442 096d B8       		.byte	-72
+ 2443 096e C2       		.byte	-62
+ 2444 096f 98       		.byte	-104
+ 2445 0970 C4       		.byte	-60
+ 2446 0971 1A       		.byte	26
+ 2447 0972 CA       		.byte	-54
+ 2448 0973 97       		.byte	-105
+ 2449 0974 CC       		.byte	-52
+ 2450 0975 59       		.byte	89
+ 2451 0976 CE       		.byte	-50
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 44
+
+
+ 2452 0977 52       		.byte	82
+ 2453 0978 D0       		.byte	-48
+ 2454 0979 5A       		.byte	90
+ 2455 097a 40       		.byte	64
+ 2456 097b 13       		.byte	19
+ 2457 097c 49       		.byte	73
+ 2458 097d FF       		.byte	-1
+ 2459 097e 4A       		.byte	74
+ 2460 097f FF       		.byte	-1
+ 2461 0980 4B       		.byte	75
+ 2462 0981 FF       		.byte	-1
+ 2463 0982 4D       		.byte	77
+ 2464 0983 83       		.byte	-125
+ 2465 0984 4E       		.byte	78
+ 2466 0985 03       		.byte	3
+ 2467 0986 4F       		.byte	79
+ 2468 0987 01       		.byte	1
+ 2469 0988 50       		.byte	80
+ 2470 0989 18       		.byte	24
+ 2471 098a 5A       		.byte	90
+ 2472 098b 04       		.byte	4
+ 2473 098c 5F       		.byte	95
+ 2474 098d 01       		.byte	1
+ 2475 098e 60       		.byte	96
+ 2476 098f 40       		.byte	64
+ 2477 0990 62       		.byte	98
+ 2478 0991 40       		.byte	64
+ 2479 0992 64       		.byte	100
+ 2480 0993 40       		.byte	64
+ 2481 0994 65       		.byte	101
+ 2482 0995 40       		.byte	64
+ 2483 0996 66       		.byte	102
+ 2484 0997 80       		.byte	-128
+ 2485 0998 68       		.byte	104
+ 2486 0999 80       		.byte	-128
+ 2487 099a 6A       		.byte	106
+ 2488 099b 80       		.byte	-128
+ 2489 099c 6C       		.byte	108
+ 2490 099d 80       		.byte	-128
+ 2491 099e 6E       		.byte	110
+ 2492 099f 80       		.byte	-128
+ 2493 09a0 86       		.byte	-122
+ 2494 09a1 01       		.byte	1
+ 2495 09a2 AE       		.byte	-82
+ 2496 09a3 01       		.byte	1
+ 2497 09a4 B0       		.byte	-80
+ 2498 09a5 01       		.byte	1
+ 2499 09a6 BE       		.byte	-66
+ 2500 09a7 01       		.byte	1
+ 2501 09a8 C0       		.byte	-64
+ 2502 09a9 13       		.byte	19
+ 2503 09aa C5       		.byte	-59
+ 2504 09ab EC       		.byte	-20
+ 2505 09ac C6       		.byte	-58
+ 2506 09ad 20       		.byte	32
+ 2507 09ae C8       		.byte	-56
+ 2508 09af 0B       		.byte	11
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 45
+
+
+ 2509 09b0 C9       		.byte	-55
+ 2510 09b1 FF       		.byte	-1
+ 2511 09b2 CA       		.byte	-54
+ 2512 09b3 FF       		.byte	-1
+ 2513 09b4 CB       		.byte	-53
+ 2514 09b5 FF       		.byte	-1
+ 2515 09b6 CD       		.byte	-51
+ 2516 09b7 83       		.byte	-125
+ 2517 09b8 CE       		.byte	-50
+ 2518 09b9 03       		.byte	3
+ 2519 09ba CF       		.byte	-49
+ 2520 09bb 01       		.byte	1
+ 2521 09bc D0       		.byte	-48
+ 2522 09bd 18       		.byte	24
+ 2523 09be D2       		.byte	-46
+ 2524 09bf 80       		.byte	-128
+ 2525 09c0 D4       		.byte	-44
+ 2526 09c1 01       		.byte	1
+ 2527 09c2 D6       		.byte	-42
+ 2528 09c3 04       		.byte	4
+ 2529 09c4 D8       		.byte	-40
+ 2530 09c5 04       		.byte	4
+ 2531 09c6 DA       		.byte	-38
+ 2532 09c7 04       		.byte	4
+ 2533 09c8 DB       		.byte	-37
+ 2534 09c9 04       		.byte	4
+ 2535 09ca DF       		.byte	-33
+ 2536 09cb 01       		.byte	1
+ 2537 09cc E0       		.byte	-32
+ 2538 09cd 40       		.byte	64
+ 2539 09ce E2       		.byte	-30
+ 2540 09cf 40       		.byte	64
+ 2541 09d0 E4       		.byte	-28
+ 2542 09d1 40       		.byte	64
+ 2543 09d2 E5       		.byte	-27
+ 2544 09d3 40       		.byte	64
+ 2545 09d4 E6       		.byte	-26
+ 2546 09d5 80       		.byte	-128
+ 2547 09d6 E8       		.byte	-24
+ 2548 09d7 80       		.byte	-128
+ 2549 09d8 EA       		.byte	-22
+ 2550 09d9 80       		.byte	-128
+ 2551 09da EC       		.byte	-20
+ 2552 09db 80       		.byte	-128
+ 2553 09dc EE       		.byte	-18
+ 2554 09dd 80       		.byte	-128
+ 2555 09de 06       		.byte	6
+ 2556 09df 20       		.byte	32
+ 2557 09e0 17       		.byte	23
+ 2558 09e1 40       		.byte	64
+ 2559 09e2 1E       		.byte	30
+ 2560 09e3 80       		.byte	-128
+ 2561 09e4 42       		.byte	66
+ 2562 09e5 20       		.byte	32
+ 2563 09e6 43       		.byte	67
+ 2564 09e7 40       		.byte	64
+ 2565 09e8 46       		.byte	70
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 46
+
+
+ 2566 09e9 20       		.byte	32
+ 2567 09ea 47       		.byte	71
+ 2568 09eb 40       		.byte	64
+ 2569 09ec 4D       		.byte	77
+ 2570 09ed 04       		.byte	4
+ 2571 09ee 4F       		.byte	79
+ 2572 09ef 01       		.byte	1
+ 2573 09f0 56       		.byte	86
+ 2574 09f1 20       		.byte	32
+ 2575 09f2 5D       		.byte	93
+ 2576 09f3 04       		.byte	4
+ 2577 09f4 5E       		.byte	94
+ 2578 09f5 80       		.byte	-128
+ 2579 09f6 5F       		.byte	95
+ 2580 09f7 01       		.byte	1
+ 2581 09f8 67       		.byte	103
+ 2582 09f9 80       		.byte	-128
+ 2583 09fa 77       		.byte	119
+ 2584 09fb 40       		.byte	64
+ 2585 09fc 8B       		.byte	-117
+ 2586 09fd 40       		.byte	64
+ 2587 09fe 9E       		.byte	-98
+ 2588 09ff 20       		.byte	32
+ 2589 0a00 9F       		.byte	-97
+ 2590 0a01 40       		.byte	64
+ 2591 0a02 C0       		.byte	-64
+ 2592 0a03 20       		.byte	32
+ 2593 0a04 C4       		.byte	-60
+ 2594 0a05 80       		.byte	-128
+ 2595 0a06 D0       		.byte	-48
+ 2596 0a07 5A       		.byte	90
+ 2597 0a08 D6       		.byte	-42
+ 2598 0a09 D0       		.byte	-48
+ 2599 0a0a D8       		.byte	-40
+ 2600 0a0b 80       		.byte	-128
+ 2601 0a0c E6       		.byte	-26
+ 2602 0a0d 80       		.byte	-128
+ 2603 0a0e 30       		.byte	48
+ 2604 0a0f 10       		.byte	16
+ 2605 0a10 35       		.byte	53
+ 2606 0a11 80       		.byte	-128
+ 2607 0a12 CC       		.byte	-52
+ 2608 0a13 30       		.byte	48
+ 2609 0a14 03       		.byte	3
+ 2610 0a15 80       		.byte	-128
+ 2611 0a16 04       		.byte	4
+ 2612 0a17 08       		.byte	8
+ 2613 0a18 84       		.byte	-124
+ 2614 0a19 10       		.byte	16
+ 2615 0a1a 9C       		.byte	-100
+ 2616 0a1b 10       		.byte	16
+ 2617 0a1c 9D       		.byte	-99
+ 2618 0a1d 80       		.byte	-128
+ 2619 0a1e C0       		.byte	-64
+ 2620 0a1f 30       		.byte	48
+ 2621 0a20 E6       		.byte	-26
+ 2622 0a21 40       		.byte	64
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 47
+
+
+ 2623 0a22 50       		.byte	80
+ 2624 0a23 40       		.byte	64
+ 2625 0a24 57       		.byte	87
+ 2626 0a25 08       		.byte	8
+ 2627 0a26 80       		.byte	-128
+ 2628 0a27 40       		.byte	64
+ 2629 0a28 89       		.byte	-119
+ 2630 0a29 02       		.byte	2
+ 2631 0a2a 9D       		.byte	-99
+ 2632 0a2b 80       		.byte	-128
+ 2633 0a2c A8       		.byte	-88
+ 2634 0a2d 04       		.byte	4
+ 2635 0a2e AF       		.byte	-81
+ 2636 0a2f 80       		.byte	-128
+ 2637 0a30 D4       		.byte	-44
+ 2638 0a31 60       		.byte	96
+ 2639 0a32 E2       		.byte	-30
+ 2640 0a33 80       		.byte	-128
+ 2641 0a34 EC       		.byte	-20
+ 2642 0a35 90       		.byte	-112
+ 2643 0a36 99       		.byte	-103
+ 2644 0a37 02       		.byte	2
+ 2645 0a38 9D       		.byte	-99
+ 2646 0a39 80       		.byte	-128
+ 2647 0a3a AB       		.byte	-85
+ 2648 0a3b 08       		.byte	8
+ 2649 0a3c EE       		.byte	-18
+ 2650 0a3d 80       		.byte	-128
+ 2651 0a3e 99       		.byte	-103
+ 2652 0a3f 02       		.byte	2
+ 2653 0a40 9D       		.byte	-99
+ 2654 0a41 80       		.byte	-128
+ 2655 0a42 12       		.byte	18
+ 2656 0a43 40       		.byte	64
+ 2657 0a44 75       		.byte	117
+ 2658 0a45 02       		.byte	2
+ 2659 0a46 86       		.byte	-122
+ 2660 0a47 40       		.byte	64
+ 2661 0a48 89       		.byte	-119
+ 2662 0a49 80       		.byte	-128
+ 2663 0a4a 99       		.byte	-103
+ 2664 0a4b 02       		.byte	2
+ 2665 0a4c 9D       		.byte	-99
+ 2666 0a4d 80       		.byte	-128
+ 2667 0a4e C4       		.byte	-60
+ 2668 0a4f 10       		.byte	16
+ 2669 0a50 DE       		.byte	-34
+ 2670 0a51 20       		.byte	32
+ 2671 0a52 E0       		.byte	-32
+ 2672 0a53 10       		.byte	16
+ 2673 0a54 00       		.byte	0
+ 2674 0a55 1E       		.byte	30
+ 2675 0a56 08       		.byte	8
+ 2676 0a57 14       		.byte	20
+ 2677 0a58 0A       		.byte	10
+ 2678 0a59 0C       		.byte	12
+ 2679 0a5a 0C       		.byte	12
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 48
+
+
+ 2680 0a5b 12       		.byte	18
+ 2681 0a5c 0E       		.byte	14
+ 2682 0a5d 02       		.byte	2
+ 2683 0a5e 10       		.byte	16
+ 2684 0a5f 1D       		.byte	29
+ 2685 0a60 1A       		.byte	26
+ 2686 0a61 0C       		.byte	12
+ 2687 0a62 1C       		.byte	28
+ 2688 0a63 11       		.byte	17
+ 2689 0a64 00       		.byte	0
+ 2690 0a65 0F       		.byte	15
+ 2691 0a66 00       		.byte	0
+ 2692 0a67 00       		.byte	0
+ 2693 0a68 06       		.byte	6
+ 2694 0a69 0A       		.byte	10
+ 2695 0a6a 00       		.byte	0
+ 2696 0a6b 00       		.byte	0
+ 2697 0a6c 01       		.byte	1
+ 2698 0a6d 00       		.byte	0
+ 2699 0a6e 00       		.byte	0
+ 2700 0a6f 00       		.byte	0
+ 2701 0a70 00       		.byte	0
+ 2702 0a71 00       		.byte	0
+ 2703 0a72 00       		.byte	0
+ 2704 0a73 00       		.byte	0
+ 2705 0a74 00       		.byte	0
+ 2706 0a75 0C       		.byte	12
+ 2707 0a76 00       		.byte	0
+ 2708 0a77 00       		.byte	0
+ 2709 0a78 E7       		.byte	-25
+ 2710 0a79 00       		.byte	0
+ 2711 0a7a 00       		.byte	0
+ 2712 0a7b 20       		.byte	32
+ 2713 0a7c 00       		.byte	0
+ 2714 0a7d 1F       		.byte	31
+ 2715 0a7e 00       		.byte	0
+ 2716 0a7f 00       		.byte	0
+ 2717 0a80 44       		.byte	68
+ 2718 0a81 00       		.byte	0
+ 2719 0a82 2A       		.byte	42
+ 2720 0a83 20       		.byte	32
+ 2721 0a84 00       		.byte	0
+ 2722 0a85 13       		.byte	19
+ 2723 0a86 00       		.byte	0
+ 2724 0a87 0C       		.byte	12
+ 2725 0a88 02       		.byte	2
+ 2726 0a89 1E       		.byte	30
+ 2727 0a8a 15       		.byte	21
+ 2728 0a8b 01       		.byte	1
+ 2729 0a8c 00       		.byte	0
+ 2730 0a8d 00       		.byte	0
+ 2731 0a8e 00       		.byte	0
+ 2732 0a8f 00       		.byte	0
+ 2733 0a90 00       		.byte	0
+ 2734 0a91 1C       		.byte	28
+ 2735 0a92 00       		.byte	0
+ 2736 0a93 03       		.byte	3
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 49
+
+
+ 2737 0a94 E7       		.byte	-25
+ 2738 0a95 00       		.byte	0
+ 2739 0a96 00       		.byte	0
+ 2740 0a97 02       		.byte	2
+ 2741 0a98 21       		.byte	33
+ 2742 0a99 04       		.byte	4
+ 2743 0a9a 4A       		.byte	74
+ 2744 0a9b 00       		.byte	0
+ 2745 0a9c 80       		.byte	-128
+ 2746 0a9d 08       		.byte	8
+ 2747 0a9e 00       		.byte	0
+ 2748 0a9f 00       		.byte	0
+ 2749 0aa0 60       		.byte	96
+ 2750 0aa1 01       		.byte	1
+ 2751 0aa2 80       		.byte	-128
+ 2752 0aa3 10       		.byte	16
+ 2753 0aa4 07       		.byte	7
+ 2754 0aa5 20       		.byte	32
+ 2755 0aa6 18       		.byte	24
+ 2756 0aa7 0E       		.byte	14
+ 2757 0aa8 00       		.byte	0
+ 2758 0aa9 02       		.byte	2
+ 2759 0aaa 00       		.byte	0
+ 2760 0aab 00       		.byte	0
+ 2761 0aac 00       		.byte	0
+ 2762 0aad 00       		.byte	0
+ 2763 0aae 40       		.byte	64
+ 2764 0aaf 14       		.byte	20
+ 2765 0ab0 63       		.byte	99
+ 2766 0ab1 04       		.byte	4
+ 2767 0ab2 05       		.byte	5
+ 2768 0ab3 00       		.byte	0
+ 2769 0ab4 01       		.byte	1
+ 2770 0ab5 00       		.byte	0
+ 2771 0ab6 E0       		.byte	-32
+ 2772 0ab7 0C       		.byte	12
+ 2773 0ab8 18       		.byte	24
+ 2774 0ab9 FF       		.byte	-1
+ 2775 0aba FF       		.byte	-1
+ 2776 0abb FF       		.byte	-1
+ 2777 0abc 62       		.byte	98
+ 2778 0abd A0       		.byte	-96
+ 2779 0abe F0       		.byte	-16
+ 2780 0abf 41       		.byte	65
+ 2781 0ac0 0C       		.byte	12
+ 2782 0ac1 00       		.byte	0
+ 2783 0ac2 00       		.byte	0
+ 2784 0ac3 00       		.byte	0
+ 2785 0ac4 00       		.byte	0
+ 2786 0ac5 00       		.byte	0
+ 2787 0ac6 02       		.byte	2
+ 2788 0ac7 12       		.byte	18
+ 2789 0ac8 04       		.byte	4
+ 2790 0ac9 04       		.byte	4
+ 2791 0aca 04       		.byte	4
+ 2792 0acb 04       		.byte	4
+ 2793 0acc 22       		.byte	34
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 50
+
+
+ 2794 0acd 22       		.byte	34
+ 2795 0ace 00       		.byte	0
+ 2796 0acf 01       		.byte	1
+ 2797 0ad0 00       		.byte	0
+ 2798 0ad1 00       		.byte	0
+ 2799 0ad2 00       		.byte	0
+ 2800 0ad3 00       		.byte	0
+ 2801 0ad4 00       		.byte	0
+ 2802 0ad5 00       		.byte	0
+ 2803 0ad6 40       		.byte	64
+ 2804 0ad7 02       		.byte	2
+ 2805 0ad8 00       		.byte	0
+ 2806 0ad9 10       		.byte	16
+ 2807 0ada 30       		.byte	48
+ 2808 0adb 10       		.byte	16
+ 2809 0adc 00       		.byte	0
+ 2810 0add 10       		.byte	16
+ 2811 0ade 10       		.byte	16
+ 2812 0adf 12       		.byte	18
+ 2813 0ae0 00       		.byte	0
+ 2814 0ae1 00       		.byte	0
+ 2815 0ae2 00       		.byte	0
+ 2816 0ae3 00       		.byte	0
+ 2817 0ae4 00       		.byte	0
+ 2818 0ae5 00       		.byte	0
+ 2819 0ae6 00       		.byte	0
+ 2820 0ae7 00       		.byte	0
+ 2821 0ae8 00       		.byte	0
+ 2822 0ae9 00       		.byte	0
+ 2823 0aea 00       		.byte	0
+ 2824 0aeb 00       		.byte	0
+ 2825 0aec 00       		.byte	0
+ 2826 0aed 00       		.byte	0
+ 2827 0aee 00       		.byte	0
+ 2828 0aef 00       		.byte	0
+ 2829 0af0 00       		.byte	0
+ 2830 0af1 00       		.byte	0
+ 2831 0af2 04       		.byte	4
+ 2832 0af3 0F       		.byte	15
+ 2833 0af4 00       		.byte	0
+ 2834 0af5 3C       		.byte	60
+ 2835 0af6 02       		.byte	2
+ 2836 0af7 03       		.byte	3
+ 2837 0af8 02       		.byte	2
+ 2838 0af9 30       		.byte	48
+ 2839 0afa 00       		.byte	0
+ 2840 0afb 00       		.byte	0
+ 2841 0afc 00       		.byte	0
+ 2842 0afd 0F       		.byte	15
+ 2843 0afe 00       		.byte	0
+ 2844 0aff 40       		.byte	64
+ 2845 0b00 00       		.byte	0
+ 2846 0b01 3F       		.byte	63
+ 2847 0b02 00       		.byte	0
+ 2848 0b03 00       		.byte	0
+ 2849 0b04 00       		.byte	0
+ 2850 0b05 0F       		.byte	15
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 51
+
+
+ 2851 0b06 01       		.byte	1
+ 2852 0b07 30       		.byte	48
+ 2853 0b08 00       		.byte	0
+ 2854 0b09 30       		.byte	48
+ 2855 0b0a 04       		.byte	4
+ 2856 0b0b 0F       		.byte	15
+ 2857 0b0c 02       		.byte	2
+ 2858 0b0d 00       		.byte	0
+ 2859 0b0e 00       		.byte	0
+ 2860 0b0f 00       		.byte	0
+ 2861 0b10 00       		.byte	0
+ 2862 0b11 05       		.byte	5
+ 2863 0b12 01       		.byte	1
+ 2864 0b13 80       		.byte	-128
+ 2865 0b14 00       		.byte	0
+ 2866 0b15 10       		.byte	16
+ 2867 0b16 00       		.byte	0
+ 2868 0b17 00       		.byte	0
+ 2869 0b18 00       		.byte	0
+ 2870 0b19 0A       		.byte	10
+ 2871 0b1a 02       		.byte	2
+ 2872 0b1b 80       		.byte	-128
+ 2873 0b1c 00       		.byte	0
+ 2874 0b1d 20       		.byte	32
+ 2875 0b1e 00       		.byte	0
+ 2876 0b1f 00       		.byte	0
+ 2877 0b20 00       		.byte	0
+ 2878 0b21 00       		.byte	0
+ 2879 0b22 04       		.byte	4
+ 2880 0b23 C0       		.byte	-64
+ 2881 0b24 02       		.byte	2
+ 2882 0b25 3C       		.byte	60
+ 2883 0b26 01       		.byte	1
+ 2884 0b27 03       		.byte	3
+ 2885 0b28 20       		.byte	32
+ 2886 0b29 00       		.byte	0
+ 2887 0b2a 00       		.byte	0
+ 2888 0b2b 22       		.byte	34
+ 2889 0b2c 00       		.byte	0
+ 2890 0b2d 00       		.byte	0
+ 2891 0b2e 44       		.byte	68
+ 2892 0b2f 04       		.byte	4
+ 2893 0b30 32       		.byte	50
+ 2894 0b31 05       		.byte	5
+ 2895 0b32 04       		.byte	4
+ 2896 0b33 00       		.byte	0
+ 2897 0b34 06       		.byte	6
+ 2898 0b35 00       		.byte	0
+ 2899 0b36 CE       		.byte	-50
+ 2900 0b37 00       		.byte	0
+ 2901 0b38 0C       		.byte	12
+ 2902 0b39 FF       		.byte	-1
+ 2903 0b3a FF       		.byte	-1
+ 2904 0b3b FF       		.byte	-1
+ 2905 0b3c 62       		.byte	98
+ 2906 0b3d A0       		.byte	-96
+ 2907 0b3e F0       		.byte	-16
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 52
+
+
+ 2908 0b3f 41       		.byte	65
+ 2909 0b40 0C       		.byte	12
+ 2910 0b41 00       		.byte	0
+ 2911 0b42 00       		.byte	0
+ 2912 0b43 00       		.byte	0
+ 2913 0b44 18       		.byte	24
+ 2914 0b45 00       		.byte	0
+ 2915 0b46 00       		.byte	0
+ 2916 0b47 00       		.byte	0
+ 2917 0b48 04       		.byte	4
+ 2918 0b49 04       		.byte	4
+ 2919 0b4a 04       		.byte	4
+ 2920 0b4b 04       		.byte	4
+ 2921 0b4c 33       		.byte	51
+ 2922 0b4d 33       		.byte	51
+ 2923 0b4e 00       		.byte	0
+ 2924 0b4f 01       		.byte	1
+ 2925 0b50 00       		.byte	0
+ 2926 0b51 00       		.byte	0
+ 2927 0b52 00       		.byte	0
+ 2928 0b53 00       		.byte	0
+ 2929 0b54 00       		.byte	0
+ 2930 0b55 00       		.byte	0
+ 2931 0b56 40       		.byte	64
+ 2932 0b57 02       		.byte	2
+ 2933 0b58 00       		.byte	0
+ 2934 0b59 10       		.byte	16
+ 2935 0b5a 30       		.byte	48
+ 2936 0b5b 10       		.byte	16
+ 2937 0b5c 00       		.byte	0
+ 2938 0b5d 10       		.byte	16
+ 2939 0b5e 10       		.byte	16
+ 2940 0b5f 12       		.byte	18
+ 2941 0b60 00       		.byte	0
+ 2942 0b61 00       		.byte	0
+ 2943 0b62 00       		.byte	0
+ 2944 0b63 00       		.byte	0
+ 2945 0b64 00       		.byte	0
+ 2946 0b65 00       		.byte	0
+ 2947 0b66 00       		.byte	0
+ 2948 0b67 00       		.byte	0
+ 2949 0b68 00       		.byte	0
+ 2950 0b69 00       		.byte	0
+ 2951 0b6a 00       		.byte	0
+ 2952 0b6b 00       		.byte	0
+ 2953 0b6c 00       		.byte	0
+ 2954 0b6d 00       		.byte	0
+ 2955 0b6e 00       		.byte	0
+ 2956 0b6f 00       		.byte	0
+ 2957 0b70 03       		.byte	3
+ 2958 0b71 00       		.byte	0
+ 2959 0b72 00       		.byte	0
+ 2960 0b73 00       		.byte	0
+ 2961 0b74 00       		.byte	0
+ 2962 0b75 00       		.byte	0
+ 2963 0b76 00       		.byte	0
+ 2964 0b77 00       		.byte	0
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 53
+
+
+ 2965 0b78 0E       		.byte	14
+ 2966 0b79 00       		.byte	0
+ 2967 0b7a 01       		.byte	1
+ 2968 0b7b 0E       		.byte	14
+ 2969 0b7c 0E       		.byte	14
+ 2970 0b7d 00       		.byte	0
+ 2971 0b7e 0E       		.byte	14
+ 2972 0b7f 00       		.byte	0
+ 2973 0b80 00       		.byte	0
+ 2974 0b81 00       		.byte	0
+ 2975 0b82 00       		.byte	0
+ 2976 0b83 00       		.byte	0
+ 2977 0b84 00       		.byte	0
+ 2978 0b85 0B       		.byte	11
+ 2979 0b86 0B       		.byte	11
+ 2980 0b87 00       		.byte	0
+ 2981 0b88 00       		.byte	0
+ 2982 0b89 00       		.byte	0
+ 2983 0b8a 00       		.byte	0
+ 2984 0b8b 00       		.byte	0
+ 2985 0b8c 00       		.byte	0
+ 2986 0b8d 7F       		.byte	127
+ 2987 0b8e 7F       		.byte	127
+ 2988 0b8f 00       		.byte	0
+ 2989 0b90 00       		.byte	0
+ 2990 0b91 00       		.byte	0
+ 2991 0b92 00       		.byte	0
+ 2992 0b93 00       		.byte	0
+ 2993 0b94 50       		.byte	80
+ 2994 0b95 A0       		.byte	-96
+ 2995 0b96 A0       		.byte	-96
+ 2996 0b97 00       		.byte	0
+ 2997 0b98 00       		.byte	0
+ 2998 0b99 00       		.byte	0
+ 2999 0b9a 00       		.byte	0
+ 3000 0b9b 00       		.byte	0
+ 3001              		.section	.cywolatch,"a",%progbits
+ 3002              		.align	2
+ 3003              		.type	cy_meta_wonvl, %object
+ 3004              		.size	cy_meta_wonvl, 4
+ 3005              	cy_meta_wonvl:
+ 3006 0000 BC       		.byte	-68
+ 3007 0001 90       		.byte	-112
+ 3008 0002 AC       		.byte	-84
+ 3009 0003 AF       		.byte	-81
+ 3010              		.section	.cycustnvl,"a",%progbits
+ 3011              		.align	2
+ 3012              		.type	cy_meta_custnvl, %object
+ 3013              		.size	cy_meta_custnvl, 4
+ 3014              	cy_meta_custnvl:
+ 3015 0000 00       		.byte	0
+ 3016 0001 00       		.byte	0
+ 3017 0002 40       		.byte	64
+ 3018 0003 05       		.byte	5
+ 3019              		.section	.cymeta,"a",%progbits
+ 3020              		.align	2
+ 3021              		.type	cy_metadata, %object
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 54
+
+
+ 3022              		.size	cy_metadata, 12
+ 3023              	cy_metadata:
+ 3024 0000 00       		.byte	0
+ 3025 0001 01       		.byte	1
+ 3026 0002 2E       		.byte	46
+ 3027 0003 12       		.byte	18
+ 3028 0004 30       		.byte	48
+ 3029 0005 69       		.byte	105
+ 3030 0006 00       		.byte	0
+ 3031 0007 01       		.byte	1
+ 3032 0008 00       		.byte	0
+ 3033 0009 00       		.byte	0
+ 3034 000a 00       		.byte	0
+ 3035 000b 00       		.byte	0
+ 3036              		.section	.cyflashprotect,"a",%progbits
+ 3037              		.align	2
+ 3038              		.type	cy_meta_flashprotect, %object
+ 3039              		.size	cy_meta_flashprotect, 256
+ 3040              	cy_meta_flashprotect:
+ 3041 0000 00000000 		.space	256
+ 3041      00000000 
+ 3041      00000000 
+ 3041      00000000 
+ 3041      00000000 
+ 3042              		.text
+ 3043              	.Letext0:
+ 3044              		.file 1 "d:\\psoccreator4.2\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.1\\arm-none-ea
+ 3045              		.file 2 "d:\\psoccreator4.2\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.1\\arm-none-ea
+ 3046              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 3047              		.section	.debug_info,"",%progbits
+ 3048              	.Ldebug_info0:
+ 3049 0000 35010000 		.4byte	0x135
+ 3050 0004 0400     		.2byte	0x4
+ 3051 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 3052 000a 04       		.byte	0x4
+ 3053 000b 01       		.uleb128 0x1
+ 3054 000c 24000000 		.4byte	.LASF17
+ 3055 0010 0C       		.byte	0xc
+ 3056 0011 BF010000 		.4byte	.LASF18
+ 3057 0015 3A010000 		.4byte	.LASF19
+ 3058 0019 00000000 		.4byte	.Ldebug_line0
+ 3059 001d 02       		.uleb128 0x2
+ 3060 001e 01       		.byte	0x1
+ 3061 001f 06       		.byte	0x6
+ 3062 0020 B3010000 		.4byte	.LASF0
+ 3063 0024 03       		.uleb128 0x3
+ 3064 0025 00000000 		.4byte	.LASF9
+ 3065 0029 01       		.byte	0x1
+ 3066 002a 1D       		.byte	0x1d
+ 3067 002b 2F000000 		.4byte	0x2f
+ 3068 002f 02       		.uleb128 0x2
+ 3069 0030 01       		.byte	0x1
+ 3070 0031 08       		.byte	0x8
+ 3071 0032 16000000 		.4byte	.LASF1
+ 3072 0036 02       		.uleb128 0x2
+ 3073 0037 02       		.byte	0x2
+ 3074 0038 05       		.byte	0x5
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 55
+
+
+ 3075 0039 A0010000 		.4byte	.LASF2
+ 3076 003d 02       		.uleb128 0x2
+ 3077 003e 02       		.byte	0x2
+ 3078 003f 07       		.byte	0x7
+ 3079 0040 C4000000 		.4byte	.LASF3
+ 3080 0044 02       		.uleb128 0x2
+ 3081 0045 04       		.byte	0x4
+ 3082 0046 05       		.byte	0x5
+ 3083 0047 AA010000 		.4byte	.LASF4
+ 3084 004b 02       		.uleb128 0x2
+ 3085 004c 04       		.byte	0x4
+ 3086 004d 07       		.byte	0x7
+ 3087 004e B2000000 		.4byte	.LASF5
+ 3088 0052 02       		.uleb128 0x2
+ 3089 0053 08       		.byte	0x8
+ 3090 0054 05       		.byte	0x5
+ 3091 0055 92010000 		.4byte	.LASF6
+ 3092 0059 02       		.uleb128 0x2
+ 3093 005a 08       		.byte	0x8
+ 3094 005b 07       		.byte	0x7
+ 3095 005c 06010000 		.4byte	.LASF7
+ 3096 0060 04       		.uleb128 0x4
+ 3097 0061 04       		.byte	0x4
+ 3098 0062 05       		.byte	0x5
+ 3099 0063 696E7400 		.ascii	"int\000"
+ 3100 0067 02       		.uleb128 0x2
+ 3101 0068 04       		.byte	0x4
+ 3102 0069 07       		.byte	0x7
+ 3103 006a F9000000 		.4byte	.LASF8
+ 3104 006e 03       		.uleb128 0x3
+ 3105 006f 1D010000 		.4byte	.LASF10
+ 3106 0073 02       		.byte	0x2
+ 3107 0074 18       		.byte	0x18
+ 3108 0075 24000000 		.4byte	0x24
+ 3109 0079 05       		.uleb128 0x5
+ 3110 007a 91000000 		.4byte	0x91
+ 3111 007e 8A000000 		.4byte	0x8a
+ 3112 0082 06       		.uleb128 0x6
+ 3113 0083 8A000000 		.4byte	0x8a
+ 3114 0087 9B0B     		.2byte	0xb9b
+ 3115 0089 00       		.byte	0
+ 3116 008a 02       		.uleb128 0x2
+ 3117 008b 04       		.byte	0x4
+ 3118 008c 07       		.byte	0x7
+ 3119 008d 89010000 		.4byte	.LASF11
+ 3120 0091 07       		.uleb128 0x7
+ 3121 0092 6E000000 		.4byte	0x6e
+ 3122 0096 08       		.uleb128 0x8
+ 3123 0097 E7000000 		.4byte	.LASF12
+ 3124 009b 03       		.byte	0x3
+ 3125 009c 1F       		.byte	0x1f
+ 3126 009d A7000000 		.4byte	0xa7
+ 3127 00a1 05       		.uleb128 0x5
+ 3128 00a2 03       		.byte	0x3
+ 3129 00a3 00000000 		.4byte	cy_meta_configecc
+ 3130 00a7 07       		.uleb128 0x7
+ 3131 00a8 79000000 		.4byte	0x79
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 56
+
+
+ 3132 00ac 05       		.uleb128 0x5
+ 3133 00ad 91000000 		.4byte	0x91
+ 3134 00b1 BC000000 		.4byte	0xbc
+ 3135 00b5 09       		.uleb128 0x9
+ 3136 00b6 8A000000 		.4byte	0x8a
+ 3137 00ba 03       		.byte	0x3
+ 3138 00bb 00       		.byte	0
+ 3139 00bc 0A       		.uleb128 0xa
+ 3140 00bd D7000000 		.4byte	.LASF13
+ 3141 00c1 03       		.byte	0x3
+ 3142 00c2 A001     		.2byte	0x1a0
+ 3143 00c4 CE000000 		.4byte	0xce
+ 3144 00c8 05       		.uleb128 0x5
+ 3145 00c9 03       		.byte	0x3
+ 3146 00ca 00000000 		.4byte	cy_meta_custnvl
+ 3147 00ce 07       		.uleb128 0x7
+ 3148 00cf AC000000 		.4byte	0xac
+ 3149 00d3 0A       		.uleb128 0xa
+ 3150 00d4 7B010000 		.4byte	.LASF14
+ 3151 00d8 03       		.byte	0x3
+ 3152 00d9 AE01     		.2byte	0x1ae
+ 3153 00db E5000000 		.4byte	0xe5
+ 3154 00df 05       		.uleb128 0x5
+ 3155 00e0 03       		.byte	0x3
+ 3156 00e1 00000000 		.4byte	cy_meta_wonvl
+ 3157 00e5 07       		.uleb128 0x7
+ 3158 00e6 AC000000 		.4byte	0xac
+ 3159 00ea 05       		.uleb128 0x5
+ 3160 00eb 91000000 		.4byte	0x91
+ 3161 00ef FA000000 		.4byte	0xfa
+ 3162 00f3 09       		.uleb128 0x9
+ 3163 00f4 8A000000 		.4byte	0x8a
+ 3164 00f8 FF       		.byte	0xff
+ 3165 00f9 00       		.byte	0
+ 3166 00fa 0A       		.uleb128 0xa
+ 3167 00fb 25010000 		.4byte	.LASF15
+ 3168 00ff 03       		.byte	0x3
+ 3169 0100 BC01     		.2byte	0x1bc
+ 3170 0102 0C010000 		.4byte	0x10c
+ 3171 0106 05       		.uleb128 0x5
+ 3172 0107 03       		.byte	0x3
+ 3173 0108 00000000 		.4byte	cy_meta_flashprotect
+ 3174 010c 07       		.uleb128 0x7
+ 3175 010d EA000000 		.4byte	0xea
+ 3176 0111 05       		.uleb128 0x5
+ 3177 0112 91000000 		.4byte	0x91
+ 3178 0116 21010000 		.4byte	0x121
+ 3179 011a 09       		.uleb128 0x9
+ 3180 011b 8A000000 		.4byte	0x8a
+ 3181 011f 0B       		.byte	0xb
+ 3182 0120 00       		.byte	0
+ 3183 0121 0A       		.uleb128 0xa
+ 3184 0122 0A000000 		.4byte	.LASF16
+ 3185 0126 03       		.byte	0x3
+ 3186 0127 E901     		.2byte	0x1e9
+ 3187 0129 33010000 		.4byte	0x133
+ 3188 012d 05       		.uleb128 0x5
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 57
+
+
+ 3189 012e 03       		.byte	0x3
+ 3190 012f 00000000 		.4byte	cy_metadata
+ 3191 0133 07       		.uleb128 0x7
+ 3192 0134 11010000 		.4byte	0x111
+ 3193 0138 00       		.byte	0
+ 3194              		.section	.debug_abbrev,"",%progbits
+ 3195              	.Ldebug_abbrev0:
+ 3196 0000 01       		.uleb128 0x1
+ 3197 0001 11       		.uleb128 0x11
+ 3198 0002 01       		.byte	0x1
+ 3199 0003 25       		.uleb128 0x25
+ 3200 0004 0E       		.uleb128 0xe
+ 3201 0005 13       		.uleb128 0x13
+ 3202 0006 0B       		.uleb128 0xb
+ 3203 0007 03       		.uleb128 0x3
+ 3204 0008 0E       		.uleb128 0xe
+ 3205 0009 1B       		.uleb128 0x1b
+ 3206 000a 0E       		.uleb128 0xe
+ 3207 000b 10       		.uleb128 0x10
+ 3208 000c 17       		.uleb128 0x17
+ 3209 000d 00       		.byte	0
+ 3210 000e 00       		.byte	0
+ 3211 000f 02       		.uleb128 0x2
+ 3212 0010 24       		.uleb128 0x24
+ 3213 0011 00       		.byte	0
+ 3214 0012 0B       		.uleb128 0xb
+ 3215 0013 0B       		.uleb128 0xb
+ 3216 0014 3E       		.uleb128 0x3e
+ 3217 0015 0B       		.uleb128 0xb
+ 3218 0016 03       		.uleb128 0x3
+ 3219 0017 0E       		.uleb128 0xe
+ 3220 0018 00       		.byte	0
+ 3221 0019 00       		.byte	0
+ 3222 001a 03       		.uleb128 0x3
+ 3223 001b 16       		.uleb128 0x16
+ 3224 001c 00       		.byte	0
+ 3225 001d 03       		.uleb128 0x3
+ 3226 001e 0E       		.uleb128 0xe
+ 3227 001f 3A       		.uleb128 0x3a
+ 3228 0020 0B       		.uleb128 0xb
+ 3229 0021 3B       		.uleb128 0x3b
+ 3230 0022 0B       		.uleb128 0xb
+ 3231 0023 49       		.uleb128 0x49
+ 3232 0024 13       		.uleb128 0x13
+ 3233 0025 00       		.byte	0
+ 3234 0026 00       		.byte	0
+ 3235 0027 04       		.uleb128 0x4
+ 3236 0028 24       		.uleb128 0x24
+ 3237 0029 00       		.byte	0
+ 3238 002a 0B       		.uleb128 0xb
+ 3239 002b 0B       		.uleb128 0xb
+ 3240 002c 3E       		.uleb128 0x3e
+ 3241 002d 0B       		.uleb128 0xb
+ 3242 002e 03       		.uleb128 0x3
+ 3243 002f 08       		.uleb128 0x8
+ 3244 0030 00       		.byte	0
+ 3245 0031 00       		.byte	0
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 58
+
+
+ 3246 0032 05       		.uleb128 0x5
+ 3247 0033 01       		.uleb128 0x1
+ 3248 0034 01       		.byte	0x1
+ 3249 0035 49       		.uleb128 0x49
+ 3250 0036 13       		.uleb128 0x13
+ 3251 0037 01       		.uleb128 0x1
+ 3252 0038 13       		.uleb128 0x13
+ 3253 0039 00       		.byte	0
+ 3254 003a 00       		.byte	0
+ 3255 003b 06       		.uleb128 0x6
+ 3256 003c 21       		.uleb128 0x21
+ 3257 003d 00       		.byte	0
+ 3258 003e 49       		.uleb128 0x49
+ 3259 003f 13       		.uleb128 0x13
+ 3260 0040 2F       		.uleb128 0x2f
+ 3261 0041 05       		.uleb128 0x5
+ 3262 0042 00       		.byte	0
+ 3263 0043 00       		.byte	0
+ 3264 0044 07       		.uleb128 0x7
+ 3265 0045 26       		.uleb128 0x26
+ 3266 0046 00       		.byte	0
+ 3267 0047 49       		.uleb128 0x49
+ 3268 0048 13       		.uleb128 0x13
+ 3269 0049 00       		.byte	0
+ 3270 004a 00       		.byte	0
+ 3271 004b 08       		.uleb128 0x8
+ 3272 004c 34       		.uleb128 0x34
+ 3273 004d 00       		.byte	0
+ 3274 004e 03       		.uleb128 0x3
+ 3275 004f 0E       		.uleb128 0xe
+ 3276 0050 3A       		.uleb128 0x3a
+ 3277 0051 0B       		.uleb128 0xb
+ 3278 0052 3B       		.uleb128 0x3b
+ 3279 0053 0B       		.uleb128 0xb
+ 3280 0054 49       		.uleb128 0x49
+ 3281 0055 13       		.uleb128 0x13
+ 3282 0056 3F       		.uleb128 0x3f
+ 3283 0057 19       		.uleb128 0x19
+ 3284 0058 02       		.uleb128 0x2
+ 3285 0059 18       		.uleb128 0x18
+ 3286 005a 00       		.byte	0
+ 3287 005b 00       		.byte	0
+ 3288 005c 09       		.uleb128 0x9
+ 3289 005d 21       		.uleb128 0x21
+ 3290 005e 00       		.byte	0
+ 3291 005f 49       		.uleb128 0x49
+ 3292 0060 13       		.uleb128 0x13
+ 3293 0061 2F       		.uleb128 0x2f
+ 3294 0062 0B       		.uleb128 0xb
+ 3295 0063 00       		.byte	0
+ 3296 0064 00       		.byte	0
+ 3297 0065 0A       		.uleb128 0xa
+ 3298 0066 34       		.uleb128 0x34
+ 3299 0067 00       		.byte	0
+ 3300 0068 03       		.uleb128 0x3
+ 3301 0069 0E       		.uleb128 0xe
+ 3302 006a 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 59
+
+
+ 3303 006b 0B       		.uleb128 0xb
+ 3304 006c 3B       		.uleb128 0x3b
+ 3305 006d 05       		.uleb128 0x5
+ 3306 006e 49       		.uleb128 0x49
+ 3307 006f 13       		.uleb128 0x13
+ 3308 0070 3F       		.uleb128 0x3f
+ 3309 0071 19       		.uleb128 0x19
+ 3310 0072 02       		.uleb128 0x2
+ 3311 0073 18       		.uleb128 0x18
+ 3312 0074 00       		.byte	0
+ 3313 0075 00       		.byte	0
+ 3314 0076 00       		.byte	0
+ 3315              		.section	.debug_aranges,"",%progbits
+ 3316 0000 14000000 		.4byte	0x14
+ 3317 0004 0200     		.2byte	0x2
+ 3318 0006 00000000 		.4byte	.Ldebug_info0
+ 3319 000a 04       		.byte	0x4
+ 3320 000b 00       		.byte	0
+ 3321 000c 0000     		.2byte	0
+ 3322 000e 0000     		.2byte	0
+ 3323 0010 00000000 		.4byte	0
+ 3324 0014 00000000 		.4byte	0
+ 3325              		.section	.debug_line,"",%progbits
+ 3326              	.Ldebug_line0:
+ 3327 0000 23010000 		.section	.debug_str,"MS",%progbits,1
+ 3327      02001D01 
+ 3327      00000201 
+ 3327      FB0E0D00 
+ 3327      01010101 
+ 3328              	.LASF9:
+ 3329 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 3329      6E74385F 
+ 3329      7400
+ 3330              	.LASF16:
+ 3331 000a 63795F6D 		.ascii	"cy_metadata\000"
+ 3331      65746164 
+ 3331      61746100 
+ 3332              	.LASF1:
+ 3333 0016 756E7369 		.ascii	"unsigned char\000"
+ 3333      676E6564 
+ 3333      20636861 
+ 3333      7200
+ 3334              	.LASF17:
+ 3335 0024 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 3335      43313120 
+ 3335      352E342E 
+ 3335      31203230 
+ 3335      31363036 
+ 3336 0057 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 3336      20726576 
+ 3336      6973696F 
+ 3336      6E203233 
+ 3336      37373135 
+ 3337 008a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 3337      66756E63 
+ 3337      74696F6E 
+ 3337      2D736563 
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 60
+
+
+ 3337      74696F6E 
+ 3338              	.LASF5:
+ 3339 00b2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3339      20756E73 
+ 3339      69676E65 
+ 3339      6420696E 
+ 3339      7400
+ 3340              	.LASF3:
+ 3341 00c4 73686F72 		.ascii	"short unsigned int\000"
+ 3341      7420756E 
+ 3341      7369676E 
+ 3341      65642069 
+ 3341      6E7400
+ 3342              	.LASF13:
+ 3343 00d7 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 3343      6574615F 
+ 3343      63757374 
+ 3343      6E766C00 
+ 3344              	.LASF12:
+ 3345 00e7 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 3345      6574615F 
+ 3345      636F6E66 
+ 3345      69676563 
+ 3345      6300
+ 3346              	.LASF8:
+ 3347 00f9 756E7369 		.ascii	"unsigned int\000"
+ 3347      676E6564 
+ 3347      20696E74 
+ 3347      00
+ 3348              	.LASF7:
+ 3349 0106 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3349      206C6F6E 
+ 3349      6720756E 
+ 3349      7369676E 
+ 3349      65642069 
+ 3350              	.LASF10:
+ 3351 011d 75696E74 		.ascii	"uint8_t\000"
+ 3351      385F7400 
+ 3352              	.LASF15:
+ 3353 0125 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 3353      6574615F 
+ 3353      666C6173 
+ 3353      6870726F 
+ 3353      74656374 
+ 3354              	.LASF19:
+ 3355 013a 433A5C55 		.ascii	"C:\\Users\\lab512\\Desktop\\lmx_borrow\\Servo\\Robo"
+ 3355      73657273 
+ 3355      5C6C6162 
+ 3355      3531325C 
+ 3355      4465736B 
+ 3356 0167 745F6172 		.ascii	"t_arm_trolley.cydsn\000"
+ 3356      6D5F7472 
+ 3356      6F6C6C65 
+ 3356      792E6379 
+ 3356      64736E00 
+ 3357              	.LASF14:
+ 3358 017b 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccVkDZFo.s 			page 61
+
+
+ 3358      6574615F 
+ 3358      776F6E76 
+ 3358      6C00
+ 3359              	.LASF11:
+ 3360 0189 73697A65 		.ascii	"sizetype\000"
+ 3360      74797065 
+ 3360      00
+ 3361              	.LASF6:
+ 3362 0192 6C6F6E67 		.ascii	"long long int\000"
+ 3362      206C6F6E 
+ 3362      6720696E 
+ 3362      7400
+ 3363              	.LASF2:
+ 3364 01a0 73686F72 		.ascii	"short int\000"
+ 3364      7420696E 
+ 3364      7400
+ 3365              	.LASF4:
+ 3366 01aa 6C6F6E67 		.ascii	"long int\000"
+ 3366      20696E74 
+ 3366      00
+ 3367              	.LASF0:
+ 3368 01b3 7369676E 		.ascii	"signed char\000"
+ 3368      65642063 
+ 3368      68617200 
+ 3369              	.LASF18:
+ 3370 01bf 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 3370      72617465 
+ 3370      645F536F 
+ 3370      75726365 
+ 3370      5C50536F 
+ 3371              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

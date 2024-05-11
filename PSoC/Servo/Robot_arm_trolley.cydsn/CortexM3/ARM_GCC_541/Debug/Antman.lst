@@ -1,0 +1,1033 @@
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccrLSUYR.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"Antman.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.antman_init,"ax",%progbits
+  20              		.align	2
+  21              		.global	antman_init
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	antman_init, %function
+  25              	antman_init:
+  26              	.LFB63:
+  27              		.file 1 "Antman.c"
+   1:Antman.c      **** /* ========================================
+   2:Antman.c      ****  *
+   3:Antman.c      ****  * Copyright YOUR COMPANY, THE YEAR
+   4:Antman.c      ****  * All Rights Reserved
+   5:Antman.c      ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:Antman.c      ****  *
+   7:Antman.c      ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:Antman.c      ****  * WHICH IS THE PROPERTY OF your company.
+   9:Antman.c      ****  *
+  10:Antman.c      ****  * ========================================
+  11:Antman.c      **** */
+  12:Antman.c      **** 
+  13:Antman.c      **** #include <project.h>
+  14:Antman.c      **** #include "defs.h"
+  15:Antman.c      **** #include "param.h"
+  16:Antman.c      **** 
+  17:Antman.c      **** 
+  18:Antman.c      **** int state = ANTMAN_STATUS_LOST;
+  19:Antman.c      **** 
+  20:Antman.c      **** void antman_init(){
+  28              		.loc 1 20 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  21:Antman.c      ****     state = ANTMAN_STATUS_LOST;
+  33              		.loc 1 21 0
+  34 0000 0022     		movs	r2, #0
+  35 0002 014B     		ldr	r3, .L2
+  36 0004 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccrLSUYR.s 			page 2
+
+
+  37 0006 7047     		bx	lr
+  38              	.L3:
+  39              		.align	2
+  40              	.L2:
+  41 0008 00000000 		.word	.LANCHOR0
+  42              		.cfi_endproc
+  43              	.LFE63:
+  44              		.size	antman_init, .-antman_init
+  45              		.section	.text.antman,"ax",%progbits
+  46              		.align	2
+  47              		.global	antman
+  48              		.thumb
+  49              		.thumb_func
+  50              		.type	antman, %function
+  51              	antman:
+  52              	.LFB64:
+  22:Antman.c      **** }
+  23:Antman.c      **** 
+  24:Antman.c      **** void antman(int d1, int d2, int velocity){
+  53              		.loc 1 24 0
+  54              		.cfi_startproc
+  55              		@ args = 0, pretend = 0, frame = 0
+  56              		@ frame_needed = 0, uses_anonymous_args = 0
+  57              	.LVL0:
+  58 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  59              		.cfi_def_cfa_offset 24
+  60              		.cfi_offset 3, -24
+  61              		.cfi_offset 4, -20
+  62              		.cfi_offset 5, -16
+  63              		.cfi_offset 6, -12
+  64              		.cfi_offset 7, -8
+  65              		.cfi_offset 14, -4
+  66 0002 0546     		mov	r5, r0
+  67 0004 0F46     		mov	r7, r1
+  68 0006 1646     		mov	r6, r2
+  25:Antman.c      **** 
+  26:Antman.c      ****     LCD_Position(1, 8);
+  69              		.loc 1 26 0
+  70 0008 0821     		movs	r1, #8
+  71              	.LVL1:
+  72 000a 0120     		movs	r0, #1
+  73              	.LVL2:
+  74 000c FFF7FEFF 		bl	LCD_Position
+  75              	.LVL3:
+  27:Antman.c      ****     LCD_PrintInt32(state);
+  76              		.loc 1 27 0
+  77 0010 2A4C     		ldr	r4, .L15
+  78 0012 2068     		ldr	r0, [r4]
+  79 0014 FFF7FEFF 		bl	LCD_PrintInt32
+  80              	.LVL4:
+  28:Antman.c      **** 
+  29:Antman.c      ****     if(state == ANTMAN_STATUS_LOST){
+  81              		.loc 1 29 0
+  82 0018 2368     		ldr	r3, [r4]
+  83 001a 7BB9     		cbnz	r3, .L5
+  30:Antman.c      ****         go_forward(velocity);
+  84              		.loc 1 30 0
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccrLSUYR.s 			page 3
+
+
+  85 001c 30B2     		sxth	r0, r6
+  86 001e FFF7FEFF 		bl	go_forward
+  87              	.LVL5:
+  31:Antman.c      ****         if(d1 < ANTMAN_THRESHOLD){
+  88              		.loc 1 31 0
+  89 0022 B5F5A06F 		cmp	r5, #1280
+  90 0026 02DA     		bge	.L6
+  32:Antman.c      ****             state = ANTMAN_STATUS_ESCAPE;
+  91              		.loc 1 32 0
+  92 0028 0322     		movs	r2, #3
+  93 002a 2260     		str	r2, [r4]
+  94 002c F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+  95              	.LVL6:
+  96              	.L6:
+  33:Antman.c      ****         }
+  34:Antman.c      ****         else if (d2 < ANTMAN_THRESHOLD){
+  97              		.loc 1 34 0
+  98 002e B7F5A06F 		cmp	r7, #1280
+  99 0032 41DA     		bge	.L4
+  35:Antman.c      ****             state = ANTMAN_STATUS_DISTANCE;
+ 100              		.loc 1 35 0
+ 101 0034 0222     		movs	r2, #2
+ 102 0036 214B     		ldr	r3, .L15
+ 103 0038 1A60     		str	r2, [r3]
+ 104 003a F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 105              	.LVL7:
+ 106              	.L5:
+  36:Antman.c      ****         }
+  37:Antman.c      ****     }
+  38:Antman.c      ****     else if (state == ANTMAN_STATUS_APPROACH){
+ 107              		.loc 1 38 0
+ 108 003c 012B     		cmp	r3, #1
+ 109 003e 11D1     		bne	.L8
+  39:Antman.c      ****         turn_right_precise(velocity, ANTMAN_ALPHA);
+ 110              		.loc 1 39 0
+ 111 0040 1F49     		ldr	r1, .L15+4
+ 112 0042 30B2     		sxth	r0, r6
+ 113 0044 FFF7FEFF 		bl	turn_right_precise
+ 114              	.LVL8:
+  40:Antman.c      ****         if(d1 < ANTMAN_THRESHOLD){
+ 115              		.loc 1 40 0
+ 116 0048 B5F5A06F 		cmp	r5, #1280
+ 117 004c 03DA     		bge	.L9
+  41:Antman.c      ****             state = ANTMAN_STATUS_ESCAPE;
+ 118              		.loc 1 41 0
+ 119 004e 0322     		movs	r2, #3
+ 120 0050 1A4B     		ldr	r3, .L15
+ 121 0052 1A60     		str	r2, [r3]
+ 122 0054 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 123              	.LVL9:
+ 124              	.L9:
+  42:Antman.c      ****         }
+  43:Antman.c      ****         else if (d2 < ANTMAN_THRESHOLD){
+ 125              		.loc 1 43 0
+ 126 0056 B7F5A06F 		cmp	r7, #1280
+ 127 005a 2DDA     		bge	.L4
+  44:Antman.c      ****             state = ANTMAN_STATUS_DISTANCE;
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccrLSUYR.s 			page 4
+
+
+ 128              		.loc 1 44 0
+ 129 005c 0222     		movs	r2, #2
+ 130 005e 174B     		ldr	r3, .L15
+ 131 0060 1A60     		str	r2, [r3]
+ 132 0062 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 133              	.LVL10:
+ 134              	.L8:
+  45:Antman.c      ****         }
+  46:Antman.c      ****     }
+  47:Antman.c      ****     else if (state == ANTMAN_STATUS_DISTANCE){
+ 135              		.loc 1 47 0
+ 136 0064 022B     		cmp	r3, #2
+ 137 0066 11D1     		bne	.L10
+  48:Antman.c      ****         turn_left_precise(velocity, ANTMAN_BETA);
+ 138              		.loc 1 48 0
+ 139 0068 1649     		ldr	r1, .L15+8
+ 140 006a 30B2     		sxth	r0, r6
+ 141 006c FFF7FEFF 		bl	turn_left_precise
+ 142              	.LVL11:
+  49:Antman.c      ****         if(d1 < ANTMAN_THRESHOLD){
+ 143              		.loc 1 49 0
+ 144 0070 B5F5A06F 		cmp	r5, #1280
+ 145 0074 03DA     		bge	.L11
+  50:Antman.c      ****             state = ANTMAN_STATUS_ESCAPE;
+ 146              		.loc 1 50 0
+ 147 0076 0322     		movs	r2, #3
+ 148 0078 104B     		ldr	r3, .L15
+ 149 007a 1A60     		str	r2, [r3]
+ 150 007c F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 151              	.LVL12:
+ 152              	.L11:
+  51:Antman.c      ****         }
+  52:Antman.c      ****         else if (d2 > ANTMAN_THRESHOLD + ANTMAN_HYSTERESIS){
+ 153              		.loc 1 52 0
+ 154 007e B7F5AA6F 		cmp	r7, #1360
+ 155 0082 19DD     		ble	.L4
+  53:Antman.c      ****             state = ANTMAN_STATUS_APPROACH;
+ 156              		.loc 1 53 0
+ 157 0084 0122     		movs	r2, #1
+ 158 0086 0D4B     		ldr	r3, .L15
+ 159 0088 1A60     		str	r2, [r3]
+ 160 008a F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 161              	.LVL13:
+ 162              	.L10:
+  54:Antman.c      ****         }
+  55:Antman.c      ****     }
+  56:Antman.c      ****     else if (state == ANTMAN_STATUS_ESCAPE){
+ 163              		.loc 1 56 0
+ 164 008c 032B     		cmp	r3, #3
+ 165 008e 10D1     		bne	.L12
+  57:Antman.c      ****         turn_left(velocity);
+ 166              		.loc 1 57 0
+ 167 0090 30B2     		sxth	r0, r6
+ 168 0092 FFF7FEFF 		bl	turn_left
+ 169              	.LVL14:
+  58:Antman.c      ****         if(d1 > ANTMAN_THRESHOLD + ANTMAN_HYSTERESIS){
+ 170              		.loc 1 58 0
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccrLSUYR.s 			page 5
+
+
+ 171 0096 B5F5AA6F 		cmp	r5, #1360
+ 172 009a 0DDD     		ble	.L4
+  59:Antman.c      ****             if (d2 > ANTMAN_THRESHOLD){
+ 173              		.loc 1 59 0
+ 174 009c B7F5A06F 		cmp	r7, #1280
+ 175 00a0 03DD     		ble	.L13
+  60:Antman.c      ****                 state = ANTMAN_STATUS_APPROACH;
+ 176              		.loc 1 60 0
+ 177 00a2 0122     		movs	r2, #1
+ 178 00a4 054B     		ldr	r3, .L15
+ 179 00a6 1A60     		str	r2, [r3]
+ 180 00a8 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 181              	.LVL15:
+ 182              	.L13:
+  61:Antman.c      ****             }
+  62:Antman.c      ****             else{
+  63:Antman.c      ****                 state = ANTMAN_STATUS_DISTANCE;
+ 183              		.loc 1 63 0
+ 184 00aa 0222     		movs	r2, #2
+ 185 00ac 034B     		ldr	r3, .L15
+ 186 00ae 1A60     		str	r2, [r3]
+ 187 00b0 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 188              	.LVL16:
+ 189              	.L12:
+  64:Antman.c      ****             }
+  65:Antman.c      ****         }
+  66:Antman.c      ****     }
+  67:Antman.c      ****     else{
+  68:Antman.c      ****         state = ANTMAN_STATUS_LOST;
+ 190              		.loc 1 68 0
+ 191 00b2 0022     		movs	r2, #0
+ 192 00b4 014B     		ldr	r3, .L15
+ 193 00b6 1A60     		str	r2, [r3]
+ 194              	.L4:
+ 195 00b8 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 196              	.LVL17:
+ 197              	.L16:
+ 198 00ba 00BF     		.align	2
+ 199              	.L15:
+ 200 00bc 00000000 		.word	.LANCHOR0
+ 201 00c0 3333333F 		.word	1060320051
+ 202 00c4 000080BF 		.word	-1082130432
+ 203              		.cfi_endproc
+ 204              	.LFE64:
+ 205              		.size	antman, .-antman
+ 206              		.global	state
+ 207              		.bss
+ 208              		.align	2
+ 209              		.set	.LANCHOR0,. + 0
+ 210              		.type	state, %object
+ 211              		.size	state, 4
+ 212              	state:
+ 213 0000 00000000 		.space	4
+ 214              		.text
+ 215              	.Letext0:
+ 216              		.file 2 "d:\\psoccreator4.2\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.1\\arm-none-ea
+ 217              		.file 3 "d:\\psoccreator4.2\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.1\\arm-none-ea
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccrLSUYR.s 			page 6
+
+
+ 218              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+ 219              		.file 5 "Generated_Source\\PSoC5/LCD.h"
+ 220              		.file 6 "defs.h"
+ 221              		.section	.debug_info,"",%progbits
+ 222              	.Ldebug_info0:
+ 223 0000 C4010000 		.4byte	0x1c4
+ 224 0004 0400     		.2byte	0x4
+ 225 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 226 000a 04       		.byte	0x4
+ 227 000b 01       		.uleb128 0x1
+ 228 000c 67000000 		.4byte	.LASF25
+ 229 0010 0C       		.byte	0xc
+ 230 0011 D2010000 		.4byte	.LASF26
+ 231 0015 5F010000 		.4byte	.LASF27
+ 232 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 233 001d 00000000 		.4byte	0
+ 234 0021 00000000 		.4byte	.Ldebug_line0
+ 235 0025 02       		.uleb128 0x2
+ 236 0026 01       		.byte	0x1
+ 237 0027 06       		.byte	0x6
+ 238 0028 0E020000 		.4byte	.LASF0
+ 239 002c 02       		.uleb128 0x2
+ 240 002d 01       		.byte	0x1
+ 241 002e 08       		.byte	0x8
+ 242 002f 59000000 		.4byte	.LASF1
+ 243 0033 02       		.uleb128 0x2
+ 244 0034 02       		.byte	0x2
+ 245 0035 05       		.byte	0x5
+ 246 0036 C8010000 		.4byte	.LASF2
+ 247 003a 02       		.uleb128 0x2
+ 248 003b 02       		.byte	0x2
+ 249 003c 07       		.byte	0x7
+ 250 003d 07010000 		.4byte	.LASF3
+ 251 0041 03       		.uleb128 0x3
+ 252 0042 15000000 		.4byte	.LASF9
+ 253 0046 02       		.byte	0x2
+ 254 0047 3F       		.byte	0x3f
+ 255 0048 4C000000 		.4byte	0x4c
+ 256 004c 02       		.uleb128 0x2
+ 257 004d 04       		.byte	0x4
+ 258 004e 05       		.byte	0x5
+ 259 004f 1F000000 		.4byte	.LASF4
+ 260 0053 02       		.uleb128 0x2
+ 261 0054 04       		.byte	0x4
+ 262 0055 07       		.byte	0x7
+ 263 0056 F5000000 		.4byte	.LASF5
+ 264 005a 02       		.uleb128 0x2
+ 265 005b 08       		.byte	0x8
+ 266 005c 05       		.byte	0x5
+ 267 005d B5010000 		.4byte	.LASF6
+ 268 0061 02       		.uleb128 0x2
+ 269 0062 08       		.byte	0x8
+ 270 0063 07       		.byte	0x7
+ 271 0064 3B010000 		.4byte	.LASF7
+ 272 0068 04       		.uleb128 0x4
+ 273 0069 04       		.byte	0x4
+ 274 006a 05       		.byte	0x5
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccrLSUYR.s 			page 7
+
+
+ 275 006b 696E7400 		.ascii	"int\000"
+ 276 006f 02       		.uleb128 0x2
+ 277 0070 04       		.byte	0x4
+ 278 0071 07       		.byte	0x7
+ 279 0072 2E010000 		.4byte	.LASF8
+ 280 0076 03       		.uleb128 0x3
+ 281 0077 4B000000 		.4byte	.LASF10
+ 282 007b 03       		.byte	0x3
+ 283 007c 2C       		.byte	0x2c
+ 284 007d 41000000 		.4byte	0x41
+ 285 0081 02       		.uleb128 0x2
+ 286 0082 04       		.byte	0x4
+ 287 0083 04       		.byte	0x4
+ 288 0084 53000000 		.4byte	.LASF11
+ 289 0088 02       		.uleb128 0x2
+ 290 0089 08       		.byte	0x8
+ 291 008a 04       		.byte	0x4
+ 292 008b 27010000 		.4byte	.LASF12
+ 293 008f 02       		.uleb128 0x2
+ 294 0090 01       		.byte	0x1
+ 295 0091 08       		.byte	0x8
+ 296 0092 C3010000 		.4byte	.LASF13
+ 297 0096 02       		.uleb128 0x2
+ 298 0097 08       		.byte	0x8
+ 299 0098 04       		.byte	0x4
+ 300 0099 EF010000 		.4byte	.LASF14
+ 301 009d 02       		.uleb128 0x2
+ 302 009e 04       		.byte	0x4
+ 303 009f 07       		.byte	0x7
+ 304 00a0 AC010000 		.4byte	.LASF15
+ 305 00a4 05       		.uleb128 0x5
+ 306 00a5 A0010000 		.4byte	.LASF28
+ 307 00a9 01       		.byte	0x1
+ 308 00aa 14       		.byte	0x14
+ 309 00ab 00000000 		.4byte	.LFB63
+ 310 00af 0C000000 		.4byte	.LFE63-.LFB63
+ 311 00b3 01       		.uleb128 0x1
+ 312 00b4 9C       		.byte	0x9c
+ 313 00b5 06       		.uleb128 0x6
+ 314 00b6 28000000 		.4byte	.LASF29
+ 315 00ba 01       		.byte	0x1
+ 316 00bb 18       		.byte	0x18
+ 317 00bc 00000000 		.4byte	.LFB64
+ 318 00c0 C8000000 		.4byte	.LFE64-.LFB64
+ 319 00c4 01       		.uleb128 0x1
+ 320 00c5 9C       		.byte	0x9c
+ 321 00c6 63010000 		.4byte	0x163
+ 322 00ca 07       		.uleb128 0x7
+ 323 00cb 643100   		.ascii	"d1\000"
+ 324 00ce 01       		.byte	0x1
+ 325 00cf 18       		.byte	0x18
+ 326 00d0 68000000 		.4byte	0x68
+ 327 00d4 00000000 		.4byte	.LLST0
+ 328 00d8 07       		.uleb128 0x7
+ 329 00d9 643200   		.ascii	"d2\000"
+ 330 00dc 01       		.byte	0x1
+ 331 00dd 18       		.byte	0x18
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccrLSUYR.s 			page 8
+
+
+ 332 00de 68000000 		.4byte	0x68
+ 333 00e2 2C000000 		.4byte	.LLST1
+ 334 00e6 08       		.uleb128 0x8
+ 335 00e7 E6010000 		.4byte	.LASF16
+ 336 00eb 01       		.byte	0x1
+ 337 00ec 18       		.byte	0x18
+ 338 00ed 68000000 		.4byte	0x68
+ 339 00f1 58000000 		.4byte	.LLST2
+ 340 00f5 09       		.uleb128 0x9
+ 341 00f6 10000000 		.4byte	.LVL3
+ 342 00fa 85010000 		.4byte	0x185
+ 343 00fe 0D010000 		.4byte	0x10d
+ 344 0102 0A       		.uleb128 0xa
+ 345 0103 01       		.uleb128 0x1
+ 346 0104 50       		.byte	0x50
+ 347 0105 01       		.uleb128 0x1
+ 348 0106 31       		.byte	0x31
+ 349 0107 0A       		.uleb128 0xa
+ 350 0108 01       		.uleb128 0x1
+ 351 0109 51       		.byte	0x51
+ 352 010a 01       		.uleb128 0x1
+ 353 010b 38       		.byte	0x38
+ 354 010c 00       		.byte	0
+ 355 010d 0B       		.uleb128 0xb
+ 356 010e 18000000 		.4byte	.LVL4
+ 357 0112 90010000 		.4byte	0x190
+ 358 0116 09       		.uleb128 0x9
+ 359 0117 22000000 		.4byte	.LVL5
+ 360 011b 9B010000 		.4byte	0x19b
+ 361 011f 2A010000 		.4byte	0x12a
+ 362 0123 0A       		.uleb128 0xa
+ 363 0124 01       		.uleb128 0x1
+ 364 0125 50       		.byte	0x50
+ 365 0126 02       		.uleb128 0x2
+ 366 0127 76       		.byte	0x76
+ 367 0128 00       		.sleb128 0
+ 368 0129 00       		.byte	0
+ 369 012a 09       		.uleb128 0x9
+ 370 012b 48000000 		.4byte	.LVL8
+ 371 012f A6010000 		.4byte	0x1a6
+ 372 0133 3E010000 		.4byte	0x13e
+ 373 0137 0A       		.uleb128 0xa
+ 374 0138 01       		.uleb128 0x1
+ 375 0139 50       		.byte	0x50
+ 376 013a 02       		.uleb128 0x2
+ 377 013b 76       		.byte	0x76
+ 378 013c 00       		.sleb128 0
+ 379 013d 00       		.byte	0
+ 380 013e 09       		.uleb128 0x9
+ 381 013f 70000000 		.4byte	.LVL11
+ 382 0143 B1010000 		.4byte	0x1b1
+ 383 0147 52010000 		.4byte	0x152
+ 384 014b 0A       		.uleb128 0xa
+ 385 014c 01       		.uleb128 0x1
+ 386 014d 50       		.byte	0x50
+ 387 014e 02       		.uleb128 0x2
+ 388 014f 76       		.byte	0x76
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccrLSUYR.s 			page 9
+
+
+ 389 0150 00       		.sleb128 0
+ 390 0151 00       		.byte	0
+ 391 0152 0C       		.uleb128 0xc
+ 392 0153 96000000 		.4byte	.LVL14
+ 393 0157 BC010000 		.4byte	0x1bc
+ 394 015b 0A       		.uleb128 0xa
+ 395 015c 01       		.uleb128 0x1
+ 396 015d 50       		.byte	0x50
+ 397 015e 02       		.uleb128 0x2
+ 398 015f 76       		.byte	0x76
+ 399 0160 00       		.sleb128 0
+ 400 0161 00       		.byte	0
+ 401 0162 00       		.byte	0
+ 402 0163 0D       		.uleb128 0xd
+ 403 0164 1A010000 		.4byte	.LASF17
+ 404 0168 04       		.byte	0x4
+ 405 0169 9606     		.2byte	0x696
+ 406 016b 6F010000 		.4byte	0x16f
+ 407 016f 0E       		.uleb128 0xe
+ 408 0170 76000000 		.4byte	0x76
+ 409 0174 0F       		.uleb128 0xf
+ 410 0175 00000000 		.4byte	.LASF18
+ 411 0179 01       		.byte	0x1
+ 412 017a 12       		.byte	0x12
+ 413 017b 68000000 		.4byte	0x68
+ 414 017f 05       		.uleb128 0x5
+ 415 0180 03       		.byte	0x3
+ 416 0181 00000000 		.4byte	state
+ 417 0185 10       		.uleb128 0x10
+ 418 0186 52010000 		.4byte	.LASF19
+ 419 018a 52010000 		.4byte	.LASF19
+ 420 018e 05       		.byte	0x5
+ 421 018f 3D       		.byte	0x3d
+ 422 0190 10       		.uleb128 0x10
+ 423 0191 06000000 		.4byte	.LASF20
+ 424 0195 06000000 		.4byte	.LASF20
+ 425 0199 05       		.byte	0x5
+ 426 019a 5F       		.byte	0x5f
+ 427 019b 10       		.uleb128 0x10
+ 428 019c DB010000 		.4byte	.LASF21
+ 429 01a0 DB010000 		.4byte	.LASF21
+ 430 01a4 06       		.byte	0x6
+ 431 01a5 18       		.byte	0x18
+ 432 01a6 10       		.uleb128 0x10
+ 433 01a7 FB010000 		.4byte	.LASF22
+ 434 01ab FB010000 		.4byte	.LASF22
+ 435 01af 06       		.byte	0x6
+ 436 01b0 1D       		.byte	0x1d
+ 437 01b1 10       		.uleb128 0x10
+ 438 01b2 2F000000 		.4byte	.LASF23
+ 439 01b6 2F000000 		.4byte	.LASF23
+ 440 01ba 06       		.byte	0x6
+ 441 01bb 1C       		.byte	0x1c
+ 442 01bc 10       		.uleb128 0x10
+ 443 01bd 41000000 		.4byte	.LASF24
+ 444 01c1 41000000 		.4byte	.LASF24
+ 445 01c5 06       		.byte	0x6
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccrLSUYR.s 			page 10
+
+
+ 446 01c6 1A       		.byte	0x1a
+ 447 01c7 00       		.byte	0
+ 448              		.section	.debug_abbrev,"",%progbits
+ 449              	.Ldebug_abbrev0:
+ 450 0000 01       		.uleb128 0x1
+ 451 0001 11       		.uleb128 0x11
+ 452 0002 01       		.byte	0x1
+ 453 0003 25       		.uleb128 0x25
+ 454 0004 0E       		.uleb128 0xe
+ 455 0005 13       		.uleb128 0x13
+ 456 0006 0B       		.uleb128 0xb
+ 457 0007 03       		.uleb128 0x3
+ 458 0008 0E       		.uleb128 0xe
+ 459 0009 1B       		.uleb128 0x1b
+ 460 000a 0E       		.uleb128 0xe
+ 461 000b 55       		.uleb128 0x55
+ 462 000c 17       		.uleb128 0x17
+ 463 000d 11       		.uleb128 0x11
+ 464 000e 01       		.uleb128 0x1
+ 465 000f 10       		.uleb128 0x10
+ 466 0010 17       		.uleb128 0x17
+ 467 0011 00       		.byte	0
+ 468 0012 00       		.byte	0
+ 469 0013 02       		.uleb128 0x2
+ 470 0014 24       		.uleb128 0x24
+ 471 0015 00       		.byte	0
+ 472 0016 0B       		.uleb128 0xb
+ 473 0017 0B       		.uleb128 0xb
+ 474 0018 3E       		.uleb128 0x3e
+ 475 0019 0B       		.uleb128 0xb
+ 476 001a 03       		.uleb128 0x3
+ 477 001b 0E       		.uleb128 0xe
+ 478 001c 00       		.byte	0
+ 479 001d 00       		.byte	0
+ 480 001e 03       		.uleb128 0x3
+ 481 001f 16       		.uleb128 0x16
+ 482 0020 00       		.byte	0
+ 483 0021 03       		.uleb128 0x3
+ 484 0022 0E       		.uleb128 0xe
+ 485 0023 3A       		.uleb128 0x3a
+ 486 0024 0B       		.uleb128 0xb
+ 487 0025 3B       		.uleb128 0x3b
+ 488 0026 0B       		.uleb128 0xb
+ 489 0027 49       		.uleb128 0x49
+ 490 0028 13       		.uleb128 0x13
+ 491 0029 00       		.byte	0
+ 492 002a 00       		.byte	0
+ 493 002b 04       		.uleb128 0x4
+ 494 002c 24       		.uleb128 0x24
+ 495 002d 00       		.byte	0
+ 496 002e 0B       		.uleb128 0xb
+ 497 002f 0B       		.uleb128 0xb
+ 498 0030 3E       		.uleb128 0x3e
+ 499 0031 0B       		.uleb128 0xb
+ 500 0032 03       		.uleb128 0x3
+ 501 0033 08       		.uleb128 0x8
+ 502 0034 00       		.byte	0
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccrLSUYR.s 			page 11
+
+
+ 503 0035 00       		.byte	0
+ 504 0036 05       		.uleb128 0x5
+ 505 0037 2E       		.uleb128 0x2e
+ 506 0038 00       		.byte	0
+ 507 0039 3F       		.uleb128 0x3f
+ 508 003a 19       		.uleb128 0x19
+ 509 003b 03       		.uleb128 0x3
+ 510 003c 0E       		.uleb128 0xe
+ 511 003d 3A       		.uleb128 0x3a
+ 512 003e 0B       		.uleb128 0xb
+ 513 003f 3B       		.uleb128 0x3b
+ 514 0040 0B       		.uleb128 0xb
+ 515 0041 11       		.uleb128 0x11
+ 516 0042 01       		.uleb128 0x1
+ 517 0043 12       		.uleb128 0x12
+ 518 0044 06       		.uleb128 0x6
+ 519 0045 40       		.uleb128 0x40
+ 520 0046 18       		.uleb128 0x18
+ 521 0047 9742     		.uleb128 0x2117
+ 522 0049 19       		.uleb128 0x19
+ 523 004a 00       		.byte	0
+ 524 004b 00       		.byte	0
+ 525 004c 06       		.uleb128 0x6
+ 526 004d 2E       		.uleb128 0x2e
+ 527 004e 01       		.byte	0x1
+ 528 004f 3F       		.uleb128 0x3f
+ 529 0050 19       		.uleb128 0x19
+ 530 0051 03       		.uleb128 0x3
+ 531 0052 0E       		.uleb128 0xe
+ 532 0053 3A       		.uleb128 0x3a
+ 533 0054 0B       		.uleb128 0xb
+ 534 0055 3B       		.uleb128 0x3b
+ 535 0056 0B       		.uleb128 0xb
+ 536 0057 27       		.uleb128 0x27
+ 537 0058 19       		.uleb128 0x19
+ 538 0059 11       		.uleb128 0x11
+ 539 005a 01       		.uleb128 0x1
+ 540 005b 12       		.uleb128 0x12
+ 541 005c 06       		.uleb128 0x6
+ 542 005d 40       		.uleb128 0x40
+ 543 005e 18       		.uleb128 0x18
+ 544 005f 9742     		.uleb128 0x2117
+ 545 0061 19       		.uleb128 0x19
+ 546 0062 01       		.uleb128 0x1
+ 547 0063 13       		.uleb128 0x13
+ 548 0064 00       		.byte	0
+ 549 0065 00       		.byte	0
+ 550 0066 07       		.uleb128 0x7
+ 551 0067 05       		.uleb128 0x5
+ 552 0068 00       		.byte	0
+ 553 0069 03       		.uleb128 0x3
+ 554 006a 08       		.uleb128 0x8
+ 555 006b 3A       		.uleb128 0x3a
+ 556 006c 0B       		.uleb128 0xb
+ 557 006d 3B       		.uleb128 0x3b
+ 558 006e 0B       		.uleb128 0xb
+ 559 006f 49       		.uleb128 0x49
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccrLSUYR.s 			page 12
+
+
+ 560 0070 13       		.uleb128 0x13
+ 561 0071 02       		.uleb128 0x2
+ 562 0072 17       		.uleb128 0x17
+ 563 0073 00       		.byte	0
+ 564 0074 00       		.byte	0
+ 565 0075 08       		.uleb128 0x8
+ 566 0076 05       		.uleb128 0x5
+ 567 0077 00       		.byte	0
+ 568 0078 03       		.uleb128 0x3
+ 569 0079 0E       		.uleb128 0xe
+ 570 007a 3A       		.uleb128 0x3a
+ 571 007b 0B       		.uleb128 0xb
+ 572 007c 3B       		.uleb128 0x3b
+ 573 007d 0B       		.uleb128 0xb
+ 574 007e 49       		.uleb128 0x49
+ 575 007f 13       		.uleb128 0x13
+ 576 0080 02       		.uleb128 0x2
+ 577 0081 17       		.uleb128 0x17
+ 578 0082 00       		.byte	0
+ 579 0083 00       		.byte	0
+ 580 0084 09       		.uleb128 0x9
+ 581 0085 898201   		.uleb128 0x4109
+ 582 0088 01       		.byte	0x1
+ 583 0089 11       		.uleb128 0x11
+ 584 008a 01       		.uleb128 0x1
+ 585 008b 31       		.uleb128 0x31
+ 586 008c 13       		.uleb128 0x13
+ 587 008d 01       		.uleb128 0x1
+ 588 008e 13       		.uleb128 0x13
+ 589 008f 00       		.byte	0
+ 590 0090 00       		.byte	0
+ 591 0091 0A       		.uleb128 0xa
+ 592 0092 8A8201   		.uleb128 0x410a
+ 593 0095 00       		.byte	0
+ 594 0096 02       		.uleb128 0x2
+ 595 0097 18       		.uleb128 0x18
+ 596 0098 9142     		.uleb128 0x2111
+ 597 009a 18       		.uleb128 0x18
+ 598 009b 00       		.byte	0
+ 599 009c 00       		.byte	0
+ 600 009d 0B       		.uleb128 0xb
+ 601 009e 898201   		.uleb128 0x4109
+ 602 00a1 00       		.byte	0
+ 603 00a2 11       		.uleb128 0x11
+ 604 00a3 01       		.uleb128 0x1
+ 605 00a4 31       		.uleb128 0x31
+ 606 00a5 13       		.uleb128 0x13
+ 607 00a6 00       		.byte	0
+ 608 00a7 00       		.byte	0
+ 609 00a8 0C       		.uleb128 0xc
+ 610 00a9 898201   		.uleb128 0x4109
+ 611 00ac 01       		.byte	0x1
+ 612 00ad 11       		.uleb128 0x11
+ 613 00ae 01       		.uleb128 0x1
+ 614 00af 31       		.uleb128 0x31
+ 615 00b0 13       		.uleb128 0x13
+ 616 00b1 00       		.byte	0
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccrLSUYR.s 			page 13
+
+
+ 617 00b2 00       		.byte	0
+ 618 00b3 0D       		.uleb128 0xd
+ 619 00b4 34       		.uleb128 0x34
+ 620 00b5 00       		.byte	0
+ 621 00b6 03       		.uleb128 0x3
+ 622 00b7 0E       		.uleb128 0xe
+ 623 00b8 3A       		.uleb128 0x3a
+ 624 00b9 0B       		.uleb128 0xb
+ 625 00ba 3B       		.uleb128 0x3b
+ 626 00bb 05       		.uleb128 0x5
+ 627 00bc 49       		.uleb128 0x49
+ 628 00bd 13       		.uleb128 0x13
+ 629 00be 3F       		.uleb128 0x3f
+ 630 00bf 19       		.uleb128 0x19
+ 631 00c0 3C       		.uleb128 0x3c
+ 632 00c1 19       		.uleb128 0x19
+ 633 00c2 00       		.byte	0
+ 634 00c3 00       		.byte	0
+ 635 00c4 0E       		.uleb128 0xe
+ 636 00c5 35       		.uleb128 0x35
+ 637 00c6 00       		.byte	0
+ 638 00c7 49       		.uleb128 0x49
+ 639 00c8 13       		.uleb128 0x13
+ 640 00c9 00       		.byte	0
+ 641 00ca 00       		.byte	0
+ 642 00cb 0F       		.uleb128 0xf
+ 643 00cc 34       		.uleb128 0x34
+ 644 00cd 00       		.byte	0
+ 645 00ce 03       		.uleb128 0x3
+ 646 00cf 0E       		.uleb128 0xe
+ 647 00d0 3A       		.uleb128 0x3a
+ 648 00d1 0B       		.uleb128 0xb
+ 649 00d2 3B       		.uleb128 0x3b
+ 650 00d3 0B       		.uleb128 0xb
+ 651 00d4 49       		.uleb128 0x49
+ 652 00d5 13       		.uleb128 0x13
+ 653 00d6 3F       		.uleb128 0x3f
+ 654 00d7 19       		.uleb128 0x19
+ 655 00d8 02       		.uleb128 0x2
+ 656 00d9 18       		.uleb128 0x18
+ 657 00da 00       		.byte	0
+ 658 00db 00       		.byte	0
+ 659 00dc 10       		.uleb128 0x10
+ 660 00dd 2E       		.uleb128 0x2e
+ 661 00de 00       		.byte	0
+ 662 00df 3F       		.uleb128 0x3f
+ 663 00e0 19       		.uleb128 0x19
+ 664 00e1 3C       		.uleb128 0x3c
+ 665 00e2 19       		.uleb128 0x19
+ 666 00e3 6E       		.uleb128 0x6e
+ 667 00e4 0E       		.uleb128 0xe
+ 668 00e5 03       		.uleb128 0x3
+ 669 00e6 0E       		.uleb128 0xe
+ 670 00e7 3A       		.uleb128 0x3a
+ 671 00e8 0B       		.uleb128 0xb
+ 672 00e9 3B       		.uleb128 0x3b
+ 673 00ea 0B       		.uleb128 0xb
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccrLSUYR.s 			page 14
+
+
+ 674 00eb 00       		.byte	0
+ 675 00ec 00       		.byte	0
+ 676 00ed 00       		.byte	0
+ 677              		.section	.debug_loc,"",%progbits
+ 678              	.Ldebug_loc0:
+ 679              	.LLST0:
+ 680 0000 00000000 		.4byte	.LVL0
+ 681 0004 0C000000 		.4byte	.LVL2
+ 682 0008 0100     		.2byte	0x1
+ 683 000a 50       		.byte	0x50
+ 684 000b 0C000000 		.4byte	.LVL2
+ 685 000f BA000000 		.4byte	.LVL17
+ 686 0013 0100     		.2byte	0x1
+ 687 0015 55       		.byte	0x55
+ 688 0016 BA000000 		.4byte	.LVL17
+ 689 001a C8000000 		.4byte	.LFE64
+ 690 001e 0400     		.2byte	0x4
+ 691 0020 F3       		.byte	0xf3
+ 692 0021 01       		.uleb128 0x1
+ 693 0022 50       		.byte	0x50
+ 694 0023 9F       		.byte	0x9f
+ 695 0024 00000000 		.4byte	0
+ 696 0028 00000000 		.4byte	0
+ 697              	.LLST1:
+ 698 002c 00000000 		.4byte	.LVL0
+ 699 0030 0A000000 		.4byte	.LVL1
+ 700 0034 0100     		.2byte	0x1
+ 701 0036 51       		.byte	0x51
+ 702 0037 0A000000 		.4byte	.LVL1
+ 703 003b BA000000 		.4byte	.LVL17
+ 704 003f 0100     		.2byte	0x1
+ 705 0041 57       		.byte	0x57
+ 706 0042 BA000000 		.4byte	.LVL17
+ 707 0046 C8000000 		.4byte	.LFE64
+ 708 004a 0400     		.2byte	0x4
+ 709 004c F3       		.byte	0xf3
+ 710 004d 01       		.uleb128 0x1
+ 711 004e 51       		.byte	0x51
+ 712 004f 9F       		.byte	0x9f
+ 713 0050 00000000 		.4byte	0
+ 714 0054 00000000 		.4byte	0
+ 715              	.LLST2:
+ 716 0058 00000000 		.4byte	.LVL0
+ 717 005c 0F000000 		.4byte	.LVL3-1
+ 718 0060 0100     		.2byte	0x1
+ 719 0062 52       		.byte	0x52
+ 720 0063 0F000000 		.4byte	.LVL3-1
+ 721 0067 BA000000 		.4byte	.LVL17
+ 722 006b 0100     		.2byte	0x1
+ 723 006d 56       		.byte	0x56
+ 724 006e BA000000 		.4byte	.LVL17
+ 725 0072 C8000000 		.4byte	.LFE64
+ 726 0076 0400     		.2byte	0x4
+ 727 0078 F3       		.byte	0xf3
+ 728 0079 01       		.uleb128 0x1
+ 729 007a 52       		.byte	0x52
+ 730 007b 9F       		.byte	0x9f
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccrLSUYR.s 			page 15
+
+
+ 731 007c 00000000 		.4byte	0
+ 732 0080 00000000 		.4byte	0
+ 733              		.section	.debug_aranges,"",%progbits
+ 734 0000 24000000 		.4byte	0x24
+ 735 0004 0200     		.2byte	0x2
+ 736 0006 00000000 		.4byte	.Ldebug_info0
+ 737 000a 04       		.byte	0x4
+ 738 000b 00       		.byte	0
+ 739 000c 0000     		.2byte	0
+ 740 000e 0000     		.2byte	0
+ 741 0010 00000000 		.4byte	.LFB63
+ 742 0014 0C000000 		.4byte	.LFE63-.LFB63
+ 743 0018 00000000 		.4byte	.LFB64
+ 744 001c C8000000 		.4byte	.LFE64-.LFB64
+ 745 0020 00000000 		.4byte	0
+ 746 0024 00000000 		.4byte	0
+ 747              		.section	.debug_ranges,"",%progbits
+ 748              	.Ldebug_ranges0:
+ 749 0000 00000000 		.4byte	.LFB63
+ 750 0004 0C000000 		.4byte	.LFE63
+ 751 0008 00000000 		.4byte	.LFB64
+ 752 000c C8000000 		.4byte	.LFE64
+ 753 0010 00000000 		.4byte	0
+ 754 0014 00000000 		.4byte	0
+ 755              		.section	.debug_line,"",%progbits
+ 756              	.Ldebug_line0:
+ 757 0000 7A010000 		.section	.debug_str,"MS",%progbits,1
+ 757      02003A01 
+ 757      00000201 
+ 757      FB0E0D00 
+ 757      01010101 
+ 758              	.LASF18:
+ 759 0000 73746174 		.ascii	"state\000"
+ 759      6500
+ 760              	.LASF20:
+ 761 0006 4C43445F 		.ascii	"LCD_PrintInt32\000"
+ 761      5072696E 
+ 761      74496E74 
+ 761      333200
+ 762              	.LASF9:
+ 763 0015 5F5F696E 		.ascii	"__int32_t\000"
+ 763      7433325F 
+ 763      7400
+ 764              	.LASF4:
+ 765 001f 6C6F6E67 		.ascii	"long int\000"
+ 765      20696E74 
+ 765      00
+ 766              	.LASF29:
+ 767 0028 616E746D 		.ascii	"antman\000"
+ 767      616E00
+ 768              	.LASF23:
+ 769 002f 7475726E 		.ascii	"turn_left_precise\000"
+ 769      5F6C6566 
+ 769      745F7072 
+ 769      65636973 
+ 769      6500
+ 770              	.LASF24:
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccrLSUYR.s 			page 16
+
+
+ 771 0041 7475726E 		.ascii	"turn_left\000"
+ 771      5F6C6566 
+ 771      7400
+ 772              	.LASF10:
+ 773 004b 696E7433 		.ascii	"int32_t\000"
+ 773      325F7400 
+ 774              	.LASF11:
+ 775 0053 666C6F61 		.ascii	"float\000"
+ 775      7400
+ 776              	.LASF1:
+ 777 0059 756E7369 		.ascii	"unsigned char\000"
+ 777      676E6564 
+ 777      20636861 
+ 777      7200
+ 778              	.LASF25:
+ 779 0067 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 779      43313120 
+ 779      352E342E 
+ 779      31203230 
+ 779      31363036 
+ 780 009a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 780      20726576 
+ 780      6973696F 
+ 780      6E203233 
+ 780      37373135 
+ 781 00cd 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 781      66756E63 
+ 781      74696F6E 
+ 781      2D736563 
+ 781      74696F6E 
+ 782              	.LASF5:
+ 783 00f5 6C6F6E67 		.ascii	"long unsigned int\000"
+ 783      20756E73 
+ 783      69676E65 
+ 783      6420696E 
+ 783      7400
+ 784              	.LASF3:
+ 785 0107 73686F72 		.ascii	"short unsigned int\000"
+ 785      7420756E 
+ 785      7369676E 
+ 785      65642069 
+ 785      6E7400
+ 786              	.LASF17:
+ 787 011a 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 787      52784275 
+ 787      66666572 
+ 787      00
+ 788              	.LASF12:
+ 789 0127 646F7562 		.ascii	"double\000"
+ 789      6C6500
+ 790              	.LASF8:
+ 791 012e 756E7369 		.ascii	"unsigned int\000"
+ 791      676E6564 
+ 791      20696E74 
+ 791      00
+ 792              	.LASF7:
+ 793 013b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccrLSUYR.s 			page 17
+
+
+ 793      206C6F6E 
+ 793      6720756E 
+ 793      7369676E 
+ 793      65642069 
+ 794              	.LASF19:
+ 795 0152 4C43445F 		.ascii	"LCD_Position\000"
+ 795      506F7369 
+ 795      74696F6E 
+ 795      00
+ 796              	.LASF27:
+ 797 015f 433A5C55 		.ascii	"C:\\Users\\lab512\\Desktop\\lmx_borrow\\Servo\\Robo"
+ 797      73657273 
+ 797      5C6C6162 
+ 797      3531325C 
+ 797      4465736B 
+ 798 018c 745F6172 		.ascii	"t_arm_trolley.cydsn\000"
+ 798      6D5F7472 
+ 798      6F6C6C65 
+ 798      792E6379 
+ 798      64736E00 
+ 799              	.LASF28:
+ 800 01a0 616E746D 		.ascii	"antman_init\000"
+ 800      616E5F69 
+ 800      6E697400 
+ 801              	.LASF15:
+ 802 01ac 73697A65 		.ascii	"sizetype\000"
+ 802      74797065 
+ 802      00
+ 803              	.LASF6:
+ 804 01b5 6C6F6E67 		.ascii	"long long int\000"
+ 804      206C6F6E 
+ 804      6720696E 
+ 804      7400
+ 805              	.LASF13:
+ 806 01c3 63686172 		.ascii	"char\000"
+ 806      00
+ 807              	.LASF2:
+ 808 01c8 73686F72 		.ascii	"short int\000"
+ 808      7420696E 
+ 808      7400
+ 809              	.LASF26:
+ 810 01d2 416E746D 		.ascii	"Antman.c\000"
+ 810      616E2E63 
+ 810      00
+ 811              	.LASF21:
+ 812 01db 676F5F66 		.ascii	"go_forward\000"
+ 812      6F727761 
+ 812      726400
+ 813              	.LASF16:
+ 814 01e6 76656C6F 		.ascii	"velocity\000"
+ 814      63697479 
+ 814      00
+ 815              	.LASF14:
+ 816 01ef 6C6F6E67 		.ascii	"long double\000"
+ 816      20646F75 
+ 816      626C6500 
+ 817              	.LASF22:
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccrLSUYR.s 			page 18
+
+
+ 818 01fb 7475726E 		.ascii	"turn_right_precise\000"
+ 818      5F726967 
+ 818      68745F70 
+ 818      72656369 
+ 818      736500
+ 819              	.LASF0:
+ 820 020e 7369676E 		.ascii	"signed char\000"
+ 820      65642063 
+ 820      68617200 
+ 821              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,0 +1,2298 @@
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"Ranging.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.RangingTimeoutInt1,"ax",%progbits
+  20              		.align	2
+  21              		.global	RangingTimeoutInt1
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	RangingTimeoutInt1, %function
+  25              	RangingTimeoutInt1:
+  26              	.LFB65:
+  27              		.file 1 "Ranging.c"
+   1:Ranging.c     **** /* ========================================
+   2:Ranging.c     ****  *
+   3:Ranging.c     ****  * Copyright YOUR COMPANY, THE YEAR
+   4:Ranging.c     ****  * All Rights Reserved
+   5:Ranging.c     ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:Ranging.c     ****  *
+   7:Ranging.c     ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:Ranging.c     ****  * WHICH IS THE PROPERTY OF your company.
+   9:Ranging.c     ****  *
+  10:Ranging.c     ****  * ========================================
+  11:Ranging.c     **** */
+  12:Ranging.c     **** 
+  13:Ranging.c     **** #include "project.h"
+  14:Ranging.c     **** #include "defs.h"
+  15:Ranging.c     **** #include "param.h"
+  16:Ranging.c     **** 
+  17:Ranging.c     **** // ---------- Global Variables ----------
+  18:Ranging.c     **** 
+  19:Ranging.c     **** // Timer period and timeout flag
+  20:Ranging.c     **** uint32 period1, period2;
+  21:Ranging.c     **** int timeout1, timeout2;
+  22:Ranging.c     **** 
+  23:Ranging.c     **** // ---------- Common Functions --------
+  24:Ranging.c     **** 
+  25:Ranging.c     **** // Calculate the distance (millimeter) out of the count value
+  26:Ranging.c     **** long long calculate_millimeter(uint32 cnt) {
+  27:Ranging.c     ****     return ((long long)cnt) * SOUND_SPEED * 1000 / RANGING_CLOCK_FREQ / 2;
+  28:Ranging.c     **** }
+  29:Ranging.c     **** 
+  30:Ranging.c     **** // Initialize all probes
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 2
+
+
+  31:Ranging.c     **** void ranging_init() {
+  32:Ranging.c     ****     ranging_init1();
+  33:Ranging.c     ****     ranging_init2();
+  34:Ranging.c     **** }
+  35:Ranging.c     **** 
+  36:Ranging.c     **** // ---------- Probe 1 Functions ----------
+  37:Ranging.c     **** 
+  38:Ranging.c     **** // Timeout interrupt handler
+  39:Ranging.c     **** CY_ISR(RangingTimeoutInt1) {
+  28              		.loc 1 39 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  40:Ranging.c     ****     Ranging_Timer1_STATUS; // Reset interrupt status
+  36              		.loc 1 40 0
+  37 0002 044B     		ldr	r3, .L3
+  38 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  41:Ranging.c     ****     timeout1 = 1; // Set timeout flag
+  39              		.loc 1 41 0
+  40 0006 0122     		movs	r2, #1
+  41 0008 034B     		ldr	r3, .L3+4
+  42 000a 1A60     		str	r2, [r3]
+  42:Ranging.c     ****     Ranging_Timer1_Stop(); // Stop timer
+  43              		.loc 1 42 0
+  44 000c FFF7FEFF 		bl	Ranging_Timer1_Stop
+  45              	.LVL0:
+  46 0010 08BD     		pop	{r3, pc}
+  47              	.L4:
+  48 0012 00BF     		.align	2
+  49              	.L3:
+  50 0014 6D640040 		.word	1073767533
+  51 0018 00000000 		.word	timeout1
+  52              		.cfi_endproc
+  53              	.LFE65:
+  54              		.size	RangingTimeoutInt1, .-RangingTimeoutInt1
+  55              		.section	.text.RangingTimeoutInt2,"ax",%progbits
+  56              		.align	2
+  57              		.global	RangingTimeoutInt2
+  58              		.thumb
+  59              		.thumb_func
+  60              		.type	RangingTimeoutInt2, %function
+  61              	RangingTimeoutInt2:
+  62              	.LFB71:
+  43:Ranging.c     **** }
+  44:Ranging.c     **** 
+  45:Ranging.c     **** // Initialization
+  46:Ranging.c     **** void ranging_init1() {
+  47:Ranging.c     ****     period1 = Ranging_Timer1_ReadPeriod(); // Get period
+  48:Ranging.c     ****     Ranging_Timer1_Clock_Start(); // Start timer clock
+  49:Ranging.c     ****     Ranging_Timeout1_StartEx(RangingTimeoutInt1); // Enable interrupt
+  50:Ranging.c     **** }
+  51:Ranging.c     **** 
+  52:Ranging.c     **** // Generate trigger pulse signal for probe 1
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 3
+
+
+  53:Ranging.c     **** void trigger1() {
+  54:Ranging.c     ****     Ranging_T1_Write(1);
+  55:Ranging.c     ****     CyDelayUs(RANGING_TRIGGER);
+  56:Ranging.c     ****     Ranging_T1_Write(0);
+  57:Ranging.c     **** }
+  58:Ranging.c     **** 
+  59:Ranging.c     **** // Set timer value and start timer for probe 1
+  60:Ranging.c     **** void startcount1() {
+  61:Ranging.c     ****     Ranging_Timer1_Start();
+  62:Ranging.c     ****     Ranging_Timer1_WriteCounter(period1 - 1);
+  63:Ranging.c     **** }
+  64:Ranging.c     **** 
+  65:Ranging.c     **** // Stop timer for probe 1 and get timer value, return count value
+  66:Ranging.c     **** uint32 endcount1() {
+  67:Ranging.c     ****     uint32 cnt = Ranging_Timer1_ReadCounter();
+  68:Ranging.c     ****     Ranging_Timer1_Stop();
+  69:Ranging.c     ****     return period1 - 1 - cnt;
+  70:Ranging.c     **** }
+  71:Ranging.c     **** 
+  72:Ranging.c     **** // Get probe 1 distance (mm)
+  73:Ranging.c     **** int get_millimeter1() {
+  74:Ranging.c     ****     uint32 cnt;
+  75:Ranging.c     ****     int distance;
+  76:Ranging.c     ****     startcount1();
+  77:Ranging.c     ****     trigger1();
+  78:Ranging.c     ****     // Polling
+  79:Ranging.c     ****     while (Ranging_R1_Read() == 0 && timeout1 == 0);
+  80:Ranging.c     ****     startcount1();
+  81:Ranging.c     ****     while (Ranging_R1_Read() != 0 && timeout1 == 0);
+  82:Ranging.c     ****     cnt = endcount1();
+  83:Ranging.c     ****     if (timeout1 == 0) {
+  84:Ranging.c     ****         distance = (int)calculate_millimeter(cnt);
+  85:Ranging.c     ****     } else {
+  86:Ranging.c     ****         // If timeout, return int max
+  87:Ranging.c     ****         distance = L_INT_MAX;
+  88:Ranging.c     ****     }
+  89:Ranging.c     ****     return distance;
+  90:Ranging.c     **** }
+  91:Ranging.c     **** 
+  92:Ranging.c     **** // ---------- Probe 2 Functions ----------
+  93:Ranging.c     **** 
+  94:Ranging.c     **** // Timeout interrupt handler for probe 2
+  95:Ranging.c     **** CY_ISR(RangingTimeoutInt2) {
+  63              		.loc 1 95 0
+  64              		.cfi_startproc
+  65              		@ args = 0, pretend = 0, frame = 0
+  66              		@ frame_needed = 0, uses_anonymous_args = 0
+  67 0000 08B5     		push	{r3, lr}
+  68              		.cfi_def_cfa_offset 8
+  69              		.cfi_offset 3, -8
+  70              		.cfi_offset 14, -4
+  96:Ranging.c     ****     Ranging_Timer2_STATUS; // Reset interrupt status
+  71              		.loc 1 96 0
+  72 0002 044B     		ldr	r3, .L7
+  73 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  97:Ranging.c     ****     timeout2 = 1; // Set timeout flag
+  74              		.loc 1 97 0
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 4
+
+
+  75 0006 0122     		movs	r2, #1
+  76 0008 034B     		ldr	r3, .L7+4
+  77 000a 1A60     		str	r2, [r3]
+  98:Ranging.c     ****     Ranging_Timer2_Stop(); // Stop timer
+  78              		.loc 1 98 0
+  79 000c FFF7FEFF 		bl	Ranging_Timer2_Stop
+  80              	.LVL1:
+  81 0010 08BD     		pop	{r3, pc}
+  82              	.L8:
+  83 0012 00BF     		.align	2
+  84              	.L7:
+  85 0014 6B650040 		.word	1073767787
+  86 0018 00000000 		.word	timeout2
+  87              		.cfi_endproc
+  88              	.LFE71:
+  89              		.size	RangingTimeoutInt2, .-RangingTimeoutInt2
+  90              		.global	__aeabi_ldivmod
+  91              		.section	.text.calculate_millimeter,"ax",%progbits
+  92              		.align	2
+  93              		.global	calculate_millimeter
+  94              		.thumb
+  95              		.thumb_func
+  96              		.type	calculate_millimeter, %function
+  97              	calculate_millimeter:
+  98              	.LFB63:
+  26:Ranging.c     ****     return ((long long)cnt) * SOUND_SPEED * 1000 / RANGING_CLOCK_FREQ / 2;
+  99              		.loc 1 26 0
+ 100              		.cfi_startproc
+ 101              		@ args = 0, pretend = 0, frame = 0
+ 102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103              	.LVL2:
+ 104 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 105              		.cfi_def_cfa_offset 24
+ 106              		.cfi_offset 3, -24
+ 107              		.cfi_offset 4, -20
+ 108              		.cfi_offset 5, -16
+ 109              		.cfi_offset 6, -12
+ 110              		.cfi_offset 7, -8
+ 111              		.cfi_offset 14, -4
+  27:Ranging.c     **** }
+ 112              		.loc 1 27 0
+ 113 0002 0446     		mov	r4, r0
+ 114 0004 0025     		movs	r5, #0
+ 115 0006 4601     		lsls	r6, r0, #5
+ 116 0008 C70E     		lsrs	r7, r0, #27
+ 117 000a BB00     		lsls	r3, r7, #2
+ 118 000c 43EA9673 		orr	r3, r3, r6, lsr #30
+ 119 0010 B200     		lsls	r2, r6, #2
+ 120 0012 9219     		adds	r2, r2, r6
+ 121 0014 7B41     		adcs	r3, r3, r7
+ 122 0016 1218     		adds	r2, r2, r0
+ 123 0018 6B41     		adcs	r3, r3, r5
+ 124 001a 9901     		lsls	r1, r3, #6
+ 125 001c 41EA9261 		orr	r1, r1, r2, lsr #26
+ 126 0020 9001     		lsls	r0, r2, #6
+ 127              	.LVL3:
+ 128 0022 021B     		subs	r2, r0, r4
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 5
+
+
+ 129 0024 61EB0503 		sbc	r3, r1, r5
+ 130 0028 5901     		lsls	r1, r3, #5
+ 131 002a 41EAD261 		orr	r1, r1, r2, lsr #27
+ 132 002e 5001     		lsls	r0, r2, #5
+ 133 0030 8018     		adds	r0, r0, r2
+ 134 0032 5941     		adcs	r1, r1, r3
+ 135 0034 034A     		ldr	r2, .L11
+ 136 0036 0023     		movs	r3, #0
+ 137 0038 0019     		adds	r0, r0, r4
+ 138 003a 6941     		adcs	r1, r1, r5
+ 139 003c FFF7FEFF 		bl	__aeabi_ldivmod
+ 140              	.LVL4:
+  28:Ranging.c     **** 
+ 141              		.loc 1 28 0
+ 142 0040 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 143              	.LVL5:
+ 144              	.L12:
+ 145 0042 00BF     		.align	2
+ 146              	.L11:
+ 147 0044 00366E01 		.word	24000000
+ 148              		.cfi_endproc
+ 149              	.LFE63:
+ 150              		.size	calculate_millimeter, .-calculate_millimeter
+ 151              		.section	.text.ranging_init1,"ax",%progbits
+ 152              		.align	2
+ 153              		.global	ranging_init1
+ 154              		.thumb
+ 155              		.thumb_func
+ 156              		.type	ranging_init1, %function
+ 157              	ranging_init1:
+ 158              	.LFB66:
+  46:Ranging.c     ****     period1 = Ranging_Timer1_ReadPeriod(); // Get period
+ 159              		.loc 1 46 0
+ 160              		.cfi_startproc
+ 161              		@ args = 0, pretend = 0, frame = 0
+ 162              		@ frame_needed = 0, uses_anonymous_args = 0
+ 163 0000 08B5     		push	{r3, lr}
+ 164              		.cfi_def_cfa_offset 8
+ 165              		.cfi_offset 3, -8
+ 166              		.cfi_offset 14, -4
+  47:Ranging.c     ****     Ranging_Timer1_Clock_Start(); // Start timer clock
+ 167              		.loc 1 47 0
+ 168 0002 FFF7FEFF 		bl	Ranging_Timer1_ReadPeriod
+ 169              	.LVL6:
+ 170 0006 044B     		ldr	r3, .L15
+ 171 0008 1860     		str	r0, [r3]
+  48:Ranging.c     ****     Ranging_Timeout1_StartEx(RangingTimeoutInt1); // Enable interrupt
+ 172              		.loc 1 48 0
+ 173 000a FFF7FEFF 		bl	Ranging_Timer1_Clock_Start
+ 174              	.LVL7:
+  49:Ranging.c     **** }
+ 175              		.loc 1 49 0
+ 176 000e 0348     		ldr	r0, .L15+4
+ 177 0010 FFF7FEFF 		bl	Ranging_Timeout1_StartEx
+ 178              	.LVL8:
+ 179 0014 08BD     		pop	{r3, pc}
+ 180              	.L16:
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 6
+
+
+ 181 0016 00BF     		.align	2
+ 182              	.L15:
+ 183 0018 00000000 		.word	period1
+ 184 001c 00000000 		.word	RangingTimeoutInt1
+ 185              		.cfi_endproc
+ 186              	.LFE66:
+ 187              		.size	ranging_init1, .-ranging_init1
+ 188              		.section	.text.trigger1,"ax",%progbits
+ 189              		.align	2
+ 190              		.global	trigger1
+ 191              		.thumb
+ 192              		.thumb_func
+ 193              		.type	trigger1, %function
+ 194              	trigger1:
+ 195              	.LFB67:
+  53:Ranging.c     ****     Ranging_T1_Write(1);
+ 196              		.loc 1 53 0
+ 197              		.cfi_startproc
+ 198              		@ args = 0, pretend = 0, frame = 0
+ 199              		@ frame_needed = 0, uses_anonymous_args = 0
+ 200 0000 08B5     		push	{r3, lr}
+ 201              		.cfi_def_cfa_offset 8
+ 202              		.cfi_offset 3, -8
+ 203              		.cfi_offset 14, -4
+  54:Ranging.c     ****     CyDelayUs(RANGING_TRIGGER);
+ 204              		.loc 1 54 0
+ 205 0002 0120     		movs	r0, #1
+ 206 0004 FFF7FEFF 		bl	Ranging_T1_Write
+ 207              	.LVL9:
+  55:Ranging.c     ****     Ranging_T1_Write(0);
+ 208              		.loc 1 55 0
+ 209 0008 3220     		movs	r0, #50
+ 210 000a FFF7FEFF 		bl	CyDelayUs
+ 211              	.LVL10:
+  56:Ranging.c     **** }
+ 212              		.loc 1 56 0
+ 213 000e 0020     		movs	r0, #0
+ 214 0010 FFF7FEFF 		bl	Ranging_T1_Write
+ 215              	.LVL11:
+ 216 0014 08BD     		pop	{r3, pc}
+ 217              		.cfi_endproc
+ 218              	.LFE67:
+ 219              		.size	trigger1, .-trigger1
+ 220 0016 00BF     		.section	.text.startcount1,"ax",%progbits
+ 221              		.align	2
+ 222              		.global	startcount1
+ 223              		.thumb
+ 224              		.thumb_func
+ 225              		.type	startcount1, %function
+ 226              	startcount1:
+ 227              	.LFB68:
+  60:Ranging.c     ****     Ranging_Timer1_Start();
+ 228              		.loc 1 60 0
+ 229              		.cfi_startproc
+ 230              		@ args = 0, pretend = 0, frame = 0
+ 231              		@ frame_needed = 0, uses_anonymous_args = 0
+ 232 0000 08B5     		push	{r3, lr}
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 7
+
+
+ 233              		.cfi_def_cfa_offset 8
+ 234              		.cfi_offset 3, -8
+ 235              		.cfi_offset 14, -4
+  61:Ranging.c     ****     Ranging_Timer1_WriteCounter(period1 - 1);
+ 236              		.loc 1 61 0
+ 237 0002 FFF7FEFF 		bl	Ranging_Timer1_Start
+ 238              	.LVL12:
+  62:Ranging.c     **** }
+ 239              		.loc 1 62 0
+ 240 0006 034B     		ldr	r3, .L21
+ 241 0008 1868     		ldr	r0, [r3]
+ 242 000a 0138     		subs	r0, r0, #1
+ 243 000c FFF7FEFF 		bl	Ranging_Timer1_WriteCounter
+ 244              	.LVL13:
+ 245 0010 08BD     		pop	{r3, pc}
+ 246              	.L22:
+ 247 0012 00BF     		.align	2
+ 248              	.L21:
+ 249 0014 00000000 		.word	period1
+ 250              		.cfi_endproc
+ 251              	.LFE68:
+ 252              		.size	startcount1, .-startcount1
+ 253              		.section	.text.endcount1,"ax",%progbits
+ 254              		.align	2
+ 255              		.global	endcount1
+ 256              		.thumb
+ 257              		.thumb_func
+ 258              		.type	endcount1, %function
+ 259              	endcount1:
+ 260              	.LFB69:
+  66:Ranging.c     ****     uint32 cnt = Ranging_Timer1_ReadCounter();
+ 261              		.loc 1 66 0
+ 262              		.cfi_startproc
+ 263              		@ args = 0, pretend = 0, frame = 0
+ 264              		@ frame_needed = 0, uses_anonymous_args = 0
+ 265 0000 10B5     		push	{r4, lr}
+ 266              		.cfi_def_cfa_offset 8
+ 267              		.cfi_offset 4, -8
+ 268              		.cfi_offset 14, -4
+  67:Ranging.c     ****     Ranging_Timer1_Stop();
+ 269              		.loc 1 67 0
+ 270 0002 FFF7FEFF 		bl	Ranging_Timer1_ReadCounter
+ 271              	.LVL14:
+ 272 0006 0446     		mov	r4, r0
+ 273              	.LVL15:
+  68:Ranging.c     ****     return period1 - 1 - cnt;
+ 274              		.loc 1 68 0
+ 275 0008 FFF7FEFF 		bl	Ranging_Timer1_Stop
+ 276              	.LVL16:
+  69:Ranging.c     **** }
+ 277              		.loc 1 69 0
+ 278 000c 024B     		ldr	r3, .L25
+ 279 000e 1868     		ldr	r0, [r3]
+ 280 0010 001B     		subs	r0, r0, r4
+  70:Ranging.c     **** 
+ 281              		.loc 1 70 0
+ 282 0012 0138     		subs	r0, r0, #1
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 8
+
+
+ 283 0014 10BD     		pop	{r4, pc}
+ 284              	.LVL17:
+ 285              	.L26:
+ 286 0016 00BF     		.align	2
+ 287              	.L25:
+ 288 0018 00000000 		.word	period1
+ 289              		.cfi_endproc
+ 290              	.LFE69:
+ 291              		.size	endcount1, .-endcount1
+ 292              		.section	.text.get_millimeter1,"ax",%progbits
+ 293              		.align	2
+ 294              		.global	get_millimeter1
+ 295              		.thumb
+ 296              		.thumb_func
+ 297              		.type	get_millimeter1, %function
+ 298              	get_millimeter1:
+ 299              	.LFB70:
+  73:Ranging.c     ****     uint32 cnt;
+ 300              		.loc 1 73 0
+ 301              		.cfi_startproc
+ 302              		@ args = 0, pretend = 0, frame = 0
+ 303              		@ frame_needed = 0, uses_anonymous_args = 0
+ 304 0000 08B5     		push	{r3, lr}
+ 305              		.cfi_def_cfa_offset 8
+ 306              		.cfi_offset 3, -8
+ 307              		.cfi_offset 14, -4
+  76:Ranging.c     ****     trigger1();
+ 308              		.loc 1 76 0
+ 309 0002 FFF7FEFF 		bl	startcount1
+ 310              	.LVL18:
+  77:Ranging.c     ****     // Polling
+ 311              		.loc 1 77 0
+ 312 0006 FFF7FEFF 		bl	trigger1
+ 313              	.LVL19:
+ 314              	.L29:
+  79:Ranging.c     ****     startcount1();
+ 315              		.loc 1 79 0 discriminator 2
+ 316 000a FFF7FEFF 		bl	Ranging_R1_Read
+ 317              	.LVL20:
+ 318 000e 18B9     		cbnz	r0, .L28
+  79:Ranging.c     ****     startcount1();
+ 319              		.loc 1 79 0 is_stmt 0 discriminator 1
+ 320 0010 0B4B     		ldr	r3, .L35
+ 321 0012 1B68     		ldr	r3, [r3]
+ 322 0014 002B     		cmp	r3, #0
+ 323 0016 F8D0     		beq	.L29
+ 324              	.L28:
+  80:Ranging.c     ****     while (Ranging_R1_Read() != 0 && timeout1 == 0);
+ 325              		.loc 1 80 0 is_stmt 1
+ 326 0018 FFF7FEFF 		bl	startcount1
+ 327              	.LVL21:
+ 328              	.L31:
+  81:Ranging.c     ****     cnt = endcount1();
+ 329              		.loc 1 81 0 discriminator 2
+ 330 001c FFF7FEFF 		bl	Ranging_R1_Read
+ 331              	.LVL22:
+ 332 0020 18B1     		cbz	r0, .L30
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 9
+
+
+  81:Ranging.c     ****     cnt = endcount1();
+ 333              		.loc 1 81 0 is_stmt 0 discriminator 1
+ 334 0022 074B     		ldr	r3, .L35
+ 335 0024 1B68     		ldr	r3, [r3]
+ 336 0026 002B     		cmp	r3, #0
+ 337 0028 F8D0     		beq	.L31
+ 338              	.L30:
+  82:Ranging.c     ****     if (timeout1 == 0) {
+ 339              		.loc 1 82 0 is_stmt 1
+ 340 002a FFF7FEFF 		bl	endcount1
+ 341              	.LVL23:
+  83:Ranging.c     ****         distance = (int)calculate_millimeter(cnt);
+ 342              		.loc 1 83 0
+ 343 002e 044B     		ldr	r3, .L35
+ 344 0030 1B68     		ldr	r3, [r3]
+ 345 0032 13B9     		cbnz	r3, .L33
+  84:Ranging.c     ****     } else {
+ 346              		.loc 1 84 0
+ 347 0034 FFF7FEFF 		bl	calculate_millimeter
+ 348              	.LVL24:
+ 349 0038 08BD     		pop	{r3, pc}
+ 350              	.LVL25:
+ 351              	.L33:
+  87:Ranging.c     ****     }
+ 352              		.loc 1 87 0
+ 353 003a 6FF00040 		mvn	r0, #-2147483648
+ 354              	.LVL26:
+  90:Ranging.c     **** 
+ 355              		.loc 1 90 0
+ 356 003e 08BD     		pop	{r3, pc}
+ 357              	.L36:
+ 358              		.align	2
+ 359              	.L35:
+ 360 0040 00000000 		.word	timeout1
+ 361              		.cfi_endproc
+ 362              	.LFE70:
+ 363              		.size	get_millimeter1, .-get_millimeter1
+ 364              		.section	.text.ranging_init2,"ax",%progbits
+ 365              		.align	2
+ 366              		.global	ranging_init2
+ 367              		.thumb
+ 368              		.thumb_func
+ 369              		.type	ranging_init2, %function
+ 370              	ranging_init2:
+ 371              	.LFB72:
+  99:Ranging.c     **** }
+ 100:Ranging.c     **** 
+ 101:Ranging.c     **** // Initialization for probe 2
+ 102:Ranging.c     **** void ranging_init2() {
+ 372              		.loc 1 102 0
+ 373              		.cfi_startproc
+ 374              		@ args = 0, pretend = 0, frame = 0
+ 375              		@ frame_needed = 0, uses_anonymous_args = 0
+ 376 0000 08B5     		push	{r3, lr}
+ 377              		.cfi_def_cfa_offset 8
+ 378              		.cfi_offset 3, -8
+ 379              		.cfi_offset 14, -4
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 10
+
+
+ 103:Ranging.c     ****     period2 = Ranging_Timer2_ReadPeriod(); // Get period
+ 380              		.loc 1 103 0
+ 381 0002 FFF7FEFF 		bl	Ranging_Timer2_ReadPeriod
+ 382              	.LVL27:
+ 383 0006 044B     		ldr	r3, .L39
+ 384 0008 1860     		str	r0, [r3]
+ 104:Ranging.c     ****     Ranging_Timer2_Clock_Start(); // Start timer clock
+ 385              		.loc 1 104 0
+ 386 000a FFF7FEFF 		bl	Ranging_Timer2_Clock_Start
+ 387              	.LVL28:
+ 105:Ranging.c     ****     Ranging_Timeout2_StartEx(RangingTimeoutInt2); // Enable interrupt
+ 388              		.loc 1 105 0
+ 389 000e 0348     		ldr	r0, .L39+4
+ 390 0010 FFF7FEFF 		bl	Ranging_Timeout2_StartEx
+ 391              	.LVL29:
+ 392 0014 08BD     		pop	{r3, pc}
+ 393              	.L40:
+ 394 0016 00BF     		.align	2
+ 395              	.L39:
+ 396 0018 00000000 		.word	period2
+ 397 001c 00000000 		.word	RangingTimeoutInt2
+ 398              		.cfi_endproc
+ 399              	.LFE72:
+ 400              		.size	ranging_init2, .-ranging_init2
+ 401              		.section	.text.ranging_init,"ax",%progbits
+ 402              		.align	2
+ 403              		.global	ranging_init
+ 404              		.thumb
+ 405              		.thumb_func
+ 406              		.type	ranging_init, %function
+ 407              	ranging_init:
+ 408              	.LFB64:
+  31:Ranging.c     ****     ranging_init1();
+ 409              		.loc 1 31 0
+ 410              		.cfi_startproc
+ 411              		@ args = 0, pretend = 0, frame = 0
+ 412              		@ frame_needed = 0, uses_anonymous_args = 0
+ 413 0000 08B5     		push	{r3, lr}
+ 414              		.cfi_def_cfa_offset 8
+ 415              		.cfi_offset 3, -8
+ 416              		.cfi_offset 14, -4
+  32:Ranging.c     ****     ranging_init2();
+ 417              		.loc 1 32 0
+ 418 0002 FFF7FEFF 		bl	ranging_init1
+ 419              	.LVL30:
+  33:Ranging.c     **** }
+ 420              		.loc 1 33 0
+ 421 0006 FFF7FEFF 		bl	ranging_init2
+ 422              	.LVL31:
+ 423 000a 08BD     		pop	{r3, pc}
+ 424              		.cfi_endproc
+ 425              	.LFE64:
+ 426              		.size	ranging_init, .-ranging_init
+ 427              		.section	.text.trigger2,"ax",%progbits
+ 428              		.align	2
+ 429              		.global	trigger2
+ 430              		.thumb
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 11
+
+
+ 431              		.thumb_func
+ 432              		.type	trigger2, %function
+ 433              	trigger2:
+ 434              	.LFB73:
+ 106:Ranging.c     **** }
+ 107:Ranging.c     **** 
+ 108:Ranging.c     **** // Generate trigger pulse signal for probe 2
+ 109:Ranging.c     **** void trigger2() {
+ 435              		.loc 1 109 0
+ 436              		.cfi_startproc
+ 437              		@ args = 0, pretend = 0, frame = 0
+ 438              		@ frame_needed = 0, uses_anonymous_args = 0
+ 439 0000 08B5     		push	{r3, lr}
+ 440              		.cfi_def_cfa_offset 8
+ 441              		.cfi_offset 3, -8
+ 442              		.cfi_offset 14, -4
+ 110:Ranging.c     ****     Ranging_T2_Write(1);
+ 443              		.loc 1 110 0
+ 444 0002 0120     		movs	r0, #1
+ 445 0004 FFF7FEFF 		bl	Ranging_T2_Write
+ 446              	.LVL32:
+ 111:Ranging.c     ****     CyDelayUs(RANGING_TRIGGER);
+ 447              		.loc 1 111 0
+ 448 0008 3220     		movs	r0, #50
+ 449 000a FFF7FEFF 		bl	CyDelayUs
+ 450              	.LVL33:
+ 112:Ranging.c     ****     Ranging_T2_Write(0);
+ 451              		.loc 1 112 0
+ 452 000e 0020     		movs	r0, #0
+ 453 0010 FFF7FEFF 		bl	Ranging_T2_Write
+ 454              	.LVL34:
+ 455 0014 08BD     		pop	{r3, pc}
+ 456              		.cfi_endproc
+ 457              	.LFE73:
+ 458              		.size	trigger2, .-trigger2
+ 459 0016 00BF     		.section	.text.startcount2,"ax",%progbits
+ 460              		.align	2
+ 461              		.global	startcount2
+ 462              		.thumb
+ 463              		.thumb_func
+ 464              		.type	startcount2, %function
+ 465              	startcount2:
+ 466              	.LFB74:
+ 113:Ranging.c     **** }
+ 114:Ranging.c     **** 
+ 115:Ranging.c     **** // Set timer value and start timer for probe 2
+ 116:Ranging.c     **** void startcount2() {
+ 467              		.loc 1 116 0
+ 468              		.cfi_startproc
+ 469              		@ args = 0, pretend = 0, frame = 0
+ 470              		@ frame_needed = 0, uses_anonymous_args = 0
+ 471 0000 08B5     		push	{r3, lr}
+ 472              		.cfi_def_cfa_offset 8
+ 473              		.cfi_offset 3, -8
+ 474              		.cfi_offset 14, -4
+ 117:Ranging.c     ****     Ranging_Timer2_Start();
+ 475              		.loc 1 117 0
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 12
+
+
+ 476 0002 FFF7FEFF 		bl	Ranging_Timer2_Start
+ 477              	.LVL35:
+ 118:Ranging.c     ****     Ranging_Timer2_WriteCounter(period2 - 1);
+ 478              		.loc 1 118 0
+ 479 0006 034B     		ldr	r3, .L47
+ 480 0008 1868     		ldr	r0, [r3]
+ 481 000a 0138     		subs	r0, r0, #1
+ 482 000c FFF7FEFF 		bl	Ranging_Timer2_WriteCounter
+ 483              	.LVL36:
+ 484 0010 08BD     		pop	{r3, pc}
+ 485              	.L48:
+ 486 0012 00BF     		.align	2
+ 487              	.L47:
+ 488 0014 00000000 		.word	period2
+ 489              		.cfi_endproc
+ 490              	.LFE74:
+ 491              		.size	startcount2, .-startcount2
+ 492              		.section	.text.endcount2,"ax",%progbits
+ 493              		.align	2
+ 494              		.global	endcount2
+ 495              		.thumb
+ 496              		.thumb_func
+ 497              		.type	endcount2, %function
+ 498              	endcount2:
+ 499              	.LFB75:
+ 119:Ranging.c     **** }
+ 120:Ranging.c     **** 
+ 121:Ranging.c     **** // Stop timer for probe 2 and get timer value, return count value
+ 122:Ranging.c     **** uint32 endcount2() {
+ 500              		.loc 1 122 0
+ 501              		.cfi_startproc
+ 502              		@ args = 0, pretend = 0, frame = 0
+ 503              		@ frame_needed = 0, uses_anonymous_args = 0
+ 504 0000 10B5     		push	{r4, lr}
+ 505              		.cfi_def_cfa_offset 8
+ 506              		.cfi_offset 4, -8
+ 507              		.cfi_offset 14, -4
+ 123:Ranging.c     ****     uint32 cnt = Ranging_Timer2_ReadCounter();
+ 508              		.loc 1 123 0
+ 509 0002 FFF7FEFF 		bl	Ranging_Timer2_ReadCounter
+ 510              	.LVL37:
+ 511 0006 0446     		mov	r4, r0
+ 512              	.LVL38:
+ 124:Ranging.c     ****     Ranging_Timer2_Stop();
+ 513              		.loc 1 124 0
+ 514 0008 FFF7FEFF 		bl	Ranging_Timer2_Stop
+ 515              	.LVL39:
+ 125:Ranging.c     ****     return period2 - 1 - cnt;
+ 516              		.loc 1 125 0
+ 517 000c 024B     		ldr	r3, .L51
+ 518 000e 1868     		ldr	r0, [r3]
+ 519 0010 001B     		subs	r0, r0, r4
+ 126:Ranging.c     **** }
+ 520              		.loc 1 126 0
+ 521 0012 0138     		subs	r0, r0, #1
+ 522 0014 10BD     		pop	{r4, pc}
+ 523              	.LVL40:
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 13
+
+
+ 524              	.L52:
+ 525 0016 00BF     		.align	2
+ 526              	.L51:
+ 527 0018 00000000 		.word	period2
+ 528              		.cfi_endproc
+ 529              	.LFE75:
+ 530              		.size	endcount2, .-endcount2
+ 531              		.section	.text.get_millimeter2,"ax",%progbits
+ 532              		.align	2
+ 533              		.global	get_millimeter2
+ 534              		.thumb
+ 535              		.thumb_func
+ 536              		.type	get_millimeter2, %function
+ 537              	get_millimeter2:
+ 538              	.LFB76:
+ 127:Ranging.c     **** 
+ 128:Ranging.c     **** // Get probe 2 distance (mm)
+ 129:Ranging.c     **** int get_millimeter2() {
+ 539              		.loc 1 129 0
+ 540              		.cfi_startproc
+ 541              		@ args = 0, pretend = 0, frame = 0
+ 542              		@ frame_needed = 0, uses_anonymous_args = 0
+ 543 0000 08B5     		push	{r3, lr}
+ 544              		.cfi_def_cfa_offset 8
+ 545              		.cfi_offset 3, -8
+ 546              		.cfi_offset 14, -4
+ 130:Ranging.c     ****     uint32 cnt;
+ 131:Ranging.c     ****     int distance;
+ 132:Ranging.c     ****     startcount2();
+ 547              		.loc 1 132 0
+ 548 0002 FFF7FEFF 		bl	startcount2
+ 549              	.LVL41:
+ 133:Ranging.c     ****     trigger2();
+ 550              		.loc 1 133 0
+ 551 0006 FFF7FEFF 		bl	trigger2
+ 552              	.LVL42:
+ 553              	.L55:
+ 134:Ranging.c     ****     // Polling
+ 135:Ranging.c     ****     while (Ranging_R2_Read() == 0 && timeout2 == 0);
+ 554              		.loc 1 135 0 discriminator 2
+ 555 000a FFF7FEFF 		bl	Ranging_R2_Read
+ 556              	.LVL43:
+ 557 000e 18B9     		cbnz	r0, .L54
+ 558              		.loc 1 135 0 is_stmt 0 discriminator 1
+ 559 0010 0B4B     		ldr	r3, .L61
+ 560 0012 1B68     		ldr	r3, [r3]
+ 561 0014 002B     		cmp	r3, #0
+ 562 0016 F8D0     		beq	.L55
+ 563              	.L54:
+ 136:Ranging.c     ****     startcount2();
+ 564              		.loc 1 136 0 is_stmt 1
+ 565 0018 FFF7FEFF 		bl	startcount2
+ 566              	.LVL44:
+ 567              	.L57:
+ 137:Ranging.c     ****     while (Ranging_R2_Read() != 0 && timeout2 == 0);
+ 568              		.loc 1 137 0 discriminator 2
+ 569 001c FFF7FEFF 		bl	Ranging_R2_Read
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 14
+
+
+ 570              	.LVL45:
+ 571 0020 18B1     		cbz	r0, .L56
+ 572              		.loc 1 137 0 is_stmt 0 discriminator 1
+ 573 0022 074B     		ldr	r3, .L61
+ 574 0024 1B68     		ldr	r3, [r3]
+ 575 0026 002B     		cmp	r3, #0
+ 576 0028 F8D0     		beq	.L57
+ 577              	.L56:
+ 138:Ranging.c     ****     cnt = endcount2();
+ 578              		.loc 1 138 0 is_stmt 1
+ 579 002a FFF7FEFF 		bl	endcount2
+ 580              	.LVL46:
+ 139:Ranging.c     ****     if (timeout2 == 0) {
+ 581              		.loc 1 139 0
+ 582 002e 044B     		ldr	r3, .L61
+ 583 0030 1B68     		ldr	r3, [r3]
+ 584 0032 13B9     		cbnz	r3, .L59
+ 140:Ranging.c     ****         distance = (int)calculate_millimeter(cnt);
+ 585              		.loc 1 140 0
+ 586 0034 FFF7FEFF 		bl	calculate_millimeter
+ 587              	.LVL47:
+ 588 0038 08BD     		pop	{r3, pc}
+ 589              	.LVL48:
+ 590              	.L59:
+ 141:Ranging.c     ****     } else {
+ 142:Ranging.c     ****         // If timeout, return int max
+ 143:Ranging.c     ****         distance = L_INT_MAX;
+ 591              		.loc 1 143 0
+ 592 003a 6FF00040 		mvn	r0, #-2147483648
+ 593              	.LVL49:
+ 144:Ranging.c     ****     }
+ 145:Ranging.c     ****     return distance;
+ 146:Ranging.c     **** }
+ 594              		.loc 1 146 0
+ 595 003e 08BD     		pop	{r3, pc}
+ 596              	.L62:
+ 597              		.align	2
+ 598              	.L61:
+ 599 0040 00000000 		.word	timeout2
+ 600              		.cfi_endproc
+ 601              	.LFE76:
+ 602              		.size	get_millimeter2, .-get_millimeter2
+ 603              		.comm	timeout2,4,4
+ 604              		.comm	timeout1,4,4
+ 605              		.comm	period2,4,4
+ 606              		.comm	period1,4,4
+ 607              		.text
+ 608              	.Letext0:
+ 609              		.file 2 "d:\\psoccreator4.2\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.1\\arm-none-ea
+ 610              		.file 3 "d:\\psoccreator4.2\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.1\\arm-none-ea
+ 611              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 612              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 613              		.file 6 "Generated_Source\\PSoC5/Ranging_Timer1.h"
+ 614              		.file 7 "Generated_Source\\PSoC5/Ranging_Timer2.h"
+ 615              		.file 8 "Generated_Source\\PSoC5/Ranging_Timer1_Clock.h"
+ 616              		.file 9 "Generated_Source\\PSoC5/Ranging_Timeout1.h"
+ 617              		.file 10 "Generated_Source\\PSoC5/Ranging_T1.h"
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 15
+
+
+ 618              		.file 11 "Generated_Source\\PSoC5/CyLib.h"
+ 619              		.file 12 "Generated_Source\\PSoC5/Ranging_R1.h"
+ 620              		.file 13 "Generated_Source\\PSoC5/Ranging_Timer2_Clock.h"
+ 621              		.file 14 "Generated_Source\\PSoC5/Ranging_Timeout2.h"
+ 622              		.file 15 "Generated_Source\\PSoC5/Ranging_T2.h"
+ 623              		.file 16 "Generated_Source\\PSoC5/Ranging_R2.h"
+ 624              		.section	.debug_info,"",%progbits
+ 625              	.Ldebug_info0:
+ 626 0000 41050000 		.4byte	0x541
+ 627 0004 0400     		.2byte	0x4
+ 628 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 629 000a 04       		.byte	0x4
+ 630 000b 01       		.uleb128 0x1
+ 631 000c 27010000 		.4byte	.LASF57
+ 632 0010 0C       		.byte	0xc
+ 633 0011 F8000000 		.4byte	.LASF58
+ 634 0015 B7000000 		.4byte	.LASF59
+ 635 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 636 001d 00000000 		.4byte	0
+ 637 0021 00000000 		.4byte	.Ldebug_line0
+ 638 0025 02       		.uleb128 0x2
+ 639 0026 01       		.byte	0x1
+ 640 0027 06       		.byte	0x6
+ 641 0028 0D040000 		.4byte	.LASF0
+ 642 002c 02       		.uleb128 0x2
+ 643 002d 01       		.byte	0x1
+ 644 002e 08       		.byte	0x8
+ 645 002f 19010000 		.4byte	.LASF1
+ 646 0033 02       		.uleb128 0x2
+ 647 0034 02       		.byte	0x2
+ 648 0035 05       		.byte	0x5
+ 649 0036 B0030000 		.4byte	.LASF2
+ 650 003a 02       		.uleb128 0x2
+ 651 003b 02       		.byte	0x2
+ 652 003c 07       		.byte	0x7
+ 653 003d CC010000 		.4byte	.LASF3
+ 654 0041 03       		.uleb128 0x3
+ 655 0042 73000000 		.4byte	.LASF9
+ 656 0046 02       		.byte	0x2
+ 657 0047 3F       		.byte	0x3f
+ 658 0048 4C000000 		.4byte	0x4c
+ 659 004c 02       		.uleb128 0x2
+ 660 004d 04       		.byte	0x4
+ 661 004e 05       		.byte	0x5
+ 662 004f D4030000 		.4byte	.LASF4
+ 663 0053 02       		.uleb128 0x2
+ 664 0054 04       		.byte	0x4
+ 665 0055 07       		.byte	0x7
+ 666 0056 BA010000 		.4byte	.LASF5
+ 667 005a 02       		.uleb128 0x2
+ 668 005b 08       		.byte	0x8
+ 669 005c 05       		.byte	0x5
+ 670 005d 00000000 		.4byte	.LASF6
+ 671 0061 02       		.uleb128 0x2
+ 672 0062 08       		.byte	0x8
+ 673 0063 07       		.byte	0x7
+ 674 0064 CF020000 		.4byte	.LASF7
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 16
+
+
+ 675 0068 04       		.uleb128 0x4
+ 676 0069 04       		.byte	0x4
+ 677 006a 05       		.byte	0x5
+ 678 006b 696E7400 		.ascii	"int\000"
+ 679 006f 02       		.uleb128 0x2
+ 680 0070 04       		.byte	0x4
+ 681 0071 07       		.byte	0x7
+ 682 0072 94020000 		.4byte	.LASF8
+ 683 0076 03       		.uleb128 0x3
+ 684 0077 02010000 		.4byte	.LASF10
+ 685 007b 03       		.byte	0x3
+ 686 007c 2C       		.byte	0x2c
+ 687 007d 41000000 		.4byte	0x41
+ 688 0081 05       		.uleb128 0x5
+ 689 0082 BA030000 		.4byte	.LASF11
+ 690 0086 04       		.byte	0x4
+ 691 0087 9201     		.2byte	0x192
+ 692 0089 2C000000 		.4byte	0x2c
+ 693 008d 05       		.uleb128 0x5
+ 694 008e 8D020000 		.4byte	.LASF12
+ 695 0092 04       		.byte	0x4
+ 696 0093 9401     		.2byte	0x194
+ 697 0095 53000000 		.4byte	0x53
+ 698 0099 02       		.uleb128 0x2
+ 699 009a 04       		.byte	0x4
+ 700 009b 04       		.byte	0x4
+ 701 009c 13010000 		.4byte	.LASF13
+ 702 00a0 02       		.uleb128 0x2
+ 703 00a1 08       		.byte	0x8
+ 704 00a2 04       		.byte	0x4
+ 705 00a3 55020000 		.4byte	.LASF14
+ 706 00a7 02       		.uleb128 0x2
+ 707 00a8 01       		.byte	0x1
+ 708 00a9 08       		.byte	0x8
+ 709 00aa DD030000 		.4byte	.LASF15
+ 710 00ae 05       		.uleb128 0x5
+ 711 00af B5010000 		.4byte	.LASF16
+ 712 00b3 04       		.byte	0x4
+ 713 00b4 3C02     		.2byte	0x23c
+ 714 00b6 BA000000 		.4byte	0xba
+ 715 00ba 06       		.uleb128 0x6
+ 716 00bb 81000000 		.4byte	0x81
+ 717 00bf 02       		.uleb128 0x2
+ 718 00c0 08       		.byte	0x8
+ 719 00c1 04       		.byte	0x4
+ 720 00c2 77020000 		.4byte	.LASF17
+ 721 00c6 02       		.uleb128 0x2
+ 722 00c7 04       		.byte	0x4
+ 723 00c8 07       		.byte	0x7
+ 724 00c9 30030000 		.4byte	.LASF18
+ 725 00cd 07       		.uleb128 0x7
+ 726 00ce E2030000 		.4byte	.LASF19
+ 727 00d2 01       		.byte	0x1
+ 728 00d3 27       		.byte	0x27
+ 729 00d4 00000000 		.4byte	.LFB65
+ 730 00d8 1C000000 		.4byte	.LFE65-.LFB65
+ 731 00dc 01       		.uleb128 0x1
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 17
+
+
+ 732 00dd 9C       		.byte	0x9c
+ 733 00de EC000000 		.4byte	0xec
+ 734 00e2 08       		.uleb128 0x8
+ 735 00e3 10000000 		.4byte	.LVL0
+ 736 00e7 73040000 		.4byte	0x473
+ 737 00eb 00       		.byte	0
+ 738 00ec 07       		.uleb128 0x7
+ 739 00ed 22040000 		.4byte	.LASF20
+ 740 00f1 01       		.byte	0x1
+ 741 00f2 5F       		.byte	0x5f
+ 742 00f3 00000000 		.4byte	.LFB71
+ 743 00f7 1C000000 		.4byte	.LFE71-.LFB71
+ 744 00fb 01       		.uleb128 0x1
+ 745 00fc 9C       		.byte	0x9c
+ 746 00fd 0B010000 		.4byte	0x10b
+ 747 0101 08       		.uleb128 0x8
+ 748 0102 10000000 		.4byte	.LVL1
+ 749 0106 7E040000 		.4byte	0x47e
+ 750 010a 00       		.byte	0
+ 751 010b 09       		.uleb128 0x9
+ 752 010c A2000000 		.4byte	.LASF60
+ 753 0110 01       		.byte	0x1
+ 754 0111 1A       		.byte	0x1a
+ 755 0112 5A000000 		.4byte	0x5a
+ 756 0116 00000000 		.4byte	.LFB63
+ 757 011a 48000000 		.4byte	.LFE63-.LFB63
+ 758 011e 01       		.uleb128 0x1
+ 759 011f 9C       		.byte	0x9c
+ 760 0120 34010000 		.4byte	0x134
+ 761 0124 0A       		.uleb128 0xa
+ 762 0125 636E7400 		.ascii	"cnt\000"
+ 763 0129 01       		.byte	0x1
+ 764 012a 1A       		.byte	0x1a
+ 765 012b 8D000000 		.4byte	0x8d
+ 766 012f 00000000 		.4byte	.LLST0
+ 767 0133 00       		.byte	0
+ 768 0134 0B       		.uleb128 0xb
+ 769 0135 C1020000 		.4byte	.LASF21
+ 770 0139 01       		.byte	0x1
+ 771 013a 2E       		.byte	0x2e
+ 772 013b 00000000 		.4byte	.LFB66
+ 773 013f 20000000 		.4byte	.LFE66-.LFB66
+ 774 0143 01       		.uleb128 0x1
+ 775 0144 9C       		.byte	0x9c
+ 776 0145 6F010000 		.4byte	0x16f
+ 777 0149 08       		.uleb128 0x8
+ 778 014a 06000000 		.4byte	.LVL6
+ 779 014e 89040000 		.4byte	0x489
+ 780 0152 08       		.uleb128 0x8
+ 781 0153 0E000000 		.4byte	.LVL7
+ 782 0157 94040000 		.4byte	0x494
+ 783 015b 0C       		.uleb128 0xc
+ 784 015c 14000000 		.4byte	.LVL8
+ 785 0160 9F040000 		.4byte	0x49f
+ 786 0164 0D       		.uleb128 0xd
+ 787 0165 01       		.uleb128 0x1
+ 788 0166 50       		.byte	0x50
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 18
+
+
+ 789 0167 05       		.uleb128 0x5
+ 790 0168 03       		.byte	0x3
+ 791 0169 00000000 		.4byte	RangingTimeoutInt1
+ 792 016d 00       		.byte	0
+ 793 016e 00       		.byte	0
+ 794 016f 0B       		.uleb128 0xb
+ 795 0170 3C020000 		.4byte	.LASF22
+ 796 0174 01       		.byte	0x1
+ 797 0175 35       		.byte	0x35
+ 798 0176 00000000 		.4byte	.LFB67
+ 799 017a 16000000 		.4byte	.LFE67-.LFB67
+ 800 017e 01       		.uleb128 0x1
+ 801 017f 9C       		.byte	0x9c
+ 802 0180 BB010000 		.4byte	0x1bb
+ 803 0184 0E       		.uleb128 0xe
+ 804 0185 08000000 		.4byte	.LVL9
+ 805 0189 AA040000 		.4byte	0x4aa
+ 806 018d 97010000 		.4byte	0x197
+ 807 0191 0D       		.uleb128 0xd
+ 808 0192 01       		.uleb128 0x1
+ 809 0193 50       		.byte	0x50
+ 810 0194 01       		.uleb128 0x1
+ 811 0195 31       		.byte	0x31
+ 812 0196 00       		.byte	0
+ 813 0197 0E       		.uleb128 0xe
+ 814 0198 0E000000 		.4byte	.LVL10
+ 815 019c B5040000 		.4byte	0x4b5
+ 816 01a0 AB010000 		.4byte	0x1ab
+ 817 01a4 0D       		.uleb128 0xd
+ 818 01a5 01       		.uleb128 0x1
+ 819 01a6 50       		.byte	0x50
+ 820 01a7 02       		.uleb128 0x2
+ 821 01a8 08       		.byte	0x8
+ 822 01a9 32       		.byte	0x32
+ 823 01aa 00       		.byte	0
+ 824 01ab 0C       		.uleb128 0xc
+ 825 01ac 14000000 		.4byte	.LVL11
+ 826 01b0 AA040000 		.4byte	0x4aa
+ 827 01b4 0D       		.uleb128 0xd
+ 828 01b5 01       		.uleb128 0x1
+ 829 01b6 50       		.byte	0x50
+ 830 01b7 01       		.uleb128 0x1
+ 831 01b8 30       		.byte	0x30
+ 832 01b9 00       		.byte	0
+ 833 01ba 00       		.byte	0
+ 834 01bb 0B       		.uleb128 0xb
+ 835 01bc F5030000 		.4byte	.LASF23
+ 836 01c0 01       		.byte	0x1
+ 837 01c1 3C       		.byte	0x3c
+ 838 01c2 00000000 		.4byte	.LFB68
+ 839 01c6 18000000 		.4byte	.LFE68-.LFB68
+ 840 01ca 01       		.uleb128 0x1
+ 841 01cb 9C       		.byte	0x9c
+ 842 01cc E3010000 		.4byte	0x1e3
+ 843 01d0 08       		.uleb128 0x8
+ 844 01d1 06000000 		.4byte	.LVL12
+ 845 01d5 C0040000 		.4byte	0x4c0
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 19
+
+
+ 846 01d9 08       		.uleb128 0x8
+ 847 01da 10000000 		.4byte	.LVL13
+ 848 01de CB040000 		.4byte	0x4cb
+ 849 01e2 00       		.byte	0
+ 850 01e3 0F       		.uleb128 0xf
+ 851 01e4 C0030000 		.4byte	.LASF24
+ 852 01e8 01       		.byte	0x1
+ 853 01e9 42       		.byte	0x42
+ 854 01ea 8D000000 		.4byte	0x8d
+ 855 01ee 00000000 		.4byte	.LFB69
+ 856 01f2 1C000000 		.4byte	.LFE69-.LFB69
+ 857 01f6 01       		.uleb128 0x1
+ 858 01f7 9C       		.byte	0x9c
+ 859 01f8 1E020000 		.4byte	0x21e
+ 860 01fc 10       		.uleb128 0x10
+ 861 01fd 636E7400 		.ascii	"cnt\000"
+ 862 0201 01       		.byte	0x1
+ 863 0202 43       		.byte	0x43
+ 864 0203 8D000000 		.4byte	0x8d
+ 865 0207 2C000000 		.4byte	.LLST1
+ 866 020b 08       		.uleb128 0x8
+ 867 020c 06000000 		.4byte	.LVL14
+ 868 0210 D6040000 		.4byte	0x4d6
+ 869 0214 08       		.uleb128 0x8
+ 870 0215 0C000000 		.4byte	.LVL16
+ 871 0219 73040000 		.4byte	0x473
+ 872 021d 00       		.byte	0
+ 873 021e 0F       		.uleb128 0xf
+ 874 021f A1020000 		.4byte	.LASF25
+ 875 0223 01       		.byte	0x1
+ 876 0224 49       		.byte	0x49
+ 877 0225 68000000 		.4byte	0x68
+ 878 0229 00000000 		.4byte	.LFB70
+ 879 022d 44000000 		.4byte	.LFE70-.LFB70
+ 880 0231 01       		.uleb128 0x1
+ 881 0232 9C       		.byte	0x9c
+ 882 0233 95020000 		.4byte	0x295
+ 883 0237 10       		.uleb128 0x10
+ 884 0238 636E7400 		.ascii	"cnt\000"
+ 885 023c 01       		.byte	0x1
+ 886 023d 4A       		.byte	0x4a
+ 887 023e 8D000000 		.4byte	0x8d
+ 888 0242 4A000000 		.4byte	.LLST2
+ 889 0246 11       		.uleb128 0x11
+ 890 0247 0A010000 		.4byte	.LASF26
+ 891 024b 01       		.byte	0x1
+ 892 024c 4B       		.byte	0x4b
+ 893 024d 68000000 		.4byte	0x68
+ 894 0251 68000000 		.4byte	.LLST3
+ 895 0255 08       		.uleb128 0x8
+ 896 0256 06000000 		.4byte	.LVL18
+ 897 025a BB010000 		.4byte	0x1bb
+ 898 025e 08       		.uleb128 0x8
+ 899 025f 0A000000 		.4byte	.LVL19
+ 900 0263 6F010000 		.4byte	0x16f
+ 901 0267 08       		.uleb128 0x8
+ 902 0268 0E000000 		.4byte	.LVL20
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 20
+
+
+ 903 026c E1040000 		.4byte	0x4e1
+ 904 0270 08       		.uleb128 0x8
+ 905 0271 1C000000 		.4byte	.LVL21
+ 906 0275 BB010000 		.4byte	0x1bb
+ 907 0279 08       		.uleb128 0x8
+ 908 027a 20000000 		.4byte	.LVL22
+ 909 027e E1040000 		.4byte	0x4e1
+ 910 0282 08       		.uleb128 0x8
+ 911 0283 2E000000 		.4byte	.LVL23
+ 912 0287 E3010000 		.4byte	0x1e3
+ 913 028b 08       		.uleb128 0x8
+ 914 028c 38000000 		.4byte	.LVL24
+ 915 0290 0B010000 		.4byte	0x10b
+ 916 0294 00       		.byte	0
+ 917 0295 0B       		.uleb128 0xb
+ 918 0296 22030000 		.4byte	.LASF27
+ 919 029a 01       		.byte	0x1
+ 920 029b 66       		.byte	0x66
+ 921 029c 00000000 		.4byte	.LFB72
+ 922 02a0 20000000 		.4byte	.LFE72-.LFB72
+ 923 02a4 01       		.uleb128 0x1
+ 924 02a5 9C       		.byte	0x9c
+ 925 02a6 D0020000 		.4byte	0x2d0
+ 926 02aa 08       		.uleb128 0x8
+ 927 02ab 06000000 		.4byte	.LVL27
+ 928 02af EC040000 		.4byte	0x4ec
+ 929 02b3 08       		.uleb128 0x8
+ 930 02b4 0E000000 		.4byte	.LVL28
+ 931 02b8 F7040000 		.4byte	0x4f7
+ 932 02bc 0C       		.uleb128 0xc
+ 933 02bd 14000000 		.4byte	.LVL29
+ 934 02c1 02050000 		.4byte	0x502
+ 935 02c5 0D       		.uleb128 0xd
+ 936 02c6 01       		.uleb128 0x1
+ 937 02c7 50       		.byte	0x50
+ 938 02c8 05       		.uleb128 0x5
+ 939 02c9 03       		.byte	0x3
+ 940 02ca 00000000 		.4byte	RangingTimeoutInt2
+ 941 02ce 00       		.byte	0
+ 942 02cf 00       		.byte	0
+ 943 02d0 0B       		.uleb128 0xb
+ 944 02d1 89030000 		.4byte	.LASF28
+ 945 02d5 01       		.byte	0x1
+ 946 02d6 1F       		.byte	0x1f
+ 947 02d7 00000000 		.4byte	.LFB64
+ 948 02db 0C000000 		.4byte	.LFE64-.LFB64
+ 949 02df 01       		.uleb128 0x1
+ 950 02e0 9C       		.byte	0x9c
+ 951 02e1 F8020000 		.4byte	0x2f8
+ 952 02e5 08       		.uleb128 0x8
+ 953 02e6 06000000 		.4byte	.LVL30
+ 954 02ea 34010000 		.4byte	0x134
+ 955 02ee 08       		.uleb128 0x8
+ 956 02ef 0A000000 		.4byte	.LVL31
+ 957 02f3 95020000 		.4byte	0x295
+ 958 02f7 00       		.byte	0
+ 959 02f8 0B       		.uleb128 0xb
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 21
+
+
+ 960 02f9 19040000 		.4byte	.LASF29
+ 961 02fd 01       		.byte	0x1
+ 962 02fe 6D       		.byte	0x6d
+ 963 02ff 00000000 		.4byte	.LFB73
+ 964 0303 16000000 		.4byte	.LFE73-.LFB73
+ 965 0307 01       		.uleb128 0x1
+ 966 0308 9C       		.byte	0x9c
+ 967 0309 44030000 		.4byte	0x344
+ 968 030d 0E       		.uleb128 0xe
+ 969 030e 08000000 		.4byte	.LVL32
+ 970 0312 0D050000 		.4byte	0x50d
+ 971 0316 20030000 		.4byte	0x320
+ 972 031a 0D       		.uleb128 0xd
+ 973 031b 01       		.uleb128 0x1
+ 974 031c 50       		.byte	0x50
+ 975 031d 01       		.uleb128 0x1
+ 976 031e 31       		.byte	0x31
+ 977 031f 00       		.byte	0
+ 978 0320 0E       		.uleb128 0xe
+ 979 0321 0E000000 		.4byte	.LVL33
+ 980 0325 B5040000 		.4byte	0x4b5
+ 981 0329 34030000 		.4byte	0x334
+ 982 032d 0D       		.uleb128 0xd
+ 983 032e 01       		.uleb128 0x1
+ 984 032f 50       		.byte	0x50
+ 985 0330 02       		.uleb128 0x2
+ 986 0331 08       		.byte	0x8
+ 987 0332 32       		.byte	0x32
+ 988 0333 00       		.byte	0
+ 989 0334 0C       		.uleb128 0xc
+ 990 0335 14000000 		.4byte	.LVL34
+ 991 0339 0D050000 		.4byte	0x50d
+ 992 033d 0D       		.uleb128 0xd
+ 993 033e 01       		.uleb128 0x1
+ 994 033f 50       		.byte	0x50
+ 995 0340 01       		.uleb128 0x1
+ 996 0341 30       		.byte	0x30
+ 997 0342 00       		.byte	0
+ 998 0343 00       		.byte	0
+ 999 0344 0B       		.uleb128 0xb
+ 1000 0345 01040000 		.4byte	.LASF30
+ 1001 0349 01       		.byte	0x1
+ 1002 034a 74       		.byte	0x74
+ 1003 034b 00000000 		.4byte	.LFB74
+ 1004 034f 18000000 		.4byte	.LFE74-.LFB74
+ 1005 0353 01       		.uleb128 0x1
+ 1006 0354 9C       		.byte	0x9c
+ 1007 0355 6C030000 		.4byte	0x36c
+ 1008 0359 08       		.uleb128 0x8
+ 1009 035a 06000000 		.4byte	.LVL35
+ 1010 035e 18050000 		.4byte	0x518
+ 1011 0362 08       		.uleb128 0x8
+ 1012 0363 10000000 		.4byte	.LVL36
+ 1013 0367 23050000 		.4byte	0x523
+ 1014 036b 00       		.byte	0
+ 1015 036c 0F       		.uleb128 0xf
+ 1016 036d CA030000 		.4byte	.LASF31
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 22
+
+
+ 1017 0371 01       		.byte	0x1
+ 1018 0372 7A       		.byte	0x7a
+ 1019 0373 8D000000 		.4byte	0x8d
+ 1020 0377 00000000 		.4byte	.LFB75
+ 1021 037b 1C000000 		.4byte	.LFE75-.LFB75
+ 1022 037f 01       		.uleb128 0x1
+ 1023 0380 9C       		.byte	0x9c
+ 1024 0381 A7030000 		.4byte	0x3a7
+ 1025 0385 10       		.uleb128 0x10
+ 1026 0386 636E7400 		.ascii	"cnt\000"
+ 1027 038a 01       		.byte	0x1
+ 1028 038b 7B       		.byte	0x7b
+ 1029 038c 8D000000 		.4byte	0x8d
+ 1030 0390 86000000 		.4byte	.LLST4
+ 1031 0394 08       		.uleb128 0x8
+ 1032 0395 06000000 		.4byte	.LVL37
+ 1033 0399 2E050000 		.4byte	0x52e
+ 1034 039d 08       		.uleb128 0x8
+ 1035 039e 0C000000 		.4byte	.LVL39
+ 1036 03a2 7E040000 		.4byte	0x47e
+ 1037 03a6 00       		.byte	0
+ 1038 03a7 0F       		.uleb128 0xf
+ 1039 03a8 B1020000 		.4byte	.LASF32
+ 1040 03ac 01       		.byte	0x1
+ 1041 03ad 81       		.byte	0x81
+ 1042 03ae 68000000 		.4byte	0x68
+ 1043 03b2 00000000 		.4byte	.LFB76
+ 1044 03b6 44000000 		.4byte	.LFE76-.LFB76
+ 1045 03ba 01       		.uleb128 0x1
+ 1046 03bb 9C       		.byte	0x9c
+ 1047 03bc 1E040000 		.4byte	0x41e
+ 1048 03c0 10       		.uleb128 0x10
+ 1049 03c1 636E7400 		.ascii	"cnt\000"
+ 1050 03c5 01       		.byte	0x1
+ 1051 03c6 82       		.byte	0x82
+ 1052 03c7 8D000000 		.4byte	0x8d
+ 1053 03cb A4000000 		.4byte	.LLST5
+ 1054 03cf 11       		.uleb128 0x11
+ 1055 03d0 0A010000 		.4byte	.LASF26
+ 1056 03d4 01       		.byte	0x1
+ 1057 03d5 83       		.byte	0x83
+ 1058 03d6 68000000 		.4byte	0x68
+ 1059 03da C2000000 		.4byte	.LLST6
+ 1060 03de 08       		.uleb128 0x8
+ 1061 03df 06000000 		.4byte	.LVL41
+ 1062 03e3 44030000 		.4byte	0x344
+ 1063 03e7 08       		.uleb128 0x8
+ 1064 03e8 0A000000 		.4byte	.LVL42
+ 1065 03ec F8020000 		.4byte	0x2f8
+ 1066 03f0 08       		.uleb128 0x8
+ 1067 03f1 0E000000 		.4byte	.LVL43
+ 1068 03f5 39050000 		.4byte	0x539
+ 1069 03f9 08       		.uleb128 0x8
+ 1070 03fa 1C000000 		.4byte	.LVL44
+ 1071 03fe 44030000 		.4byte	0x344
+ 1072 0402 08       		.uleb128 0x8
+ 1073 0403 20000000 		.4byte	.LVL45
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 23
+
+
+ 1074 0407 39050000 		.4byte	0x539
+ 1075 040b 08       		.uleb128 0x8
+ 1076 040c 2E000000 		.4byte	.LVL46
+ 1077 0410 6C030000 		.4byte	0x36c
+ 1078 0414 08       		.uleb128 0x8
+ 1079 0415 38000000 		.4byte	.LVL47
+ 1080 0419 0B010000 		.4byte	0x10b
+ 1081 041d 00       		.byte	0
+ 1082 041e 12       		.uleb128 0x12
+ 1083 041f 2F020000 		.4byte	.LASF33
+ 1084 0423 05       		.byte	0x5
+ 1085 0424 9606     		.2byte	0x696
+ 1086 0426 2A040000 		.4byte	0x42a
+ 1087 042a 06       		.uleb128 0x6
+ 1088 042b 76000000 		.4byte	0x76
+ 1089 042f 13       		.uleb128 0x13
+ 1090 0430 00030000 		.4byte	.LASF34
+ 1091 0434 01       		.byte	0x1
+ 1092 0435 14       		.byte	0x14
+ 1093 0436 8D000000 		.4byte	0x8d
+ 1094 043a 05       		.uleb128 0x5
+ 1095 043b 03       		.byte	0x3
+ 1096 043c 00000000 		.4byte	period1
+ 1097 0440 13       		.uleb128 0x13
+ 1098 0441 08030000 		.4byte	.LASF35
+ 1099 0445 01       		.byte	0x1
+ 1100 0446 14       		.byte	0x14
+ 1101 0447 8D000000 		.4byte	0x8d
+ 1102 044b 05       		.uleb128 0x5
+ 1103 044c 03       		.byte	0x3
+ 1104 044d 00000000 		.4byte	period2
+ 1105 0451 13       		.uleb128 0x13
+ 1106 0452 10030000 		.4byte	.LASF36
+ 1107 0456 01       		.byte	0x1
+ 1108 0457 15       		.byte	0x15
+ 1109 0458 68000000 		.4byte	0x68
+ 1110 045c 05       		.uleb128 0x5
+ 1111 045d 03       		.byte	0x3
+ 1112 045e 00000000 		.4byte	timeout1
+ 1113 0462 13       		.uleb128 0x13
+ 1114 0463 19030000 		.4byte	.LASF37
+ 1115 0467 01       		.byte	0x1
+ 1116 0468 15       		.byte	0x15
+ 1117 0469 68000000 		.4byte	0x68
+ 1118 046d 05       		.uleb128 0x5
+ 1119 046e 03       		.byte	0x3
+ 1120 046f 00000000 		.4byte	timeout2
+ 1121 0473 14       		.uleb128 0x14
+ 1122 0474 7D000000 		.4byte	.LASF38
+ 1123 0478 7D000000 		.4byte	.LASF38
+ 1124 047c 06       		.byte	0x6
+ 1125 047d 5B       		.byte	0x5b
+ 1126 047e 14       		.uleb128 0x14
+ 1127 047f 29000000 		.4byte	.LASF39
+ 1128 0483 29000000 		.4byte	.LASF39
+ 1129 0487 07       		.byte	0x7
+ 1130 0488 5B       		.byte	0x5b
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 24
+
+
+ 1131 0489 14       		.uleb128 0x14
+ 1132 048a 96030000 		.4byte	.LASF40
+ 1133 048e 96030000 		.4byte	.LASF40
+ 1134 0492 06       		.byte	0x6
+ 1135 0493 67       		.byte	0x67
+ 1136 0494 14       		.uleb128 0x14
+ 1137 0495 0E000000 		.4byte	.LASF41
+ 1138 0499 0E000000 		.4byte	.LASF41
+ 1139 049d 08       		.byte	0x8
+ 1140 049e 27       		.byte	0x27
+ 1141 049f 14       		.uleb128 0x14
+ 1142 04a0 16020000 		.4byte	.LASF42
+ 1143 04a4 16020000 		.4byte	.LASF42
+ 1144 04a8 09       		.byte	0x9
+ 1145 04a9 18       		.byte	0x18
+ 1146 04aa 14       		.uleb128 0x14
+ 1147 04ab 3D000000 		.4byte	.LASF43
+ 1148 04af 3D000000 		.4byte	.LASF43
+ 1149 04b3 0A       		.byte	0xa
+ 1150 04b4 26       		.byte	0x26
+ 1151 04b5 14       		.uleb128 0x14
+ 1152 04b6 83020000 		.4byte	.LASF44
+ 1153 04ba 83020000 		.4byte	.LASF44
+ 1154 04be 0B       		.byte	0xb
+ 1155 04bf 77       		.byte	0x77
+ 1156 04c0 14       		.uleb128 0x14
+ 1157 04c1 35040000 		.4byte	.LASF45
+ 1158 04c5 35040000 		.4byte	.LASF45
+ 1159 04c9 06       		.byte	0x6
+ 1160 04ca 5A       		.byte	0x5a
+ 1161 04cb 14       		.uleb128 0x14
+ 1162 04cc 6D030000 		.4byte	.LASF46
+ 1163 04d0 6D030000 		.4byte	.LASF46
+ 1164 04d4 06       		.byte	0x6
+ 1165 04d5 6A       		.byte	0x6a
+ 1166 04d6 14       		.uleb128 0x14
+ 1167 04d7 52030000 		.4byte	.LASF47
+ 1168 04db 52030000 		.4byte	.LASF47
+ 1169 04df 06       		.byte	0x6
+ 1170 04e0 69       		.byte	0x69
+ 1171 04e1 14       		.uleb128 0x14
+ 1172 04e2 45020000 		.4byte	.LASF48
+ 1173 04e6 45020000 		.4byte	.LASF48
+ 1174 04ea 0C       		.byte	0xc
+ 1175 04eb 29       		.byte	0x29
+ 1176 04ec 14       		.uleb128 0x14
+ 1177 04ed E6020000 		.4byte	.LASF49
+ 1178 04f1 E6020000 		.4byte	.LASF49
+ 1179 04f5 07       		.byte	0x7
+ 1180 04f6 67       		.byte	0x67
+ 1181 04f7 14       		.uleb128 0x14
+ 1182 04f8 FB010000 		.4byte	.LASF50
+ 1183 04fc FB010000 		.4byte	.LASF50
+ 1184 0500 0D       		.byte	0xd
+ 1185 0501 27       		.byte	0x27
+ 1186 0502 14       		.uleb128 0x14
+ 1187 0503 39030000 		.4byte	.LASF51
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 25
+
+
+ 1188 0507 39030000 		.4byte	.LASF51
+ 1189 050b 0E       		.byte	0xe
+ 1190 050c 18       		.byte	0x18
+ 1191 050d 14       		.uleb128 0x14
+ 1192 050e 91000000 		.4byte	.LASF52
+ 1193 0512 91000000 		.4byte	.LASF52
+ 1194 0516 0F       		.byte	0xf
+ 1195 0517 26       		.byte	0x26
+ 1196 0518 14       		.uleb128 0x14
+ 1197 0519 4E000000 		.4byte	.LASF53
+ 1198 051d 4E000000 		.4byte	.LASF53
+ 1199 0521 07       		.byte	0x7
+ 1200 0522 5A       		.byte	0x5a
+ 1201 0523 14       		.uleb128 0x14
+ 1202 0524 DF010000 		.4byte	.LASF54
+ 1203 0528 DF010000 		.4byte	.LASF54
+ 1204 052c 07       		.byte	0x7
+ 1205 052d 6A       		.byte	0x6a
+ 1206 052e 14       		.uleb128 0x14
+ 1207 052f 5C020000 		.4byte	.LASF55
+ 1208 0533 5C020000 		.4byte	.LASF55
+ 1209 0537 07       		.byte	0x7
+ 1210 0538 69       		.byte	0x69
+ 1211 0539 14       		.uleb128 0x14
+ 1212 053a 63000000 		.4byte	.LASF56
+ 1213 053e 63000000 		.4byte	.LASF56
+ 1214 0542 10       		.byte	0x10
+ 1215 0543 29       		.byte	0x29
+ 1216 0544 00       		.byte	0
+ 1217              		.section	.debug_abbrev,"",%progbits
+ 1218              	.Ldebug_abbrev0:
+ 1219 0000 01       		.uleb128 0x1
+ 1220 0001 11       		.uleb128 0x11
+ 1221 0002 01       		.byte	0x1
+ 1222 0003 25       		.uleb128 0x25
+ 1223 0004 0E       		.uleb128 0xe
+ 1224 0005 13       		.uleb128 0x13
+ 1225 0006 0B       		.uleb128 0xb
+ 1226 0007 03       		.uleb128 0x3
+ 1227 0008 0E       		.uleb128 0xe
+ 1228 0009 1B       		.uleb128 0x1b
+ 1229 000a 0E       		.uleb128 0xe
+ 1230 000b 55       		.uleb128 0x55
+ 1231 000c 17       		.uleb128 0x17
+ 1232 000d 11       		.uleb128 0x11
+ 1233 000e 01       		.uleb128 0x1
+ 1234 000f 10       		.uleb128 0x10
+ 1235 0010 17       		.uleb128 0x17
+ 1236 0011 00       		.byte	0
+ 1237 0012 00       		.byte	0
+ 1238 0013 02       		.uleb128 0x2
+ 1239 0014 24       		.uleb128 0x24
+ 1240 0015 00       		.byte	0
+ 1241 0016 0B       		.uleb128 0xb
+ 1242 0017 0B       		.uleb128 0xb
+ 1243 0018 3E       		.uleb128 0x3e
+ 1244 0019 0B       		.uleb128 0xb
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 26
+
+
+ 1245 001a 03       		.uleb128 0x3
+ 1246 001b 0E       		.uleb128 0xe
+ 1247 001c 00       		.byte	0
+ 1248 001d 00       		.byte	0
+ 1249 001e 03       		.uleb128 0x3
+ 1250 001f 16       		.uleb128 0x16
+ 1251 0020 00       		.byte	0
+ 1252 0021 03       		.uleb128 0x3
+ 1253 0022 0E       		.uleb128 0xe
+ 1254 0023 3A       		.uleb128 0x3a
+ 1255 0024 0B       		.uleb128 0xb
+ 1256 0025 3B       		.uleb128 0x3b
+ 1257 0026 0B       		.uleb128 0xb
+ 1258 0027 49       		.uleb128 0x49
+ 1259 0028 13       		.uleb128 0x13
+ 1260 0029 00       		.byte	0
+ 1261 002a 00       		.byte	0
+ 1262 002b 04       		.uleb128 0x4
+ 1263 002c 24       		.uleb128 0x24
+ 1264 002d 00       		.byte	0
+ 1265 002e 0B       		.uleb128 0xb
+ 1266 002f 0B       		.uleb128 0xb
+ 1267 0030 3E       		.uleb128 0x3e
+ 1268 0031 0B       		.uleb128 0xb
+ 1269 0032 03       		.uleb128 0x3
+ 1270 0033 08       		.uleb128 0x8
+ 1271 0034 00       		.byte	0
+ 1272 0035 00       		.byte	0
+ 1273 0036 05       		.uleb128 0x5
+ 1274 0037 16       		.uleb128 0x16
+ 1275 0038 00       		.byte	0
+ 1276 0039 03       		.uleb128 0x3
+ 1277 003a 0E       		.uleb128 0xe
+ 1278 003b 3A       		.uleb128 0x3a
+ 1279 003c 0B       		.uleb128 0xb
+ 1280 003d 3B       		.uleb128 0x3b
+ 1281 003e 05       		.uleb128 0x5
+ 1282 003f 49       		.uleb128 0x49
+ 1283 0040 13       		.uleb128 0x13
+ 1284 0041 00       		.byte	0
+ 1285 0042 00       		.byte	0
+ 1286 0043 06       		.uleb128 0x6
+ 1287 0044 35       		.uleb128 0x35
+ 1288 0045 00       		.byte	0
+ 1289 0046 49       		.uleb128 0x49
+ 1290 0047 13       		.uleb128 0x13
+ 1291 0048 00       		.byte	0
+ 1292 0049 00       		.byte	0
+ 1293 004a 07       		.uleb128 0x7
+ 1294 004b 2E       		.uleb128 0x2e
+ 1295 004c 01       		.byte	0x1
+ 1296 004d 3F       		.uleb128 0x3f
+ 1297 004e 19       		.uleb128 0x19
+ 1298 004f 03       		.uleb128 0x3
+ 1299 0050 0E       		.uleb128 0xe
+ 1300 0051 3A       		.uleb128 0x3a
+ 1301 0052 0B       		.uleb128 0xb
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 27
+
+
+ 1302 0053 3B       		.uleb128 0x3b
+ 1303 0054 0B       		.uleb128 0xb
+ 1304 0055 27       		.uleb128 0x27
+ 1305 0056 19       		.uleb128 0x19
+ 1306 0057 11       		.uleb128 0x11
+ 1307 0058 01       		.uleb128 0x1
+ 1308 0059 12       		.uleb128 0x12
+ 1309 005a 06       		.uleb128 0x6
+ 1310 005b 40       		.uleb128 0x40
+ 1311 005c 18       		.uleb128 0x18
+ 1312 005d 9742     		.uleb128 0x2117
+ 1313 005f 19       		.uleb128 0x19
+ 1314 0060 01       		.uleb128 0x1
+ 1315 0061 13       		.uleb128 0x13
+ 1316 0062 00       		.byte	0
+ 1317 0063 00       		.byte	0
+ 1318 0064 08       		.uleb128 0x8
+ 1319 0065 898201   		.uleb128 0x4109
+ 1320 0068 00       		.byte	0
+ 1321 0069 11       		.uleb128 0x11
+ 1322 006a 01       		.uleb128 0x1
+ 1323 006b 31       		.uleb128 0x31
+ 1324 006c 13       		.uleb128 0x13
+ 1325 006d 00       		.byte	0
+ 1326 006e 00       		.byte	0
+ 1327 006f 09       		.uleb128 0x9
+ 1328 0070 2E       		.uleb128 0x2e
+ 1329 0071 01       		.byte	0x1
+ 1330 0072 3F       		.uleb128 0x3f
+ 1331 0073 19       		.uleb128 0x19
+ 1332 0074 03       		.uleb128 0x3
+ 1333 0075 0E       		.uleb128 0xe
+ 1334 0076 3A       		.uleb128 0x3a
+ 1335 0077 0B       		.uleb128 0xb
+ 1336 0078 3B       		.uleb128 0x3b
+ 1337 0079 0B       		.uleb128 0xb
+ 1338 007a 27       		.uleb128 0x27
+ 1339 007b 19       		.uleb128 0x19
+ 1340 007c 49       		.uleb128 0x49
+ 1341 007d 13       		.uleb128 0x13
+ 1342 007e 11       		.uleb128 0x11
+ 1343 007f 01       		.uleb128 0x1
+ 1344 0080 12       		.uleb128 0x12
+ 1345 0081 06       		.uleb128 0x6
+ 1346 0082 40       		.uleb128 0x40
+ 1347 0083 18       		.uleb128 0x18
+ 1348 0084 9642     		.uleb128 0x2116
+ 1349 0086 19       		.uleb128 0x19
+ 1350 0087 01       		.uleb128 0x1
+ 1351 0088 13       		.uleb128 0x13
+ 1352 0089 00       		.byte	0
+ 1353 008a 00       		.byte	0
+ 1354 008b 0A       		.uleb128 0xa
+ 1355 008c 05       		.uleb128 0x5
+ 1356 008d 00       		.byte	0
+ 1357 008e 03       		.uleb128 0x3
+ 1358 008f 08       		.uleb128 0x8
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 28
+
+
+ 1359 0090 3A       		.uleb128 0x3a
+ 1360 0091 0B       		.uleb128 0xb
+ 1361 0092 3B       		.uleb128 0x3b
+ 1362 0093 0B       		.uleb128 0xb
+ 1363 0094 49       		.uleb128 0x49
+ 1364 0095 13       		.uleb128 0x13
+ 1365 0096 02       		.uleb128 0x2
+ 1366 0097 17       		.uleb128 0x17
+ 1367 0098 00       		.byte	0
+ 1368 0099 00       		.byte	0
+ 1369 009a 0B       		.uleb128 0xb
+ 1370 009b 2E       		.uleb128 0x2e
+ 1371 009c 01       		.byte	0x1
+ 1372 009d 3F       		.uleb128 0x3f
+ 1373 009e 19       		.uleb128 0x19
+ 1374 009f 03       		.uleb128 0x3
+ 1375 00a0 0E       		.uleb128 0xe
+ 1376 00a1 3A       		.uleb128 0x3a
+ 1377 00a2 0B       		.uleb128 0xb
+ 1378 00a3 3B       		.uleb128 0x3b
+ 1379 00a4 0B       		.uleb128 0xb
+ 1380 00a5 11       		.uleb128 0x11
+ 1381 00a6 01       		.uleb128 0x1
+ 1382 00a7 12       		.uleb128 0x12
+ 1383 00a8 06       		.uleb128 0x6
+ 1384 00a9 40       		.uleb128 0x40
+ 1385 00aa 18       		.uleb128 0x18
+ 1386 00ab 9742     		.uleb128 0x2117
+ 1387 00ad 19       		.uleb128 0x19
+ 1388 00ae 01       		.uleb128 0x1
+ 1389 00af 13       		.uleb128 0x13
+ 1390 00b0 00       		.byte	0
+ 1391 00b1 00       		.byte	0
+ 1392 00b2 0C       		.uleb128 0xc
+ 1393 00b3 898201   		.uleb128 0x4109
+ 1394 00b6 01       		.byte	0x1
+ 1395 00b7 11       		.uleb128 0x11
+ 1396 00b8 01       		.uleb128 0x1
+ 1397 00b9 31       		.uleb128 0x31
+ 1398 00ba 13       		.uleb128 0x13
+ 1399 00bb 00       		.byte	0
+ 1400 00bc 00       		.byte	0
+ 1401 00bd 0D       		.uleb128 0xd
+ 1402 00be 8A8201   		.uleb128 0x410a
+ 1403 00c1 00       		.byte	0
+ 1404 00c2 02       		.uleb128 0x2
+ 1405 00c3 18       		.uleb128 0x18
+ 1406 00c4 9142     		.uleb128 0x2111
+ 1407 00c6 18       		.uleb128 0x18
+ 1408 00c7 00       		.byte	0
+ 1409 00c8 00       		.byte	0
+ 1410 00c9 0E       		.uleb128 0xe
+ 1411 00ca 898201   		.uleb128 0x4109
+ 1412 00cd 01       		.byte	0x1
+ 1413 00ce 11       		.uleb128 0x11
+ 1414 00cf 01       		.uleb128 0x1
+ 1415 00d0 31       		.uleb128 0x31
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 29
+
+
+ 1416 00d1 13       		.uleb128 0x13
+ 1417 00d2 01       		.uleb128 0x1
+ 1418 00d3 13       		.uleb128 0x13
+ 1419 00d4 00       		.byte	0
+ 1420 00d5 00       		.byte	0
+ 1421 00d6 0F       		.uleb128 0xf
+ 1422 00d7 2E       		.uleb128 0x2e
+ 1423 00d8 01       		.byte	0x1
+ 1424 00d9 3F       		.uleb128 0x3f
+ 1425 00da 19       		.uleb128 0x19
+ 1426 00db 03       		.uleb128 0x3
+ 1427 00dc 0E       		.uleb128 0xe
+ 1428 00dd 3A       		.uleb128 0x3a
+ 1429 00de 0B       		.uleb128 0xb
+ 1430 00df 3B       		.uleb128 0x3b
+ 1431 00e0 0B       		.uleb128 0xb
+ 1432 00e1 49       		.uleb128 0x49
+ 1433 00e2 13       		.uleb128 0x13
+ 1434 00e3 11       		.uleb128 0x11
+ 1435 00e4 01       		.uleb128 0x1
+ 1436 00e5 12       		.uleb128 0x12
+ 1437 00e6 06       		.uleb128 0x6
+ 1438 00e7 40       		.uleb128 0x40
+ 1439 00e8 18       		.uleb128 0x18
+ 1440 00e9 9742     		.uleb128 0x2117
+ 1441 00eb 19       		.uleb128 0x19
+ 1442 00ec 01       		.uleb128 0x1
+ 1443 00ed 13       		.uleb128 0x13
+ 1444 00ee 00       		.byte	0
+ 1445 00ef 00       		.byte	0
+ 1446 00f0 10       		.uleb128 0x10
+ 1447 00f1 34       		.uleb128 0x34
+ 1448 00f2 00       		.byte	0
+ 1449 00f3 03       		.uleb128 0x3
+ 1450 00f4 08       		.uleb128 0x8
+ 1451 00f5 3A       		.uleb128 0x3a
+ 1452 00f6 0B       		.uleb128 0xb
+ 1453 00f7 3B       		.uleb128 0x3b
+ 1454 00f8 0B       		.uleb128 0xb
+ 1455 00f9 49       		.uleb128 0x49
+ 1456 00fa 13       		.uleb128 0x13
+ 1457 00fb 02       		.uleb128 0x2
+ 1458 00fc 17       		.uleb128 0x17
+ 1459 00fd 00       		.byte	0
+ 1460 00fe 00       		.byte	0
+ 1461 00ff 11       		.uleb128 0x11
+ 1462 0100 34       		.uleb128 0x34
+ 1463 0101 00       		.byte	0
+ 1464 0102 03       		.uleb128 0x3
+ 1465 0103 0E       		.uleb128 0xe
+ 1466 0104 3A       		.uleb128 0x3a
+ 1467 0105 0B       		.uleb128 0xb
+ 1468 0106 3B       		.uleb128 0x3b
+ 1469 0107 0B       		.uleb128 0xb
+ 1470 0108 49       		.uleb128 0x49
+ 1471 0109 13       		.uleb128 0x13
+ 1472 010a 02       		.uleb128 0x2
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 30
+
+
+ 1473 010b 17       		.uleb128 0x17
+ 1474 010c 00       		.byte	0
+ 1475 010d 00       		.byte	0
+ 1476 010e 12       		.uleb128 0x12
+ 1477 010f 34       		.uleb128 0x34
+ 1478 0110 00       		.byte	0
+ 1479 0111 03       		.uleb128 0x3
+ 1480 0112 0E       		.uleb128 0xe
+ 1481 0113 3A       		.uleb128 0x3a
+ 1482 0114 0B       		.uleb128 0xb
+ 1483 0115 3B       		.uleb128 0x3b
+ 1484 0116 05       		.uleb128 0x5
+ 1485 0117 49       		.uleb128 0x49
+ 1486 0118 13       		.uleb128 0x13
+ 1487 0119 3F       		.uleb128 0x3f
+ 1488 011a 19       		.uleb128 0x19
+ 1489 011b 3C       		.uleb128 0x3c
+ 1490 011c 19       		.uleb128 0x19
+ 1491 011d 00       		.byte	0
+ 1492 011e 00       		.byte	0
+ 1493 011f 13       		.uleb128 0x13
+ 1494 0120 34       		.uleb128 0x34
+ 1495 0121 00       		.byte	0
+ 1496 0122 03       		.uleb128 0x3
+ 1497 0123 0E       		.uleb128 0xe
+ 1498 0124 3A       		.uleb128 0x3a
+ 1499 0125 0B       		.uleb128 0xb
+ 1500 0126 3B       		.uleb128 0x3b
+ 1501 0127 0B       		.uleb128 0xb
+ 1502 0128 49       		.uleb128 0x49
+ 1503 0129 13       		.uleb128 0x13
+ 1504 012a 3F       		.uleb128 0x3f
+ 1505 012b 19       		.uleb128 0x19
+ 1506 012c 02       		.uleb128 0x2
+ 1507 012d 18       		.uleb128 0x18
+ 1508 012e 00       		.byte	0
+ 1509 012f 00       		.byte	0
+ 1510 0130 14       		.uleb128 0x14
+ 1511 0131 2E       		.uleb128 0x2e
+ 1512 0132 00       		.byte	0
+ 1513 0133 3F       		.uleb128 0x3f
+ 1514 0134 19       		.uleb128 0x19
+ 1515 0135 3C       		.uleb128 0x3c
+ 1516 0136 19       		.uleb128 0x19
+ 1517 0137 6E       		.uleb128 0x6e
+ 1518 0138 0E       		.uleb128 0xe
+ 1519 0139 03       		.uleb128 0x3
+ 1520 013a 0E       		.uleb128 0xe
+ 1521 013b 3A       		.uleb128 0x3a
+ 1522 013c 0B       		.uleb128 0xb
+ 1523 013d 3B       		.uleb128 0x3b
+ 1524 013e 0B       		.uleb128 0xb
+ 1525 013f 00       		.byte	0
+ 1526 0140 00       		.byte	0
+ 1527 0141 00       		.byte	0
+ 1528              		.section	.debug_loc,"",%progbits
+ 1529              	.Ldebug_loc0:
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 31
+
+
+ 1530              	.LLST0:
+ 1531 0000 00000000 		.4byte	.LVL2
+ 1532 0004 22000000 		.4byte	.LVL3
+ 1533 0008 0100     		.2byte	0x1
+ 1534 000a 50       		.byte	0x50
+ 1535 000b 22000000 		.4byte	.LVL3
+ 1536 000f 42000000 		.4byte	.LVL5
+ 1537 0013 0100     		.2byte	0x1
+ 1538 0015 54       		.byte	0x54
+ 1539 0016 42000000 		.4byte	.LVL5
+ 1540 001a 48000000 		.4byte	.LFE63
+ 1541 001e 0400     		.2byte	0x4
+ 1542 0020 F3       		.byte	0xf3
+ 1543 0021 01       		.uleb128 0x1
+ 1544 0022 50       		.byte	0x50
+ 1545 0023 9F       		.byte	0x9f
+ 1546 0024 00000000 		.4byte	0
+ 1547 0028 00000000 		.4byte	0
+ 1548              	.LLST1:
+ 1549 002c 08000000 		.4byte	.LVL15
+ 1550 0030 0B000000 		.4byte	.LVL16-1
+ 1551 0034 0100     		.2byte	0x1
+ 1552 0036 50       		.byte	0x50
+ 1553 0037 0B000000 		.4byte	.LVL16-1
+ 1554 003b 16000000 		.4byte	.LVL17
+ 1555 003f 0100     		.2byte	0x1
+ 1556 0041 54       		.byte	0x54
+ 1557 0042 00000000 		.4byte	0
+ 1558 0046 00000000 		.4byte	0
+ 1559              	.LLST2:
+ 1560 004a 2E000000 		.4byte	.LVL23
+ 1561 004e 37000000 		.4byte	.LVL24-1
+ 1562 0052 0100     		.2byte	0x1
+ 1563 0054 50       		.byte	0x50
+ 1564 0055 3A000000 		.4byte	.LVL25
+ 1565 0059 3E000000 		.4byte	.LVL26
+ 1566 005d 0100     		.2byte	0x1
+ 1567 005f 50       		.byte	0x50
+ 1568 0060 00000000 		.4byte	0
+ 1569 0064 00000000 		.4byte	0
+ 1570              	.LLST3:
+ 1571 0068 38000000 		.4byte	.LVL24
+ 1572 006c 3A000000 		.4byte	.LVL25
+ 1573 0070 0100     		.2byte	0x1
+ 1574 0072 50       		.byte	0x50
+ 1575 0073 3E000000 		.4byte	.LVL26
+ 1576 0077 44000000 		.4byte	.LFE70
+ 1577 007b 0100     		.2byte	0x1
+ 1578 007d 50       		.byte	0x50
+ 1579 007e 00000000 		.4byte	0
+ 1580 0082 00000000 		.4byte	0
+ 1581              	.LLST4:
+ 1582 0086 08000000 		.4byte	.LVL38
+ 1583 008a 0B000000 		.4byte	.LVL39-1
+ 1584 008e 0100     		.2byte	0x1
+ 1585 0090 50       		.byte	0x50
+ 1586 0091 0B000000 		.4byte	.LVL39-1
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 32
+
+
+ 1587 0095 16000000 		.4byte	.LVL40
+ 1588 0099 0100     		.2byte	0x1
+ 1589 009b 54       		.byte	0x54
+ 1590 009c 00000000 		.4byte	0
+ 1591 00a0 00000000 		.4byte	0
+ 1592              	.LLST5:
+ 1593 00a4 2E000000 		.4byte	.LVL46
+ 1594 00a8 37000000 		.4byte	.LVL47-1
+ 1595 00ac 0100     		.2byte	0x1
+ 1596 00ae 50       		.byte	0x50
+ 1597 00af 3A000000 		.4byte	.LVL48
+ 1598 00b3 3E000000 		.4byte	.LVL49
+ 1599 00b7 0100     		.2byte	0x1
+ 1600 00b9 50       		.byte	0x50
+ 1601 00ba 00000000 		.4byte	0
+ 1602 00be 00000000 		.4byte	0
+ 1603              	.LLST6:
+ 1604 00c2 38000000 		.4byte	.LVL47
+ 1605 00c6 3A000000 		.4byte	.LVL48
+ 1606 00ca 0100     		.2byte	0x1
+ 1607 00cc 50       		.byte	0x50
+ 1608 00cd 3E000000 		.4byte	.LVL49
+ 1609 00d1 44000000 		.4byte	.LFE76
+ 1610 00d5 0100     		.2byte	0x1
+ 1611 00d7 50       		.byte	0x50
+ 1612 00d8 00000000 		.4byte	0
+ 1613 00dc 00000000 		.4byte	0
+ 1614              		.section	.debug_aranges,"",%progbits
+ 1615 0000 84000000 		.4byte	0x84
+ 1616 0004 0200     		.2byte	0x2
+ 1617 0006 00000000 		.4byte	.Ldebug_info0
+ 1618 000a 04       		.byte	0x4
+ 1619 000b 00       		.byte	0
+ 1620 000c 0000     		.2byte	0
+ 1621 000e 0000     		.2byte	0
+ 1622 0010 00000000 		.4byte	.LFB65
+ 1623 0014 1C000000 		.4byte	.LFE65-.LFB65
+ 1624 0018 00000000 		.4byte	.LFB71
+ 1625 001c 1C000000 		.4byte	.LFE71-.LFB71
+ 1626 0020 00000000 		.4byte	.LFB63
+ 1627 0024 48000000 		.4byte	.LFE63-.LFB63
+ 1628 0028 00000000 		.4byte	.LFB66
+ 1629 002c 20000000 		.4byte	.LFE66-.LFB66
+ 1630 0030 00000000 		.4byte	.LFB67
+ 1631 0034 16000000 		.4byte	.LFE67-.LFB67
+ 1632 0038 00000000 		.4byte	.LFB68
+ 1633 003c 18000000 		.4byte	.LFE68-.LFB68
+ 1634 0040 00000000 		.4byte	.LFB69
+ 1635 0044 1C000000 		.4byte	.LFE69-.LFB69
+ 1636 0048 00000000 		.4byte	.LFB70
+ 1637 004c 44000000 		.4byte	.LFE70-.LFB70
+ 1638 0050 00000000 		.4byte	.LFB72
+ 1639 0054 20000000 		.4byte	.LFE72-.LFB72
+ 1640 0058 00000000 		.4byte	.LFB64
+ 1641 005c 0C000000 		.4byte	.LFE64-.LFB64
+ 1642 0060 00000000 		.4byte	.LFB73
+ 1643 0064 16000000 		.4byte	.LFE73-.LFB73
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 33
+
+
+ 1644 0068 00000000 		.4byte	.LFB74
+ 1645 006c 18000000 		.4byte	.LFE74-.LFB74
+ 1646 0070 00000000 		.4byte	.LFB75
+ 1647 0074 1C000000 		.4byte	.LFE75-.LFB75
+ 1648 0078 00000000 		.4byte	.LFB76
+ 1649 007c 44000000 		.4byte	.LFE76-.LFB76
+ 1650 0080 00000000 		.4byte	0
+ 1651 0084 00000000 		.4byte	0
+ 1652              		.section	.debug_ranges,"",%progbits
+ 1653              	.Ldebug_ranges0:
+ 1654 0000 00000000 		.4byte	.LFB65
+ 1655 0004 1C000000 		.4byte	.LFE65
+ 1656 0008 00000000 		.4byte	.LFB71
+ 1657 000c 1C000000 		.4byte	.LFE71
+ 1658 0010 00000000 		.4byte	.LFB63
+ 1659 0014 48000000 		.4byte	.LFE63
+ 1660 0018 00000000 		.4byte	.LFB66
+ 1661 001c 20000000 		.4byte	.LFE66
+ 1662 0020 00000000 		.4byte	.LFB67
+ 1663 0024 16000000 		.4byte	.LFE67
+ 1664 0028 00000000 		.4byte	.LFB68
+ 1665 002c 18000000 		.4byte	.LFE68
+ 1666 0030 00000000 		.4byte	.LFB69
+ 1667 0034 1C000000 		.4byte	.LFE69
+ 1668 0038 00000000 		.4byte	.LFB70
+ 1669 003c 44000000 		.4byte	.LFE70
+ 1670 0040 00000000 		.4byte	.LFB72
+ 1671 0044 20000000 		.4byte	.LFE72
+ 1672 0048 00000000 		.4byte	.LFB64
+ 1673 004c 0C000000 		.4byte	.LFE64
+ 1674 0050 00000000 		.4byte	.LFB73
+ 1675 0054 16000000 		.4byte	.LFE73
+ 1676 0058 00000000 		.4byte	.LFB74
+ 1677 005c 18000000 		.4byte	.LFE74
+ 1678 0060 00000000 		.4byte	.LFB75
+ 1679 0064 1C000000 		.4byte	.LFE75
+ 1680 0068 00000000 		.4byte	.LFB76
+ 1681 006c 44000000 		.4byte	.LFE76
+ 1682 0070 00000000 		.4byte	0
+ 1683 0074 00000000 		.4byte	0
+ 1684              		.section	.debug_line,"",%progbits
+ 1685              	.Ldebug_line0:
+ 1686 0000 4B030000 		.section	.debug_str,"MS",%progbits,1
+ 1686      02000802 
+ 1686      00000201 
+ 1686      FB0E0D00 
+ 1686      01010101 
+ 1687              	.LASF6:
+ 1688 0000 6C6F6E67 		.ascii	"long long int\000"
+ 1688      206C6F6E 
+ 1688      6720696E 
+ 1688      7400
+ 1689              	.LASF41:
+ 1690 000e 52616E67 		.ascii	"Ranging_Timer1_Clock_Start\000"
+ 1690      696E675F 
+ 1690      54696D65 
+ 1690      72315F43 
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 34
+
+
+ 1690      6C6F636B 
+ 1691              	.LASF39:
+ 1692 0029 52616E67 		.ascii	"Ranging_Timer2_Stop\000"
+ 1692      696E675F 
+ 1692      54696D65 
+ 1692      72325F53 
+ 1692      746F7000 
+ 1693              	.LASF43:
+ 1694 003d 52616E67 		.ascii	"Ranging_T1_Write\000"
+ 1694      696E675F 
+ 1694      54315F57 
+ 1694      72697465 
+ 1694      00
+ 1695              	.LASF53:
+ 1696 004e 52616E67 		.ascii	"Ranging_Timer2_Start\000"
+ 1696      696E675F 
+ 1696      54696D65 
+ 1696      72325F53 
+ 1696      74617274 
+ 1697              	.LASF56:
+ 1698 0063 52616E67 		.ascii	"Ranging_R2_Read\000"
+ 1698      696E675F 
+ 1698      52325F52 
+ 1698      65616400 
+ 1699              	.LASF9:
+ 1700 0073 5F5F696E 		.ascii	"__int32_t\000"
+ 1700      7433325F 
+ 1700      7400
+ 1701              	.LASF38:
+ 1702 007d 52616E67 		.ascii	"Ranging_Timer1_Stop\000"
+ 1702      696E675F 
+ 1702      54696D65 
+ 1702      72315F53 
+ 1702      746F7000 
+ 1703              	.LASF52:
+ 1704 0091 52616E67 		.ascii	"Ranging_T2_Write\000"
+ 1704      696E675F 
+ 1704      54325F57 
+ 1704      72697465 
+ 1704      00
+ 1705              	.LASF60:
+ 1706 00a2 63616C63 		.ascii	"calculate_millimeter\000"
+ 1706      756C6174 
+ 1706      655F6D69 
+ 1706      6C6C696D 
+ 1706      65746572 
+ 1707              	.LASF59:
+ 1708 00b7 433A5C55 		.ascii	"C:\\Users\\lab512\\Desktop\\lmx_borrow\\Servo\\Robo"
+ 1708      73657273 
+ 1708      5C6C6162 
+ 1708      3531325C 
+ 1708      4465736B 
+ 1709 00e4 745F6172 		.ascii	"t_arm_trolley.cydsn\000"
+ 1709      6D5F7472 
+ 1709      6F6C6C65 
+ 1709      792E6379 
+ 1709      64736E00 
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 35
+
+
+ 1710              	.LASF58:
+ 1711 00f8 52616E67 		.ascii	"Ranging.c\000"
+ 1711      696E672E 
+ 1711      6300
+ 1712              	.LASF10:
+ 1713 0102 696E7433 		.ascii	"int32_t\000"
+ 1713      325F7400 
+ 1714              	.LASF26:
+ 1715 010a 64697374 		.ascii	"distance\000"
+ 1715      616E6365 
+ 1715      00
+ 1716              	.LASF13:
+ 1717 0113 666C6F61 		.ascii	"float\000"
+ 1717      7400
+ 1718              	.LASF1:
+ 1719 0119 756E7369 		.ascii	"unsigned char\000"
+ 1719      676E6564 
+ 1719      20636861 
+ 1719      7200
+ 1720              	.LASF57:
+ 1721 0127 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1721      43313120 
+ 1721      352E342E 
+ 1721      31203230 
+ 1721      31363036 
+ 1722 015a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1722      20726576 
+ 1722      6973696F 
+ 1722      6E203233 
+ 1722      37373135 
+ 1723 018d 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1723      66756E63 
+ 1723      74696F6E 
+ 1723      2D736563 
+ 1723      74696F6E 
+ 1724              	.LASF16:
+ 1725 01b5 72656738 		.ascii	"reg8\000"
+ 1725      00
+ 1726              	.LASF5:
+ 1727 01ba 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1727      20756E73 
+ 1727      69676E65 
+ 1727      6420696E 
+ 1727      7400
+ 1728              	.LASF3:
+ 1729 01cc 73686F72 		.ascii	"short unsigned int\000"
+ 1729      7420756E 
+ 1729      7369676E 
+ 1729      65642069 
+ 1729      6E7400
+ 1730              	.LASF54:
+ 1731 01df 52616E67 		.ascii	"Ranging_Timer2_WriteCounter\000"
+ 1731      696E675F 
+ 1731      54696D65 
+ 1731      72325F57 
+ 1731      72697465 
+ 1732              	.LASF50:
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 36
+
+
+ 1733 01fb 52616E67 		.ascii	"Ranging_Timer2_Clock_Start\000"
+ 1733      696E675F 
+ 1733      54696D65 
+ 1733      72325F43 
+ 1733      6C6F636B 
+ 1734              	.LASF42:
+ 1735 0216 52616E67 		.ascii	"Ranging_Timeout1_StartEx\000"
+ 1735      696E675F 
+ 1735      54696D65 
+ 1735      6F757431 
+ 1735      5F537461 
+ 1736              	.LASF33:
+ 1737 022f 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1737      52784275 
+ 1737      66666572 
+ 1737      00
+ 1738              	.LASF22:
+ 1739 023c 74726967 		.ascii	"trigger1\000"
+ 1739      67657231 
+ 1739      00
+ 1740              	.LASF48:
+ 1741 0245 52616E67 		.ascii	"Ranging_R1_Read\000"
+ 1741      696E675F 
+ 1741      52315F52 
+ 1741      65616400 
+ 1742              	.LASF14:
+ 1743 0255 646F7562 		.ascii	"double\000"
+ 1743      6C6500
+ 1744              	.LASF55:
+ 1745 025c 52616E67 		.ascii	"Ranging_Timer2_ReadCounter\000"
+ 1745      696E675F 
+ 1745      54696D65 
+ 1745      72325F52 
+ 1745      65616443 
+ 1746              	.LASF17:
+ 1747 0277 6C6F6E67 		.ascii	"long double\000"
+ 1747      20646F75 
+ 1747      626C6500 
+ 1748              	.LASF44:
+ 1749 0283 43794465 		.ascii	"CyDelayUs\000"
+ 1749      6C617955 
+ 1749      7300
+ 1750              	.LASF12:
+ 1751 028d 75696E74 		.ascii	"uint32\000"
+ 1751      333200
+ 1752              	.LASF8:
+ 1753 0294 756E7369 		.ascii	"unsigned int\000"
+ 1753      676E6564 
+ 1753      20696E74 
+ 1753      00
+ 1754              	.LASF25:
+ 1755 02a1 6765745F 		.ascii	"get_millimeter1\000"
+ 1755      6D696C6C 
+ 1755      696D6574 
+ 1755      65723100 
+ 1756              	.LASF32:
+ 1757 02b1 6765745F 		.ascii	"get_millimeter2\000"
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 37
+
+
+ 1757      6D696C6C 
+ 1757      696D6574 
+ 1757      65723200 
+ 1758              	.LASF21:
+ 1759 02c1 72616E67 		.ascii	"ranging_init1\000"
+ 1759      696E675F 
+ 1759      696E6974 
+ 1759      3100
+ 1760              	.LASF7:
+ 1761 02cf 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1761      206C6F6E 
+ 1761      6720756E 
+ 1761      7369676E 
+ 1761      65642069 
+ 1762              	.LASF49:
+ 1763 02e6 52616E67 		.ascii	"Ranging_Timer2_ReadPeriod\000"
+ 1763      696E675F 
+ 1763      54696D65 
+ 1763      72325F52 
+ 1763      65616450 
+ 1764              	.LASF34:
+ 1765 0300 70657269 		.ascii	"period1\000"
+ 1765      6F643100 
+ 1766              	.LASF35:
+ 1767 0308 70657269 		.ascii	"period2\000"
+ 1767      6F643200 
+ 1768              	.LASF36:
+ 1769 0310 74696D65 		.ascii	"timeout1\000"
+ 1769      6F757431 
+ 1769      00
+ 1770              	.LASF37:
+ 1771 0319 74696D65 		.ascii	"timeout2\000"
+ 1771      6F757432 
+ 1771      00
+ 1772              	.LASF27:
+ 1773 0322 72616E67 		.ascii	"ranging_init2\000"
+ 1773      696E675F 
+ 1773      696E6974 
+ 1773      3200
+ 1774              	.LASF18:
+ 1775 0330 73697A65 		.ascii	"sizetype\000"
+ 1775      74797065 
+ 1775      00
+ 1776              	.LASF51:
+ 1777 0339 52616E67 		.ascii	"Ranging_Timeout2_StartEx\000"
+ 1777      696E675F 
+ 1777      54696D65 
+ 1777      6F757432 
+ 1777      5F537461 
+ 1778              	.LASF47:
+ 1779 0352 52616E67 		.ascii	"Ranging_Timer1_ReadCounter\000"
+ 1779      696E675F 
+ 1779      54696D65 
+ 1779      72315F52 
+ 1779      65616443 
+ 1780              	.LASF46:
+ 1781 036d 52616E67 		.ascii	"Ranging_Timer1_WriteCounter\000"
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 38
+
+
+ 1781      696E675F 
+ 1781      54696D65 
+ 1781      72315F57 
+ 1781      72697465 
+ 1782              	.LASF28:
+ 1783 0389 72616E67 		.ascii	"ranging_init\000"
+ 1783      696E675F 
+ 1783      696E6974 
+ 1783      00
+ 1784              	.LASF40:
+ 1785 0396 52616E67 		.ascii	"Ranging_Timer1_ReadPeriod\000"
+ 1785      696E675F 
+ 1785      54696D65 
+ 1785      72315F52 
+ 1785      65616450 
+ 1786              	.LASF2:
+ 1787 03b0 73686F72 		.ascii	"short int\000"
+ 1787      7420696E 
+ 1787      7400
+ 1788              	.LASF11:
+ 1789 03ba 75696E74 		.ascii	"uint8\000"
+ 1789      3800
+ 1790              	.LASF24:
+ 1791 03c0 656E6463 		.ascii	"endcount1\000"
+ 1791      6F756E74 
+ 1791      3100
+ 1792              	.LASF31:
+ 1793 03ca 656E6463 		.ascii	"endcount2\000"
+ 1793      6F756E74 
+ 1793      3200
+ 1794              	.LASF4:
+ 1795 03d4 6C6F6E67 		.ascii	"long int\000"
+ 1795      20696E74 
+ 1795      00
+ 1796              	.LASF15:
+ 1797 03dd 63686172 		.ascii	"char\000"
+ 1797      00
+ 1798              	.LASF19:
+ 1799 03e2 52616E67 		.ascii	"RangingTimeoutInt1\000"
+ 1799      696E6754 
+ 1799      696D656F 
+ 1799      7574496E 
+ 1799      743100
+ 1800              	.LASF23:
+ 1801 03f5 73746172 		.ascii	"startcount1\000"
+ 1801      74636F75 
+ 1801      6E743100 
+ 1802              	.LASF30:
+ 1803 0401 73746172 		.ascii	"startcount2\000"
+ 1803      74636F75 
+ 1803      6E743200 
+ 1804              	.LASF0:
+ 1805 040d 7369676E 		.ascii	"signed char\000"
+ 1805      65642063 
+ 1805      68617200 
+ 1806              	.LASF29:
+ 1807 0419 74726967 		.ascii	"trigger2\000"
+ARM GAS  C:\Users\lab512\AppData\Local\Temp\ccX9mncH.s 			page 39
+
+
+ 1807      67657232 
+ 1807      00
+ 1808              	.LASF20:
+ 1809 0422 52616E67 		.ascii	"RangingTimeoutInt2\000"
+ 1809      696E6754 
+ 1809      696D656F 
+ 1809      7574496E 
+ 1809      743200
+ 1810              	.LASF45:
+ 1811 0435 52616E67 		.ascii	"Ranging_Timer1_Start\000"
+ 1811      696E675F 
+ 1811      54696D65 
+ 1811      72315F53 
+ 1811      74617274 
+ 1812              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,0 +1,6 @@
+D:\PsocCreator4.2\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|6d85f064-02c0-46d7-a25c-6f71eadd6155
+C:\Users\lab512\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|e0edb1b8-4b11-4a14-922d-11bc7c2e87a8
+D:\PsocCreator4.2\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|ad21c0ee-77ea-4e72-a3c9-7b75afbc56a2
+D:\PsocCreator4.2\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|84025b89-79a4-4816-95b9-8d9ab9eead2a
+D:\PsocCreator4.2\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|329e1b67-6e7f-4d39-bc5e-dee6ccda79af
+C:\Users\lab512\Desktop\lmx_borrow\Servo\Robot_arm_trolley.cydsn\Robot_arm_trolley.cyprj|00f0df72-371f-454e-b1d6-c7ee2cbb6a71
